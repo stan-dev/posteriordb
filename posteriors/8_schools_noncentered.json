@@ -1,0 +1,7 @@
+{
+  "data": "content/data/8_schools.json",
+  "model": {
+    "stan": "content/models/8_schools/8_schools_noncentered.stan"
+  },
+  "gold_standard": null
+}

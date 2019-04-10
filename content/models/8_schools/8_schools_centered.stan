@@ -1,6 +1,3 @@
-// Model taken from 
-// Yao, Yuling, Vehtari, Aki Simpson, Daniel and Gelman, Andrew (2018) 
-// "Yes, but Did It Work?: Evaluating Variational Inference"
 
 data {
   int <lower=0> J; // number of schools
