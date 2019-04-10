@@ -10,5 +10,5 @@ roaches_json <- list(N = nrow(roaches),
                      exposure2 = roaches$exposure2,
                      y = roaches$y)
 
-jsonlite::write_json(jsonlite::toJSON(roaches_json), path = "roaches.json")
+writeLines(jsonlite::toJSON(roaches_json, pretty = TRUE, auto_unbox = TRUE), con = "roaches.json")
 zip(zipfile = "roaches.json.zip", files = "roaches.json")

@@ -35,8 +35,8 @@ radon_mn <-  list(N = length(log_radon[mn_bool]),
                  log_uppm = log_uppm[mn_bool],
                  county_idx = county[mn_bool])
 
-jsonlite::write_json(jsonlite::toJSON(radon), path = "radon.json")
+writeLines(jsonlite::toJSON(radon, pretty = TRUE, auto_unbox = TRUE), con = "radon.json")
 zip(zipfile = "radon.json.zip", files = "radon.json")
-jsonlite::write_json(jsonlite::toJSON(radon_mn), path = "radon_mn.json")
+writeLines(jsonlite::toJSON(radon_mn, pretty = TRUE, auto_unbox = TRUE), con = "radon_mn.json")
 zip(zipfile = "radon_mn.json.zip", files = "radon_mn.json")
 
