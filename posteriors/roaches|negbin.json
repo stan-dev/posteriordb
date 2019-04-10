@@ -1,0 +1,7 @@
+{
+  "data": "content/data/roaches.json",
+  "model": {
+    "stan": "content/models/roaches_poisson/roaches_poisson.stan"
+  },
+  "gold_standard": null
+}
