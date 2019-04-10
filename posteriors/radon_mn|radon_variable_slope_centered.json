@@ -1,0 +1,7 @@
+{
+  "data": "content/data/radon_mn.json",
+  "model": {
+    "stan": "content/models/radon_variable_slope/radon_variable_slope_centered.stan"
+  },
+  "gold_standard": null
+}

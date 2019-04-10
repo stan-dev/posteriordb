@@ -1,0 +1,7 @@
+{
+  "data": "content/data/radon.json",
+  "model": {
+    "stan": "content/models/radon_no_pool/radon_no_pool.stan"
+  },
+  "gold_standard": null
+}

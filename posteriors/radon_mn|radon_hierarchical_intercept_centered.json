@@ -1,0 +1,7 @@
+{
+  "data": "content/data/radon_mn.json",
+  "model": {
+    "stan": "content/models/radon_hierarchical_intercept/radon_hierarchical_intercept_centered.stan"
+  },
+  "gold_standard": null
+}
