@@ -7,24 +7,30 @@ data {
 }
 
 parameters {
-  real a;
-  vector[J] beta;
+  real alpha;
+  vector[J] beta_raw;
   real mu_beta;
   real<lower=0> sigma_beta;
   real<lower=0> sigma_y;
 } 
 
+transformed parameters {
+  vector[J] beta;
+  // implies: beta ~ normal(mu_beta, sigma_beta);
+  beta = mu_beta + sigma_beta * beta_raw;  
+}
+
 model {
   vector[N] mu;
   // Prior
-  a ~ normal(0,10);
+  alpha ~ normal(0,10);
   sigma_y ~ normal(0,1);
   sigma_beta ~ normal(0,1);
   mu_beta ~ normal(0,10);
+  beta_raw ~ normal(0, 1);
 
-  beta ~ normal(mu_beta, sigma_beta);
   for(n in 1:N){
-    mu[n] = alpha + x[n] * beta[county_idx[n]];
+    mu[n] = alpha + floor_measure[n] * beta[county_idx[n]];
     target += normal_lpdf(log_radon[n]|mu[n],sigma_y);
   }
 }
