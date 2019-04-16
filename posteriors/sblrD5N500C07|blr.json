@@ -1,0 +1,7 @@
+{
+  "data": "content/data/sblrD5N500C07.json",
+  "model": {
+    "stan": "content/models/blr/blr.stan"
+  },
+  "gold_standard": null
+}
