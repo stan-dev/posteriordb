@@ -36,5 +36,22 @@ generate_synthetic_linear_regression_data <-
 }
 
 
+sblrD5N50I <- generate_synthetic_linear_regression_data(D = 5, N = 50, beta = 1, beta_cov = diag(5), sample_size_independent_cov = FALSE, sigma = 1, round.digits = 3)
+writeLines(jsonlite::toJSON(sblrD5N50I, pretty = TRUE, auto_unbox = TRUE), con = "sblrD5N50I.json")
+zip(zipfile = "sblrD5N50I.json.zip", files = "sblrD5N50I.json")
+
+sblrD5N500I <- generate_synthetic_linear_regression_data(D = 5, N = 500, beta = 1, beta_cov = diag(5), sample_size_independent_cov = FALSE, sigma = 1, round.digits = 3)
+writeLines(jsonlite::toJSON(sblrD5N500I, pretty = TRUE, auto_unbox = TRUE), con = "sblrD5N500I.json")
+zip(zipfile = "sblrD5N500I.json.zip", files = "sblrD5N500I.json")
+
+sblrD5N50C07 <- generate_synthetic_linear_regression_data(D = 5, N = 50, beta = 1, beta_cov = 0.3 * diag(5) + 0.7, sample_size_independent_cov = FALSE, sigma = 1, round.digits = 3)
+writeLines(jsonlite::toJSON(sblrD5N50C07, pretty = TRUE, auto_unbox = TRUE), con = "sblrD5N50C07.json")
+zip(zipfile = "sblrD5N50C07.json.zip", files = "sblrD5N50C07.json")
+
+sblrD5N500C07 <- generate_synthetic_linear_regression_data(D = 5, N = 500, beta = 1, beta_cov = 0.3 * diag(5) + 0.7, sample_size_independent_cov = FALSE, sigma = 1, round.digits = 3)
+writeLines(jsonlite::toJSON(sblrD5N500C07, pretty = TRUE, auto_unbox = TRUE), con = "sblrD5N500C07.json")
+zip(zipfile = "sblrD5N500C07.json.zip", files = "sblrD5N500C07.json")
+
+
 
 
