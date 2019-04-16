@@ -35,7 +35,8 @@ simulate_data_gaussian_mixture <-
     X[i, ] <- mvtnorm::rmvnorm(1, mu[[component[i]]], sigma = Sigma[[component[i]]], method = "eigen")
   }  
   X <- round(X, digits = digits)
-  list(N = as.integer(n), X = X, component = as.integer(component))
+  list(N = as.integer(n), D = as.integer(length(mu[[1]])), K = as.integer(length(pi)), X = X, component = as.integer(component))
+
 }
 
 
