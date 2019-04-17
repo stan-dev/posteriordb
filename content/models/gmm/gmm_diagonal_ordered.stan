@@ -17,12 +17,12 @@ model {
  // prior
  for(k in 1:K){
    mu[k] ~ normal(0, 10);
-   sigma[k] ~ normal(0, 1)
+   sigma[k] ~ normal(0, 1);
  }
  // likelihood
  for (n in 1:N){
    for (k in 1:K){
-     ps[k] = log(pi[k]) + normal_lpdf(X[n,] | mu[k], sigma[k]));
+     ps[k] = log(pi[k]) + normal_lpdf(X[n,] | mu[k], sigma[k]);
    }
    target += log_sum_exp(ps); 
  }
