@@ -19,7 +19,7 @@ model {
  for(k in 1:K){
    mu[k] ~ normal(0, 10);
    L[k] ~ lkj_corr_cholesky(1);
-   sigma[k] ~ normal(0, 1)
+   sigma[k] ~ normal(0, 1);
  }
  // likelihood
  for (n in 1:N){
