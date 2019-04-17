@@ -7,7 +7,7 @@ data {
 
 parameters {
  simplex[K] pi; // mixing proportions
- ordered[D] mu[K]; // mixture component means
+ vector[D] mu[K]; // mixture component means
  cholesky_factor_corr[D] L[K]; // cholesky factor of covariance
  vector<lower=0>[D] sigma[K]; // marginal sd per component
 }
