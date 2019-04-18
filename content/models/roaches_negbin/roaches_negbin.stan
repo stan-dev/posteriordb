@@ -12,6 +12,7 @@ transformed data {
 }
 parameters {
   vector[4] beta;
+  real phi;
 }
 model {
   // prior

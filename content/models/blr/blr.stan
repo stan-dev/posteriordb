@@ -11,6 +11,9 @@ parameters {
 }
 
 model {
+  // prior
+  target += normal_lpdf(beta | 0, 10);
+  target += normal_lpdf(sigma | 0, 1);
+  // likelihood
   target += normal_lpdf(y | X * beta, sigma);
-  target += normal_lpdf(beta | 0, 1);
 }
