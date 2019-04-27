@@ -9,9 +9,13 @@ The database contain
 
 The content folder contains (this part is not stable and may change)
 `content/data`: The data used in the models
+
 `content/data-raw`: Data used to generate the data in the data folder with reproducible code (may be git submodule further along).
+
 `content/models`: The models used in different PPF
+
 `content/posterior_gold_standards`: A folder with different posterior draws (may be git submodule further along).
+
 `content/schemas`: json schemas used in the database
 
 
