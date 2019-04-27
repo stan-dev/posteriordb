@@ -1,0 +1,11 @@
+Package: posteriors
+Type: Package
+Title: Handling of the posterior database
+Version: 0.1
+Date: 2019-04-27
+Author: Mans Magnusson
+Maintainer: Mans Magnusson <mans.magnusson@gmail.com>
+Description: R functionality of easy access of different posteriors (i.e. combination of data and models)
+License: GPL
+RoxygenNote: 6.1.0
+Encoding: UTF-8
