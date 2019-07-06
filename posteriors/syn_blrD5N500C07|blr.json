@@ -1,5 +1,5 @@
 {
-  "data": "content/data/sblrD5N50I.json",
+  "data": "content/data/syn_blrD5N500C07.json",
   "model": {
     "stan": "content/models/blr/blr.stan"
   },
