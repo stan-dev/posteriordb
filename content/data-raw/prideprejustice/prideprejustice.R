@@ -1,4 +1,5 @@
 library(janeaustenr)
+library(tidytext)
 
 data("prideprejudice")
 
@@ -37,8 +38,7 @@ vocabulary <- levels(as.factor(tidy_pride$word))
 
 # To stan
 prideprejustice_paragraph <-  
-  list(K = 5L, # num topics
-       V = length(vocabulary),
+  list(V = length(vocabulary),
        M = length(unique(tidy_pride$paragraph)),
        N = length(tidy_pride$w),
        w = tidy_pride$w,
@@ -50,8 +50,7 @@ writeLines(jsonlite::toJSON(prideprejustice_paragraph, pretty = TRUE, auto_unbox
 zip(zipfile = "prideprejustice_paragraph.json.zip", files = "prideprejustice_paragraph.json")
 
 prideprejustice_chapter <-  
-  list(K = 5L, # num topics
-       V = length(vocabulary),
+  list(V = length(vocabulary),
        M = length(unique(tidy_pride$chapter)),
        N = length(tidy_pride$w),
        w = tidy_pride$w,
