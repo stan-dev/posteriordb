@@ -17,7 +17,7 @@ stan_code_file_path <- function(x){
 #' @rdname stan_code_file_path
 #' @export
 stan_code <- function(x){
-  scfp <- stancode_file_path(x)
+  scfp <- stan_code_file_path(x)
   readLines(scfp)
 }
 

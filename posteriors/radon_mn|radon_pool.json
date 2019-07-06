@@ -1,7 +1,7 @@
 {
   "data": "content/data/radon_mn.json",
   "model": {
-    "stan": "content/models/radon_pool/radon_pool_centered.stan"
+    "stan": "content/models/radon_pool/radon_pool.stan"
   },
   "gold_standard": null
 }

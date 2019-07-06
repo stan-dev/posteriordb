@@ -5,6 +5,6 @@ remove_file_extension <- function(x){
 }
 
 endpoint <- function(x){
-  x <- strsplit(x, split = "/|\\")[[1]]
+  x <- strsplit(x, split = "/|\\\\")[[1]]
   x[length(x)]
 }
