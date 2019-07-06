@@ -41,22 +41,22 @@ simulate_data_gaussian_mixture <-
 
 
 set.seed(4711)
-sgmK3D2n300 <- simulate_data_gaussian_mixture(n = 300,
+syn_gmK3D2n300 <- simulate_data_gaussian_mixture(n = 300,
                                             pi = c(0.5,0.3,0.2),
                                             mu = list(c(0,0), c(3,3), c(6,6)),
                                             Sigma = list(diag(2), 1.8 * diag(2) - 0.8, 0.2 * diag(2) + 0.8),
                                             digits = 3)
-writeLines(jsonlite::toJSON(sgmK3D2n300, pretty = TRUE, auto_unbox = TRUE), con = "sgmK3D2n300.json")
-zip(zipfile = "sgmK3D2n300.json.zip", files = "sgmK3D2n300.json")
+writeLines(jsonlite::toJSON(syn_gmK3D2n300, pretty = TRUE, auto_unbox = TRUE), con = "syn_gmK3D2n300.json")
+zip(zipfile = "syn_gmK3D2n300.json.zip", files = "syn_gmK3D2n300.json")
 
 set.seed(4712)
-sgmK2D1n200 <- simulate_data_gaussian_mixture(n = 200,
+syn_gmK2D1n200 <- simulate_data_gaussian_mixture(n = 200,
                                             pi = c(0.7,0.3),
                                             mu = list(2,-2),
                                             Sigma = list(matrix(1), matrix(2)),
                                             digits = 3)
-writeLines(jsonlite::toJSON(sgmK2D1n200, pretty = TRUE, auto_unbox = TRUE), con = "sgmK2D1n200.json")
-zip(zipfile = "sgmK2D1n200.json.zip", files = "sgmK2D1n200.json")
+writeLines(jsonlite::toJSON(syn_gmK2D1n200, pretty = TRUE, auto_unbox = TRUE), con = "syn_gmK2D1n200.json")
+zip(zipfile = "syn_gmK2D1n200.json.zip", files = "syn_gmK2D1n200.json")
 
 
 

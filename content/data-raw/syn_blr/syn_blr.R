@@ -37,24 +37,24 @@ simulate_data_linear_regression <-
 }
 
 set.seed(4711)
-sblrD5n50I <- simulate_data_linear_regression(n = 50, beta = rep(1, 5), digits = 3)
-writeLines(jsonlite::toJSON(sblrD5n50I, pretty = TRUE, auto_unbox = TRUE), con = "sblrD5n50I.json")
-zip(zipfile = "sblrD5n50I.json.zip", files = "sblrD5n50I.json")
+syn_blrD5n50I <- simulate_data_linear_regression(n = 50, beta = rep(1, 5), digits = 3)
+writeLines(jsonlite::toJSON(syn_blrD5n50I, pretty = TRUE, auto_unbox = TRUE), con = "syn_blrD5n50I.json")
+zip(zipfile = "syn_blrD5n50I.json.zip", files = "syn_blrD5n50I.json")
 
 set.seed(4712)
-sblrD5n500I <- simulate_data_linear_regression(n = 500, beta = rep(1, 5), digits = 3)
-writeLines(jsonlite::toJSON(sblrD5n500I, pretty = TRUE, auto_unbox = TRUE), con = "sblrD5n500I.json")
-zip(zipfile = "sblrD5n500I.json.zip", files = "sblrD5n500I.json")
+syn_blrD5n500I <- simulate_data_linear_regression(n = 500, beta = rep(1, 5), digits = 3)
+writeLines(jsonlite::toJSON(syn_blrD5n500I, pretty = TRUE, auto_unbox = TRUE), con = "syn_blrD5n500I.json")
+zip(zipfile = "syn_blrD5n500I.json.zip", files = "syn_blrD5n500I.json")
 
 set.seed(4713)
-sblrD5n50C07 <- simulate_data_linear_regression(n = 50, beta = rep(1, 5), beta_cov = 0.3 * diag(5) + 0.7, digits = 3)
-writeLines(jsonlite::toJSON(sblrD5n50C07, pretty = TRUE, auto_unbox = TRUE), con = "sblrD5n50C07.json")
-zip(zipfile = "sblrD5n50C07.json.zip", files = "sblrD5n50C07.json")
+syn_blrD5n50C07 <- simulate_data_linear_regression(n = 50, beta = rep(1, 5), beta_cov = 0.3 * diag(5) + 0.7, digits = 3)
+writeLines(jsonlite::toJSON(syn_blrD5n50C07, pretty = TRUE, auto_unbox = TRUE), con = "syn_blrD5n50C07.json")
+zip(zipfile = "syn_blrD5n50C07.json.zip", files = "syn_blrD5n50C07.json")
 
 set.seed(4714)
-sblrD5n500C07 <- simulate_data_linear_regression(n = 500, beta = rep(1, 5), beta_cov = 0.3 * diag(5) + 0.7, digits = 3)
-writeLines(jsonlite::toJSON(sblrD5n500C07, pretty = TRUE, auto_unbox = TRUE), con = "sblrD5n500C07.json")
-zip(zipfile = "sblrD5n500C07.json.zip", files = "sblrD5n500C07.json")
+syn_blrD5n500C07 <- simulate_data_linear_regression(n = 500, beta = rep(1, 5), beta_cov = 0.3 * diag(5) + 0.7, digits = 3)
+writeLines(jsonlite::toJSON(syn_blrD5n500C07, pretty = TRUE, auto_unbox = TRUE), con = "syn_blrD5n500C07.json")
+zip(zipfile = "syn_blrD5n500C07.json.zip", files = "syn_blrD5n500C07.json")
 
 
 
