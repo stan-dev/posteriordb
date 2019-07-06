@@ -1,8 +1,8 @@
-#' Extract stan code file path from posterior
+#' Extract stan code file path or stan code from posterior object
 #' 
 #' @param x a \code{posterior} object.
 #' @export
-stancode_file_path <- function(x){
+stan_code_file_path <- function(x){
   checkmate::assert_class(x, "posterior")
   checkmate::assert_file_exists(x$model$stan)
   scfn <- stan_code_file_name(x)
@@ -14,16 +14,13 @@ stancode_file_path <- function(x){
   scfp
 }
 
-#' @rdname stancode_file_path
+#' @rdname stan_code_file_path
 #' @export
-stancode <- function(x){
+stan_code <- function(x){
   scfp <- stancode_file_path(x)
   readLines(scfp)
 }
 
 stan_code_temp_dir <- function() file.path(tempdir(), "posteriors", "stan_code")
 
-stan_code_file_name <- function(x) {
-  scfn <- strsplit(x$model$stan, split = "/")[[1]]
-  scfn[length(scfn)]
-}
+stan_code_file_name <- function(x) endpoint(x$model$stan)

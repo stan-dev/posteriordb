@@ -4,10 +4,12 @@
 \alias{posterior}
 \title{Access a posterior in the posterior database}
 \usage{
-posterior(x)
+posterior(name, pdbo = pdb())
 }
 \arguments{
-\item{x}{a file path to a posterior json, or a posterior_name (require i.e. internet access)}
+\item{name}{a posterior name that exist in the posterior database}
+
+\item{pdbo}{a \code{pdb} posterior database object.}
 }
 \description{
 Access a posterior in the posterior database
