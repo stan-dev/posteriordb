@@ -1,7 +1,7 @@
 {
   "data": "content/data/prideprejustice_paragraph.json",
   "model": {
-    "stan": "content/models/latent_dirichlet_allocation/lda.stan"
+    "stan": "content/models/latent_dirichlet_allocation/ldaK5.stan"
   },
   "gold_standard": null
 }
