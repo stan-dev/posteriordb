@@ -1,6 +1,16 @@
-# A Posterior Database
+# A Posterior Database (PDB) for Bayesian Inference
 
-This repository contain data and models to produce posteriors for large-scale Bayesian empirical evaluations of approximate inference algorithms using different probabilistic programing languages.
+This repository contains data and models to produce posteriors for large-scale Bayesian empirical evaluations of approximate inference algorithms using different probabilistic programming languages.
+
+## Purpose of the PDB
+
+There are many purposes with the PDB
+
+1. A simple repository to access many models and dataset in a structured way from R (and Python)
+2. Store models and data in a structure that lends itself for testing inference algorithms on a large number of posteriors.
+3. A structure that makes it easy for students to access models and data for courses in Bayesian data analysis.
+4. A structure that is framework agnostic (although now stan is in focus) and can be used with many different probabilistic programming frameworks.
+
 
 ## Design choices (so far)
 
@@ -55,7 +65,16 @@ po <- posterior("8_schools|centered", my_pdb)
 From the posterior object we can access data, stan code and information.
 
 ```
-> sd <- stan_data(po)
+> stan_data(po)
+$J
+[1] 8
+
+$y
+[1] 28  8 -3  7 -1  1 18 12
+
+$sigma
+[1] 15 10 16 11  9 11 10 18
+
 > sc <- stan_code(po)
 > head(sc)
 
