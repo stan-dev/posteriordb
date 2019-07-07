@@ -83,12 +83,18 @@ The database contain
 
 1. `posteriors`: A folder with the different posteriors as json slots pointing to data and models
 2. The content folder contains (this part is not stable and may change)
+
   a. `content/data`: The data used in the models
+  
   b. `content/data-raw`: Data used to generate the data in the data folder with reproducible code (may be git submodule further along).
+  
   c. `content/models`: The models used in different PPF
+  
   d. `content/posterior_gold_standards`: A folder with different posterior draws (may be git submodule further along).
+  
   e. `content/schemas`: json schemas used in the database
-  e. `content/templates`: json templates for objects used in the database  
+  
+  f. `content/templates`: json templates for objects used in the database  
 
 
 
