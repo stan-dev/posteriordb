@@ -1,7 +1,7 @@
 {
   "title": "The 8 schools dataset of Rubin (1981)",
   "description": "A study for the Educational Testing Service to analyze the effects of\nspecial coaching programs on test scores. See Gelman et. al. (2014), Section 5.5 for details.",
-  "urls": [],
+  "urls": ["http://www.stat.columbia.edu/~gelman/arm/examples/schools"],
   "references": ["Rubin (1981)", "Gelman et. al. (2014)"],
   "keywords": ["bda3_example"]
 }

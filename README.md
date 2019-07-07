@@ -77,6 +77,62 @@ We can also access the paths to data and stan code after they have been unzipped
 "/var/folders/9h/yf354vb917z6gr6mz7bfb1d40000gn/T//RtmpCmhFba/posteriors/data/8_schools.json"
 ```
 
+We can also access information regarding the model and the data used for the posterior.
+
+```
+> data_info(po)
+
+title
+[1] "The 8 schools dataset of Rubin (1981)"
+
+$description
+[1] "A study for the Educational Testing Service to analyze the effects of\nspecial coaching programs on test scores. See Gelman et. al. (2014), Section 5.5 for details."
+
+$urls
+$urls[[1]]
+[1] "http://www.stat.columbia.edu/~gelman/arm/examples/schools"
+
+$references
+$references[[1]]
+[1] "Rubin (1981)"
+$references[[2]]
+[1] "Gelman et. al. (2014)"
+
+$keywords
+$keywords[[1]]
+[1] "bda3_example"
+
+
+
+> model_info(po)
+$title
+[1] "A centered hiearchical model for 8 schools"
+
+$description
+[1] "A centered hiearchical model for the 8 schools example of Rubin (1981)"
+
+$urls
+$urls[[1]]
+[1] "http://www.stat.columbia.edu/~gelman/arm/examples/schools"
+
+$references
+$references[[1]]
+[1] "Rubin (1981)"
+
+$references[[2]]
+[1] "Gelman et. al. (2014)"
+
+$keywords
+$keywords[[1]]
+[1] "bda3_example"
+
+$keywords[[2]]
+[1] "hiearchical"
+
+```
+
+
+
 ## Content
 
 The database contain
