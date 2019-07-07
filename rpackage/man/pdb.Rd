@@ -4,7 +4,7 @@
 \alias{pdb}
 \title{Posterior database (pdb) constructor}
 \usage{
-pdb(x)
+pdb(x = getwd())
 }
 \arguments{
 \item{x}{a path to the posterior database 

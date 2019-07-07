@@ -3,6 +3,8 @@
 S3method(names,pdb)
 S3method(posterior_file_path,character)
 S3method(posterior_file_path,posterior)
+export(data_info)
+export(model_info)
 export(pdb)
 export(posterior)
 export(posterior_names)

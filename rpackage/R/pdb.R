@@ -6,7 +6,7 @@
 #' @return a \code{pdb} object
 #' 
 #' @export
-pdb <- function(x){
+pdb <- function(x=getwd()){
   checkmate::assert_directory_exists(x)
   checkmate::assert_subset(c("posteriors", "content"), choices = dir(x))
   pdbo <- list(path = x)
