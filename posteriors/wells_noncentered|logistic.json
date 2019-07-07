@@ -3,5 +3,6 @@
   "model": {
     "stan": "content/models/logistic/logistic.stan"
   },
-  "gold_standard": null
+  "gold_standard": null,
+  "keywords": []
 }

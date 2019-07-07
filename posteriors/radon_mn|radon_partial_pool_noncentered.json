@@ -3,5 +3,6 @@
   "model": {
     "stan": "content/models/radon_partial_pool/radon_partial_pool_noncentered.stan"
   },
-  "gold_standard": null
+  "gold_standard": null,
+  "keywords": []
 }

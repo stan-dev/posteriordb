@@ -3,5 +3,6 @@
   "model": {
     "stan": "content/models/radon_hierarchical_intercept/radon_hierarchical_intercept_noncentered.stan"
   },
-  "gold_standard": null
+  "gold_standard": null,
+  "keywords": []
 }

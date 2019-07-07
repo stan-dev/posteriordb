@@ -3,5 +3,6 @@
   "model": {
     "stan": "content/models/radon_variable_intercept/radon_variable_intercept_centered.stan"
   },
-  "gold_standard": null
+  "gold_standard": null,
+  "keywords": []
 }

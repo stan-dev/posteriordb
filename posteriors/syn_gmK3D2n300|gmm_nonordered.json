@@ -3,5 +3,6 @@
   "model": {
     "stan": "content/models/gmm/gmm_nonordered.stan"
   },
-  "gold_standard": null
+  "gold_standard": null,
+  "keywords": []
 }

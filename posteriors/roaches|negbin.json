@@ -3,5 +3,6 @@
   "model": {
     "stan": "content/models/roaches_negbin/roaches_negbin.stan"
   },
-  "gold_standard": null
+  "gold_standard": null,
+  "keywords": []
 }

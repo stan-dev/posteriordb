@@ -3,5 +3,6 @@
   "model": {
     "stan": "content/models/blr/blr.stan"
   },
-  "gold_standard": null
+  "gold_standard": null,
+  "keywords": []
 }

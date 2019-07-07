@@ -3,5 +3,6 @@
   "model": {
     "stan": "content/models/radon_pool/radon_pool.stan"
   },
-  "gold_standard": null
+  "gold_standard": null,
+  "keywords": []
 }
