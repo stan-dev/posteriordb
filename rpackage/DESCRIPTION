@@ -12,4 +12,5 @@ Encoding: UTF-8
 Import: 
   checkmate,
   jsonlite
-
+Suggests: 
+    testthat
