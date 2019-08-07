@@ -4,12 +4,12 @@
 #' @export
 stan_code_file_path <- function(x){
   checkmate::assert_class(x, "posterior")
-  checkmate::assert_file_exists(x$model$stan)
+  checkmate::assert_file_exists(file.path(x$pdb$path, x$model$stan))
   scfn <- stan_code_file_name(x)
   scfp <- file.path(stan_code_temp_dir(), scfn)
   if(!checkmate::test_file_exists(scfp)){
     dir.create(stan_code_temp_dir(), recursive = TRUE, showWarnings = FALSE)
-    file.copy(from = x$model$stan, to = scfp)
+    file.copy(from = file.path(x$pdb$path, x$model$stan), to = scfp)
   }
   scfp
 }
