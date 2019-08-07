@@ -1,16 +1,20 @@
 # A Posterior Database (PDB) for Bayesian Inference
 
-This repository contains data and models to produce posteriors for large-scale Bayesian empirical evaluations of approximate inference algorithms using different probabilistic programming languages.
+This repository contains data and models to produce posteriors based on differen probabilistic programming languages. Currently the focus is Stan, but it should be possible to use it with other frameworks as well.
 
 ## Purpose of the PDB
 
 There are many purposes with the PDB
 
-1. A simple repository to access many models and dataset in a structured way from R (and Python)
+1. A simple repository to access many models and dataset in a structured way from R and Python
 2. Store models and data in a structure that lends itself for testing inference algorithms on a large number of posteriors.
 3. A structure that makes it easy for students to access models and data for courses in Bayesian data analysis.
-4. A structure that is framework agnostic (although now stan is in focus) and can be used with many different probabilistic programming frameworks.
+4. A structure that is framework agnostic (although now Stan is in focus) and can be used with many different probabilistic programming frameworks.
+5. A structure that simplifies regression testing of probabilistic programming frameworks.
 
+### Future
+
+The long term goal is to move the posterior database to an open RESTful NoSQL database for easy access.
 
 ## Design choices (so far)
 
@@ -21,14 +25,17 @@ The main focus with the database is simplicity in data and model, both in unders
 1. Priors are hardcoded in model files
    Create a new model to test different priors
 2. Data transformations are stored as different datasets
-   Create a new data to test different data transformations, subsets and variable settings. This makes the database larger, but simplifies analysis of individual posteriors.
+   Create a new data to test different data transformations, subsets and variable settings. This makes the database larger/less memory efficient, but simplifies analysis of individual posteriors.
 3. Models and data has [model/data].info.json files with model and data specific information.
 4. Templates for different jsons can be found in content/templates and schemas in schemas
 5. Prefix 'syn_' stands for synthetic data where the generative process is known and can be found in content/data-raw
 6. All data preprocessing is included in the data-raw folder
 
+### Add a posterior to the database
 
-## R package
+Forka and submit it as a PR.
+
+## Using the posterior database from R (with the R package)
 
 The included database contain convinience functions to access data, stan code and information for individual posteriors.
 
@@ -36,6 +43,7 @@ To install the package, simply use clone this repository and use run the followi
 
 ```
 devtools::install("rpackage/")
+library(pdb)
 ```
 
 First we create the posterior database to use, here the cloned posterior database.
