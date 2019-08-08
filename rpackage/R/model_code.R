@@ -22,6 +22,8 @@ model_code_file_path <- function(x, framework, tempdir = TRUE){
   checkmate::assert_file_exists(mcfp)
 }
 
+#' @rdname model_code_file_path
+#' @export 
 model_code <- function(x, framework){
   checkmate::assert_class(x, "posterior")
   scfp <- model_code_file_path(x, framework, FALSE)
@@ -34,18 +36,18 @@ model_code_file_name <- function(x) {
   endpoint(model_code_file_path(x, framework, FALSE))
 }
 
-#' @rdname model_model_file_path
-#' @export
+#' @rdname model_code_file_path
+#' @export 
 stan_code_file_path <- function(x, tempdir = TRUE){
   checkmate::assert_class(x, "posterior")
   model_code_file_path(x, "stan", tempdir)
 }
 
-#' @rdname stan_code_file_path
-#' @export
+#' @rdname model_code_file_path
+#' @export 
 stan_code <- function(x){
   checkmate::assert_class(x, "posterior")
-  model_code(x, "stan", FALSE)
+  model_code(x, "stan")
 }
 
 
