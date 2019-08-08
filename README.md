@@ -1,6 +1,6 @@
 # A Posterior Database (PDB) for Bayesian Inference
 
-This repository contains data and models to produce posteriors based on differen probabilistic programming languages. Currently the focus is Stan, but it should be possible to use it with other frameworks as well.
+This repository contains data and models to produce posteriors based on different probabilistic programming languages (PPL). Currently the focus is Stan, but it should be possible to use it with other frameworks as well.
 
 ## Purpose of the PDB
 
@@ -30,6 +30,7 @@ The main focus with the database is simplicity in data and model, both in unders
 4. Templates for different jsons can be found in content/templates and schemas in schemas (Note: these don't exist right now and will be added later)
 5. Prefix 'syn_' stands for synthetic data where the generative process is known and can be found in content/data-raw
 6. All data preprocessing is included in the data-raw folder
+7. Specific information for different PPL representations of models are included in the PPL syntax files as comments, not in the model.info.json files.
 
 ### Add a posterior to the database
 
