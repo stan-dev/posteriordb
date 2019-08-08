@@ -64,6 +64,27 @@ To list the posteriors available, just use `posterior_names()`
 [6] "radon_mn|radon_hierarchical_intercept_noncentered"
 ```
 
+In the same fashion we can list data and models included in the database as
+
+```
+> mn <- model_names(my_pdb)
+> head(mn)
+
+ [1] "8_schools_centered"                        
+ [2] "8_schools_noncentered"                     
+ [3] "blr"                                       
+ [4] "gmm_diagonal_nonordered"                   
+ [5] "gmm_diagonal_ordered"                      
+ [6] "gmm_nonordered" 
+
+> dn <- data_names(my_pdb)
+> head(dn)
+
+[1] "8_schools"                 "prideprejustice_chapter"   "prideprejustice_paragraph"
+[4] "radon_mn"                  "radon"                     "roaches_scaled"
+
+```
+
 The posteriors name is setup of the posterior data and the model. To access a posterior we can use the model name.
 
 ```
