@@ -5,7 +5,7 @@
 \alias{stan_code}
 \title{Extract stan code file path or stan code from posterior object}
 \usage{
-stan_code_file_path(x)
+stan_code_file_path(x, in_tmp_dir = TRUE)
 
 stan_code(x)
 }

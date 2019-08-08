@@ -94,7 +94,7 @@ po <- posterior("8_schools|centered", my_pdb)
 From the posterior object we can access data, stan code and information.
 
 ```
-> stan_data(po)
+> data(po)
 $J
 [1] 8
 
@@ -115,17 +115,22 @@ $sigma
 [6] "}" 
 ```
 
-We can also access the paths to data and stan code after they have been unzipped and copied to the R temp directory.
+We can also access the paths to data after they have been unzipped and copied to the R temp directory. By default stan code is also copied to the R temp directory
 
 ```
-> sdfp <- stan_data_file_path(po)
-> scfp <- stan_code_file_path(po)
+> sdfp <- data_file_path(po)
 > sdfp
 
 "/var/folders/9h/yf354vb917z6gr6mz7bfb1d40000gn/T//RtmpCmhFba/posteriors/data/8_schools.json"
+
+> scfp <- stan_code_file_path(po)
+> scfp
+
+"/var/folders/9h/yf354vb917z6gr6mz7bfb1d40000gn/T//RtmpCmhFba/posteriors/stan_code/8_schools_centered.stan"
+
 ```
 
-We can also access information regarding the model and the data used for the posterior.
+We can also access information regarding the model and the data used to compute the posterior.
 
 ```
 > data_info(po)

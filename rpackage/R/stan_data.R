@@ -1,3 +1,24 @@
+
+#' @export
+data <- function (x, ...) {
+  UseMethod("data")
+}
+
+#' @export
+data.posterior <- function (x, ...){
+  sdfp <- data_file_path(x)
+  dat <- jsonlite::read_json(sdfp, simplifyVector = TRUE)
+  dat
+}
+
+#' @export
+data.default <- function (x, ..., list = character(), package = NULL, lib.loc = NULL, 
+                          verbose = getOption("verbose"), envir = .GlobalEnv) {
+  utils::data(x, list = character(), package = NULL, lib.loc = NULL, 
+              verbose = getOption("verbose"), envir = .GlobalEnv)
+}
+
+
 #' Extract data for posterior
 #' 
 #' @param x a \code{posterior} object.
@@ -27,9 +48,7 @@ stan_data_file_path <- function(x){
 #' @rdname stan_data_file_path
 #' @export
 stan_data <- function(x){
-  sdfp <- stan_data_file_path(x)
-  dat <- jsonlite::read_json(sdfp, simplifyVector = TRUE)
-  dat
+  data(x)
 }
 
 posterior_data_temp_dir <- function() file.path(tempdir(), "posteriors", "data")
