@@ -5,8 +5,8 @@ data <- function (x, ...) {
 }
 
 #' @export
-data.posterior <- function (x, ...){
-  sdfp <- data_file_path(x)
+data.posterior <- function (x, ..., tempdir = TRUE){
+  sdfp <- data_file_path(x, tempdir)
   dat <- jsonlite::read_json(sdfp, simplifyVector = TRUE)
   dat
 }
@@ -23,7 +23,7 @@ data.default <- function (x, ..., list = character(), package = NULL, lib.loc = 
 #' 
 #' @param x a \code{posterior} object.
 #' @export
-data_file_path <- function(x){
+data_file_path <- function(x, tempdir = TRUE){
   checkmate::assert_class(x, "posterior")
   checkmate::assert_file_exists(file.path(x$pdb$path, paste0(x$data, ".zip")))
   pdfp <- posterior_data_temp_file_path(x)
@@ -38,22 +38,22 @@ data_file_path <- function(x){
   pdfp
 }
 
+
+data_temp_dir <- function() file.path(tempdir(), "posteriors", "data")
+
+data_file_name <- function(x) endpoint(x$data)
+
+data_temp_file_path <- function(x) file.path(posterior_data_temp_dir(), posterior_data_file_name(x))
+
+
 #' @rdname data_file_path
 #' @export
 stan_data_file_path <- function(x){
   data_file_path(x)
 }
 
-
 #' @rdname stan_data_file_path
 #' @export
 stan_data <- function(x){
   data(x)
 }
-
-posterior_data_temp_dir <- function() file.path(tempdir(), "posteriors", "data")
-
-posterior_data_file_name <- function(x) endpoint(x$data)
-
-posterior_data_temp_file_path <- function(x) file.path(posterior_data_temp_dir(), posterior_data_file_name(x))
-
