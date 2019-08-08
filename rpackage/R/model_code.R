@@ -7,9 +7,9 @@
 #' @export
 model_code_file_path <- function(x, framework, tempdir = TRUE){
   checkmate::assert_class(x, "posterior")
-  checkmate::assert_choice(framework, names(x$model))
+  checkmate::assert_choice(framework, names(x$model_info$model_code))
   
-  mcfp <- file.path(x$pdb$path, x$model[[framework]])
+  mcfp <- file.path(x$pdb$path, x$model_info$model_code[[framework]])
   if(tempdir){
     mcfn <- model_code_file_name(x)
     tmcfp <- file.path(model_code_temp_dir(), framework, mcfn)
