@@ -119,8 +119,8 @@ $sigma
 We can also access the paths to data after they have been unzipped and copied to the R temp directory. By default stan code is also copied to the R temp directory
 
 ```
-> sdfp <- data_file_path(po)
-> sdfp
+> dfp <- data_file_path(po)
+> dfp
 
 "/var/folders/9h/yf354vb917z6gr6mz7bfb1d40000gn/T//RtmpCmhFba/posteriors/data/8_schools.json"
 
