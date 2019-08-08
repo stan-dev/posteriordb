@@ -34,7 +34,7 @@ The main focus with the database is simplicity in data and model, both in unders
 
 ### Add a posterior to the database
 
-Forka and submit it as a PR.
+Fork and submit it as a PR.
 
 ## Using the posterior database from R (with the R package)
 
