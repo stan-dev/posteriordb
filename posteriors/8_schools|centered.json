@@ -3,6 +3,6 @@
   "model": {
     "stan": "content/models/8_schools/8_schools_centered.stan"
   },
-  "gold_standard": null,
+  "gold_standard": "content/posterior_gold_standards/8_schools|noncentered.json",
   "keywords": []
 }
