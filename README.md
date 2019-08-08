@@ -148,9 +148,9 @@ $urls[[1]]
 
 $references
 $references[[1]]
-[1] "Rubin (1981)"
+[1] "rubin1981estimation"
 $references[[2]]
-[1] "Gelman et. al. (2014)"
+[1] "gelman2013bayesian"
 
 $keywords
 $keywords[[1]]
@@ -171,10 +171,9 @@ $urls[[1]]
 
 $references
 $references[[1]]
-[1] "Rubin (1981)"
-
+[1] "rubin1981estimation"
 $references[[2]]
-[1] "Gelman et. al. (2014)"
+[1] "gelman2013bayesian"
 
 $keywords
 $keywords[[1]]
@@ -185,6 +184,7 @@ $keywords[[2]]
 
 ```
 
+Note that the references are referencing to bibtex items that can be found in `content/references/references.bib`.
 
 
 ## Content

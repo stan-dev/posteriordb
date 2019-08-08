@@ -2,6 +2,6 @@
   "title": "A centered hiearchical model for 8 schools",
   "description": "A centered hiearchical model for the 8 schools example of Rubin (1981)",
   "urls": ["http://www.stat.columbia.edu/~gelman/arm/examples/schools"],
-  "references": ["Rubin (1981)", "Gelman et. al. (2014)"],
+  "references": ["rubin1981estimation", "gelman2013bayesian"],
   "keywords": ["bda3_example", "hiearchical"]
 }
