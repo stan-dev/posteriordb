@@ -2,8 +2,13 @@ context("test-pdb-content")
 
 test_that("Check that all posteriors can access stan_data and stan_code", {
   test_dir <- getwd()
-  setwd("../../../")
-  root_dir <- getwd()
+  if(Sys.getenv("TRAVIS_R_VERSION") != "") {
+    setwd("../../../../") # Travis test
+    root_dir <- getwd()
+  } else {
+    setwd("../../../") # Local test
+    root_dir <- getwd()
+  } 
   setwd(test_dir)
   
   expect_silent(pdb_test <- pdb(root_dir))
