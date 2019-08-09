@@ -1,8 +1,6 @@
 {
-  "data": "content/data/roaches.json",
-  "model": {
-    "stan": "content/models/roaches_poisson/roaches_poisson.stan"
-  },
+  "keywords": [],
+  "model_name": "roaches_poisson",
   "gold_standard": null,
-  "keywords": []
+  "data_name": "roaches"
 }

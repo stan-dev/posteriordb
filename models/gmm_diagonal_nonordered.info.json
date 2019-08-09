@@ -1,0 +1,10 @@
+{
+  "keywords": [],
+  "description": "",
+  "urls": [],
+  "title": "",
+  "references": [],
+  "model_code": {
+    "stan": "content/models/gmm/gmm_diagonal_nonordered.stan"
+  }
+}

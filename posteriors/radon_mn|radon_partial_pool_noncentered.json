@@ -1,8 +1,6 @@
 {
-  "data": "content/data/radon_mn.json",
-  "model": {
-    "stan": "content/models/radon_partial_pool/radon_partial_pool_noncentered.stan"
-  },
+  "keywords": [],
+  "model_name": "radon_partial_pool_noncentered",
   "gold_standard": null,
-  "keywords": []
+  "data_name": "radon_mn"
 }

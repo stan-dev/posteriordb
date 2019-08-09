@@ -1,8 +1,6 @@
 {
-  "data": "content/data/prideprejustice_paragraph.json",
-  "model": {
-    "stan": "content/models/latent_dirichlet_allocation/ldaK5.stan"
-  },
+  "keywords": [],
+  "model_name": "ldaK5",
   "gold_standard": null,
-  "keywords": []
+  "data_name": "prideprejustice_paragraph"
 }
