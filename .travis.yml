@@ -1,0 +1,16 @@
+language: r
+r:
+  - release
+#  - devel
+cache: packages
+
+#r_github_packages:
+#  - r-lib/covr
+
+#r_build_args: '--no-build-vignettes'
+#r_check_args: '--ignore-vignettes'
+warnings_are_errors: true
+
+#after_success:
+#  - Rscript -e 'covr::codecov()'
+
