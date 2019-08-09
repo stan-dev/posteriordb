@@ -36,5 +36,5 @@ assert_posterior <- function(x){
   checkmate::assert_class(x, "posterior")
   checkmate::assert_list(x)  
   checkmate::assert_names(names(x), must.include = c("model_name", "data_name", "model_info", "data_info", "name", "pdb"))  
-  checkmate::assert_list(x$model, min.len = 1)
+  checkmate::assert_list(x$model_name, min.len = 1)
 }
