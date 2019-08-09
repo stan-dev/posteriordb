@@ -42,7 +42,7 @@ dataset_file_path <- function(x, tempdir = TRUE){
 
 dataset_temp_dir <- function() file.path(tempdir(), "posteriors", "data")
 
-dataset_file_name <- function(x) endpoint(x$data)
+dataset_file_name <- function(x) basename(x$data)
 
 dataset_temp_file_path <- function(x) file.path(dataset_temp_dir(), dataset_file_name(x))
 

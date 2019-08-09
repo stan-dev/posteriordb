@@ -33,7 +33,7 @@ model_code <- function(x, framework){
 model_code_temp_dir <- function() file.path(tempdir(), "posteriors", "model_code")
 
 model_code_file_name <- function(x, framework) {
-  endpoint(model_code_file_path(x, framework, FALSE))
+  basename(model_code_file_path(x, framework, FALSE))
 }
 
 #' @rdname model_code_file_path
