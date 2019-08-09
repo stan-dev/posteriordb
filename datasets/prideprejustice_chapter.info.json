@@ -1,0 +1,10 @@
+{
+  "data_file": "content/data/prideprejustice_chapter.json",
+  "description": "The book has been tokenized, stop words and rare words (<=5) has been removed. Variable 'doc' is chapter id.",
+  "references": [],
+  "title": "The book 'Pride and Prejustice' by Jane Austen.",
+  "urls": [],
+  "keywords": [
+    "text data"
+  ]
+}

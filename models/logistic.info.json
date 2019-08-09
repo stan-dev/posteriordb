@@ -1,0 +1,10 @@
+{
+  "model_code": {
+    "stan": "content/models/logistic/logistic.stan"
+  },
+  "description": "",
+  "references": [],
+  "title": "",
+  "urls": [],
+  "keywords": []
+}

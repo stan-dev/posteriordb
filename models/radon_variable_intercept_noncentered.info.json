@@ -1,0 +1,10 @@
+{
+  "model_code": {
+    "stan": "content/models/radon_variable_intercept/radon_variable_intercept_noncentered.stan"
+  },
+  "description": "",
+  "references": [],
+  "title": "",
+  "urls": [],
+  "keywords": []
+}

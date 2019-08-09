@@ -1,8 +1,6 @@
 {
-  "data": "content/data/radon_mn.json",
-  "model": {
-    "stan": "content/models/radon_hierarchical_intercept/radon_hierarchical_intercept_noncentered.stan"
-  },
   "gold_standard": null,
-  "keywords": []
+  "data_name": "radon_mn",
+  "keywords": [],
+  "model_name": "radon_hierarchical_intercept_noncentered"
 }

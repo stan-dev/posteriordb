@@ -1,8 +1,6 @@
 {
-  "data": "content/data/radon_mn.json",
-  "model": {
-    "stan": "content/models/radon_no_pool/radon_no_pool.stan"
-  },
   "gold_standard": null,
-  "keywords": []
+  "data_name": "radon_mn",
+  "keywords": [],
+  "model_name": "radon_no_pool"
 }

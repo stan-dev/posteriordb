@@ -1,0 +1,10 @@
+{
+  "model_code": {
+    "stan": "content/models/radon_partial_pool/radon_partial_pool_centered.stan"
+  },
+  "description": "",
+  "references": [],
+  "title": "",
+  "urls": [],
+  "keywords": []
+}

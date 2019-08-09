@@ -1,0 +1,10 @@
+{
+  "model_code": {
+    "stan": "content/models/latent_dirichlet_allocation/ldaK5.stan"
+  },
+  "description": "",
+  "references": [],
+  "title": "",
+  "urls": [],
+  "keywords": []
+}

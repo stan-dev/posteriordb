@@ -1,0 +1,10 @@
+{
+  "model_code": {
+    "stan": "content/models/gmm/gmm_ordered.stan"
+  },
+  "description": "",
+  "references": [],
+  "title": "",
+  "urls": [],
+  "keywords": []
+}

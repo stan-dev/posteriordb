@@ -1,0 +1,10 @@
+{
+  "model_code": {
+    "stan": "content/models/roaches_poisson/roaches_poisson.stan"
+  },
+  "description": "",
+  "references": [],
+  "title": "",
+  "urls": [],
+  "keywords": []
+}

@@ -1,0 +1,10 @@
+{
+  "model_code": {
+    "stan": "content/models/radon_hierarchical_intercept/radon_hierarchical_intercept_centered.stan"
+  },
+  "description": "",
+  "references": [],
+  "title": "",
+  "urls": [],
+  "keywords": []
+}

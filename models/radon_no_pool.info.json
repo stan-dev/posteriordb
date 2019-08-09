@@ -1,0 +1,10 @@
+{
+  "model_code": {
+    "stan": "content/models/radon_no_pool/radon_no_pool.stan"
+  },
+  "description": "",
+  "references": [],
+  "title": "",
+  "urls": [],
+  "keywords": []
+}
