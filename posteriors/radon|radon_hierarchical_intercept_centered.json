@@ -1,6 +1,8 @@
 {
+  "data": "content/data/radon.json",
+  "model": {
+    "stan": "content/models/radon_hierarchical_intercept/radon_hierarchical_intercept_centered.stan"
+  },
   "gold_standard": null,
-  "data_name": "radon",
-  "keywords": [],
-  "model_name": "radon_hierarchical_intercept_centered"
+  "keywords": []
 }

@@ -1,6 +1,8 @@
 {
+  "data": "content/data/syn_blrD5N50C07.json",
+  "model": {
+    "stan": "content/models/blr/blr.stan"
+  },
   "gold_standard": null,
-  "data_name": "syn_blrD5N50C07",
-  "keywords": [],
-  "model_name": "blr"
+  "keywords": []
 }

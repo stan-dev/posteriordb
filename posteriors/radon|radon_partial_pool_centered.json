@@ -1,6 +1,8 @@
 {
+  "data": "content/data/radon.json",
+  "model": {
+    "stan": "content/models/radon_partial_pool/radon_partial_pool_centered.stan"
+  },
   "gold_standard": null,
-  "data_name": "radon",
-  "keywords": [],
-  "model_name": "radon_partial_pool_centered"
+  "keywords": []
 }

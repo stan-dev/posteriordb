@@ -1,6 +1,8 @@
 {
+  "data": "content/data/radon_mn.json",
+  "model": {
+    "stan": "content/models/radon_variable_intercept/radon_variable_intercept_noncentered.stan"
+  },
   "gold_standard": null,
-  "data_name": "radon_mn",
-  "keywords": [],
-  "model_name": "radon_variable_intercept_noncentered"
+  "keywords": []
 }

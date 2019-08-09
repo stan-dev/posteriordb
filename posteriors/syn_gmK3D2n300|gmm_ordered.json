@@ -1,6 +1,8 @@
 {
+  "data": "content/data/syn_gmK3D2n300.json",
+  "model": {
+    "stan": "content/models/gmm/gmm_ordered.stan"
+  },
   "gold_standard": null,
-  "data_name": "syn_gmK3D2n300",
-  "keywords": [],
-  "model_name": "gmm_ordered"
+  "keywords": []
 }

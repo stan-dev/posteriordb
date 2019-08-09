@@ -1,6 +1,8 @@
 {
+  "data": "content/data/wells_centered.json",
+  "model": {
+    "stan": "content/models/logistic/logistic.stan"
+  },
   "gold_standard": null,
-  "data_name": "wells_centered",
-  "keywords": [],
-  "model_name": "logistic"
+  "keywords": []
 }
