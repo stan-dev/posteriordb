@@ -1,0 +1,10 @@
+{
+  "keywords": [],
+  "description": "",
+  "urls": [],
+  "title": "",
+  "references": [],
+  "model_code": {
+    "stan": "content/models/radon_variable_slope/radon_variable_slope_centered.stan"
+  }
+}

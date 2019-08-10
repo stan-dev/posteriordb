@@ -1,8 +1,6 @@
 {
-  "data": "content/data/roaches_scaled.json",
-  "model": {
-    "stan": "content/models/roaches_negbin/roaches_negbin.stan"
-  },
+  "keywords": [],
+  "model_name": "roaches_negbin",
   "gold_standard": null,
-  "keywords": []
+  "data_name": "roaches_scaled"
 }

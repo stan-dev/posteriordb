@@ -1,8 +1,6 @@
 {
-  "data": "content/data/radon.json",
-  "model": {
-    "stan": "content/models/radon_variable_slope/radon_variable_slope_centered.stan"
-  },
+  "keywords": [],
+  "model_name": "radon_variable_slope_centered",
   "gold_standard": null,
-  "keywords": []
+  "data_name": "radon"
 }
