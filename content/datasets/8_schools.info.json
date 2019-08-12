@@ -11,5 +11,5 @@
     "rubin1981estimation",
     "gelman2013bayesian"
   ],
-  "data_file": "content/data/8_schools.json"
+  "data_file": "content/datasets/8_schools.json"
 }
