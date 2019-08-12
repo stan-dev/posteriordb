@@ -11,5 +11,7 @@
     "rubin1981estimation",
     "gelman2013bayesian"
   ],
-  "data_file": "content/datasets/8_schools.json"
+  "data_file": "content/datasets/8_schools.json",
+  "added_by": "Mans Magnusson",
+  "added_date": "2019-08-12"
 }

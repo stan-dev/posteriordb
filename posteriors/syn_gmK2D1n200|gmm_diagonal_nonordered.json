@@ -2,5 +2,7 @@
   "keywords": [],
   "model_name": "gmm_diagonal_nonordered",
   "gold_standard": null,
-  "data_name": "syn_gmK2D1n200"
+  "data_name": "syn_gmK2D1n200",
+  "added_by": "Mans Magnusson",
+  "added_date": "2019-08-12"
 }

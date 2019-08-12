@@ -14,5 +14,7 @@
   ],
   "model_code": {
     "stan": "content/models/8_schools_centered.stan"
-  }
+  },
+  "added_by": "Mans Magnusson",
+  "added_date": "2019-08-12"
 }

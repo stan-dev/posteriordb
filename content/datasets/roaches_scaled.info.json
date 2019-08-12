@@ -4,5 +4,7 @@
   "urls": [],
   "title": "",
   "references": [],
-  "data_file": "content/datasets/roaches_scaled.json"
+  "data_file": "content/datasets/roaches_scaled.json",
+  "added_by": "Mans Magnusson",
+  "added_date": "2019-08-12"
 }
