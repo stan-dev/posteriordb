@@ -14,6 +14,11 @@ There are many purposes with the PDB
 
 ### Future
 
+The future for the posterior database is to:
+1. Add python library
+2. Add more posteriors
+3. Add more gold standards
+
 The long term goal is to move the posterior database to an open RESTful NoSQL database for easy access.
 
 ## Design choices (so far)
