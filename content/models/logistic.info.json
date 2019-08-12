@@ -5,6 +5,6 @@
   "title": "",
   "references": [],
   "model_code": {
-    "stan": "content/models/logistic/logistic.stan"
+    "stan": "content/models/logistic.stan"
   }
 }

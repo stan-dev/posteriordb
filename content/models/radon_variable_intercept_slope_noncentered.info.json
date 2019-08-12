@@ -5,6 +5,6 @@
   "title": "",
   "references": [],
   "model_code": {
-    "stan": "content/models/radon_variable_intercept_slope/radon_variable_intercept_slope_noncentered.stan"
+    "stan": "content/models/radon_variable_intercept_slope_noncentered.stan"
   }
 }

@@ -5,6 +5,6 @@
   "title": "",
   "references": [],
   "model_code": {
-    "stan": "content/models/gmm/gmm_nonordered.stan"
+    "stan": "content/models/gmm_nonordered.stan"
   }
 }

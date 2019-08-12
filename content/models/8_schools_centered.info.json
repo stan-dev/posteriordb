@@ -13,6 +13,6 @@
     "gelman2013bayesian"
   ],
   "model_code": {
-    "stan": "content/models/8_schools/8_schools_centered.stan"
+    "stan": "content/models/8_schools_centered.stan"
   }
 }
