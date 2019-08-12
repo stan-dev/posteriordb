@@ -40,7 +40,7 @@ Fork and submit it as a PR.
 
 The included database contain convinience functions to access data, stan code and information for individual posteriors.
 
-To install the package, simply use clone this repository and use run the following snippet to install the package in the cloned folder.
+To install the package, simply use clone this repository and use run the following snippet to install the package in the cloned folder. The R package do not contain the content of the posterior database and hence the repository needs to be cloned.
 
 ```
 devtools::install("rpackage/")
@@ -78,7 +78,7 @@ In the same fashion we can list data and models included in the database as
  [5] "gmm_diagonal_ordered"                      
  [6] "gmm_nonordered" 
 
-> dn <- data_names(my_pdb)
+> dn <- dataset_names(my_pdb)
 > head(dn)
 
 [1] "8_schools"                 "prideprejustice_chapter"   "prideprejustice_paragraph"
@@ -95,7 +95,7 @@ po <- posterior("8_schools|centered", my_pdb)
 From the posterior object we can access data, stan code and information.
 
 ```
-> data(po)
+> dataset(po)
 $J
 [1] 8
 
@@ -119,7 +119,7 @@ $sigma
 We can also access the paths to data after they have been unzipped and copied to the R temp directory. By default stan code is also copied to the R temp directory
 
 ```
-> dfp <- data_file_path(po)
+> dfp <- dataset_file_path(po)
 > dfp
 
 "/var/folders/9h/yf354vb917z6gr6mz7bfb1d40000gn/T//RtmpCmhFba/posteriors/data/8_schools.json"
@@ -136,7 +136,7 @@ We can also access information regarding the model and the data used to compute 
 ```
 > data_info(po)
 
-title
+$title
 [1] "The 8 schools dataset of Rubin (1981)"
 
 $description

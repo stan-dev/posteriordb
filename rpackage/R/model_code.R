@@ -14,7 +14,7 @@ model_code_file_path <- function(x, framework, tempdir = TRUE){
     mcfn <- model_code_file_name(x, framework)
     tmcfp <- file.path(model_code_temp_dir(), framework, mcfn)
     if(!checkmate::test_file_exists(tmcfp)){
-      dir.create(model_code_temp_dir(), recursive = TRUE, showWarnings = FALSE)
+      dir.create(file.path(model_code_temp_dir(), framework), recursive = TRUE, showWarnings = FALSE)
       file.copy(from = mcfp, to = tmcfp)
     }
     mcfp <- tmcfp
