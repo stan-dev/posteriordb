@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/MansMeg/posteriordb.svg?branch=master)](https://travis-ci.org/MansMeg/posteriordb)
+
 # A Posterior Database (PDB) for Bayesian Inference
 
 This repository contains data and models to produce posteriors based on different probabilistic programming languages (PPL). Currently the focus is Stan, but it should be possible to use it with other frameworks as well.
