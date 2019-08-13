@@ -1,7 +1,7 @@
 {
   "keywords": [],
   "model_name": "8_schools_centered",
-  "gold_standard": "content/posterior_gold_standards/8_schools|noncentered.json",
+  "gold_standard": "content/posterior_gold_standards/8_schools-8_schools_noncentered.json",
   "data_name": "8_schools",
   "added_by": "Mans Magnusson",
   "added_date": "2019-08-12"
