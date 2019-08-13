@@ -143,8 +143,10 @@ We can also access information regarding the model and the data used to compute 
 ```
 > data_info(po)
 
-$title
-[1] "The 8 schools dataset of Rubin (1981)"
+$keywords
+$keywords[[1]]
+[1] "bda3_example"
+
 
 $description
 [1] "A study for the Educational Testing Service to analyze the effects of\nspecial coaching programs on test scores. See Gelman et. al. (2014), Section 5.5 for details."
@@ -153,21 +155,36 @@ $urls
 $urls[[1]]
 [1] "http://www.stat.columbia.edu/~gelman/arm/examples/schools"
 
+
+$title
+[1] "The 8 schools dataset of Rubin (1981)"
+
 $references
 $references[[1]]
 [1] "rubin1981estimation"
+
 $references[[2]]
 [1] "gelman2013bayesian"
 
+
+$data_file
+[1] "content/datasets/8_schools.json"
+
+$added_by
+[1] "Mans Magnusson"
+
+$added_date
+[1] "2019-08-12"
+
+
+> model_info(po)
 $keywords
 $keywords[[1]]
 [1] "bda3_example"
 
+$keywords[[2]]
+[1] "hiearchical"
 
-
-> model_info(po)
-$title
-[1] "A centered hiearchical model for 8 schools"
 
 $description
 [1] "A centered hiearchical model for the 8 schools example of Rubin (1981)"
@@ -176,18 +193,28 @@ $urls
 $urls[[1]]
 [1] "http://www.stat.columbia.edu/~gelman/arm/examples/schools"
 
+
+$title
+[1] "A centered hiearchical model for 8 schools"
+
 $references
 $references[[1]]
 [1] "rubin1981estimation"
+
 $references[[2]]
 [1] "gelman2013bayesian"
 
-$keywords
-$keywords[[1]]
-[1] "bda3_example"
 
-$keywords[[2]]
-[1] "hiearchical"
+$model_code
+$model_code$stan
+[1] "content/models/8_schools_centered.stan"
+
+
+$added_by
+[1] "Mans Magnusson"
+
+$added_date
+[1] "2019-08-12"
 
 ```
 
