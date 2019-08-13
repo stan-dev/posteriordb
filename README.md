@@ -13,6 +13,7 @@ There are many purposes with the PDB
 3. A structure that makes it easy for students to access models and data for courses in Bayesian data analysis.
 4. A structure that is framework agnostic (although now Stan is in focus) and can be used with many different probabilistic programming frameworks.
 5. A structure that simplifies regression testing of probabilistic programming frameworks.
+6. Providing reliable gold standards for use in inference method development.
 
 ### Future
 
