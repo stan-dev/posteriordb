@@ -64,12 +64,12 @@ To list the posteriors available, just use `posterior_names()`
 > pos <- posterior_names(my_pdb)
 > head(pos)
 
-[1] "8_schools|centered"                               
-[2] "8_schools|noncentered"                            
-[3] "prideprejustice_chapter|ldaK5"                    
-[4] "prideprejustice_paragraph|ldaK5"                  
-[5] "radon_mn|radon_hierarchical_intercept_centered"   
-[6] "radon_mn|radon_hierarchical_intercept_noncentered"
+[1] "8_schools-8_schools_centered"                               
+[2] "8_schools-8_schools_noncentered"                            
+[3] "prideprejustice_chapter-ldaK5"                    
+[4] "prideprejustice_paragraph-ldaK5"                  
+[5] "radon_mn-radon_hierarchical_intercept_centered"   
+[6] "radon_mn-radon_hierarchical_intercept_noncentered"
 ```
 
 In the same fashion we can list data and models included in the database as
@@ -96,7 +96,7 @@ In the same fashion we can list data and models included in the database as
 The posteriors name is setup of the posterior data and the model. To access a posterior we can use the model name.
 
 ```
-po <- posterior("8_schools|centered", my_pdb)
+po <- posterior("8_schools-8_schools_centered", my_pdb)
 ```
 
 From the posterior object we can access data, stan code and information.

@@ -5,12 +5,12 @@ test_that("Test the code in the README", {
   expect_silent(my_pdb <- pdb(pdb_dir))
 
   expect_silent(pos <- posterior_names(my_pdb))
-  pn <- c("8_schools|centered", 
-          "8_schools|noncentered", 
-          "prideprejustice_chapter|ldaK5", 
-          "prideprejustice_paragraph|ldaK5", 
-          "radon_mn|radon_hierarchical_intercept_centered",
-          "radon_mn|radon_hierarchical_intercept_noncentered")
+  pn <- c("8_schools-8_schools_centered", 
+          "8_schools-8_schools_noncentered", 
+          "prideprejustice_chapter-ldaK5", 
+          "prideprejustice_paragraph-ldaK5", 
+          "radon_mn-radon_hierarchical_intercept_centered",
+          "radon_mn-radon_hierarchical_intercept_noncentered")
   expect_equal(head(pos), pn)
   
   expect_silent(mn <- model_names(my_pdb))
@@ -31,7 +31,7 @@ test_that("Test the code in the README", {
            "roaches_scaled")
   checkmate::expect_subset(dnt,dn)
   
-  expect_silent(po <- posterior("8_schools|centered", my_pdb))
+  expect_silent(po <- posterior("8_schools-8_schools_centered", my_pdb))
   expect_silent(ds <- dataset(po))
   checkmate::expect_names(names(ds), identical.to = c("J", "y", "sigma"))
   
