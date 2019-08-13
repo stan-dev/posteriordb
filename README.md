@@ -46,9 +46,9 @@ Fork and submit it as a PR.
 
 ## Using the posterior database from R (with the R package)
 
-The included database contain convinience functions to access data, stan code and information for individual posteriors.
+The included database contain convinience functions to access data, Stan code and information for individual posteriors.
 
-To install the package, simply use clone this repository and use run the following snippet to install the package in the cloned folder. The R package do not contain the content of the posterior database and hence the repository needs to be cloned.
+To install the package, simply clone this repository and run the following snippet to install the package in the cloned folder. The R package does not contain the content of the posterior database and hence the repository needs to be cloned.
 
 ```
 devtools::install("rpackage/")
@@ -94,7 +94,7 @@ In the same fashion we can list data and models included in the database as
 
 ```
 
-The posteriors name is setup of the posterior data and the model. To access a posterior we can use the model name.
+The posterior name is setup of the posterior data and the model. To access a posterior we can use the model name.
 
 ```
 po <- posterior("8_schools-8_schools_centered", my_pdb)
