@@ -5,7 +5,7 @@
   "title": "",
   "references": [],
   "model_code": {
-    "stan": "content/models/logistic.stan"
+    "stan": "content/models/stan/logistic.stan"
   },
   "added_by": "Mans Magnusson",
   "added_date": "2019-08-12"

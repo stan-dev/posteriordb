@@ -13,7 +13,7 @@
     "gelman2013bayesian"
   ],
   "model_code": {
-    "stan": "content/models/8_schools_noncentered.stan"
+    "stan": "content/models/stan/8_schools_noncentered.stan"
   },
   "added_by": "Mans Magnusson",
   "added_date": "2019-08-12"
