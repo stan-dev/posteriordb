@@ -23,12 +23,12 @@ posterior <- function(name, pdbo = pdb()){
 }
 
 model_info_file_path <- function(name, base_dir) {
-  path <- file.path(base_dir, "content", "models", paste0(name, ".info.json"))
+  path <- file.path(base_dir, "content", "models", "info", paste0(name, ".info.json"))
   path
 }
 
 data_info_file_path <- function(name, base_dir) {
-  path <- file.path(base_dir, "content", "datasets", paste0(name, ".info.json"))
+  path <- file.path(base_dir, "content", "datasets", "info", paste0(name, ".info.json"))
   path
 }
 
