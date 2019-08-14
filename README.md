@@ -13,6 +13,7 @@ There are many purposes with the PDB
 3. A structure that makes it easy for students to access models and data for courses in Bayesian data analysis.
 4. A structure that is framework agnostic (although now Stan is in focus) and can be used with many different probabilistic programming frameworks.
 5. A structure that simplifies regression testing of probabilistic programming frameworks.
+6. Providing reliable gold standards for use in inference method development.
 
 ### Future
 
@@ -45,9 +46,9 @@ Fork and submit it as a PR.
 
 ## Using the posterior database from R (with the R package)
 
-The included database contain convenience functions to access data, stan code and information for individual posteriors.
+The included database contain convinience functions to access data, Stan code and information for individual posteriors.
 
-To install the package, simply use clone this repository and use run the following snippet to install the package in the cloned folder. The R package does not contain the content of the posterior database and hence the repository needs to be cloned.
+To install the package, simply clone this repository and run the following snippet to install the package in the cloned folder. The R package does not contain the content of the posterior database and hence the repository needs to be cloned.
 
 ```
 devtools::install("rpackage/")
