@@ -2,7 +2,7 @@
 
 # A Posterior Database (PDB) for Bayesian Inference
 
-This repository contains data and models to produce posteriors based on different probabilistic programming languages (PPL). Currently the focus is Stan, but it should be possible to use it with other frameworks as well.
+This repository contains data and models to produce posteriors based on different probabilistic programming languages (PPL). Currently, the focus is Stan, but it should be possible to use it with other frameworks as well.
 
 ## Purpose of the PDB
 
@@ -32,12 +32,12 @@ The main focus with the database is simplicity in data and model, both in unders
 1. Priors are hardcoded in model files
    Create a new model to test different priors
 2. Data transformations are stored as different datasets
-   Create a new data to test different data transformations, subsets and variable settings. This makes the database larger/less memory efficient, but simplifies analysis of individual posteriors.
+   Create new data to test different data transformations, subsets, and variable settings. This makes the database larger/less memory efficient but simplifies the analysis of individual posteriors.
 3. Models and data has [model/data].info.json files with model and data specific information.
 4. Templates for different jsons can be found in content/templates and schemas in schemas (Note: these don't exist right now and will be added later)
 5. Prefix 'syn_' stands for synthetic data where the generative process is known and can be found in content/data-raw
 6. All data preprocessing is included in the data-raw folder
-7. Specific information for different PPL representations of models are included in the PPL syntax files as comments, not in the model.info.json files.
+7. Specific information for different PPL representations of models is included in the PPL syntax files as comments, not in the model.info.json files.
 
 ### Add a posterior to the database
 
@@ -45,9 +45,9 @@ Fork and submit it as a PR.
 
 ## Using the posterior database from R (with the R package)
 
-The included database contain convinience functions to access data, stan code and information for individual posteriors.
+The included database contain convenience functions to access data, stan code and information for individual posteriors.
 
-To install the package, simply use clone this repository and use run the following snippet to install the package in the cloned folder. The R package do not contain the content of the posterior database and hence the repository needs to be cloned.
+To install the package, simply use clone this repository and use run the following snippet to install the package in the cloned folder. The R package does not contain the content of the posterior database and hence the repository needs to be cloned.
 
 ```
 devtools::install("rpackage/")
@@ -72,7 +72,7 @@ To list the posteriors available, just use `posterior_names()`
 [6] "radon_mn-radon_hierarchical_intercept_noncentered"
 ```
 
-In the same fashion we can list data and models included in the database as
+In the same fashion, we can list data and models included in the database as
 
 ```
 > mn <- model_names(my_pdb)
@@ -93,13 +93,13 @@ In the same fashion we can list data and models included in the database as
 
 ```
 
-The posteriors name is setup of the posterior data and the model. To access a posterior we can use the model name.
+The posteriors name is made up of the posterior data and the model. To access a posterior we can use the model name.
 
 ```
 po <- posterior("8_schools-8_schools_centered", my_pdb)
 ```
 
-From the posterior object we can access data, stan code and information.
+From the posterior object, we can access data, stan code and information.
 
 ```
 > dataset(po)
@@ -123,7 +123,7 @@ $sigma
 [6] "}" 
 ```
 
-We can also access the paths to data after they have been unzipped and copied to the R temp directory. By default stan code is also copied to the R temp directory
+We can also access the paths to data after they have been unzipped and copied to the R temp directory. By default, stan code is also copied to the R temp directory
 
 ```
 > dfp <- dataset_file_path(po)
@@ -218,28 +218,27 @@ $added_date
 
 ```
 
-Note that the references are referencing to bibtex items that can be found in `content/references/references.bib`.
+Note that the references are referencing to BibTeX items that can be found in `content/references/references.bib`.
 
 
 ## Content
 
-The database contain
+The database contains
 
-1. `posteriors`: A folder with the different posteriors as json slots pointing to data and models
+1. `posteriors`: A folder with the different posteriors as JSON slots pointing to data and models
 2. The content folder contains (this part is not stable and may change)
 
   a. `content/data`: The data used in the models
   
-  b. `content/data-raw`: Data used to generate the data in the data folder with reproducible code (may be git submodule further along).
+  b. `content/data-raw`: Data used to generate the data in the data folder with reproducible code (maybe git submodule further along).
   
   c. `content/models`: The models used in different PPF
   
-  d. `content/posterior_gold_standards`: A folder with different posterior draws (may be git submodule further along).
+  d. `content/posterior_gold_standards`: A folder with different posterior draws (maybe git submodule further along).
   
-  e. `content/schemas`: json schemas used in the database
+  e. `content/schemas`: JSON schemas used in the database
   
-  f. `content/templates`: json templates for objects used in the database  
-
+  f. `content/templates`: JSON templates for objects used in the database  
 
 
 
