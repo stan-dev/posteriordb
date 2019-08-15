@@ -26,17 +26,13 @@ dataset.posterior <- function (x, ...){
 #' @export
 dataset_file_path <- function(x, tempdir = TRUE){
   checkmate::assert_class(x, "posterior")
-  checkmate::assert_file_exists(file.path(x$pdb$path, paste0(x$data_info$data_file, ".zip")))
-  pdfp <- dataset_temp_file_path(x)
+  ffp <- file.path(x$pdb$path, paste0(x$data_info$data_file, ".zip"))
+  checkmate::assert_file_exists(ffp)
+  tfp <- dataset_temp_file_path(x)
   
-  if(!checkmate::test_file_exists(pdfp)){
-    dir.create(dataset_temp_dir(), recursive = TRUE, showWarnings = FALSE)
-    file.copy(from = file.path(x$pdb$path, paste0(x$data_info$data_file, ".zip")), to = paste0(pdfp, ".zip"))
-    unzip(zipfile = paste0(pdfp, ".zip"), exdir = dataset_temp_dir())
-    file.remove(paste0(pdfp, ".zip"))
-  }
+  copy_and_unzip(ffp, tfp)
   
-  pdfp
+  tfp
 }
 
 
