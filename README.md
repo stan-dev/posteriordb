@@ -228,6 +228,23 @@ $added_date
 
 Note that the references are referencing to BibTeX items that can be found in `content/references/references.bib`.
 
+To access gold standard posterior draws we can use the function `gold_standard()` as follows. 
+
+```
+> gs <- gold_standard(po)
+> posterior_draws <- draws(gs)
+> head(posterior_draws[, 1:3])
+
+     theta.1  theta.2   theta.3
+1  3.5027341 8.618518  9.967790
+2 -0.8378876 7.734585 -4.979401
+3  4.8066627 6.400773  6.547035
+4  2.8120378 3.366140  2.647097
+5  1.8940634 5.463313 11.866009
+6  3.9630204 3.807904  3.976421
+```
+
+
 
 ## Content
 

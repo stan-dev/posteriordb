@@ -7,3 +7,4 @@ posterior_fit <- function(x){
   class(x) <- "posterior_fit"
   x
 }
+

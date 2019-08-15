@@ -49,6 +49,10 @@ test_that("Test the code in the README", {
   expect_silent(mi <- model_info(po))
   checkmate::expect_names(names(mi), 
                           must.include = c("title", "description", "urls", "references", "keywords"))
+  
+  expect_silent(gs <- gold_standard(po))
+  expect_silent(posterior_draws <- draws(gs))
+  checkmate::expect_names(names(posterior_draws), must.include = c("theta.1", "theta.2", "theta.3"))
 
 })
 

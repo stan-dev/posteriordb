@@ -1,4 +1,4 @@
-context("test-pdb-content")
+context("test-pdb-gold_standard")
 
 test_that("Check that gold_standard works as expected", {
   expect_silent(pdb_dir <- pdb:::get_pdb_dir(getwd()))
