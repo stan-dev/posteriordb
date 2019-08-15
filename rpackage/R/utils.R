@@ -12,7 +12,7 @@ remove_file_extension <- function(x){
 copy_and_unzip <- function(from, to, overwrite = FALSE){
   checkmate::assert_file_exists(from)
   checkmate::assert_flag(overwrite)
-  if(!checkmate::test_file_exists(to) & !overwrite){
+  if(!checkmate::test_file_exists(to) | overwrite){
     dir.create(dirname(to), recursive = TRUE, showWarnings = FALSE)
     checkmate::assert_path_for_output(to)
     file.copy(from = from, to = paste0(to, ".zip"))
