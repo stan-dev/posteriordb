@@ -1,0 +1,20 @@
+{
+  "keywords": [
+    "bda3_example",
+    "hiearchical"
+  ],
+  "description": "A non-centered hiearchical model for the 8 schools example of Rubin (1981)",
+  "urls": [
+    "http://www.stat.columbia.edu/~gelman/arm/examples/schools"
+  ],
+  "title": "A non-centered hiearchical model for 8 schools",
+  "references": [
+    "rubin1981estimation",
+    "gelman2013bayesian"
+  ],
+  "model_code": {
+    "stan": "content/models/stan/8_schools_noncentered.stan"
+  },
+  "added_by": "Mans Magnusson",
+  "added_date": "2019-08-12"
+}

@@ -17,8 +17,9 @@ There are many purposes with the PDB
 
 ### Future
 
-The future for the posterior database is to:
-1. Add python library
+In the immediate future, we plan to
+
+1. Add a python library
 2. Add more posteriors
 3. Add more gold standards
 
@@ -26,18 +27,18 @@ The long term goal is to move the posterior database to an open RESTful NoSQL da
 
 ## Design choices (so far)
 
+The main focus of the database is simplicity in data and model, both in understanding and in use.
+
 The following are the current design choices in designing the posterior database.
 
-The main focus with the database is simplicity in data and model, both in understanding and in use.
-
-1. Priors are hardcoded in model files
-   Create a new model to test different priors
-2. Data transformations are stored as different datasets
+1. Priors are hardcoded in model files as changing the prior changes the posterior.
+   Create a new model to test different priors.
+2. Data transformations are stored as different datasets.
    Create new data to test different data transformations, subsets, and variable settings. This makes the database larger/less memory efficient but simplifies the analysis of individual posteriors.
 3. Models and data has [model/data].info.json files with model and data specific information.
 4. Templates for different jsons can be found in content/templates and schemas in schemas (Note: these don't exist right now and will be added later)
-5. Prefix 'syn_' stands for synthetic data where the generative process is known and can be found in content/data-raw
-6. All data preprocessing is included in the data-raw folder
+5. Prefix 'syn_' stands for synthetic data where the generative process is known and can be found in content/data-raw.
+6. All data preprocessing is included in content/data-raw.
 7. Specific information for different PPL representations of models is included in the PPL syntax files as comments, not in the model.info.json files.
 
 ### Add a posterior to the database
@@ -46,9 +47,9 @@ Fork and submit it as a PR.
 
 ## Using the posterior database from R (with the R package)
 
-The included database contain convinience functions to access data, Stan code and information for individual posteriors.
+The included database contains convenience functions to access data, model code and information for individual posteriors.
 
-To install the package, simply clone this repository and run the following snippet to install the package in the cloned folder. The R package does not contain the content of the posterior database and hence the repository needs to be cloned.
+To install the package, clone this repository and run the following snippet to install the package in the cloned folder. The R package does not contain the content of the posterior database and hence the repository needs to be cloned.
 
 ```
 devtools::install("rpackage/")
@@ -56,14 +57,17 @@ library(pdb)
 ```
 
 First we create the posterior database to use, here the cloned posterior database.
+
 ```
 my_pdb <- pdb(getwd())
 ```
 
-To list the posteriors available, just use `posterior_names()`
+The above code requires that your working directory is in the main folder of your copy
+of this project. Alternatively, you can specify the path to the folder directly. To list the posteriors available, use `posterior_names()`.
+
 ```
-> pos <- posterior_names(my_pdb)
-> head(pos)
+pos <- posterior_names(my_pdb)
+head(pos)
 
 [1] "8_schools-8_schools_centered"                               
 [2] "8_schools-8_schools_noncentered"                            
@@ -76,8 +80,8 @@ To list the posteriors available, just use `posterior_names()`
 In the same fashion, we can list data and models included in the database as
 
 ```
-> mn <- model_names(my_pdb)
-> head(mn)
+mn <- model_names(my_pdb)
+head(mn)
 
  [1] "8_schools_centered"                        
  [2] "8_schools_noncentered"                     
@@ -86,24 +90,27 @@ In the same fashion, we can list data and models included in the database as
  [5] "gmm_diagonal_ordered"                      
  [6] "gmm_nonordered" 
 
-> dn <- dataset_names(my_pdb)
-> head(dn)
+dn <- dataset_names(my_pdb)
+head(dn)
 
 [1] "8_schools"                 "prideprejustice_chapter"   "prideprejustice_paragraph"
 [4] "radon_mn"                  "radon"                     "roaches_scaled"
 
 ```
 
-The posteriors name is made up of the posterior data and the model. To access a posterior we can use the model name.
+The posterior's name is made up of the data and model fitted
+to the data. Together, these two uniquely define a posterior distribution.
+To access a posterior object we can use the model name.
 
 ```
 po <- posterior("8_schools-8_schools_centered", my_pdb)
 ```
 
-From the posterior object, we can access data, stan code and information.
+From the posterior object, we can access data, model code (i.e., Stan code
+in this case) and a lot of other useful information.
 
 ```
-> dataset(po)
+dataset(po)
 $J
 [1] 8
 
@@ -113,8 +120,8 @@ $y
 $sigma
 [1] 15 10 16 11  9 11 10 18
 
-> sc <- stan_code(po)
-> head(sc)
+sc <- stan_code(po)
+head(sc)
 
 [1] ""                                                    
 [2] "data {"                                              
@@ -124,16 +131,16 @@ $sigma
 [6] "}" 
 ```
 
-We can also access the paths to data after they have been unzipped and copied to the R temp directory. By default, stan code is also copied to the R temp directory
+We can also access the paths to data after they have been unzipped and copied to the R temp directory. By default, the model code is also copied to the R temp directory
 
 ```
-> dfp <- dataset_file_path(po)
-> dfp
+dfp <- dataset_file_path(po)
+dfp
 
 "/var/folders/9h/yf354vb917z6gr6mz7bfb1d40000gn/T//RtmpCmhFba/posteriors/data/8_schools.json"
 
-> scfp <- stan_code_file_path(po)
-> scfp
+scfp <- stan_code_file_path(po)
+scfp
 
 "/var/folders/9h/yf354vb917z6gr6mz7bfb1d40000gn/T//RtmpCmhFba/posteriors/stan_code/8_schools_centered.stan"
 
@@ -142,7 +149,7 @@ We can also access the paths to data after they have been unzipped and copied to
 We can also access information regarding the model and the data used to compute the posterior.
 
 ```
-> data_info(po)
+data_info(po)
 
 $keywords
 $keywords[[1]]
@@ -178,7 +185,7 @@ $added_date
 [1] "2019-08-12"
 
 
-> model_info(po)
+model_info(po)
 $keywords
 $keywords[[1]]
 [1] "bda3_example"
@@ -226,20 +233,14 @@ Note that the references are referencing to BibTeX items that can be found in `c
 
 The database contains
 
-1. `posteriors`: A folder with the different posteriors as JSON slots pointing to data and models
-2. The content folder contains (this part is not stable and may change)
-
-  a. `content/data`: The data used in the models
-  
-  b. `content/data-raw`: Data used to generate the data in the data folder with reproducible code (maybe git submodule further along).
-  
-  c. `content/models`: The models used in different PPF
-  
-  d. `content/posterior_gold_standards`: A folder with different posterior draws (maybe git submodule further along).
-  
-  e. `content/schemas`: JSON schemas used in the database
-  
-  f. `content/templates`: JSON templates for objects used in the database  
+* `posteriors`: A folder with the different posteriors as JSON slots pointing to data and models
+* `content`: A folder with the following sub directories (this part is not stable and may change)
+  - `content/data`: The data used in the models
+  - `content/data-raw`: Data used to generate the data in the data folder with reproducible code (maybe git submodule further along).
+  - `content/models`: The models used in different PPF
+  - `content/posterior_gold_standards`: A folder with sets of posterior draws that are designed to provide the gold standard to which to compare to (maybe git submodule further along).
+  - `content/schemas`: JSON schemas used in the database
+  - `content/templates`: JSON templates for objects used in the database  
 
 
 
