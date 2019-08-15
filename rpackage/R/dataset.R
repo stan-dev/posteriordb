@@ -5,7 +5,7 @@
 #' 
 #' @export
 dataset <- function (x, ...) {
-  UseMethod(object = x, generic = "dataset")
+  UseMethod("dataset")
 }
 
 
@@ -22,7 +22,6 @@ dataset.posterior <- function (x, ...){
 #' Extract data for posterior
 #' 
 #' @inheritParams model_code_file_path
-#' @importFrom utils unzip
 #' @export
 dataset_file_path <- function(x, tempdir = TRUE){
   checkmate::assert_class(x, "posterior")
