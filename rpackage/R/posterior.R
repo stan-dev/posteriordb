@@ -9,7 +9,7 @@ posterior <- function(name, pdbo = pdb()){
   checkmate::assert_choice(name, names(pdbo))
   pfn <- posterior_file_path(name, pdbo)
   po <- jsonlite::read_json(pfn)
-  class(po) <- c("posterior", "list")
+  class(po) <- c("posterior")
   
   model_info_path <- model_info_file_path(po$model_name, pdbo$path)
   po$model_info <- jsonlite::read_json(model_info_path)
@@ -35,6 +35,7 @@ data_info_file_path <- function(name, base_dir) {
 assert_posterior <- function(x){
   checkmate::assert_class(x, "posterior")
   checkmate::assert_list(x)  
-  checkmate::assert_names(names(x), must.include = c("model_name", "data_name", "model_info", "data_info", "name", "pdb"))  
+  checkmate::assert_names(names(x), must.include = c("model_name", "data_name", "model_info", "data_info", "name", "pdb", "added_by", "added_date"))  
+  checkmate::assert_class(x$added_date, "Date") 
   checkmate::assert_list(x$model_info, min.len = 1)
 }
