@@ -1,4 +1,4 @@
-Package: pdb
+Package: posteriordb
 Type: Package
 Title: The Posterior Database R functionality
 Version: 0.1
