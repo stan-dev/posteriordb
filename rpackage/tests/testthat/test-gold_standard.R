@@ -1,7 +1,7 @@
 context("test-pdb-gold_standard")
 
 test_that("Check that gold_standard works as expected", {
-  expect_silent(pdb_dir <- pdb:::get_pdb_dir(getwd()))
+  expect_silent(pdb_dir <- posteriordb:::get_pdb_dir(getwd()))
   expect_silent(pdb_test <- pdb(x = pdb_dir))
   expect_silent(po <- posterior("8_schools-8_schools_centered", pdb_test))
   expect_silent(gs <- gold_standard(po))

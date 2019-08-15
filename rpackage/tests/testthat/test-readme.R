@@ -1,7 +1,7 @@
 context("test-readme")
 
 test_that("Test the code in the README", {
-  expect_silent(pdb_dir <- pdb:::get_pdb_dir(getwd()))
+  expect_silent(pdb_dir <- posteriordb:::get_pdb_dir(getwd()))
   expect_silent(my_pdb <- pdb(pdb_dir))
 
   expect_silent(pos <- posterior_names(my_pdb))
