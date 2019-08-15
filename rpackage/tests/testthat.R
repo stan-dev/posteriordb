@@ -1,4 +1,4 @@
 library(testthat)
 library(pdb)
 
-test_check("pdb")
+test_check("posteriordb")
