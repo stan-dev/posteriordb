@@ -1,4 +1,4 @@
-# Taken from the 
+# Taken from the
 url <- "http://stat.columbia.edu/~gelman/arm/examples/arsenic/wells.dat"
 wells <- read.table(url)
 wells$dist100 <- with(wells, dist / 100)
@@ -32,4 +32,3 @@ X <- model.matrix(~ c_dist100 + c_arsenic + c_educ4 +
 arsenic <- list(y = wells$switch, X = X, N = nrow(X), P = ncol(X))
 writeLines(jsonlite::toJSON(arsenic, pretty = TRUE, auto_unbox = TRUE), con = "wells_centered_educ4_interact.json")
 zip(zipfile = "wells_centered_educ4_interact.json.zip", files = "wells_centered_educ4_interact.json", flags = "-j")
-

@@ -28,7 +28,7 @@ word_freq <- table(tidy_pride$word)
 rare_words <- data.frame(word = names(word_freq[word_freq <= 5]), stringsAsFactors = FALSE)
 tidy_pride <- anti_join(tidy_pride, y = rare_words)
 
-# Cleanup 
+# Cleanup
 tidy_pride$word <- stringr::str_replace_all(tidy_pride$word, pattern = "_", replacement = "")
 tidy_pride <- tidy_pride[tidy_pride$chapter>0,]
 tidy_pride$paragraph <- as.integer(as.factor(tidy_pride$paragraph))
@@ -37,7 +37,7 @@ tidy_pride$w <- as.integer(as.factor(tidy_pride$word))
 vocabulary <- levels(as.factor(tidy_pride$word))
 
 # To stan
-prideprejustice_paragraph <-  
+prideprejustice_paragraph <-
   list(V = length(vocabulary),
        M = length(unique(tidy_pride$paragraph)),
        N = length(tidy_pride$w),
@@ -56,7 +56,7 @@ data_info <- list(title = jsonlite::unbox("The book 'Pride and Prejustice' by Ja
                   keywords = "text data")
 jsonlite::write_json(data_info, "prideprejustice_paragraph.info.json", pretty = TRUE)
 
-prideprejustice_chapter <-  
+prideprejustice_chapter <-
   list(V = length(vocabulary),
        M = length(unique(tidy_pride$chapter)),
        N = length(tidy_pride$w),
@@ -74,4 +74,3 @@ data_info <- list(title = jsonlite::unbox("The book 'Pride and Prejustice' by Ja
                   references = character(0),
                   keywords = "text data")
 jsonlite::write_json(data_info, "prideprejustice_chapter.info.json", pretty = TRUE)
-

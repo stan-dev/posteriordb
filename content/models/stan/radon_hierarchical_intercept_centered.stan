@@ -1,18 +1,18 @@
 data {
-  int<lower=0> J; 
-  int<lower=0> N; 
+  int<lower=0> J;
+  int<lower=0> N;
   int<lower=1,upper=J> county_idx[N];
   vector[N] log_uppm;
   vector[N] floor_measure;
   vector[N] log_radon;
-} 
+}
 parameters {
   vector[J] alpha;
   vector[2] beta;
   real mu_alpha;
   real<lower=0> sigma_alpha;
   real<lower=0> sigma_y;
-} 
+}
 model {
   vector[N] mu;
   vector[N] muj;
@@ -29,4 +29,3 @@ model {
     target += normal_lpdf(log_radon[n] | mu[n], sigma_y);
   }
 }
-

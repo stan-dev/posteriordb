@@ -9,8 +9,8 @@ Description: R functionality of easy access of different posteriors (i.e. combin
 License: GPL
 RoxygenNote: 6.1.1
 Encoding: UTF-8
-Imports: 
+Imports:
   checkmate,
   jsonlite
-Suggests: 
+Suggests:
     testthat

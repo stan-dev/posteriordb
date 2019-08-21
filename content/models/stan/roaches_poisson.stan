@@ -1,5 +1,5 @@
 data {
-  int<lower=0> N; 
+  int<lower=0> N;
   vector[N] exposure2;
   vector[N] roach1;
   vector[N] senior;
@@ -13,7 +13,7 @@ transformed data {
 }
 parameters {
   vector[4] beta;
-} 
+}
 model {
   beta ~ normal(0, 10);
   y ~ poisson_log(log_expo + beta[1] + beta[2] * roach1 + beta[3] * treatment + beta[4] * senior);

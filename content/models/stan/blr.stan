@@ -1,7 +1,7 @@
 data {
-  int <lower=0> N; 
-  int <lower=0> D; 
-  matrix [N, D] X; 
+  int <lower=0> N;
+  int <lower=0> D;
+  matrix [N, D] X;
   vector [N] y;
 }
 

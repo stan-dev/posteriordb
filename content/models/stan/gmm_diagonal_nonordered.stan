@@ -13,7 +13,7 @@ parameters {
 
 model {
  real ps[K];
- 
+
  // prior
  for(k in 1:K){
    mu[k] ~ normal(0, 10);
@@ -24,6 +24,6 @@ model {
    for (k in 1:K){
      ps[k] = log(pi[k]) + normal_lpdf(X[n,] | mu[k], sigma[k]);
    }
-   target += log_sum_exp(ps); 
+   target += log_sum_exp(ps);
  }
 }

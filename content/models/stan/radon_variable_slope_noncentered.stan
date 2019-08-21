@@ -1,6 +1,6 @@
 data {
-  int<lower=0> J; 
-  int<lower=0> N; 
+  int<lower=0> J;
+  int<lower=0> N;
   int<lower=1,upper=J> county_idx[N];
   vector[N] floor_measure;
   vector[N] log_radon;
@@ -12,12 +12,12 @@ parameters {
   real mu_beta;
   real<lower=0> sigma_beta;
   real<lower=0> sigma_y;
-} 
+}
 
 transformed parameters {
   vector[J] beta;
   // implies: beta ~ normal(mu_beta, sigma_beta);
-  beta = mu_beta + sigma_beta * beta_raw;  
+  beta = mu_beta + sigma_beta * beta_raw;
 }
 
 model {

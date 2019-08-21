@@ -14,7 +14,7 @@ parameters {
 
 model {
  real ps[K];
- 
+
  // prior
  for(k in 1:K){
    mu[k] ~ normal(0, 10);
@@ -24,10 +24,10 @@ model {
  // likelihood
  for (n in 1:N){
    for (k in 1:K){
-     ps[k] = log(pi[k]) + 
+     ps[k] = log(pi[k]) +
              multi_normal_cholesky_lpdf(X[n,] | mu[k], diag_pre_multiply(sigma[k], L[k]));
    }
-   target += log_sum_exp(ps); 
+   target += log_sum_exp(ps);
  }
- 
+
 }

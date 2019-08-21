@@ -1,8 +1,8 @@
 #' Gold standard posterior draws
-#' 
+#'
 #' @param x a \code{posterior} object to access the gold standard from.
 #' @param ... Currently not used.
-#' 
+#'
 #' @export
 gold_standard <- function (x, ...) {
   UseMethod("gold_standard")
@@ -20,18 +20,18 @@ gold_standard.posterior <- function (x, ...){
 
 
 #' Extract data for posterior
-#' 
+#'
 #' @inheritParams model_code_file_path
 #' @export
 gold_standard_file_path <- function(x, tempdir = TRUE){
   checkmate::assert_class(x, "posterior")
   ffp <- file.path(x$pdb$path, paste0(x$gold_standard, ".zip"))
   if(!checkmate::test_file_exists(ffp)) stop("No gold standard posterior currently exist.")
-  
+
   tfp <- gold_standard_temp_file_path(x)
-  
+
   copy_and_unzip(from = ffp, to = tfp)
-  
+
   tfp
 }
 
@@ -41,6 +41,3 @@ gold_standard_temp_dir <- function() file.path(tempdir(), "posteriors", "gold_st
 gold_standard_file_name <- function(x) basename(x$gold_standard)
 
 gold_standard_temp_file_path <- function(x) file.path(gold_standard_temp_dir(), gold_standard_file_name(x))
-
-
-

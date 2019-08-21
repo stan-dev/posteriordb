@@ -7,7 +7,7 @@
 pdb(x = getwd())
 }
 \arguments{
-\item{x}{a path to the posterior database 
+\item{x}{a path to the posterior database
 (i.e. where folders content and posteriors exists)}
 }
 \value{

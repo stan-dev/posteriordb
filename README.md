@@ -69,11 +69,11 @@ of this project. Alternatively, you can specify the path to the folder directly.
 pos <- posterior_names(my_pdb)
 head(pos)
 
-[1] "8_schools-8_schools_centered"                               
-[2] "8_schools-8_schools_noncentered"                            
-[3] "prideprejustice_chapter-ldaK5"                    
-[4] "prideprejustice_paragraph-ldaK5"                  
-[5] "radon_mn-radon_hierarchical_intercept_centered"   
+[1] "8_schools-8_schools_centered"
+[2] "8_schools-8_schools_noncentered"
+[3] "prideprejustice_chapter-ldaK5"
+[4] "prideprejustice_paragraph-ldaK5"
+[5] "radon_mn-radon_hierarchical_intercept_centered"
 [6] "radon_mn-radon_hierarchical_intercept_noncentered"
 ```
 
@@ -83,12 +83,12 @@ In the same fashion, we can list data and models included in the database as
 mn <- model_names(my_pdb)
 head(mn)
 
- [1] "8_schools_centered"                        
- [2] "8_schools_noncentered"                     
- [3] "blr"                                       
- [4] "gmm_diagonal_nonordered"                   
- [5] "gmm_diagonal_ordered"                      
- [6] "gmm_nonordered" 
+ [1] "8_schools_centered"
+ [2] "8_schools_noncentered"
+ [3] "blr"
+ [4] "gmm_diagonal_nonordered"
+ [5] "gmm_diagonal_ordered"
+ [6] "gmm_nonordered"
 
 dn <- dataset_names(my_pdb)
 head(dn)
@@ -123,12 +123,12 @@ $sigma
 sc <- stan_code(po)
 head(sc)
 
-[1] ""                                                    
-[2] "data {"                                              
-[3] "  int <lower=0> J; // number of schools"             
-[4] "  real y[J]; // estimated treatment"                 
+[1] ""
+[2] "data {"
+[3] "  int <lower=0> J; // number of schools"
+[4] "  real y[J]; // estimated treatment"
 [5] "  real<lower=0> sigma[J]; // std of estimated effect"
-[6] "}" 
+[6] "}"
 ```
 
 We can also access the paths to data after they have been unzipped and copied to the R temp directory. By default, the model code is also copied to the R temp directory
@@ -228,7 +228,7 @@ $added_date
 
 Note that the references are referencing to BibTeX items that can be found in `content/references/references.bib`.
 
-To access gold standard posterior draws we can use the function `gold_standard()` as follows. 
+To access gold standard posterior draws we can use the function `gold_standard()` as follows.
 
 ```
 > gs <- gold_standard(po)
@@ -257,7 +257,4 @@ The database contains
   - `content/models`: The models used in different PPF
   - `content/posterior_gold_standards`: A folder with sets of posterior draws that are designed to provide the gold standard to which to compare to (maybe git submodule further along).
   - `content/schemas`: JSON schemas used in the database
-  - `content/templates`: JSON templates for objects used in the database  
-
-
-
+  - `content/templates`: JSON templates for objects used in the database
