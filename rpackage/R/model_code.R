@@ -1,14 +1,14 @@
 #' Extract file paths to model code from posterior object
-#' 
+#'
 #' @param x a \code{posterior} object.
 #' @param framework model code framework (e.g. \code{stan}).
 #' @param tempdir Should the file be copied to R temporary directory? Default is \code{TRUE}.
-#' 
+#'
 #' @export
 model_code_file_path <- function(x, framework, tempdir = TRUE){
   checkmate::assert_class(x, "posterior")
   checkmate::assert_choice(framework, names(x$model_info$model_code))
-  
+
   mcfp <- file.path(x$pdb$path, x$model_info$model_code[[framework]])
   if(tempdir){
     mcfn <- model_code_file_name(x, framework)
@@ -23,7 +23,7 @@ model_code_file_path <- function(x, framework, tempdir = TRUE){
 }
 
 #' @rdname model_code_file_path
-#' @export 
+#' @export
 model_code <- function(x, framework){
   checkmate::assert_class(x, "posterior")
   scfp <- model_code_file_path(x, framework, FALSE)
@@ -37,14 +37,14 @@ model_code_file_name <- function(x, framework) {
 }
 
 #' @rdname model_code_file_path
-#' @export 
+#' @export
 stan_code_file_path <- function(x, tempdir = TRUE){
   checkmate::assert_class(x, "posterior")
   model_code_file_path(x, "stan", tempdir)
 }
 
 #' @rdname model_code_file_path
-#' @export 
+#' @export
 stan_code <- function(x){
   checkmate::assert_class(x, "posterior")
   model_code(x, "stan")

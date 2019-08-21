@@ -1,4 +1,4 @@
-# Taken from the 
+# Taken from the
 url <- "http://stat.columbia.edu/~gelman/arm/examples/arsenic/wells.dat"
 wells <- read.table(url)
 wells$dist100 <- with(wells, dist / 100)

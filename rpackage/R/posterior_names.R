@@ -1,5 +1,5 @@
 #' Get all existing posterior names from a posterior database
-#' 
+#'
 #' @param pdbo a \code{pdb} object.
 #' @export
 posterior_names <- function(pdbo){

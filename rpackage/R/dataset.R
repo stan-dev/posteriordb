@@ -1,8 +1,8 @@
 #' Posterior Data Sets
-#' 
+#'
 #' @param x a \code{posterior} object to access dataset from.
 #' @param ... Currently not used.
-#' 
+#'
 #' @export
 dataset <- function (x, ...) {
   UseMethod("dataset")
@@ -20,7 +20,7 @@ dataset.posterior <- function (x, ...){
 
 
 #' Extract data for posterior
-#' 
+#'
 #' @inheritParams model_code_file_path
 #' @export
 dataset_file_path <- function(x, tempdir = TRUE){
@@ -28,9 +28,9 @@ dataset_file_path <- function(x, tempdir = TRUE){
   ffp <- file.path(x$pdb$path, paste0(x$data_info$data_file, ".zip"))
   checkmate::assert_file_exists(ffp)
   tfp <- dataset_temp_file_path(x)
-  
+
   copy_and_unzip(ffp, tfp)
-  
+
   tfp
 }
 

@@ -1,5 +1,5 @@
 #' Access model and data information
-#' 
+#'
 #' @param po a \code{posterior} object.
 #' @export
 model_info <- function(po){

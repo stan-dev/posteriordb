@@ -1,10 +1,10 @@
 #' Posterior database (pdb) constructor
-#' 
-#' @param x a path to the posterior database 
+#'
+#' @param x a path to the posterior database
 #' (i.e. where folders content and posteriors exists)
-#' 
+#'
 #' @return a \code{pdb} object
-#' 
+#'
 #' @export
 pdb <- function(x = getwd()){
   assert_pdb_dir(x)

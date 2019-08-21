@@ -21,7 +21,7 @@ transformed parameters {
   // implies: alpha ~ normal(mu_alpha, sigma_alpha);
   alpha = mu_alpha + sigma_alpha * alpha_raw;
   // implies: beta ~ normal(mu_beta, sigma_beta);
-  beta = mu_beta + sigma_beta * beta_raw;  
+  beta = mu_beta + sigma_beta * beta_raw;
 }
 
 model {
@@ -34,7 +34,7 @@ model {
   mu_beta ~ normal(0,10);
   alpha_raw ~ normal(0, 1);
   beta_raw ~ normal(0, 1);
-  
+
   // Likelihood
   for(n in 1:N){
     mu[n] = alpha[county_idx[n]] + floor_measure[n] * beta[county_idx[n]];

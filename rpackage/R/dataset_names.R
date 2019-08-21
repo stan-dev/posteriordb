@@ -1,5 +1,5 @@
 #' Get all existing dataset names from a posterior database
-#' 
+#'
 #' @param pdbo a \code{pdb} object.
 #' @export
 dataset_names <- function(pdbo){

@@ -1,17 +1,17 @@
 #' Generate simulated data using a gaussian mixture model
-#' 
-#' @details Simulate a standard linear regression model 
-#' 
+#'
+#' @details Simulate a standard linear regression model
+#'
 #' @param pi vector of components (K)
 #' @param N Number of observations
 #' @param mu list with K elements with vector of length data (D)imensions
 #' @param Cov list with K elements with covariance matrix rank D
 #' @param seed The numeric seed to use for simulation
 #' @param round.digits The number of digits for data
-#' 
-simulate_data_gaussian_mixture <- 
-  function(n, 
-           pi, 
+#'
+simulate_data_gaussian_mixture <-
+  function(n,
+           pi,
            mu,
            Sigma,
            digits = 5){
@@ -27,13 +27,13 @@ simulate_data_gaussian_mixture <-
     checkmate::assert_matrix(Sigma[[i]], nrows = length(mu[[1]]), ncols = length(mu[[1]]))
   }
   checkmate::assert_int(digits)
-  
+
   component <- sample(1:length(pi), size = n, replace = TRUE, prob = pi)
 
   X <- matrix(0, nrow = n, ncol = length(mu[[1]]))
   for(i in 1:n){
     X[i, ] <- mvtnorm::rmvnorm(1, mu[[component[i]]], sigma = Sigma[[component[i]]], method = "eigen")
-  }  
+  }
   X <- round(X, digits = digits)
   list(N = as.integer(n), D = as.integer(length(mu[[1]])), K = as.integer(length(pi)), X = X, component = as.integer(component))
 

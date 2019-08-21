@@ -5,7 +5,7 @@ data {
 }
 parameters {
   vector[J] theta_trans; // transformation of theta
-  real mu; // hyper-parameter of mean 
+  real mu; // hyper-parameter of mean
   real<lower=0> tau; // hyper-parameter of sd
 }
 transformed parameters{
@@ -15,7 +15,7 @@ transformed parameters{
 }
 model {
   theta_trans ~ normal (0,1);
-  y ~ normal(theta , sigma); 
+  y ~ normal(theta , sigma);
   mu ~ normal(0, 5); // a non-informative prior
   tau ~ cauchy(0, 5);
 }

@@ -4,7 +4,7 @@ data {
   real y[J]; // estimated treatment
   real<lower=0> sigma[J]; // std of estimated effect
 }
-parameters { 
+parameters {
   real theta[J]; // treatment effect in school j
   real mu; // hyper-parameter of mean
   real<lower=0> tau; // hyper-parameter of sdv
