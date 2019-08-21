@@ -49,5 +49,3 @@ stan_code <- function(x){
   checkmate::assert_class(x, "posterior")
   model_code(x, "stan")
 }
-
-

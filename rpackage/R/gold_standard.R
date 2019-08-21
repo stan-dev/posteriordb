@@ -41,6 +41,3 @@ gold_standard_temp_dir <- function() file.path(tempdir(), "posteriors", "gold_st
 gold_standard_file_name <- function(x) basename(x$gold_standard)
 
 gold_standard_temp_file_path <- function(x) file.path(gold_standard_temp_dir(), gold_standard_file_name(x))
-
-
-

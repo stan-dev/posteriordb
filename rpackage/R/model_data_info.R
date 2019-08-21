@@ -13,4 +13,3 @@ data_info <- function(po){
   checkmate::assert_class(po, "posterior")
   po$data_info
 }
-

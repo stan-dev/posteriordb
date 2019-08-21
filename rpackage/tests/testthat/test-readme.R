@@ -55,4 +55,3 @@ test_that("Test the code in the README", {
   checkmate::expect_names(names(posterior_draws), must.include = c("theta.1", "theta.2", "theta.3"))
 
 })
-

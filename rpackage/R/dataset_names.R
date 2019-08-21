@@ -8,4 +8,3 @@ dataset_names <- function(pdbo){
   pns <- pns[grepl(pns, pattern = "\\.json\\.zip$")]
   basename(remove_file_extension(pns))
 }
-

@@ -74,4 +74,3 @@ data_info <- list(title = jsonlite::unbox("The book 'Pride and Prejustice' by Ja
                   references = character(0),
                   keywords = "text data")
 jsonlite::write_json(data_info, "prideprejustice_chapter.info.json", pretty = TRUE)
-

@@ -22,4 +22,3 @@ test_that("Check that all posteriors names in JSON is the same as file names", {
   #  expect_silent(po <- posterior(posteriors[i], pdb_test))
   #}
 })
-

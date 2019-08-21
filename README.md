@@ -258,6 +258,3 @@ The database contains
   - `content/posterior_gold_standards`: A folder with sets of posterior draws that are designed to provide the gold standard to which to compare to (maybe git submodule further along).
   - `content/schemas`: JSON schemas used in the database
   - `content/templates`: JSON templates for objects used in the database
-
-
-

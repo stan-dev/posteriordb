@@ -29,4 +29,3 @@ model {
     target += normal_lpdf(log_radon[n] | mu[n], sigma_y);
   }
 }
-

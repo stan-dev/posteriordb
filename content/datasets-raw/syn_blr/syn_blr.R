@@ -55,7 +55,3 @@ set.seed(4714)
 syn_blrD5n500C07 <- simulate_data_linear_regression(n = 500, beta = rep(1, 5), beta_cov = 0.3 * diag(5) + 0.7, digits = 3)
 writeLines(jsonlite::toJSON(syn_blrD5n500C07, pretty = TRUE, auto_unbox = TRUE), con = "syn_blrD5n500C07.json")
 zip(zipfile = "syn_blrD5n500C07.json.zip", files = "syn_blrD5n500C07.json")
-
-
-
-

@@ -8,4 +8,3 @@ model_names <- function(pdbo){
   pns <- pns[grepl(pns, pattern = "\\.json$")]
   basename(remove_file_extension(pns))
 }
-

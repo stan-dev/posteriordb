@@ -39,4 +39,3 @@ writeLines(jsonlite::toJSON(radon, pretty = TRUE, auto_unbox = TRUE), con = "rad
 zip(zipfile = "radon.json.zip", files = "radon.json")
 writeLines(jsonlite::toJSON(radon_mn, pretty = TRUE, auto_unbox = TRUE), con = "radon_mn.json")
 zip(zipfile = "radon_mn.json.zip", files = "radon_mn.json")
-

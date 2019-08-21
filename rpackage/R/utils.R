@@ -30,5 +30,3 @@ get_pdb_dir <- function(x){
   if(basename(fp) == "") stop("No posterior database in path '", x, "'.", call. = FALSE)
   fp
 }
-
-

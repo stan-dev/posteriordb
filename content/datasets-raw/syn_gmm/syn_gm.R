@@ -57,6 +57,3 @@ syn_gmK2D1n200 <- simulate_data_gaussian_mixture(n = 200,
                                             digits = 3)
 writeLines(jsonlite::toJSON(syn_gmK2D1n200, pretty = TRUE, auto_unbox = TRUE), con = "syn_gmK2D1n200.json")
 zip(zipfile = "syn_gmK2D1n200.json.zip", files = "syn_gmK2D1n200.json")
-
-
-
