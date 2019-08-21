@@ -17,3 +17,15 @@ before_install:
 #after_success:
 #  - Rscript -e 'covr::codecov()'
 
+matrix:
+  include:
+    - language: python
+      python: "3.6"
+      before_install: cd python
+      install: pip install tox-travis
+      script: tox
+    - language: python
+      python: "3.7"
+      before_install: cd python
+      install: pip install tox-travis
+      script: tox
