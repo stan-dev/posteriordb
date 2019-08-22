@@ -16,3 +16,8 @@ repos:
     -   id: mypy
         files: ^(python/src/|python/tests/)
         args: []
+-   repo: https://github.com/asottile/reorder_python_imports
+    rev: v1.6.1
+    hooks:
+    -   id: reorder-python-imports
+        args: ['--application-directories=python:python/src', --py3-plus]
