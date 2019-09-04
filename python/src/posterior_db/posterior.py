@@ -22,7 +22,7 @@ class Posterior:
         return self.model_code_file_path("stan")
 
     def stan_code(self):
-        return self.model_code("stan")
+        return self.model.stan_code()
 
     def model_code(self, framework: str):
         return self.model.model_code(framework)

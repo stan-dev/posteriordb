@@ -28,3 +28,6 @@ class Model:
             contents = f.read()
 
         return contents
+
+    def stan_code(self):
+        return self.model_code("stan")
