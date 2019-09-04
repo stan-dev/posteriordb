@@ -31,3 +31,6 @@ class Model:
 
     def stan_code(self):
         return self.model_code("stan")
+
+    def stan_code_file_path(self):
+        return self.model_code_file_path("stan")
