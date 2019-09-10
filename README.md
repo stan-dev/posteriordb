@@ -9,19 +9,18 @@ This repository contains data and models to produce posteriors based on differen
 There are many purposes with the PDB
 
 1. A simple repository to access many models and dataset in a structured way from R and Python
-2. Store models and data in a structure that lends itself for testing inference algorithms on a large number of posteriors.
-3. A structure that makes it easy for students to access models and data for courses in Bayesian data analysis.
-4. A structure that is framework agnostic (although now Stan is in focus) and can be used with many different probabilistic programming frameworks.
-5. A structure that simplifies regression testing of probabilistic programming frameworks.
-6. Providing reliable gold standards for use in inference method development.
+1. Store models and data in a structure that lends itself for testing inference algorithms on a large number of posteriors.
+1. A structure that makes it easy for students to access models and data for courses in Bayesian data analysis.
+1. A structure that is framework agnostic (although now Stan is in focus) and can be used with many different probabilistic programming frameworks.
+1. A structure that simplifies regression testing of probabilistic programming frameworks.
+1. Providing reliable gold standards for use in inference method development.
 
 ### Future
 
 In the immediate future, we plan to
 
-1. Add a python library
-2. Add more posteriors
-3. Add more gold standards
+1. Add more posteriors
+1. Add more gold standards
 
 The long term goal is to move the posterior database to an open RESTful NoSQL database for easy access.
 
@@ -33,17 +32,20 @@ The following are the current design choices in designing the posterior database
 
 1. Priors are hardcoded in model files as changing the prior changes the posterior.
    Create a new model to test different priors.
-2. Data transformations are stored as different datasets.
+1. Data transformations are stored as different datasets.
    Create new data to test different data transformations, subsets, and variable settings. This makes the database larger/less memory efficient but simplifies the analysis of individual posteriors.
-3. Models and data has [model/data].info.json files with model and data specific information.
-4. Templates for different jsons can be found in content/templates and schemas in schemas (Note: these don't exist right now and will be added later)
-5. Prefix 'syn_' stands for synthetic data where the generative process is known and can be found in content/data-raw.
-6. All data preprocessing is included in content/data-raw.
-7. Specific information for different PPL representations of models is included in the PPL syntax files as comments, not in the model.info.json files.
+1. Models and data has [model/data].info.json files with model and data specific information.
+1. Templates for different jsons can be found in content/templates and schemas in schemas (Note: these don't exist right now and will be added later)
+1. Prefix 'syn_' stands for synthetic data where the generative process is known and can be found in content/data-raw.
+1. All data preprocessing is included in content/data-raw.
+1. Specific information for different PPL representations of models is included in the PPL syntax files as comments, not in the model.info.json files.
 
 ### Add a posterior to the database
 
 Fork and submit it as a PR.
+
+## Using the posterior database from python
+See [python README](./python/README.md)
 
 ## Using the posterior database from R (with the R package)
 
