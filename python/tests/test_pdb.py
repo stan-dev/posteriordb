@@ -1,7 +1,7 @@
 import os
 
-from posterior_db import Posterior
-from posterior_db import PosteriorDatabase
+from posteriordb import Posterior
+from posteriordb import PosteriorDatabase
 
 
 def test_posterior_database():
