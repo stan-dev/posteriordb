@@ -6,7 +6,6 @@ from .posterior_database import PosteriorDatabase
 class Model:
     def __init__(self, name: str, posterior_db: PosteriorDatabase):
         self.name = name
-        self.model_info = posterior_db.get_model_info(self.name)
         self.posterior_db = posterior_db
 
     def model_code_file_path(self, framework: str):
@@ -14,10 +13,7 @@ class Model:
         Returns filepath to model code file for `framework`
         """
         # TODO assert that framework is a valid framework for this model
-        base_path = self.posterior_db.path
-        path_within_posterior_db = self.model_info["model_code"][framework]
-        full_path = os.path.join(base_path, path_within_posterior_db)
-        return full_path
+        return self.posterior_db.get_model_code_path(self.name, framework)
 
     def model_code(self, framework: str):
         """

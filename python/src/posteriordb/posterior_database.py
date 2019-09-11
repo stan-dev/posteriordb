@@ -57,6 +57,17 @@ class PosteriorDatabase:
 
         return load_info(file_path, temporary_no_assertions)
 
+    def get_model_code_path(self, name, framework):
+        model_info = self.get_model_info(name)
+        path_within_posterior_db = model_info["model_code"][framework]
+        full_path = os.path.join(self.path, path_within_posterior_db)
+        return full_path
+
+    def get_dataset_path(self, name):
+        data_info = self.get_data_info(name)
+        path = os.path.join(self.path, data_info["data_file"] + ".zip")
+        return path
+
     def posterior_names(self):
         directory = os.path.join(self.path, "posteriors")
         # walk directory, find json files
