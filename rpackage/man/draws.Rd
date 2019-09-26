@@ -7,7 +7,7 @@
 draws(x)
 }
 \arguments{
-\item{x}{an object to extract  draws from.}
+\item{x}{an object to extract draws from.}
 }
 \description{
 Extract posterior draws

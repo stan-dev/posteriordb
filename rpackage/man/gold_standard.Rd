@@ -7,7 +7,7 @@
 gold_standard(x, ...)
 }
 \arguments{
-\item{x}{a \code{posterior} object to access the gold standard from.}
+\item{x}{a \code{posterior} object to access the gold standard for.}
 
 \item{...}{Currently not used.}
 }

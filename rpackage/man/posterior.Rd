@@ -4,12 +4,12 @@
 \alias{posterior}
 \title{Access a posterior in the posterior database}
 \usage{
-posterior(name, pdbo = pdb())
+posterior(name, pdb = pdb())
 }
 \arguments{
 \item{name}{a posterior name that exist in the posterior database}
 
-\item{pdbo}{a \code{pdb} posterior database object.}
+\item{pdb}{a \code{pdb} posterior database object.}
 }
 \description{
 Access a posterior in the posterior database

@@ -22,7 +22,7 @@ test_that("Test the code in the README", {
           "gmm_nonordered")
   checkmate::expect_subset(mnt,mn)
 
-  expect_silent(dn <- dataset_names(pdbo = my_pdb))
+  expect_silent(dn <- dataset_names(pdb = my_pdb))
   dnt <- c("8_schools",
            "prideprejustice_chapter",
            "prideprejustice_paragraph",

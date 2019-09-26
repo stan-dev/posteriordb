@@ -18,7 +18,8 @@ stan_dataset(x)
 \arguments{
 \item{x}{a \code{posterior} object.}
 
-\item{tempdir}{Should the file be copied to R temporary directory? Default is \code{TRUE}.}
+\item{tempdir}{Should the file be copied to R temporary directory?
+Default is \code{TRUE}.}
 }
 \description{
 Extract data for posterior

@@ -55,7 +55,7 @@ To install the package, clone this repository and run the following snippet to i
 
 ```
 devtools::install("rpackage/")
-library(pdb)
+library(posteriordb)
 ```
 
 First we create the posterior database to use, here the cloned posterior database.

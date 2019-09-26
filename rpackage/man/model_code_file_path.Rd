@@ -20,7 +20,8 @@ stan_code(x)
 
 \item{framework}{model code framework (e.g. \code{stan}).}
 
-\item{tempdir}{Should the file be copied to R temporary directory? Default is \code{TRUE}.}
+\item{tempdir}{Should the file be copied to R temporary directory?
+Default is \code{TRUE}.}
 }
 \description{
 Extract file paths to model code from posterior object

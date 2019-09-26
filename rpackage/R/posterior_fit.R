@@ -2,7 +2,8 @@
 #'
 #' @param x an object to convert to a \code{posterior_fit}.
 #'
-posterior_fit <- function(x){
+posterior_fit <- function(x) {
+  # TODO: how is that function supposed to work exactly?
   checkmate::assert_names(names(x), must.include = c("posterior_draws", "cfg"))
   class(x) <- "posterior_fit"
   x
