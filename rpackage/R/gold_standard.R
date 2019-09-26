@@ -11,10 +11,7 @@ gold_standard <- function(x, ...) {
 #' @rdname data
 #' @export
 gold_standard.posterior <- function(x, ...) {
-  sdfp <- gold_standard_file_path(x)
-  gs <- jsonlite::read_json(sdfp, simplifyVector = TRUE)
-  gs <- posterior_fit(gs)
-  gs
+  posterior_fit(gold_standard_file_path(x))
 }
 
 #' Extract data for posterior

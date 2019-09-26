@@ -4,10 +4,10 @@
 \alias{pdb}
 \title{Posterior database (pdb) constructor}
 \usage{
-pdb(x = getwd())
+pdb(path = getOption("pdb_path", getwd()))
 }
 \arguments{
-\item{x}{a path to the posterior database
+\item{path}{a path to the posterior database
 (i.e. where folders content and posteriors exists)}
 }
 \value{

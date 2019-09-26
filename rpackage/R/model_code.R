@@ -27,10 +27,17 @@ model_code_file_path <- function(x, framework, tempdir = TRUE) {
 #' @rdname model_code_file_path
 #' @export
 model_code <- function(x, framework) {
-  # TODO: collapse model code?
   checkmate::assert_class(x, "posterior")
   scfp <- model_code_file_path(x, framework, FALSE)
-  readLines(scfp)
+  out <- paste0(readLines(scfp), collapse = "\n")
+  class(out) <- "model_code"
+  out
+}
+
+#' @export
+print.model_code <- function(x, ...) {
+  cat(x)
+  invisible(x)
 }
 
 model_code_temp_dir <- function() {

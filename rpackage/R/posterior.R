@@ -14,7 +14,6 @@ posterior <- function(name, pdb = pdb()) {
 
 # read a posterior object from the data base
 read_posterior <- function(name, pdb) {
-  # TODO: merge 'posterior' and 'read_posterior'?
   checkmate::assert_class(pdb, "pdb")
   checkmate::assert_character(name)
   checkmate::assert_choice(name, names(pdb))
@@ -28,7 +27,6 @@ read_posterior <- function(name, pdb) {
 
 #' @export
 print.posterior <- function(x, ...) {
-  # TODO: print if the posterior is a gold standard
   cat0("Posterior\n\n")
   print(x$data_info)
   cat0("\n")
@@ -51,20 +49,18 @@ assert_posterior <- function(x) {
   invisible(x)
 }
 
-# TODO: what is the usage of the pdb argument in the generic?
-posterior_file_path <- function(x, pdb = NULL) {
+posterior_file_path <- function(x, ...) {
   UseMethod("posterior_file_path")
 }
 
 #' @export
-posterior_file_path.character <- function(x, pdb = NULL) {
+posterior_file_path.character <- function(x, pdb, ...) {
   checkmate::assert_choice(x, names(pdb))
   checkmate::assert_class(pdb, "pdb")
   file.path(pdb$path, "posteriors", paste0(x, ".json"))
 }
 
 #' @export
-posterior_file_path.posterior <- function(x, pdb = NULL) {
-  checkmate::assert_class(pdb, "pdb", null.ok = TRUE)
+posterior_file_path.posterior <- function(x, ...) {
   file.path(x$pdb$path, "posteriors", paste0(x$name, ".json"))
 }

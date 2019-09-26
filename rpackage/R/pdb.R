@@ -1,18 +1,16 @@
 #' Posterior database (pdb) constructor
 #'
-#' @param x a path to the posterior database
+#' @param path a path to the posterior database
 #' (i.e. where folders content and posteriors exists)
 #'
 #' @return a \code{pdb} object
 #'
 #' @export
-pdb <- function(x = getwd()) {
-  # TODO: can we do something like an 'active' pdb which is used
-  # automatically once activated if not otherwise specified?
-  assert_pdb_dir(x)
+pdb <- function(path = getOption("pdb_path", getwd())) {
+  assert_pdb_dir(path)
   pdb <- list(
-    path = x,
-    # TODO: add slots in the version list
+    path = path,
+    # TODO: make a S3 pdb_version class and add slots
     version = list()
   )
   class(pdb) <- "pdb"
@@ -71,13 +69,13 @@ model_names <- function(pdb) {
   basename(remove_file_extension(pns))
 }
 
-#' Get all existing dataset names from a posterior database
+#' Get all existing data names from a posterior database
 #'
 #' @param pdb a \code{pdb} object.
 #' @export
-dataset_names <- function(pdb) {
+data_names <- function(pdb) {
   checkmate::assert_class(pdb, "pdb")
-  pns <- dir(file.path(pdb$path, "content", "datasets"),
+  pns <- dir(file.path(pdb$path, "content", "data"),
              recursive = TRUE, full.names = FALSE)
   pns <- pns[grepl(pns, pattern = "\\.json\\.zip$")]
   basename(remove_file_extension(pns))
