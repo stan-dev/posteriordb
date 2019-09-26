@@ -13,7 +13,8 @@ posterior_fit <- function(path) {
 
 #' Extract posterior draws
 #'
-#' @param x an object to extract draws from.
+#' @param x An object to extract draws from.
+#' @param ... Other arguments passed to or from other methods.
 #'
 #' @export
 posterior_draws <- function(x, ...) {

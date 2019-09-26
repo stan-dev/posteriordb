@@ -10,7 +10,9 @@ posterior_draws(x, ...)
 \method{posterior_draws}{posterior_fit}(x, ...)
 }
 \arguments{
-\item{x}{an object to extract draws from.}
+\item{x}{An object to extract draws from.}
+
+\item{...}{Other arguments passed to or from other methods.}
 }
 \description{
 Extract posterior draws
