@@ -10,3 +10,19 @@ posterior_fit <- function(path) {
   class(out) <- "posterior_fit"
   out
 }
+
+#' Extract posterior draws
+#'
+#' @param x an object to extract draws from.
+#'
+#' @export
+posterior_draws <- function(x, ...) {
+  # TODO: move this generic to rstantools or some other package
+  UseMethod("posterior_draws")
+}
+
+#' @rdname posterior_draws
+#' @export
+posterior_draws.posterior_fit <- function(x, ...) {
+  x$posterior_draws
+}
