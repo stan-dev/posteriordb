@@ -53,7 +53,7 @@ class PosteriorDatabase:
 
     def get_data_info(self, name: str):
         file_name = name + ".info.json"
-        file_path = os.path.join(self.path, "content", "datasets", "info", file_name)
+        file_path = os.path.join(self.path, "content", "data", "info", file_name)
 
         return load_info(file_path, temporary_no_assertions)
 
