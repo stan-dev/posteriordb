@@ -146,7 +146,7 @@ We can also access information regarding the model and the data used to compute 
 
 Note that the references are referencing to BibTeX items that can be found in `content/references/references.bib`.
 
-To access gold standard posterior draws we can use `gold_standard` as follows (NOTE note implemented yet).
+To access gold standard posterior draws we can use `gold_standard` as follows (NOTE not implemented yet).
 
 ```python
 > gs = po.gold_standard()
