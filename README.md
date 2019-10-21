@@ -1,5 +1,4 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-
 [![Build
 Status](https://travis-ci.org/MansMeg/posteriordb.svg?branch=master)](https://travis-ci.org/MansMeg/posteriordb)
 
@@ -112,12 +111,12 @@ pos <- posterior_names(my_pdb)
 head(pos)
 ```
 
-    ## [1] "8_schools-8_schools_centered"                  
-    ## [2] "8_schools-8_schools_noncentered"               
-    ## [3] "prideprejustice_chapter-ldaK5"                 
-    ## [4] "prideprejustice_paragraph-ldaK5"               
-    ## [5] "radon-radon_hierarchical_intercept_centered"   
-    ## [6] "radon-radon_hierarchical_intercept_noncentered"
+    ## [1] "8_schools-8_schools_centered"                     
+    ## [2] "8_schools-8_schools_noncentered"                  
+    ## [3] "prideprejustice_chapter-ldaK5"                    
+    ## [4] "prideprejustice_paragraph-ldaK5"                  
+    ## [5] "radon_mn-radon_hierarchical_intercept_centered"   
+    ## [6] "radon_mn-radon_hierarchical_intercept_noncentered"
 
 In the same fashion, we can list data and models included in the
 database as
@@ -137,8 +136,8 @@ head(dn)
 ```
 
     ## [1] "8_schools"                 "prideprejustice_chapter"  
-    ## [3] "prideprejustice_paragraph" "radon"                    
-    ## [5] "radon_mn"                  "roaches"
+    ## [3] "prideprejustice_paragraph" "radon_mn"                 
+    ## [5] "radon"                     "roaches_scaled"
 
 The posterior’s name is made up of the data and model fitted to the
 data. Together, these two uniquely define a posterior distribution. To
@@ -193,14 +192,14 @@ dfp <- data_file_path(po)
 dfp
 ```
 
-    ## [1] "C:\\Users\\paulb\\AppData\\Local\\Temp\\RtmpELD26m/posteriors/data/8_schools.json"
+    ## [1] "/var/folders/9h/yf354vb917z6gr6mz7bfb1d40000gn/T//Rtmp1MczEj/posteriors/data/8_schools.json"
 
 ``` r
 scfp <- stan_code_file_path(po)
 scfp
 ```
 
-    ## [1] "C:\\Users\\paulb\\AppData\\Local\\Temp\\RtmpELD26m/posteriors/model_code/stan/8_schools_centered.stan"
+    ## [1] "/var/folders/9h/yf354vb917z6gr6mz7bfb1d40000gn/T//Rtmp1MczEj/posteriors/model_code/stan/8_schools_centered.stan"
 
 We can also access information regarding the model and the data used to
 compute the posterior.
