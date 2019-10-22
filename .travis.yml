@@ -5,15 +5,15 @@ matrix:
       before_install: cd python
       install: pip install tox-travis
       script: tox
-    - language: python
-      python: "3.7"
-      before_install: cd python
-      install: pip install tox-travis
-      script: tox
+#    - language: python
+#      python: "3.7"
+#      before_install: cd python
+#      install: pip install tox-travis
+#      script: tox
     - language: r
       r: release
       cache: packages
       warnings_are_errors: true
       before_install: cd rpackage
       r_packages: covr
-      after_success: Rscript -e 'covr::codecov()'
+      after_success: Rscript -e 'covr::codecov(path = "rpackage")'
