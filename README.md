@@ -1,6 +1,7 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 [![Build
 Status](https://travis-ci.org/MansMeg/posteriordb.svg?branch=master)](https://travis-ci.org/MansMeg/posteriordb)
+[![codecov](https://codecov.io/gh/MansMeg/posteriordb/branch/master/graph/badge.svg)](https://codecov.io/gh/MansMeg/posteriordb)
 
 A Posterior Database (PDB) for Bayesian Inference
 =================================================
@@ -192,14 +193,14 @@ dfp <- data_file_path(po)
 dfp
 ```
 
-    ## [1] "/var/folders/9h/yf354vb917z6gr6mz7bfb1d40000gn/T//Rtmp1MczEj/posteriors/data/8_schools.json"
+    ## [1] "/var/folders/9h/yf354vb917z6gr6mz7bfb1d40000gn/T//RtmpCcVxXG/posteriors/data/8_schools.json"
 
 ``` r
 scfp <- stan_code_file_path(po)
 scfp
 ```
 
-    ## [1] "/var/folders/9h/yf354vb917z6gr6mz7bfb1d40000gn/T//Rtmp1MczEj/posteriors/model_code/stan/8_schools_centered.stan"
+    ## [1] "/var/folders/9h/yf354vb917z6gr6mz7bfb1d40000gn/T//RtmpCcVxXG/posteriors/model_code/stan/8_schools_centered.stan"
 
 We can also access information regarding the model and the data used to
 compute the posterior.
