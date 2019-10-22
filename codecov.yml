@@ -1,0 +1,2 @@
+fixes:
+  - "::rpackage/"         # move root   e.g., "path/" => "after/path/"
