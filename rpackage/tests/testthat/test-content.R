@@ -2,10 +2,10 @@ context("test-pdb-content")
 
 test_that("Check that all posteriors can access stan_data and stan_code", {
 
-  # Sys.setenv(POSTERIOR_DB_PATH = "PATH")
-  # Get POSTERIOR_DB_PATH from env
-  posterior_db_path <- Sys.getenv("POSTERIOR_DB_PATH")
-  if (posterior_db_path == "") posterior_db_path <- posteriordb:::get_pdb_dir(getwd())
+  on_travis <- identical(Sys.getenv("TRAVIS"), "true")
+  pdb_path <- getwd()
+  if (on_travis) pdb_path <- Sys.getenv("TRAVIS_BUILD_DIR")
+  posterior_db_path <- posteriordb:::get_pdb_dir(pdb_path)
 
   expect_silent(pdb_test <- pdb(posterior_db_path))
   expect_silent(posteriors <- posterior_names(pdb_test))
