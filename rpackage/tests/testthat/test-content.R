@@ -2,6 +2,7 @@ context("test-pdb-content")
 
 test_that("Check that all posteriors can access stan_data and stan_code", {
 
+  # To handle covr::codecov, that test package in temp folder
   on_travis <- identical(Sys.getenv("TRAVIS"), "true")
   pdb_path <- getwd()
   if (on_travis) pdb_path <- Sys.getenv("TRAVIS_BUILD_DIR")
