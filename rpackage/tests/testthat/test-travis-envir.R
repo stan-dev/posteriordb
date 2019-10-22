@@ -8,4 +8,3 @@ test_that("Environmental variable TRAVIS_BUILD_DIR exist on Travis CI", {
     expect_true(TRUE) # To give a nice test pass when run locally
   }
 })
-
