@@ -1,8 +1,13 @@
 context("test-pdb-content")
 
 test_that("Check that all posteriors can access stan_data and stan_code", {
-  expect_silent(pdb_dir <- posteriordb:::get_pdb_dir(getwd()))
-  expect_silent(pdb_test <- pdb(pdb_dir))
+  
+  # Sys.setenv(POSTERIOR_DB_PATH = "PATH")
+  # Get POSTERIOR_DB_PATH from env
+  posterior_db_path <- Sys.getenv("POSTERIOR_DB_PATH")
+  if (posterior_db_path == "") posterior_db_path <- posteriordb:::get_pdb_dir(getwd())
+
+  expect_silent(pdb_test <- pdb(posterior_db_path))
   expect_silent(posteriors <- posterior_names(pdb_test))
 
   for (i in seq_along(posteriors)) {
@@ -11,6 +16,7 @@ test_that("Check that all posteriors can access stan_data and stan_code", {
     expect_silent(sd <- stan_data(po))
   }
 })
+
 
 test_that("Check that all posteriors names in JSON is the same as file names", {
   skip("Check that all posteriors names in JSON is the same as file names")
