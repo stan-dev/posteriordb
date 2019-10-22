@@ -14,6 +14,9 @@ matrix:
       r: release
       cache: packages
       warnings_are_errors: true
-      before_install: cd rpackage
+      before_install: 
+      - cd rpackage
+      - echo $TRAVIS_BUILD_DIR
+      - pwd
       r_packages: covr
       after_success: Rscript -e 'covr::codecov()'
