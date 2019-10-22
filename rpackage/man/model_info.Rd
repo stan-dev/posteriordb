@@ -2,10 +2,13 @@
 % Please edit documentation in R/data_info.R, R/model_info.R
 \name{data_info}
 \alias{data_info}
+\alias{pdb_data_info}
 \alias{model_info}
 \title{Access data and model information}
 \usage{
 data_info(po)
+
+pdb_data_info(po)
 
 model_info(po)
 }

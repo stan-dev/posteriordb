@@ -3,17 +3,23 @@
 \name{model_code_file_path}
 \alias{model_code_file_path}
 \alias{model_code}
+\alias{pdb_model_code}
 \alias{stan_code_file_path}
 \alias{stan_code}
+\alias{pdb_stan_code}
 \title{Extract file paths to model code from posterior object}
 \usage{
 model_code_file_path(x, framework, tempdir = TRUE)
 
 model_code(x, framework)
 
+pdb_model_code(x, framework)
+
 stan_code_file_path(x, tempdir = TRUE)
 
 stan_code(x)
+
+pdb_stan_code(x)
 }
 \arguments{
 \item{x}{a \code{posterior} object.}

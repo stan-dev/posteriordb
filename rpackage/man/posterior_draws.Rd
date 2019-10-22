@@ -2,12 +2,12 @@
 % Please edit documentation in R/posterior_fit.R
 \name{posterior_draws}
 \alias{posterior_draws}
-\alias{posterior_draws.posterior_fit}
+\alias{posterior_draws.pdb_posterior_fit}
 \title{Extract posterior draws}
 \usage{
 posterior_draws(x, ...)
 
-\method{posterior_draws}{posterior_fit}(x, ...)
+\method{posterior_draws}{pdb_posterior_fit}(x, ...)
 }
 \arguments{
 \item{x}{An object to extract draws from.}

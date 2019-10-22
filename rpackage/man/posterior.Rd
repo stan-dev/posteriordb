@@ -2,9 +2,12 @@
 % Please edit documentation in R/posterior.R
 \name{posterior}
 \alias{posterior}
+\alias{pdb_posterior}
 \title{Access a posterior in the posterior database}
 \usage{
 posterior(name, pdb = pdb())
+
+pdb_posterior(name, pdb = pdb())
 }
 \arguments{
 \item{name}{a posterior name that exist in the posterior database}

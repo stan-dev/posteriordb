@@ -8,9 +8,9 @@ gold_standard <- function(x, ...) {
   UseMethod("gold_standard")
 }
 
-#' @rdname data
+#' @rdname gold_standard
 #' @export
-gold_standard.posterior <- function(x, ...) {
+gold_standard.pdb_posterior <- function(x, ...) {
   posterior_fit(gold_standard_file_path(x))
 }
 
@@ -19,7 +19,7 @@ gold_standard.posterior <- function(x, ...) {
 #' @inheritParams model_code_file_path
 #' @export
 gold_standard_file_path <- function(x, tempdir = TRUE) {
-  checkmate::assert_class(x, "posterior")
+  checkmate::assert_class(x, "pdb_posterior")
   ffp <- file.path(x$pdb$path, paste0(x$gold_standard, ".zip"))
   if (!checkmate::test_file_exists(ffp)) {
     stop2("There is currently no gold standard for this posterior.")

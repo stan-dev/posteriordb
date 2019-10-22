@@ -8,11 +8,14 @@ posterior <- function(name, pdb = pdb()) {
   po$model_info <- read_model_info(po)
   po$data_info <- read_data_info(po)
   po$added_date <- as.Date(po$added_date)
-  assert_posterior(po)
+  assert_pdb_posterior(po)
   po
 }
+#' @rdname posterior
+#' @export
+pdb_posterior <- posterior
 
-# read a posterior object from the data base
+#' read a posterior object from the data base
 read_posterior <- function(name, pdb) {
   checkmate::assert_class(pdb, "pdb")
   checkmate::assert_character(name)
@@ -21,12 +24,15 @@ read_posterior <- function(name, pdb) {
   po <- jsonlite::read_json(pfn)
   po$name <- name
   po$pdb <- pdb
-  class(po) <- "posterior"
+  class(po) <- "pdb_posterior"
   po
 }
+#' @rdname read_posterior
+#' @export
+read_pdb_posterior <- read_posterior
 
 #' @export
-print.posterior <- function(x, ...) {
+print.pdb_posterior <- function(x, ...) {
   cat0("Posterior\n\n")
   print(x$data_info)
   cat0("\n")
@@ -34,8 +40,8 @@ print.posterior <- function(x, ...) {
   invisible(x)
 }
 
-assert_posterior <- function(x) {
-  checkmate::assert_class(x, "posterior")
+assert_pdb_posterior <- function(x) {
+  checkmate::assert_class(x, "pdb_posterior")
   checkmate::assert_list(x)
   must.include <- c(
     "model_name", "data_name", "model_info", "data_info", "name",
@@ -61,6 +67,6 @@ posterior_file_path.character <- function(x, pdb, ...) {
 }
 
 #' @export
-posterior_file_path.posterior <- function(x, ...) {
+posterior_file_path.pdb_posterior <- function(x, ...) {
   file.path(x$pdb$path, "posteriors", paste0(x$name, ".json"))
 }

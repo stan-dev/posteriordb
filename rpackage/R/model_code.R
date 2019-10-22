@@ -7,7 +7,7 @@
 #'
 #' @export
 model_code_file_path <- function(x, framework, tempdir = TRUE) {
-  checkmate::assert_class(x, "posterior")
+  checkmate::assert_class(x, "pdb_posterior")
   checkmate::assert_choice(framework, names(x$model_info$model_code))
 
   mcfp <- file.path(x$pdb$path, x$model_info$model_code[[framework]])
@@ -27,15 +27,18 @@ model_code_file_path <- function(x, framework, tempdir = TRUE) {
 #' @rdname model_code_file_path
 #' @export
 model_code <- function(x, framework) {
-  checkmate::assert_class(x, "posterior")
+  checkmate::assert_class(x, "pdb_posterior")
   scfp <- model_code_file_path(x, framework, FALSE)
   out <- paste0(readLines(scfp), collapse = "\n")
-  class(out) <- "model_code"
+  class(out) <- "pdb_model_code"
   out
 }
+#' @rdname model_code_file_path
+#' @export
+pdb_model_code <- model_code
 
 #' @export
-print.model_code <- function(x, ...) {
+print.pdb_model_code <- function(x, ...) {
   cat(x)
   invisible(x)
 }
@@ -51,13 +54,17 @@ model_code_file_name <- function(x, framework) {
 #' @rdname model_code_file_path
 #' @export
 stan_code_file_path <- function(x, tempdir = TRUE) {
-  checkmate::assert_class(x, "posterior")
+  checkmate::assert_class(x, "pdb_posterior")
   model_code_file_path(x, "stan", tempdir)
 }
 
 #' @rdname model_code_file_path
 #' @export
 stan_code <- function(x) {
-  checkmate::assert_class(x, "posterior")
+  checkmate::assert_class(x, "pdb_posterior")
   model_code(x, "stan")
 }
+
+#' @rdname model_code_file_path
+#' @export
+pdb_stan_code <- stan_code

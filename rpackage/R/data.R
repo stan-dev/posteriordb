@@ -10,7 +10,7 @@ get_data <- function(x, ...) {
 
 #' @rdname get_data
 #' @export
-get_data.posterior <- function(x, ...) {
+get_data.pdb_posterior <- function(x, ...) {
   sdfp <- data_file_path(x)
   dat <- jsonlite::read_json(sdfp, simplifyVector = TRUE)
   dat
@@ -21,7 +21,7 @@ get_data.posterior <- function(x, ...) {
 #' @inheritParams model_code_file_path
 #' @export
 data_file_path <- function(x, tempdir = TRUE) {
-  checkmate::assert_class(x, "posterior")
+  checkmate::assert_class(x, "pdb_posterior")
   ffp <- file.path(x$pdb$path, paste0(x$data_info$data_file, ".zip"))
   checkmate::assert_file_exists(ffp)
   tfp <- data_temp_file_path(x)

@@ -1,4 +1,4 @@
-#' Constructor for \code{posterior_fit} objects
+#' Constructor for \code{pdb_posterior_fit} objects
 #'
 #' @param path A file path to a JSON file containing a posterior fit object
 #'
@@ -7,9 +7,12 @@ posterior_fit <- function(path) {
   must.include <- c("posterior_draws", "cfg")
   checkmate::assert_names(names(out), must.include = must.include)
   out$posterior_draws <- as.data.frame(out$posterior_draws)
-  class(out) <- "posterior_fit"
+  class(out) <- "pdb_posterior_fit"
   out
 }
+#' @rdname posterior_fit
+#' @export
+pdb_posterior_fit <- posterior_fit
 
 #' Extract posterior draws
 #'
@@ -24,6 +27,6 @@ posterior_draws <- function(x, ...) {
 
 #' @rdname posterior_draws
 #' @export
-posterior_draws.posterior_fit <- function(x, ...) {
+posterior_draws.pdb_posterior_fit <- function(x, ...) {
   x$posterior_draws
 }

@@ -2,13 +2,16 @@
 % Please edit documentation in R/posterior_fit.R
 \name{posterior_fit}
 \alias{posterior_fit}
-\title{Constructor for \code{posterior_fit} objects}
+\alias{pdb_posterior_fit}
+\title{Constructor for \code{pdb_posterior_fit} objects}
 \usage{
 posterior_fit(path)
+
+pdb_posterior_fit(path)
 }
 \arguments{
 \item{path}{A file path to a JSON file containing a posterior fit object}
 }
 \description{
-Constructor for \code{posterior_fit} objects
+Constructor for \code{pdb_posterior_fit} objects
 }

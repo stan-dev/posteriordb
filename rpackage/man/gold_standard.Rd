@@ -2,9 +2,12 @@
 % Please edit documentation in R/gold_standard.R
 \name{gold_standard}
 \alias{gold_standard}
+\alias{gold_standard.pdb_posterior}
 \title{Gold standard posterior draws}
 \usage{
 gold_standard(x, ...)
+
+\method{gold_standard}{pdb_posterior}(x, ...)
 }
 \arguments{
 \item{x}{a \code{posterior} object to access the gold standard for.}
