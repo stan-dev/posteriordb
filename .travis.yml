@@ -15,4 +15,5 @@ matrix:
       cache: packages
       warnings_are_errors: true
       before_install: cd rpackage
+      r_packages: covr
       after_success: Rscript -e 'covr::codecov()'
