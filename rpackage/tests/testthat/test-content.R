@@ -18,6 +18,8 @@ test_that("Check that all posteriors can access stan_data and stan_code", {
 })
 
 
+
+
 test_that("Check that all posteriors names in JSON is the same as file names", {
   skip("Check that all posteriors names in JSON is the same as file names")
   
