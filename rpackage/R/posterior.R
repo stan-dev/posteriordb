@@ -15,7 +15,7 @@ posterior <- function(name, pdb = pdb()) {
 #' @export
 pdb_posterior <- posterior
 
-#' read a posterior object from the data base
+# read a posterior object from the data base
 read_posterior <- function(name, pdb) {
   checkmate::assert_class(pdb, "pdb")
   checkmate::assert_character(name)
@@ -27,8 +27,6 @@ read_posterior <- function(name, pdb) {
   class(po) <- "pdb_posterior"
   po
 }
-#' @rdname read_posterior
-#' @export
 read_pdb_posterior <- read_posterior
 
 #' @export
