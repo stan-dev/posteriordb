@@ -33,6 +33,11 @@ test_that("Check that all posteriors can access stan_data and stan_code", {
   expect_output(print(mc), "parameters \\{")
   expect_output(print(mc), "model \\{")
   
+  # Test stan_code
+  expect_silent(sc <- stan_code(po))
+  expect_s3_class(sc, "pdb_model_code")
+  expect_equal(sc, mc)
+
   # Test model_info
   expect_silent(mi <- model_info(po))
   expect_s3_class(mi, "pdb_model_info")
