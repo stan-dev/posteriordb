@@ -2,11 +2,7 @@ context("test-pdb")
 
 test_that("posteriordb:::check_pdb indicates that PDB is ok", {
 
-  # To handle covr::codecov, that test package in temp folder
-  on_travis <- identical(Sys.getenv("TRAVIS"), "true")
-  pdb_path <- getwd()
-  if (on_travis) pdb_path <- Sys.getenv("TRAVIS_BUILD_DIR")
-  posterior_db_path <- posteriordb:::get_pdb_dir(pdb_path)
+  posterior_db_path <- posteriordb:::get_test_pdb_dir()
 
   expect_silent(pdb_test <- pdb(posterior_db_path))
 
@@ -17,11 +13,7 @@ test_that("posteriordb:::check_pdb indicates that PDB is ok", {
 
 test_that("model_names and data_names works as expected", {
   
-  # To handle covr::codecov, that test package in temp folder
-  on_travis <- identical(Sys.getenv("TRAVIS"), "true")
-  pdb_path <- getwd()
-  if (on_travis) pdb_path <- Sys.getenv("TRAVIS_BUILD_DIR")
-  posterior_db_path <- posteriordb:::get_pdb_dir(pdb_path)
+  posterior_db_path <- posteriordb:::get_test_pdb_dir()
   
   expect_silent(pdb_test <- pdb(posterior_db_path))
   expect_silent(posteriors <- posterior_names(pdb_test))

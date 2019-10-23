@@ -92,6 +92,18 @@ print.pdb <- function(x, ...) {
   invisible(x)
 }
 
+pdb_dir_entrypoint <- function(x) {
+  checkmate::assert_directory(x)
+  fp <- normalizePath(x)
+  while (!is.pdb_dir(fp) & basename(fp) != "") {
+    fp <- dirname(fp)
+  }
+  if (basename(fp) == "") {
+    stop2("No posterior database in path '", x, "'.")
+  }
+  fp
+}
+
 is.pdb_dir <- function(x) {
   checkmate::assert_directory_exists(x)
   all(c("content", "posteriors") %in% dir(x))

@@ -25,17 +25,6 @@ copy_and_unzip <- function(from, to, overwrite = FALSE) {
   invisible(NULL)
 }
 
-get_pdb_dir <- function(x) {
-  fp <- normalizePath(x)
-  while (!is.pdb_dir(fp) & basename(fp) != "") {
-    fp <- dirname(fp)
-  }
-  if (basename(fp) == "") {
-    stop2("No posterior database in path '", x, "'.")
-  }
-  fp
-}
-
 stop2 <- function(...) {
   stop(..., call. = FALSE)
 }

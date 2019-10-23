@@ -1,11 +1,7 @@
 context("test-pdb-gold_standard")
 
 test_that("Check that gold_standard works as expected", {
-  # To handle covr::codecov, that test package in temp folder
-  on_travis <- identical(Sys.getenv("TRAVIS"), "true")
-  pdb_path <- getwd()
-  if (on_travis) pdb_path <- Sys.getenv("TRAVIS_BUILD_DIR")
-  posterior_db_path <- posteriordb:::get_pdb_dir(pdb_path)
+  posterior_db_path <- posteriordb:::get_test_pdb_dir()
 
   expect_silent(pdb_test <- pdb(posterior_db_path))
   expect_silent(po <- posterior("8_schools-8_schools_centered", pdb_test))
