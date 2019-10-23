@@ -10,11 +10,11 @@ matrix:
       before_install: cd python
       install: pip install tox-travis
       script: tox
-    - name: "Linting and generic checks"
-      language: python
-      python: "3.7"
-      install: pip install pre-commit
-      script: pre-commit run --all-files --show-diff-on-failure
+#    - name: "Linting and generic checks"
+#      language: python
+#      python: "3.7"
+#      install: pip install pre-commit
+#      script: pre-commit run --all-files --show-diff-on-failure
     - language: r
       r: release
       cache: packages
