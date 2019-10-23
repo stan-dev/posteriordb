@@ -21,9 +21,5 @@ matrix:
       warnings_are_errors: true
       before_install:
       - cd rpackage
-      - echo $TRAVIS_BUILD_DIR
-      - POSTERIOR_DB_PATH=$TRAVIS_BUILD_DIR
-      - echo $POSTERIOR_DB_PATH
-      - pwd
       r_packages: covr
       after_success: Rscript -e 'covr::codecov()'
