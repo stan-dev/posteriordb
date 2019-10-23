@@ -53,8 +53,3 @@ stan_data <- function(x) {
   get_data(x)
 }
 
-#' @rdname data_file_path
-#' @export
-stan_data <- function(x) {
-  get_data(x)
-}

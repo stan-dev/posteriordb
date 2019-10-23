@@ -3,6 +3,11 @@ remove_file_extension <- function(x) {
   unlist(lapply(strsplit(x, "\\."), function(x) x[1]))
 }
 
+get_file_extension <- function(x) {
+  checkmate::assert_character(x, pattern = "\\..{1,5}$")
+  unlist(lapply(strsplit(x, "\\."), function(x) x[2]))
+}
+
 #' @noRd
 #' @param from path to ziped file
 #' @param to path to unziped file

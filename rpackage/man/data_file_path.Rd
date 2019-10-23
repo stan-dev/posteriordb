@@ -11,8 +11,6 @@ data_file_path(x, tempdir = TRUE)
 stan_data_file_path(x)
 
 stan_data(x)
-
-stan_data(x)
 }
 \arguments{
 \item{x}{a \code{posterior} object.}
