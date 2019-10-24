@@ -1,2 +1,2 @@
 fixes:
-  - "::rpackage/"         # move root   e.g., "path/" => "after/path/"
+  - "R/::rpackage/R/"         # move root   e.g., "path/" => "after/path/"

@@ -42,11 +42,11 @@ class Posterior:
         return self.data.dataset_file_path()
 
     def gold_standard(self):
-        gold_standard_file = self.posterior_info["gold_standard"]
+        # gold_standard_file = self.posterior_info["gold_standard"]
         raise NotImplementedError()
         # need to unzip gold standard
 
     def gold_standard_file_path(self):
-        gold_standard = self.gold_standard()
+        # gold_standard = self.gold_standard()
         # make tempfile and put gold standard there
         raise NotImplementedError()

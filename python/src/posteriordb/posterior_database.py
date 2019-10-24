@@ -79,7 +79,7 @@ class PosteriorDatabase:
         return filenames_in_dir_no_extension(directory, ".info.json")
 
     def dataset_names(self):
-        directory = os.path.join(self.path, "content", "datasets", "info")
+        directory = os.path.join(self.path, "content", "data", "info")
         return filenames_in_dir_no_extension(directory, ".info.json")
 
     def posteriors(self):

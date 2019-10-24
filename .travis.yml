@@ -3,13 +3,16 @@ matrix:
     - language: python
       python: "3.6"
       before_install: cd python
-      install: pip install tox-travis
+      install: pip install tox-travis codecov
       script: tox
+      after_success: codecov
     - language: python
       python: "3.7"
       before_install: cd python
-      install: pip install tox-travis
+      install: pip install tox-travis codecov
       script: tox
+      after_success:
+        codecov
 #    - name: "Linting and generic checks"
 #      language: python
 #      python: "3.7"

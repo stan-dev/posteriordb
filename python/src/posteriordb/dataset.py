@@ -10,6 +10,7 @@ class Dataset:
     def __init__(self, name: str, posterior_db: PosteriorDatabase):
         self.name = name
         self.posterior_db = posterior_db
+        self.data_info = self.posterior_db.get_data_info(name=self.name)
 
     def dataset_file_path(self):
         data = self.dataset()
