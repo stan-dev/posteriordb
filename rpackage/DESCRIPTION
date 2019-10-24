@@ -15,7 +15,7 @@ RoxygenNote: 6.1.1
 Encoding: UTF-8
 Imports:
   checkmate,
-  jsonlite  
+  jsonlite
 Suggests:
   httr,
   remotes,
