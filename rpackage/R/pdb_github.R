@@ -26,7 +26,7 @@ pdb_github <- function(repo = getOption("pdb_repo", "MansMeg/posteriordb"),
                        subdir = NULL,
                        auth_token = github_pat(),
                        host = "https://api.github.com"){
-  pdb(pdb_id = repo, pdb_type = "github", cache_path = cache_path, host = host, ref = ref, subdir = subdir, pat = auth_token)
+  pdb(pdb_id = repo, pdb_type = "github", cache_path = cache_path, ref = ref, subdir = subdir, pat = auth_token, host = host)
 }
 
 #' Setup a GitHub pdb
@@ -39,10 +39,10 @@ pdb_github <- function(repo = getOption("pdb_repo", "MansMeg/posteriordb"),
 setup_pdb.pdb_github <- function(pdb, ...){
   arg <- list(...)
   pdb$github <- remotes::parse_github_repo_spec(pdb$pdb_id)
-  if(nzchar(pdb$github$ref)) {
+  if(!nzchar(pdb$github$ref)) {
     pdb$github$ref <- arg$ref
   }
-  if(nzchar(pdb$github$subdir)) {
+  if(!nzchar(pdb$github$subdir)) {
     pdb$github$subdir <- arg$subdir
   }
   pdb$github$host <- arg$host
