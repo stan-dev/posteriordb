@@ -2,12 +2,17 @@
 % Please edit documentation in R/pdb.R
 \name{data_names}
 \alias{data_names}
+\alias{data_names.pdb_local}
 \title{Get all existing data names from a posterior database}
 \usage{
-data_names(pdb)
+data_names(pdb, ...)
+
+\method{data_names}{pdb_local}(pdb, ...)
 }
 \arguments{
 \item{pdb}{a \code{pdb} object.}
+
+\item{...}{Further argument to methods.}
 }
 \description{
 Get all existing data names from a posterior database
