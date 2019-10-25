@@ -23,7 +23,8 @@ find_local_posterior_database <- function(x){
     stop2("No local posterior database in path '", x, "'.")
   }
   fpep <- file.path(fp, "posterior_database")
-  if(is.pdb_local_entrypoint(fpep)){
+  pdb <- pdb_local(fpep)
+  if(is_pdb_endpoint(pdb)){
     return(fpep)
   } else {
     stop2("No local posterior database in path '", fpep, "'.")
