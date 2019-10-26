@@ -194,20 +194,25 @@ is_pdb_endpoint.pdb_local <- function(pdb, ...) {
 pdb_cached_local_file_path <- function(pdb, path, unzip = FALSE, ...){
   checkmate::assert_class(pdb, "pdb")
   checkmate::assert_string(path)
-  pdb_assert_file_exist(pdb, path)
   checkmate::assert_flag(unzip)
+  if(unzip) {
+    path_zip <- paste0(path, ".zip")
+    pdb_assert_file_exist(pdb, path_zip)
+  } else {
+    pdb_assert_file_exist(pdb, path)
+  }
 
   # Check if path in cache - return cached path
   cp <- pdb_cache_path(pdb, path)
   if(file.exists(cp)) return(cp)
 
+  # Copy (and unzip) file to cache
   if(unzip){
-    path_zip <- paste0(path, ".zip")
     cp_zip <- paste0(cp, ".zip")
-    pdb_file_copy(pdb, path_zip, cp_zip)
+    pdb_file_copy(pdb, path_zip, cp_zip, overwrite = TRUE)
     utils::unzip(zipfile = cp_zip, exdir = dirname(cp_zip))
   } else {
-    pdb_file_copy(pdb, from = path, to = cp)
+    pdb_file_copy(pdb, from = path, to = cp, overwrite = TRUE)
   }
 
   return(cp)

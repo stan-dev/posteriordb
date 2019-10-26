@@ -20,9 +20,9 @@ get_data.pdb_posterior <- function(x, ...) {
 #'
 #' @inheritParams model_code_file_path
 #' @export
-data_file_path <- function(x, tempdir = TRUE) {
+data_file_path <- function(x) {
   checkmate::assert_class(x, "pdb_posterior")
-  fp <- pdb_cached_local_file_path(x$pdb, x$data_info$data_file, unzip = TRUE)
+  fp <- pdb_cached_local_file_path(pdb = x$pdb, path = x$data_info$data_file, unzip = TRUE)
   checkmate::assert_file_exists(fp)
   fp
 }
