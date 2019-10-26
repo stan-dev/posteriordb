@@ -40,6 +40,14 @@ posterior_names.pdb_github <- function(pdb, ...) {
   remove_file_extension(pns)
 }
 
+#' @rdname pdb_assert_file_exist
+pdb_assert_file_exist.pdb_github <- function(pdb, path, ...){
+  ghp <- github_path(pdb, type = "contents", path = path)
+  tr_ghp <- try(gh::gh(ghp, .token = github_pat(pdb)))
+  if(inherits(tr_ghp, "try-error")) stop("File does not exist: '", ghp, "'.")
+}
+
+
 #' @rdname data_names
 #' @export
 data_names.pdb_github <- function(pdb, ...) {
