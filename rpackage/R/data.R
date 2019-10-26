@@ -52,4 +52,3 @@ stan_data_file_path <- function(x) {
 stan_data <- function(x) {
   get_data(x)
 }
-

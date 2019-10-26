@@ -7,6 +7,7 @@ class Model:
     def __init__(self, name: str, posterior_db: PosteriorDatabase):
         self.name = name
         self.posterior_db = posterior_db
+        self.model_info = self.posterior_db.get_model_info(name=self.name)
 
     def model_code_file_path(self, framework: str):
         """
