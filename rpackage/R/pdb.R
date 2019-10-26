@@ -271,11 +271,14 @@ pdb_file_copy.pdb_local <- function(pdb, from, to, overwrite = FALSE, ...){
   file.copy(from = file.path(pdb$pdb_local_endpoint, from), to = to, overwrite = overwrite, ...)
 }
 
-
+#' Assert that the path points to a file that exist in the pdb
+#' @param pdb a \code{pdb} connection.
+#' @param path a \code{pdb} path.
 pdb_assert_file_exist <- function(pdb, path, ...){
   UseMethod("pdb_assert_file_exist")
 }
 
+#' @rdname pdb_assert_file_exist
 pdb_assert_file_exist.pdb_local <- function(pdb, path, ...){
   checkmate::assert_file_exists(file.path(pdb$pdb_local_endpoint, path))
 }
