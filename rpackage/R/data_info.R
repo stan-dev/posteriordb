@@ -11,16 +11,12 @@ pdb_data_info <- data_info
 # read data info from the data base
 read_data_info <- function(po) {
   checkmate::assert_class(po, "pdb_posterior")
-  data_info_path <- data_info_file_path(po$data_name, po$pdb$path)
+  data_info_path <- pdb_cached_local_file_path(po$pdb, file.path("data", "info", paste0(po$data_name, ".info.json")))
   data_info <- jsonlite::read_json(data_info_path)
   data_info$name <- po$data_name
   data_info$added_date <- as.Date(data_info$added_date)
   class(data_info) <- "pdb_data_info"
   data_info
-}
-
-data_info_file_path <- function(name, base_dir) {
-  file.path(base_dir, "content", "data", "info", paste0(name, ".info.json"))
 }
 
 #' @export

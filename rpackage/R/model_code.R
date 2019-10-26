@@ -2,33 +2,20 @@
 #'
 #' @param x a \code{posterior} object.
 #' @param framework model code framework (e.g. \code{stan}).
-#' @param tempdir Should the file be copied to R temporary directory?
-#'   Default is \code{TRUE}.
 #'
 #' @export
-model_code_file_path <- function(x, framework, tempdir = TRUE) {
+model_code_file_path <- function(x, framework) {
   checkmate::assert_class(x, "pdb_posterior")
   checkmate::assert_choice(framework, names(x$model_info$model_code))
-
-  mcfp <- file.path(x$pdb$path, x$model_info$model_code[[framework]])
-  if (tempdir) {
-    mcfn <- model_code_file_name(x, framework)
-    tmcfp <- file.path(model_code_temp_dir(), framework, mcfn)
-    if (!checkmate::test_file_exists(tmcfp)) {
-      dir.create(file.path(model_code_temp_dir(), framework),
-                 recursive = TRUE, showWarnings = FALSE)
-      file.copy(from = mcfp, to = tmcfp)
-    }
-    mcfp <- tmcfp
-  }
-  checkmate::assert_file_exists(mcfp)
+  mcfp <- pdb_cached_local_file_path(x$pdb, x$model_info$model_code[[framework]])
+  mcfp
 }
 
 #' @rdname model_code_file_path
 #' @export
 model_code <- function(x, framework) {
   checkmate::assert_class(x, "pdb_posterior")
-  scfp <- model_code_file_path(x, framework, FALSE)
+  scfp <- model_code_file_path(x, framework)
   out <- paste0(readLines(scfp), collapse = "\n")
   class(out) <- "pdb_model_code"
   out
@@ -43,19 +30,15 @@ print.pdb_model_code <- function(x, ...) {
   invisible(x)
 }
 
-model_code_temp_dir <- function() {
-  file.path(tempdir(), "posteriors", "model_code")
-}
-
 model_code_file_name <- function(x, framework) {
-  basename(model_code_file_path(x, framework, FALSE))
+  basename(model_code_file_path(x, framework))
 }
 
 #' @rdname model_code_file_path
 #' @export
-stan_code_file_path <- function(x, tempdir = TRUE) {
+stan_code_file_path <- function(x) {
   checkmate::assert_class(x, "pdb_posterior")
-  model_code_file_path(x, "stan", tempdir)
+  model_code_file_path(x, "stan")
 }
 
 #' @rdname model_code_file_path

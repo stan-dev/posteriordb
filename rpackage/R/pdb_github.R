@@ -20,7 +20,7 @@
 #' @param host GitHub API host to use. Override with your GitHub enterprise
 #'   hostname, for example, `"github.hostname.com/api/v3"`.
 #' @export
-pdb_github <- function(repo = getOption("pdb_repo", "MansMeg/posteriordb"),
+pdb_github <- function(repo = getOption("pdb_repo", "MansMeg/posteriordb/posterior_database"),
                        cache_path = tempdir(),
                        ref = "master",
                        subdir = NULL,
@@ -52,11 +52,24 @@ setup_pdb.pdb_github <- function(pdb, ...){
   pdb
 }
 
+
+#' @rdname posterior_names
 #' @export
-posterior_names.pdb_github <- function(pdb) {
+posterior_names.pdb_github <- function(pdb, ...) {
   pns <- github_dir(github_path(pdb, type = "contents", path = "posteriors"))
   remove_file_extension(pns)
 }
+
+#' @rdname data_names
+#' @export
+data_names.pdb_github <- function(pdb, ...) {
+  pns <- github_dir(github_path(pdb, type = "contents", path = "data"),
+             recursive = TRUE, full.names = FALSE)
+  pns <- pns[grepl(pns, pattern = "\\.json\\.zip$")]
+  basename(remove_file_extension(pns))
+}
+
+# TODO: Locally cache posterior names, model names and data names
 
 #' @noRd
 #' @rdname pdb_endpoint
@@ -78,9 +91,11 @@ is_pdb_endpoint.pdb_github <- function(pdb, ...) {
 
 #endpoint <- "/repos/MansMeg/posteriordb/contents?ref=github_pdb"
 
-github_dir <- function(endpoint, pdb, ...){
+github_dir <- function(gh_path, pdb, recursive = FALSE, full.names = TRUE, ...){
+  if(recursive) stop("not implemented")
+  if(!full.names) stop("not implemented")
   checkmate::assert_class(pdb, c("pdb_github"))
-  x <- gh(endpoint, .token = github_pat(pdb), ...)
+  x <- gh(gh_path, .token = github_pat(pdb), ...)
   unlist(lapply(x, FUN=function(x) x$name))
 }
 
@@ -95,11 +110,6 @@ github_path <- function(pdb, type, path = NULL){
   }
 
   stop("Incorrect type argument. This should not happen.")
-}
-
-
-pdb_github_endpoint <- function(pdb){
-  github_dir(github_path(pdb, "contents"))
 }
 
 
@@ -121,6 +131,13 @@ github_pat <- function(pdb = NULL) {
 
 
 
+
+# TODO!
+read_posterior_json.pdb_github <- function(pdb, name, ...) {
+  pfn <- posterior_local_path(name, pdb)
+  po <- jsonlite::read_json(pfn)
+  po
+}
 
 
 #' ---- OLD CAN BE REMOVED!

@@ -9,13 +9,13 @@
 \alias{pdb_stan_code}
 \title{Extract file paths to model code from posterior object}
 \usage{
-model_code_file_path(x, framework, tempdir = TRUE)
+model_code_file_path(x, framework)
 
 model_code(x, framework)
 
 pdb_model_code(x, framework)
 
-stan_code_file_path(x, tempdir = TRUE)
+stan_code_file_path(x)
 
 stan_code(x)
 
@@ -25,9 +25,6 @@ pdb_stan_code(x)
 \item{x}{a \code{posterior} object.}
 
 \item{framework}{model code framework (e.g. \code{stan}).}
-
-\item{tempdir}{Should the file be copied to R temporary directory?
-Default is \code{TRUE}.}
 }
 \description{
 Extract file paths to model code from posterior object

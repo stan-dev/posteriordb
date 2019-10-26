@@ -4,9 +4,10 @@
 \alias{pdb_github}
 \title{Create a GitHub Posterior Database (pdb) connection}
 \usage{
-pdb_github(repo = getOption("pdb_repo", "MansMeg/posteriordb"),
-  cache_path = tempdir(), ref = "master", subdir = NULL,
-  auth_token = github_pat(), host = "https://api.github.com")
+pdb_github(repo = getOption("pdb_repo",
+  "MansMeg/posteriordb/posterior_database"), cache_path = tempdir(),
+  ref = "master", subdir = NULL, auth_token = github_pat(),
+  host = "https://api.github.com")
 }
 \arguments{
 \item{repo}{Repository address in the format

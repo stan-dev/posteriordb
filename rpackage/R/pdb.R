@@ -19,7 +19,10 @@ pdb_local <- function(path = getOption("pdb_path", file.path(getwd(), "posterior
 pdb <- function(pdb_id, pdb_type = "local", cache_path = tempdir(), ...) {
   checkmate::assert_directory(cache_path, "w")
   checkmate::assert_choice(pdb_type, c("local", "github"))
-  cache_path <- file.path(cache_path, "posterior_database_cache")
+  if(cache_path == tempdir()){
+    # To ensure no duplicate file names from R session.
+    cache_path <- file.path(cache_path, "posteriordb_cache")
+  }
   if(!dir.exists(cache_path)) dir.create(cache_path)
   pdb <- list(
     pdb_id = pdb_id,
@@ -129,7 +132,7 @@ pdb_type <- function(pdb){
 
 #' Set and check posterior database endpoint
 #' i.e. after this has run, the pdb points to the
-#' posterior db. Local pdb search all folders below
+#' posterior db root. Local pdb search all folders below
 #' Github pdb just checks that the supplied github repo
 #' (with subdir) points to the pdb
 #' @noRd
@@ -179,6 +182,77 @@ is_pdb_endpoint.pdb_local <- function(pdb, ...) {
 }
 
 
+#' Read json file from \code{path}
+#'
+#' @details
+#' Copies the file to the cache and return path
+#'
+#' @param pdb a \code{pdb} to read from.
+#' @param path a \code{pdb} to read from.
+#' @param unzip if true, path is zipped and should be unzipped to cache.
+#'
+pdb_cached_local_file_path <- function(pdb, path, unzip = FALSE, ...){
+  checkmate::assert_class(pdb, "pdb")
+  checkmate::assert_string(path)
+  pdb_assert_file_exist(pdb, path)
+  checkmate::assert_flag(unzip)
+
+  # Check if path in cache - return cached path
+  cp <- pdb_cache_path(pdb, path)
+  if(file.exists(cp)) return(cp)
+
+  if(unzip){
+    path_zip <- paste0(path, ".zip")
+    cp_zip <- paste0(cp, ".zip")
+    pdb_file_copy(pdb, path_zip, cp_zip)
+    utils::unzip(zipfile = cp_zip, exdir = dirname(cp_zip))
+  } else {
+    pdb_file_copy(pdb, path, cp)
+  }
+
+  return(cp)
+}
+
+#' Returns a writable cache path for a pdb and a path
+#' It will create the directory if it does not exist.
+#' @param pdb a \code{pdb} object.
+#' @param path a \code{pdb} path.
+pdb_cache_path <- function(pdb, path){
+  cp <- file.path(pdb$cache_path, path)
+  dir.create(cp, showWarnings = FALSE, recursive = TRUE)
+  cp
+}
+
+#' Copy a file from a pdb to a local path
+#'
+#' @param from a path in the pdb
+#' @param to a local file path
+#' @return a boolean indicator as file.copy indicating success.
+pdb_file_copy <- function(pdb, from, to, overwrite = FALSE, ...){
+  checkmate::assert_class(pdb, "pdb")
+  checkmate::assert_string(from)
+  pdb_assert_file_exist(pdb, from)
+  checkmate::assert_path_for_output(to)
+  checkmate::assert_flag(overwrite)
+  UseMethod("pdb_file_copy")
+}
+
+pdb_file_copy.pdb_local <- function(pdb, from, to, overwrite, ...){
+  file.copy(file.path(pdb$pdb_local_endpoint, from), overwrite = overwrite, ...)
+}
+
+
+pdb_assert_file_exist <- function(pdb, from){
+  UseMethod("pdb_assert_file_exist")
+}
+
+pdb_assert_file_exist.pdb_local <- function(pdb, path){
+  checkmate::assert_file_exists(pdb$pdb_local_endpoint, path)
+}
+
+
+
+
 #' Check a posterior database
 #' @noRd
 #' @param pdb a \code{pdb} object
@@ -189,7 +263,7 @@ check_pdb <- function(pdb) {
   pns <- names(pdb)
   pl <- list()
   for (i in seq_along(pns)) {
-    pl[[i]] <- posterior(pns[i], pdb = pdb)
+    pl[[i]] <- posterior(name = pns[i], pdb = pdb)
   }
   message("1. All posteriors can be read.")
   for (i in seq_along(pl)) {

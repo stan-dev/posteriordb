@@ -18,25 +18,13 @@ gold_standard.pdb_posterior <- function(x, ...) {
 #'
 #' @inheritParams model_code_file_path
 #' @export
-gold_standard_file_path <- function(x, tempdir = TRUE) {
+gold_standard_file_path <- function(x) {
   checkmate::assert_class(x, "pdb_posterior")
-  ffp <- file.path(x$pdb$path, paste0(x$gold_standard, ".zip"))
-  if (!checkmate::test_file_exists(ffp)) {
-    stop2("There is currently no gold standard for this posterior.")
-  }
-  tfp <- gold_standard_temp_file_path(x)
-  copy_and_unzip(from = ffp, to = tfp)
-  tfp
-}
-
-gold_standard_temp_dir <- function() {
-  file.path(tempdir(), "posteriors", "gold_standards")
+  if(is.null(x$gold_standard)) stop2("There is currently no gold standard for this posterior.")
+  gsfp <- pdb_cached_local_file_path(x$pdb, x$gold_standard, unzip = TRUE)
+  gsfp
 }
 
 gold_standard_file_name <- function(x) {
   basename(x$gold_standard)
-}
-
-gold_standard_temp_file_path <- function(x) {
-  file.path(gold_standard_temp_dir(), gold_standard_file_name(x))
 }

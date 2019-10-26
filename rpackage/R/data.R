@@ -22,23 +22,13 @@ get_data.pdb_posterior <- function(x, ...) {
 #' @export
 data_file_path <- function(x, tempdir = TRUE) {
   checkmate::assert_class(x, "pdb_posterior")
-  ffp <- file.path(x$pdb$path, paste0(x$data_info$data_file, ".zip"))
-  checkmate::assert_file_exists(ffp)
-  tfp <- data_temp_file_path(x)
-  copy_and_unzip(ffp, tfp)
-  tfp
-}
-
-data_temp_dir <- function() {
-  file.path(tempdir(), "posteriors", "data")
+  fp <- pdb_cached_local_file_path(x$pdb, x$data_info$data_file, unzip = TRUE)
+  checkmate::assert_file_exists(fp)
+  fp
 }
 
 data_file_name <- function(x) {
   basename(x$data_info$data_file)
-}
-
-data_temp_file_path <- function(x) {
-  file.path(data_temp_dir(), data_file_name(x))
 }
 
 #' @rdname data_file_path
@@ -52,4 +42,3 @@ stan_data_file_path <- function(x) {
 stan_data <- function(x) {
   get_data(x)
 }
-

@@ -4,13 +4,10 @@
 \alias{gold_standard_file_path}
 \title{Extract data for posterior}
 \usage{
-gold_standard_file_path(x, tempdir = TRUE)
+gold_standard_file_path(x)
 }
 \arguments{
 \item{x}{a \code{posterior} object.}
-
-\item{tempdir}{Should the file be copied to R temporary directory?
-Default is \code{TRUE}.}
 }
 \description{
 Extract data for posterior
