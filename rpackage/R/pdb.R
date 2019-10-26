@@ -211,7 +211,7 @@ is_pdb_endpoint.pdb_local <- function(pdb, ...) {
 #' @param pdb a \code{pdb} to read from.
 #' @param path a \code{pdb} to read from.
 #' @param unzip if true, path is zipped and should be unzipped to cache.
-#'
+#' @importFrom utils unzip
 pdb_cached_local_file_path <- function(pdb, path, unzip = FALSE){
   checkmate::assert_class(pdb, "pdb")
   checkmate::assert_string(path)
@@ -271,8 +271,8 @@ pdb_file_copy.pdb_local <- function(pdb, from, to, overwrite = FALSE, ...){
   file.copy(from = file.path(pdb$pdb_local_endpoint, from), to = to, overwrite = overwrite, ...)
 }
 
-#' Assert that the path points to a file that exist in the pdb
-#' @param pdb a \code{pdb} connection.
+#' Assert that a file exists
+#' @param pdb a \code{pdb} object.
 #' @param path a \code{pdb} path.
 pdb_assert_file_exist <- function(pdb, path, ...){
   UseMethod("pdb_assert_file_exist")

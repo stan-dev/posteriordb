@@ -69,8 +69,6 @@ is_pdb_endpoint.pdb_github <- function(pdb, ...) {
   all(pdb_minimum_contents() %in% dir_github)
 }
 
-#endpoint <- "/repos/MansMeg/posteriordb/contents?ref=github_pdb"
-
 github_dir <- function(gh_path, pdb, recursive = FALSE, full.names = TRUE, ...){
   if(recursive) stop("not implemented")
   if(!full.names) stop("not implemented")
