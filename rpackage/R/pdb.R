@@ -274,6 +274,7 @@ pdb_file_copy.pdb_local <- function(pdb, from, to, overwrite = FALSE, ...){
 #' Assert that a file exists
 #' @param pdb a \code{pdb} object.
 #' @param path a \code{pdb} path.
+#' @param ... further arguments supplied to methods.
 pdb_assert_file_exist <- function(pdb, path, ...){
   UseMethod("pdb_assert_file_exist")
 }

@@ -47,6 +47,20 @@ pdb_assert_file_exist.pdb_github <- function(pdb, path, ...){
   if(inherits(tr_ghp, "try-error")) stop("File does not exist: '", ghp, "'.")
 }
 
+#' @rdname pdb_file_copy
+pdb_file_copy.pdb_github <- function(pdb, from, to, overwrite = FALSE, ...){
+  pat <- github_pat(pdb)
+  ghp <- gh::gh(github_path(pdb, type = "contents", path = from), .token = pat)
+
+  if(is.null(pat)) {
+    ret <- httr::GET(ghp$download_url, httr::write_disk(to, overwrite = overwrite))
+  } else {
+    ret <- httr::GET(ghp$download_url, httr::add_headers(c("Authorization" = paste0("token ", pat))), httr::write_disk(to, overwrite = overwrite))
+  }
+
+  httr::status_code(ret) == 200L
+}
+
 
 #' @rdname data_names
 #' @export
@@ -81,7 +95,7 @@ github_dir <- function(gh_path, pdb, recursive = FALSE, full.names = TRUE, ...){
   if(recursive) stop("not implemented")
   if(!full.names) stop("not implemented")
   checkmate::assert_class(pdb, c("pdb_github"))
-  x <- gh(gh_path, .token = github_pat(pdb), ...)
+  x <- gh::gh(gh_path, .token = github_pat(pdb), ...)
   unlist(lapply(x, FUN=function(x) x$name))
 }
 
@@ -117,13 +131,6 @@ github_pat <- function(pdb = NULL) {
 
 
 
-
-# TODO!
-read_posterior_json.pdb_github <- function(pdb, name, ...) {
-  pfn <- posterior_local_path(name, pdb)
-  po <- jsonlite::read_json(pfn)
-  po
-}
 
 
 #' ---- OLD CAN BE REMOVED!

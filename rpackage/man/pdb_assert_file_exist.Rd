@@ -16,6 +16,8 @@ pdb_assert_file_exist(pdb, path, ...)
 \item{pdb}{a \code{pdb} object.}
 
 \item{path}{a \code{pdb} path.}
+
+\item{...}{further arguments supplied to methods.}
 }
 \description{
 Assert that a file exists
