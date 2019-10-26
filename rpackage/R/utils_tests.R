@@ -16,7 +16,7 @@ get_test_pdb_dir <- function(x) {
 find_local_posterior_database <- function(x){
   checkmate::assert_directory(x)
   fp <- normalizePath(x)
-  while (!"posterior_database" %in% dir(x) & basename(fp) != "") {
+  while (!"posterior_database" %in% dir(fp) & basename(fp) != "") {
     fp <- dirname(fp)
   }
   if (basename(fp) == "") {
