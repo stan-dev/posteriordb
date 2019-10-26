@@ -23,12 +23,7 @@ pdb_posterior <- posterior
 
 # read a posterior object from the data base
 read_posterior_json <- function(pdb, name, ...) {
-  UseMethod("read_posterior_json")
-}
-
-read_posterior_json.pdb_local <- function(pdb, name, ...) {
-  pfn <- posterior_local_path(name, pdb)
-  pfn <- pdb_cached_local_file_path(x$pdb, file.path("posteriors", paste0(name, ".json")))
+  pfn <- pdb_cached_local_file_path(pdb, path = file.path("posteriors", paste0(name, ".json")))
   po <- jsonlite::read_json(pfn)
   po
 }

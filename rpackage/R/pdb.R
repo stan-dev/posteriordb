@@ -207,7 +207,7 @@ pdb_cached_local_file_path <- function(pdb, path, unzip = FALSE, ...){
     pdb_file_copy(pdb, path_zip, cp_zip)
     utils::unzip(zipfile = cp_zip, exdir = dirname(cp_zip))
   } else {
-    pdb_file_copy(pdb, path, cp)
+    pdb_file_copy(pdb, from = path, to = cp)
   }
 
   return(cp)
@@ -219,7 +219,7 @@ pdb_cached_local_file_path <- function(pdb, path, unzip = FALSE, ...){
 #' @param path a \code{pdb} path.
 pdb_cache_path <- function(pdb, path){
   cp <- file.path(pdb$cache_path, path)
-  dir.create(cp, showWarnings = FALSE, recursive = TRUE)
+  dir.create(dirname(cp), showWarnings = FALSE, recursive = TRUE)
   cp
 }
 
@@ -237,8 +237,8 @@ pdb_file_copy <- function(pdb, from, to, overwrite = FALSE, ...){
   UseMethod("pdb_file_copy")
 }
 
-pdb_file_copy.pdb_local <- function(pdb, from, to, overwrite, ...){
-  file.copy(file.path(pdb$pdb_local_endpoint, from), overwrite = overwrite, ...)
+pdb_file_copy.pdb_local <- function(pdb, from, to, overwrite = FALSE, ...){
+  file.copy(from = file.path(pdb$pdb_local_endpoint, from), to = to, overwrite = overwrite, ...)
 }
 
 
@@ -247,7 +247,7 @@ pdb_assert_file_exist <- function(pdb, from){
 }
 
 pdb_assert_file_exist.pdb_local <- function(pdb, path){
-  checkmate::assert_file_exists(pdb$pdb_local_endpoint, path)
+  checkmate::assert_file_exists(file.path(pdb$pdb_local_endpoint, path))
 }
 
 
