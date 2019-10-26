@@ -5,7 +5,7 @@
   "title": "",
   "references": [],
   "model_code": {
-    "stan": "content/models/stan/roaches_poisson.stan"
+    "stan": "models/stan/roaches_poisson.stan"
   },
   "added_by": "Mans Magnusson",
   "added_date": "2019-08-12"
