@@ -216,16 +216,18 @@ pdb_cached_local_file_path <- function(pdb, path, unzip = FALSE){
   checkmate::assert_class(pdb, "pdb")
   checkmate::assert_string(path)
   checkmate::assert_flag(unzip)
+
+  # Check if path in cache - return cached path
+  cp <- pdb_cache_path(pdb, path)
+  if(file.exists(cp)) return(cp)
+
+  # Assert file exists
   if(unzip) {
     path_zip <- paste0(path, ".zip")
     pdb_assert_file_exist(pdb, path_zip)
   } else {
     pdb_assert_file_exist(pdb, path)
   }
-
-  # Check if path in cache - return cached path
-  cp <- pdb_cache_path(pdb, path)
-  if(file.exists(cp)) return(cp)
 
   # Copy (and unzip) file to cache
   if(unzip){
@@ -290,11 +292,13 @@ pdb_assert_file_exist.pdb_local <- function(pdb, path, ...){
 #' Check a posterior database
 #' @noRd
 #' @param pdb a \code{pdb} object
+#' @param posterior_idx an index vector indicating what posteriors to check.
 #' @return a boolean indicating if the pdb works as it should.
-check_pdb <- function(pdb) {
+check_pdb <- function(pdb, posterior_idx = NULL) {
   checkmate::assert_class(pdb, "pdb")
   message("Checking posterior database...")
   pns <- names(pdb)
+  if(!is.null(posterior_idx)) pns <- pns[posterior_idx]
   pl <- list()
   for (i in seq_along(pns)) {
     pl[[i]] <- posterior(name = pns[i], pdb = pdb)
