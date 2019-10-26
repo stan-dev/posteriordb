@@ -36,7 +36,7 @@ setup_pdb.pdb_github <- function(pdb, ...){
 #' @rdname posterior_names
 #' @export
 posterior_names.pdb_github <- function(pdb, ...) {
-  pns <- github_dir(github_path(pdb, type = "contents", path = "posteriors"))
+  pns <- github_dir(gh_path = github_path(pdb, type = "contents", path = "posteriors"), pdb = pdb)
   remove_file_extension(pns)
 }
 
