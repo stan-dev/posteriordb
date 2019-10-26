@@ -24,7 +24,3 @@ gold_standard_file_path <- function(x) {
   gsfp <- pdb_cached_local_file_path(x$pdb, x$gold_standard, unzip = TRUE)
   gsfp
 }
-
-gold_standard_file_name <- function(x) {
-  basename(x$gold_standard)
-}

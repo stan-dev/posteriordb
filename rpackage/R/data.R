@@ -27,10 +27,6 @@ data_file_path <- function(x) {
   fp
 }
 
-data_file_name <- function(x) {
-  basename(x$data_info$data_file)
-}
-
 #' @rdname data_file_path
 #' @export
 stan_data_file_path <- function(x) {

@@ -30,10 +30,6 @@ print.pdb_model_code <- function(x, ...) {
   invisible(x)
 }
 
-model_code_file_name <- function(x, framework) {
-  basename(model_code_file_path(x, framework))
-}
-
 #' @rdname model_code_file_path
 #' @export
 stan_code_file_path <- function(x) {
