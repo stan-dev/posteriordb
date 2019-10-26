@@ -11,7 +11,6 @@ test_that("posteriordb:::check_pdb indicates that local PDB is ok", {
 })
 
 test_that("model_names and data_names works as expected", {
-  posterior_db_path <- posteriordb:::get_test_pdb_dir()
   expect_silent(pdb_test <- pdb(posterior_db_path))
   expect_silent(posteriors <- posterior_names(pdb_test))
   expect_silent(mn <- model_names(pdb_test))
