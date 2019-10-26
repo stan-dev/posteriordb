@@ -29,6 +29,8 @@ This is used to store files locally and without affecting the database.}
 
 \item{pdb_type}{Type of posterior database connection. Either \code{local} or \code{github}.}
 
+\item{...}{further arguments for specific methods to setup a pdb.}
+
 \item{repo}{Repository address in the format
 `username/repo[/subdir][@ref|#pull]`. Alternatively, you can
 specify `subdir` and/or `ref` using the respective parameters

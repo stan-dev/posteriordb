@@ -23,6 +23,7 @@
 #'   the `GITHUB_PAT` environment variable.
 #' @param host GitHub API host to use. Override with your GitHub enterprise
 #'   hostname, for example, `"github.hostname.com/api/v3"`.
+#' @param ... further arguments for specific methods to setup a pdb.
 #' @return a \code{pdb} object
 #'
 #' @export
@@ -253,6 +254,7 @@ pdb_cache_path <- function(pdb, path){
 #' @param pdb a \code{pdb} connection.
 #' @param from a path in the pdb
 #' @param to a local file path
+#' @param overwrite overwrite local file.
 #' @param ... further argument supplied to methods
 #' @return a boolean indicator as file.copy indicating success.
 pdb_file_copy <- function(pdb, from, to, overwrite = FALSE, ...){

@@ -16,6 +16,8 @@ pdb_file_copy(pdb, from, to, overwrite = FALSE, ...)
 
 \item{to}{a local file path}
 
+\item{overwrite}{overwrite local file.}
+
 \item{...}{further argument supplied to methods}
 }
 \value{
