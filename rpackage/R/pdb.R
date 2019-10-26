@@ -1,11 +1,28 @@
-#' Create a local Posterior Database (pdb) connections
+#' Create a Posterior Database (pdb) connection
+#'
+#' @details
+#' Connect to a posterior database locally or in a github repo.
 #'
 #' @param cache_path The path to the pdb cache. Default is R temporary directory.
 #' This is used to store files locally and without affecting the database.
 #' @param pdb_id how to identify the pdb (path for local pdb, repo for github pdb)
-#' @param path a local path to the posterior db
-#' @param repo a github repository with a posterior db
-#'
+#' @param pdb_type Type of posterior database connection. Either \code{local} or \code{github}.
+#' @param path a local path to a posterior database.
+#' @param repo Repository address in the format
+#'   `username/repo[/subdir][@@ref|#pull]`. Alternatively, you can
+#'   specify `subdir` and/or `ref` using the respective parameters
+#'   (see below); if both is specified, the values in `repo` take
+#'   precedence.
+#' @param ref Desired git reference. Could be a commit, tag, or branch
+#'   name. Defaults to `"master"`.
+#' @param subdir subdirectory within repo that contains the posterior database.
+#' @param auth_token To use a private repo, generate a personal
+#'   access token (PAT) in "https://github.com/settings/tokens" and
+#'   supply to this argument. This is safer than using a password because
+#'   you can easily delete a PAT without affecting any others. Defaults to
+#'   the `GITHUB_PAT` environment variable.
+#' @param host GitHub API host to use. Override with your GitHub enterprise
+#'   hostname, for example, `"github.hostname.com/api/v3"`.
 #' @return a \code{pdb} object
 #'
 #' @export
@@ -35,7 +52,10 @@ pdb <- function(pdb_id, pdb_type = "local", cache_path = tempdir(), ...) {
   pdb
 }
 
-
+#' @rdname pdb_local
+pdb_official <- function(cache_path = tempdir()){
+  pdb_github("MansMeg/posteriordb/posterior_database", cache_path = cache_path)
+}
 
 #' Setup object specific part of pdb object
 #' @param pdb a \code{pdb} object.
@@ -191,7 +211,7 @@ is_pdb_endpoint.pdb_local <- function(pdb, ...) {
 #' @param path a \code{pdb} to read from.
 #' @param unzip if true, path is zipped and should be unzipped to cache.
 #'
-pdb_cached_local_file_path <- function(pdb, path, unzip = FALSE, ...){
+pdb_cached_local_file_path <- function(pdb, path, unzip = FALSE){
   checkmate::assert_class(pdb, "pdb")
   checkmate::assert_string(path)
   checkmate::assert_flag(unzip)
@@ -230,8 +250,10 @@ pdb_cache_path <- function(pdb, path){
 
 #' Copy a file from a pdb to a local path
 #'
+#' @param pdb a \code{pdb} connection.
 #' @param from a path in the pdb
 #' @param to a local file path
+#' @param ... further argument supplied to methods
 #' @return a boolean indicator as file.copy indicating success.
 pdb_file_copy <- function(pdb, from, to, overwrite = FALSE, ...){
   checkmate::assert_class(pdb, "pdb")
@@ -242,16 +264,17 @@ pdb_file_copy <- function(pdb, from, to, overwrite = FALSE, ...){
   UseMethod("pdb_file_copy")
 }
 
+#' @rdname pdb_file_copy
 pdb_file_copy.pdb_local <- function(pdb, from, to, overwrite = FALSE, ...){
   file.copy(from = file.path(pdb$pdb_local_endpoint, from), to = to, overwrite = overwrite, ...)
 }
 
 
-pdb_assert_file_exist <- function(pdb, from){
+pdb_assert_file_exist <- function(pdb, path, ...){
   UseMethod("pdb_assert_file_exist")
 }
 
-pdb_assert_file_exist.pdb_local <- function(pdb, path){
+pdb_assert_file_exist.pdb_local <- function(pdb, path, ...){
   checkmate::assert_file_exists(file.path(pdb$pdb_local_endpoint, path))
 }
 

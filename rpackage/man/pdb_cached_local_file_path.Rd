@@ -4,7 +4,7 @@
 \alias{pdb_cached_local_file_path}
 \title{Read json file from \code{path}}
 \usage{
-pdb_cached_local_file_path(pdb, path, unzip = FALSE, ...)
+pdb_cached_local_file_path(pdb, path, unzip = FALSE)
 }
 \arguments{
 \item{pdb}{a \code{pdb} to read from.}

@@ -1,24 +1,4 @@
-#' Create a GitHub Posterior Database (pdb) connection
-#'
-#' @details
-#' Connect to a posterior database in a github repo. The setup follows
-#' that of the \code{remotes} R package.
-#'
-#' @param repo Repository address in the format
-#'   `username/repo[/subdir][@@ref|#pull]`. Alternatively, you can
-#'   specify `subdir` and/or `ref` using the respective parameters
-#'   (see below); if both is specified, the values in `repo` take
-#'   precedence.
-#' @param ref Desired git reference. Could be a commit, tag, or branch
-#'   name. Defaults to `"master"`.
-#' @param subdir subdirectory within repo that contains the posterior database.
-#' @param auth_token To use a private repo, generate a personal
-#'   access token (PAT) in "https://github.com/settings/tokens" and
-#'   supply to this argument. This is safer than using a password because
-#'   you can easily delete a PAT without affecting any others. Defaults to
-#'   the `GITHUB_PAT` environment variable.
-#' @param host GitHub API host to use. Override with your GitHub enterprise
-#'   hostname, for example, `"github.hostname.com/api/v3"`.
+#' @rdname pdb_local
 #' @export
 pdb_github <- function(repo = getOption("pdb_repo", "MansMeg/posteriordb/posterior_database"),
                        cache_path = tempdir(),

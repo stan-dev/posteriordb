@@ -2,14 +2,21 @@
 % Please edit documentation in R/pdb.R
 \name{pdb_file_copy}
 \alias{pdb_file_copy}
+\alias{pdb_file_copy.pdb_local}
 \title{Copy a file from a pdb to a local path}
 \usage{
 pdb_file_copy(pdb, from, to, overwrite = FALSE, ...)
+
+\method{pdb_file_copy}{pdb_local}(pdb, from, to, overwrite = FALSE, ...)
 }
 \arguments{
+\item{pdb}{a \code{pdb} connection.}
+
 \item{from}{a path in the pdb}
 
 \item{to}{a local file path}
+
+\item{...}{further argument supplied to methods}
 }
 \value{
 a boolean indicator as file.copy indicating success.

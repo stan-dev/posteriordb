@@ -17,5 +17,6 @@ Imports:
   jsonlite
 Suggests:
   httr,
+  gh,
   remotes,
   testthat
