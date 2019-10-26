@@ -128,18 +128,3 @@ github_pat <- function(pdb = NULL) {
   if(is.null(pdb)) return(NULL)
   pdb$github$pat
 }
-
-
-
-
-
-#' ---- OLD CAN BE REMOVED!
-
-#' GET from github
-#' @keywords internal
-#' @noRd
-github_GET <- function(host, path, pat){
-  gh_url <- file.path(host, path)
-  if(is.null(pat)) return(httr::GET(gh_url))
-  httr::GET(gh_url, httr::add_headers(c("Authorization" = paste0("token ", pat))))
-}

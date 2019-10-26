@@ -286,7 +286,13 @@ pdb_assert_file_exist.pdb_local <- function(pdb, path, ...){
   checkmate::assert_file_exists(file.path(pdb$pdb_local_endpoint, path))
 }
 
-
+#' Clear posterior database cache
+#' @param pdb a \code{pdb} to clear cache for
+#' @keywords internal
+pdb_clear_cache <- function(pdb){
+  cached_files <- dir(pdb_cache_path(pdb, ""), recursive = TRUE, full.names = TRUE)
+  file.remove(cached_files)
+}
 
 
 #' Check a posterior database
