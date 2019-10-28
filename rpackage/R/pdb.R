@@ -75,6 +75,7 @@ setup_pdb.pdb_local <- function(pdb, ...){
 #' Get version of the \code{pdb}
 #'
 #' @param pdb a \code{pdb} object to return version for.
+#' @param ... Further argument to methods.
 #'
 #' @return the git sha for the posterior database.
 #' @export

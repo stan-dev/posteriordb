@@ -14,6 +14,8 @@ pdb_version(pdb, ...)
 }
 \arguments{
 \item{pdb}{a \code{pdb} object to return version for.}
+
+\item{...}{Further argument to methods.}
 }
 \value{
 the git sha for the posterior database.
