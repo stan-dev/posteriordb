@@ -44,12 +44,11 @@ pdb <- function(pdb_id, pdb_type = "local", cache_path = tempdir(), ...) {
   if(!dir.exists(cache_path)) dir.create(cache_path)
   pdb <- list(
     pdb_id = pdb_id,
-    cache_path = cache_path,
-    # TODO: make a S3 pdb_version class and add slots
-    version = list()
+    cache_path = cache_path
   )
   class(pdb) <- c(paste0("pdb_", pdb_type), "pdb")
   pdb <- setup_pdb(pdb, ...)
+  pdb$version <- pdb_version(pdb)
   pdb
 }
 
@@ -71,6 +70,25 @@ setup_pdb.pdb_local <- function(pdb, ...){
   pdb <- pdb_endpoint(pdb)
   checkmate::assert_directory(pdb$pdb_local_endpoint, "r")
   pdb
+}
+
+#' Get version of the \code{pdb}
+#'
+#' @param pdb a \code{pdb} object to return version for.
+#'
+#' @return the git sha for the posterior database.
+#' @export
+pdb_version <- function(pdb, ...){
+  if(!is.null(pdb$version)) return(pdb$version)
+  UseMethod("pdb_version")
+}
+
+#' @rdname pdb_version
+#' @export
+pdb_version.pdb_local <- function(pdb, ...){
+  repo <- git2r::repository(pdb$pdb_local_endpoint)
+  r <- git2r::revparse_single(repo, "HEAD")
+  list("sha" = git2r::sha(r))
 }
 
 #' Get all existing posterior names from a posterior database.

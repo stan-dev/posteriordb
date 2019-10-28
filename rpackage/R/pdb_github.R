@@ -32,6 +32,13 @@ setup_pdb.pdb_github <- function(pdb, ...){
   pdb
 }
 
+#' @rdname pdb_version
+#' @export
+pdb_version.pdb_github <- function(pdb, ...){
+  pat <- github_pat(pdb)
+  ghp <- gh::gh(github_path(pdb, type = "git/ref/heads"), .token = pat)
+  list("sha" = ghp$object$sha)
+}
 
 #' @rdname posterior_names
 #' @export
@@ -101,11 +108,14 @@ github_dir <- function(gh_path, pdb, recursive = FALSE, full.names = TRUE, ...){
 
 github_path <- function(pdb, type, path = NULL){
   checkmate::assert_class(pdb, c("pdb_github"))
-  checkmate::assert_choice(type, c("contents"))
+  checkmate::assert_choice(type, c("contents", "git/ref/heads"))
   base_path <- file.path("/repos", pdb$github$username, pdb$github$repo)
 
   if(type == "contents"){
     final_path <- paste0(file.path0(base_path, "contents", pdb$github$subdir, path), "?ref=", pdb$github$ref)
+    return(final_path)
+  } else if (type == "git/ref/heads"){
+    final_path <- file.path0(base_path, "git/ref/heads", pdb$github$ref)
     return(final_path)
   }
 
