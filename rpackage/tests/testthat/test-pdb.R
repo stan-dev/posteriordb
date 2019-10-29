@@ -26,7 +26,7 @@ test_that("model_names and data_names works as expected", {
 
 
 test_that("posteriordb:::check_pdb indicates that github PDB is ok", {
-  expect_silent(pdb_github_test <- pdb_github("MansMeg/posteriordb/posterior_database", ref = "github_pdb"))
+  expect_silent(pdb_github_test <- pdb_github("MansMeg/posteriordb/posterior_database"))
   expect_output(print(pdb_github_test), "Posterior Database")
   expect_output(print(pdb_github_test), "github")
   posteriordb:::pdb_clear_cache(pdb_github_test)
