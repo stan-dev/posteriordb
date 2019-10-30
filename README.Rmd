@@ -69,14 +69,24 @@ devtools::install("rpackage/")
 library(posteriordb)
 ```
 
-First we create the posterior database to use, here the cloned posterior database.
+First we create the posterior database to use, here we can use the database locally (after cloning the repo).
 
 ```{r}
-my_pdb <- pdb(getwd())
+my_pdb <- pdb_local()
 ```
 
-The above code requires that your working directory is in the main folder of your copy
-of this project. Alternatively, you can specify the path to the folder directly. To list the posteriors available, use `posterior_names()`.
+The above code requires that your working directory is in the main folder of the cloned repository. Otherwise we can use the `path` argument.
+
+We can also simply use the github repository directly.
+
+```{r, eval=FALSE}
+my_pdb <- pdb_github()
+```
+
+
+Independent of the posterior database used, the following works for all.
+
+To list the posteriors available in the database, use `posterior_names()`.
 
 ```{r}
 pos <- posterior_names(my_pdb)
@@ -98,7 +108,7 @@ to the data. Together, these two uniquely define a posterior distribution.
 To access a posterior object we can use the model name.
 
 ```{r}
-po <- posterior("8_schools-8_schools_centered", my_pdb)
+po <- posterior("eight_schools-eight_schools_centered", my_pdb)
 ```
 
 From the posterior object, we can access data, model code (i.e., Stan code
@@ -112,7 +122,7 @@ code <- stan_code(po)
 code
 ```
 
-We can also access the paths to data after they have been unzipped and copied to the R temp directory. By default, the model code is also copied to the R temp directory
+We can also access the paths to data after they have been unzipped and copied to the R temp directory. By default, the model code is copied to the R temp directory.
 
 ```{r}
 dfp <- data_file_path(po)
@@ -142,13 +152,4 @@ head(draws[, 1:3])
 
 ## Content
 
-The database contains
-
-* `posteriors`: A folder with the different posteriors as JSON slots pointing to data and models
-* `content`: A folder with the following sub directories (this part is not stable and may change)
-  - `content/data`: The data used in the models
-  - `content/data-raw`: Data used to generate the data in the data folder with reproducible code (maybe git submodule further along).
-  - `content/models`: The models used in different PPF
-  - `content/posterior_gold_standards`: A folder with sets of posterior draws that are designed to provide the gold standard to which to compare to (maybe git submodule further along).
-  - `content/schemas`: JSON schemas used in the database
-  - `content/templates`: JSON templates for objects used in the database
+See [DATABASE_CONTENT.md](https://github.com/MansMeg/posteriordb/blob/master/DATABASE_CONTENT.md) for the details content of the posterior database.

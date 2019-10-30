@@ -95,16 +95,24 @@ devtools::install("rpackage/")
 library(posteriordb)
 ```
 
-First we create the posterior database to use, here the cloned posterior
-database.
+First we create the posterior database to use, here we can use the
+database locally (after cloning the repo).
 
 ``` r
-my_pdb <- pdb(getwd())
+my_pdb <- pdb_local()
 ```
 
 The above code requires that your working directory is in the main
-folder of your copy of this project. Alternatively, you can specify the
-path to the folder directly. To list the posteriors available, use
+folder of your copy of this project. We can also simply use the github
+repository directly.
+
+``` r
+my_pdb <- pdb_github()
+```
+
+Independent of the posterior database used, the following works for all.
+
+To list the posteriors available in the database, use
 `posterior_names()`.
 
 ``` r
@@ -112,8 +120,8 @@ pos <- posterior_names(my_pdb)
 head(pos)
 ```
 
-    ## [1] "8_schools-8_schools_centered"                     
-    ## [2] "8_schools-8_schools_noncentered"                  
+    ## [1] "eight_schools-eight_schools_centered"             
+    ## [2] "eight_schools-eight_schools_noncentered"          
     ## [3] "prideprejustice_chapter-ldaK5"                    
     ## [4] "prideprejustice_paragraph-ldaK5"                  
     ## [5] "radon_mn-radon_hierarchical_intercept_centered"   
@@ -127,16 +135,16 @@ mn <- model_names(my_pdb)
 head(mn)
 ```
 
-    ## [1] "8_schools_centered"      "8_schools_noncentered"  
-    ## [3] "blr"                     "gmm_diagonal_nonordered"
-    ## [5] "gmm_diagonal_ordered"    "gmm_nonordered"
+    ## [1] "blr"                       "eight_schools_centered"   
+    ## [3] "eight_schools_noncentered" "gmm_diagonal_nonordered"  
+    ## [5] "gmm_diagonal_ordered"      "gmm_nonordered"
 
 ``` r
 dn <- data_names(my_pdb)
 head(dn)
 ```
 
-    ## [1] "8_schools"                 "prideprejustice_chapter"  
+    ## [1] "eight_schools"             "prideprejustice_chapter"  
     ## [3] "prideprejustice_paragraph" "radon_mn"                 
     ## [5] "radon"                     "roaches_scaled"
 
@@ -145,7 +153,7 @@ data. Together, these two uniquely define a posterior distribution. To
 access a posterior object we can use the model name.
 
 ``` r
-po <- posterior("8_schools-8_schools_centered", my_pdb)
+po <- posterior("eight_schools-eight_schools_centered", my_pdb)
 ```
 
 From the posterior object, we can access data, model code (i.e., Stan
@@ -185,22 +193,22 @@ code
     ## }
 
 We can also access the paths to data after they have been unzipped and
-copied to the R temp directory. By default, the model code is also
-copied to the R temp directory
+copied to the R temp directory. By default, the model code is copied to
+the R temp directory.
 
 ``` r
 dfp <- data_file_path(po)
 dfp
 ```
 
-    ## [1] "/var/folders/9h/yf354vb917z6gr6mz7bfb1d40000gn/T//RtmpCcVxXG/posteriors/data/8_schools.json"
+    ## [1] "/var/folders/9h/yf354vb917z6gr6mz7bfb1d40000gn/T//RtmpcCcnlk/posteriordb_cache/data/data/eight_schools.json"
 
 ``` r
 scfp <- stan_code_file_path(po)
 scfp
 ```
 
-    ## [1] "/var/folders/9h/yf354vb917z6gr6mz7bfb1d40000gn/T//RtmpCcVxXG/posteriors/model_code/stan/8_schools_centered.stan"
+    ## [1] "/var/folders/9h/yf354vb917z6gr6mz7bfb1d40000gn/T//RtmpcCcnlk/posteriordb_cache/models/stan/eight_schools_centered.stan"
 
 We can also access information regarding the model and the data used to
 compute the posterior.
@@ -209,14 +217,14 @@ compute the posterior.
 data_info(po)
 ```
 
-    ## Data: 8_schools
+    ## Data: eight_schools
     ## The 8 schools dataset of Rubin (1981)
 
 ``` r
 model_info(po)
 ```
 
-    ## Model: 8_schools_centered
+    ## Model: eight_schools_centered
     ## A centered hiearchical model for 8 schools
 
 Note that the references are referencing to BibTeX items that can be
@@ -242,20 +250,6 @@ head(draws[, 1:3])
 Content
 -------
 
-The database contains
-
--   `posteriors`: A folder with the different posteriors as JSON slots
-    pointing to data and models
--   `content`: A folder with the following sub directories (this part is
-    not stable and may change)
-    -   `content/data`: The data used in the models
-    -   `content/data-raw`: Data used to generate the data in the data
-        folder with reproducible code (maybe git submodule further
-        along).
-    -   `content/models`: The models used in different PPF
-    -   `content/posterior_gold_standards`: A folder with sets of
-        posterior draws that are designed to provide the gold standard
-        to which to compare to (maybe git submodule further along).
-    -   `content/schemas`: JSON schemas used in the database
-    -   `content/templates`: JSON templates for objects used in the
-        database
+See
+[DATABASE\_CONTENT.md](https://github.com/MansMeg/posteriordb/blob/master/DATABASE_CONTENT.md)
+for the details content of the posterior database.
