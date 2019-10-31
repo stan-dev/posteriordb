@@ -1,5 +1,5 @@
 Contributing
-===========
+============
 
 We are happy for you to contribute with new posteriors to the datasbase. just create a Pull Request with you new content to the posteriordb, the tests on the new content will be checked.
 
@@ -8,34 +8,37 @@ Below are checklists depending on the what you want to contribute.
 CONTENT CHECKLISTS
 -------------
 
-Below are checklists to contributing parts to
+Below are checklists to contributing to the posterior database.
 
 ### Add a posterior - CHECKLIST
 
-1. Use the json file for eight_schools at `posteriors/eight_schools-eight_schools_centered.json` as a template. See
-1. Save the posterior as `[data_name]-[model_name].json` in `posteriors`
-1. If new data or new model code is needed, this should be added at the same time.
+1. Use the json file for eight_schools at `posteriors/eight_schools-eight_schools_centered.json` as a template and mody the file to your posterior.
+1. Save the posterior as `[data_name]-[model_name].json` in `posteriors/`
+1. If new data or new model code is needed, added this (see below).
 1. Add a new gold standard for the new posterior (see below)
+1. If you added a new reference, also add the reference in the references file (see below).
 
 ### Add new data - CHECKLIST
 
 1. Create an R or python script to generate data as a ziped json file following the format of the posterior data, store the script and the raw data in `data/data-raw/` with the name `[data_name].[r/py]`.
-1. Save the ziped json data in `data/data-raw/`
+1. Save the ziped json data file in `data/data-raw/[data_name].json.zip`
 1. Use the json info for eight_schools at `data/info/eight_schools.info.json` as a template and create an information file on the new data.
 1. If you added a new reference, also add the reference in the references file (see below).
 
 ### Add new model - CHECKLIST
 
+If you are adding a totally new framework, create an issue and we see how we can add this in the best way.
+
 1. Save the model file in `models/[framework]/[model_name].[file extension]` (as an example `models/stan/eight_schools_centered.stan`)
 1. Use the json info for eight_schools at `models/info/eight_schools_centered.info.json` as a template and create an information file on the new model.
-1. If you are adding a totally new framework, create an issue and we see how we can add this.
 1. If you added a new reference, also add the reference in the references file (see below).
+
 
 ### Add new gold standard - CHECKLIST
 
 To see what qualifies as a gold standard, see GOLD_STANDARD_DEFINITION.md.
 
-1. Save the gold standard file in `gold_standard/[posterior_name].json.zip`. See DATABASE_CONTENT.md on how the gold_standard JSON file.
+1. Save the gold standard file in `gold_standard/[posterior_name].json.zip`. See DATABASE_CONTENT.md on how the gold_standard JSON file should be structured.
 
 
 ### Add new reference - CHECKLIST
