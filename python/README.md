@@ -68,7 +68,7 @@ to the data. Together, these two uniquely define a posterior distribution.
 To access a posterior object we can use the model name.
 
 ```python
->>> po = Posterior("8_schools-8_schools_centered", my_pdb)
+>>> po = Posterior("eight_schools-eight_schools_centered", my_pdb)
 ```
 
 From the posterior object, we can access data, model code (i.e., Stan code
@@ -113,7 +113,7 @@ We can also access the paths to data and model code files
 >>> scfp = po.stan_code_file_path()
 >>> scfp
 
-'/home/eero/posterior_database/content/models/stan/8_schools_centered.stan'
+'/home/eero/posterior_database/content/models/stan/eight_schools_centered.stan'
 ```
 
 We can also access information regarding the model and the data used to compute the posterior.
@@ -126,7 +126,7 @@ We can also access information regarding the model and the data used to compute 
  'urls': ['http://www.stat.columbia.edu/~gelman/arm/examples/schools'],
  'title': 'The 8 schools dataset of Rubin (1981)',
  'references': ['rubin1981estimation', 'gelman2013bayesian'],
- 'data_file': 'content/datasets/data/8_schools.json',
+ 'data_file': 'content/datasets/data/eight_schools.json',
  'added_by': 'Mans Magnusson',
  'added_date': '2019-08-12'}
 
@@ -138,7 +138,7 @@ We can also access information regarding the model and the data used to compute 
  'urls': ['http://www.stat.columbia.edu/~gelman/arm/examples/schools'],
  'title': 'A centered hiearchical model for 8 schools',
  'references': ['rubin1981estimation', 'gelman2013bayesian'],
- 'model_code': {'stan': 'content/models/stan/8_schools_centered.stan'},
+ 'model_code': {'stan': 'content/models/stan/eight_schools_centered.stan'},
  'added_by': 'Mans Magnusson',
  'added_date': '2019-08-12'}
 

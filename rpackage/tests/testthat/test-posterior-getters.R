@@ -6,7 +6,7 @@ test_that("Check that all posteriors can access stan_data and stan_code", {
 
   expect_silent(pdb_test <- pdb(posterior_db_path))
 
-  expect_silent(po <- posterior("8_schools-8_schools_noncentered", pdb = pdb_test))
+  expect_silent(po <- posterior("eight_schools-eight_schools_noncentered", pdb = pdb_test))
 
   # Test stan_data_file_path
   expect_silent(sdfp <- stan_data_file_path(po))
@@ -18,7 +18,7 @@ test_that("Check that all posteriors can access stan_data and stan_code", {
   # Test data_info
   expect_silent(di <- data_info(po))
   expect_s3_class(di, "pdb_data_info")
-  expect_output(print(di), "Data: 8_schools")
+  expect_output(print(di), "Data: eight_schools")
 
   # Test model_code
   expect_silent(mcfp <- model_code_file_path(po, "stan"))
@@ -41,7 +41,7 @@ test_that("Check that all posteriors can access stan_data and stan_code", {
   # Test model_info
   expect_silent(mi <- model_info(po))
   expect_s3_class(mi, "pdb_model_info")
-  expect_output(print(mi), "Model: 8_schools_noncentered")
+  expect_output(print(mi), "Model: eight_schools_noncentered")
 
   expect_output(print(po), "Posterior")
 

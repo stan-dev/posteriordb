@@ -4,10 +4,10 @@ test_that("Check that gold_standard works as expected", {
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
 
   expect_silent(pdb_test <- pdb(posterior_db_path))
-  expect_silent(po <- posterior("8_schools-8_schools_centered", pdb_test))
+  expect_silent(po <- posterior("eight_schools-eight_schools_centered", pdb_test))
   expect_silent(gs <- gold_standard(po))
   expect_s3_class(gs, "pdb_posterior_fit")
-  expect_silent(po <- posterior("8_schools-8_schools_noncentered", pdb_test))
+  expect_silent(po <- posterior("eight_schools-eight_schools_noncentered", pdb_test))
   expect_silent(gs <- gold_standard(po))
   expect_s3_class(gs, "pdb_posterior_fit")
   expect_silent(pd <- posterior_draws(gs))
