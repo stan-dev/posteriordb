@@ -6,7 +6,9 @@ from posteriordb import PosteriorDatabase
 
 def test_posterior_database():
     # path to ../../ which is the posterior database directory
-    path = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+    path = os.path.dirname(
+        os.path.dirname(os.path.dirname(__file__) + "posterior_database")
+    )
     pdb = PosteriorDatabase(path)
 
     model_names = pdb.model_names()
