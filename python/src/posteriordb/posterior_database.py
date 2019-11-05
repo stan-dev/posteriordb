@@ -36,6 +36,24 @@ class PosteriorDatabase:
         self.path = path
         # TODO assert that path is a valid posterior database
 
+    def posterior(self, name):
+        # inline import needed to avoid import loop
+        from .posterior import Posterior
+
+        return Posterior(name, self)
+
+    def model(self, name):
+        # inline import needed to avoid import loop
+        from .model import Model
+
+        return Model(name, self)
+
+    def data(self, name):
+        # inline import needed to avoid import loop
+        from .dataset import Dataset
+
+        return Dataset(name, self)
+
     def posterior_info_path(self, name: str):
         file_path = os.path.join(self.path, "posteriors", name + ".json")
         return file_path

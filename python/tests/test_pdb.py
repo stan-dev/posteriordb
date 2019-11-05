@@ -1,6 +1,5 @@
 import os
 
-from posteriordb import Posterior
 from posteriordb import PosteriorDatabase
 
 
@@ -21,8 +20,9 @@ def test_posterior_database():
     assert len(posterior_names) > 0
 
     for name in posterior_names:
-        posterior = Posterior(name, pdb)
+        posterior = pdb.posterior(name)
 
+        assert posterior.name is not None
         # test posterior methods
         assert posterior.data_file_path() is not None
         assert posterior.data_values() is not None
@@ -33,14 +33,21 @@ def test_posterior_database():
 
         # test dataset methods
         data = posterior.data
+        assert data.name is not None
 
         assert data.values() is not None
         assert data.file_path() is not None
 
         assert data.information is not None
-        # test model methods
 
+        # test that pdb.data works
+        data2 = pdb.data(data.name)
+        assert data2 is not None
+
+        # test model methods
         model = posterior.model
+
+        assert model.name is not None
 
         assert model.code("stan") is not None
         assert model.code_file_path("stan") is not None
@@ -48,6 +55,11 @@ def test_posterior_database():
         assert model.stan_code_file_path() is not None
 
         assert model.information is not None
+
+        # test that pdb.model works
+        model2 = pdb.model(model.name)
+        assert model2 is not None
+
     posteriors = list(pdb.posteriors())
     assert len(posteriors) > 0
 
