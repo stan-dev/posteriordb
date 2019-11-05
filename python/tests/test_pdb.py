@@ -23,16 +23,31 @@ def test_posterior_database():
     for name in posterior_names:
         posterior = Posterior(name, pdb)
 
-        assert posterior.dataset() is not None
-        assert posterior.dataset_file_path() is not None
+        # test posterior methods
+        assert posterior.data_file_path() is not None
+        assert posterior.data_values() is not None
         assert posterior.model_code("stan") is not None
         assert posterior.model_code_file_path("stan") is not None
         assert posterior.stan_code() is not None
         assert posterior.stan_code_file_path() is not None
-        assert posterior.model.stan_code_file_path() is not None
-        assert posterior.model_info is not None
-        assert posterior.data_info is not None
 
+        # test dataset methods
+        data = posterior.data
+
+        assert data.values() is not None
+        assert data.file_path() is not None
+
+        assert data.information is not None
+        # test model methods
+
+        model = posterior.model
+
+        assert model.code("stan") is not None
+        assert model.code_file_path("stan") is not None
+        assert model.stan_code() is not None
+        assert model.stan_code_file_path() is not None
+
+        assert model.information is not None
     posteriors = list(pdb.posteriors())
     assert len(posteriors) > 0
 

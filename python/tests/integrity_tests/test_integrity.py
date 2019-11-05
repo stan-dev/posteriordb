@@ -1,8 +1,6 @@
 import os
 
 from . import helpers
-from posteriordb import Dataset
-from posteriordb import Model
 from posteriordb import PosteriorDatabase
 
 
