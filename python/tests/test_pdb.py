@@ -23,13 +23,6 @@ def test_posterior_database():
         posterior = pdb.posterior(name)
 
         assert posterior.name is not None
-        # test posterior methods
-        assert posterior.data_file_path() is not None
-        assert posterior.data_values() is not None
-        assert posterior.model_code("stan") is not None
-        assert posterior.model_code_file_path("stan") is not None
-        assert posterior.stan_code() is not None
-        assert posterior.stan_code_file_path() is not None
 
         # test dataset methods
         data = posterior.data

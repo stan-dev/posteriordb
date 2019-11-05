@@ -15,24 +15,6 @@ class Posterior:
 
         self.data = Dataset(self.posterior_info["data_name"], posterior_db)
 
-    def model_code_file_path(self, framework: str):
-        return self.model.code_file_path(framework)
-
-    def stan_code_file_path(self):
-        return self.model.stan_code_file_path()
-
-    def stan_code(self):
-        return self.model.stan_code()
-
-    def model_code(self, framework: str):
-        return self.model.code(framework)
-
-    def data_values(self):
-        return self.data.values()
-
-    def data_file_path(self):
-        return self.data.file_path()
-
     def gold_standard(self):
         # gold_standard_file = self.posterior_info["gold_standard"]
         raise NotImplementedError()
