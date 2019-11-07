@@ -12,19 +12,3 @@ test_that("Check that all posteriors can access stan_data and stan_code", {
     expect_silent(sd <- stan_data(po))
   }
 })
-
-
-
-
-test_that("Check that all posteriors names in JSON is the same as file names", {
-  skip("Check that all posteriors names in JSON is the same as file names")
-
-  #expect_silent(pdb_dir <- posteriordb:::get_pdb_dir(getwd()))
-  #expect_silent(pdb_test <- pdb(x = pdb_dir))
-  #expect_silent(posteriors <- posterior_names(pdb_test))
-
-  #stop("TODO")
-  #for(i in seq_along(posteriors)){
-  #  expect_silent(po <- posterior(posteriors[i], pdb_test))
-  #}
-})

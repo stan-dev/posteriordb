@@ -38,7 +38,7 @@ pdb <- function(pdb_id, pdb_type = "local", cache_path = tempdir(), ...) {
   checkmate::assert_directory(cache_path, "w")
   checkmate::assert_choice(pdb_type, c("local", "github"))
   if(cache_path == tempdir()){
-    # To ensure no duplicate file names from R session.
+    # To ensure no duplicate temp file names from R session.
     cache_path <- file.path(cache_path, "posteriordb_cache")
   }
   if(!dir.exists(cache_path)) dir.create(cache_path)
@@ -211,7 +211,7 @@ is_pdb_endpoint <- function(pdb, ...) {
   UseMethod("is_pdb_endpoint")
 }
 
-pdb_minimum_contents <- function() c("data", "models", "posteriors", "references")
+pdb_minimum_contents <- function() c("data", "models", "posteriors")
 
 #' @noRd
 #' @rdname is_pdb_endpoint
@@ -243,9 +243,6 @@ pdb_cached_local_file_path <- function(pdb, path, unzip = FALSE){
   # Assert file exists
   if(unzip) {
     path_zip <- paste0(path, ".zip")
-    pdb_assert_file_exist(pdb, path_zip)
-  } else {
-    pdb_assert_file_exist(pdb, path)
   }
 
   # Copy (and unzip) file to cache
@@ -266,9 +263,35 @@ pdb_cached_local_file_path <- function(pdb, path, unzip = FALSE){
 #' @param path a \code{pdb} path.
 pdb_cache_path <- function(pdb, path){
   cp <- file.path(pdb$cache_path, path)
-  dir.create(dirname(cp), showWarnings = FALSE, recursive = TRUE)
+  for(i in seq_along(cp)){
+    if(!dir.exists(dirname(cp[i]))){
+      dir.create(dirname(cp[i]), showWarnings = FALSE, recursive = TRUE)
+    }
+  }
   cp
 }
+
+#' Returns a cached files in path
+#' @param pdb a \code{pdb} object.
+#' @param path a \code{pdb} path.
+#' @param file_ext should the file extensions be returned? Default is TRUE.
+#' @param all.files see \code{dir()}.
+#' @param full.names see \code{dir()}.
+#' @param recursive see \code{dir()}.
+#' @keywords internal
+#' @noRd
+pdb_list_files_in_cache <- function(pdb, path, file_ext = TRUE, all.files = FALSE, full.names = FALSE, recursive = FALSE){
+  checkmate::assert_class(pdb, "pdb")
+  checkmate::assert_string(path)
+  checkmate::assert_flag(file_ext)
+  checkmate::assert_flag(all.files)
+  checkmate::assert_flag(full.names)
+  checkmate::assert_flag(recursive)
+  fns <- list.files(pdb_cache_path(.pdb, path), all.files = all.files, full.names = full.names,  recursive = recursive)
+  if(!file_ext) fns <- remove_file_extension(fns)
+  fns
+}
+
 
 #' Copy a file from a pdb to a local path
 #'
@@ -281,14 +304,14 @@ pdb_cache_path <- function(pdb, path){
 pdb_file_copy <- function(pdb, from, to, overwrite = FALSE, ...){
   checkmate::assert_class(pdb, "pdb")
   checkmate::assert_string(from)
-  pdb_assert_file_exist(pdb, from)
-  checkmate::assert_path_for_output(to)
+  checkmate::assert_path_for_output(to, overwrite = overwrite)
   checkmate::assert_flag(overwrite)
   UseMethod("pdb_file_copy")
 }
 
 #' @rdname pdb_file_copy
 pdb_file_copy.pdb_local <- function(pdb, from, to, overwrite = FALSE, ...){
+  pdb_assert_file_exist(pdb, from)
   file.copy(from = file.path(pdb$pdb_local_endpoint, from), to = to, overwrite = overwrite, ...)
 }
 
@@ -311,6 +334,35 @@ pdb_assert_file_exist.pdb_local <- function(pdb, path, ...){
 pdb_clear_cache <- function(pdb){
   cached_files <- dir(pdb_cache_path(pdb, ""), recursive = TRUE, full.names = TRUE)
   file.remove(cached_files)
+}
+
+
+#' Cache a whole directory
+#'
+#' Mainly used for the filter functions
+#' @noRd
+#' @param pdb a \code{pdb} object.
+#' @param path path to cache
+#' @param ... further arguments supplied to class specific methods.
+#' @return a boolean indicating success
+#' @keywords internal
+pdb_cache_dir <- function(.pdb, path, ...){
+  checkmate::assert_class(.pdb, "pdb")
+  checkmate::assert_choice(path, choices = c("posteriors", "models/info", "data/info"))
+  UseMethod("pdb_cache_dir")
+  invisible(TRUE)
+}
+
+#' @noRd
+#' @rdname pdb_cache_dir
+#' @keywords internal
+pdb_cache_dir.pdb_local <- function(.pdb, path, ...){
+  fns <- dir(file.path(.pdb$pdb_local_endpoint, path), full.names = FALSE)
+  froms <- file.path(path, fns)
+  tos <- pdb_cache_path(pdb = pdb, path = file.path(path, fns))
+  for(i in seq_along(froms)){
+    pdb_file_copy(pdb = pdb, from = froms[i], to = tos[i], overwrite = TRUE)
+  }
 }
 
 
@@ -339,4 +391,49 @@ check_pdb <- function(pdb, posterior_idx = NULL) {
   message("3. All stan_data can be read.")
   message("Posterior database is ok.\n")
   invisible(TRUE)
+}
+
+
+#' Read in information json
+#' @param x a data, model or posterior name
+#' @param path one of \code{"posteriors"}, \code{"models/info"}, \code{"data/info"}
+#' @param pdb a posterior db object to access the info json from
+#' @noRd
+#' @keywords internal
+read_info_json <- function(x, path, pdb = NULL, ...){
+  checkmate::assert_choice(path, c("posteriors", "models/info", "data/info"))
+  UseMethod("read_info_json")
+}
+
+#' @rdname read_info_json
+#' @noRd
+#' @keywords internal
+read_info_json.character <- function(x, path, pdb = NULL, ...){
+  checkmate::assert_class(pdb, "pdb")
+  if(path != "posteriors") {
+    x <- paste0(x, ".info")
+  }
+  fp <- file.path(path, paste0(x, ".json"))
+  pfn <- pdb_cached_local_file_path(pdb, path = fp)
+  po <- jsonlite::read_json(pfn)
+  po$name <- x
+  po <- po[c(length(po), 1:(length(po) - 1))] # Put name as first slot
+  po$added_date <- as.Date(po$added_date)
+  class(po) <- paste0("pdb_", gsub(x = path, pattern = "/", "_"), "_info")
+  po
+}
+
+#' @rdname read_info_json
+#' @noRd
+#' @keywords internal
+read_info_json.pdb_posterior <- function(x, path, pdb = NULL, ...){
+  if(path == "posteriors"){
+    nm <- x$name
+  } else if(path == "models/info") {
+    nm <- x$model_name
+  } else if(path == "data/info") {
+    nm <- x$data_name
+  }
+  po <- read_info_json(nm, path = path, pdb = x$pdb)
+  po
 }

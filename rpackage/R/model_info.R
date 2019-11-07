@@ -9,12 +9,8 @@ model_info <- function(po) {
 }
 
 # read model info from the data base
-read_model_info <- function(po) {
-  checkmate::assert_class(po, "pdb_posterior")
-  model_info_path <- pdb_cached_local_file_path(po$pdb, file.path("models", "info", paste0(po$model_name, ".info.json")))
-  model_info <- jsonlite::read_json(model_info_path)
-  model_info$name <- po$model_name
-  model_info$added_date <- as.Date(model_info$added_date)
+read_model_info <- function(x, pdb = NULL, ...) {
+  model_info <- read_info_json(x, path = "models/info", pdb = pdb, ...)
   class(model_info) <- "pdb_model_info"
   model_info
 }
