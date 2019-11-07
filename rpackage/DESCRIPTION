@@ -16,6 +16,7 @@ Imports:
   checkmate,
   jsonlite
 Suggests:
+  dplyr,
   httr,
   gh,
   git2r,

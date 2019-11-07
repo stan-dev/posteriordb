@@ -287,7 +287,7 @@ pdb_list_files_in_cache <- function(pdb, path, file_ext = TRUE, all.files = FALS
   checkmate::assert_flag(all.files)
   checkmate::assert_flag(full.names)
   checkmate::assert_flag(recursive)
-  fns <- list.files(pdb_cache_path(.pdb, path), all.files = all.files, full.names = full.names,  recursive = recursive)
+  fns <- list.files(pdb_cache_path(pdb, path), all.files = all.files, full.names = full.names,  recursive = recursive)
   if(!file_ext) fns <- remove_file_extension(fns)
   fns
 }
@@ -346,8 +346,8 @@ pdb_clear_cache <- function(pdb){
 #' @param ... further arguments supplied to class specific methods.
 #' @return a boolean indicating success
 #' @keywords internal
-pdb_cache_dir <- function(.pdb, path, ...){
-  checkmate::assert_class(.pdb, "pdb")
+pdb_cache_dir <- function(pdb, path, ...){
+  checkmate::assert_class(pdb, "pdb")
   checkmate::assert_choice(path, choices = c("posteriors", "models/info", "data/info"))
   UseMethod("pdb_cache_dir")
   invisible(TRUE)
@@ -356,8 +356,8 @@ pdb_cache_dir <- function(.pdb, path, ...){
 #' @noRd
 #' @rdname pdb_cache_dir
 #' @keywords internal
-pdb_cache_dir.pdb_local <- function(.pdb, path, ...){
-  fns <- dir(file.path(.pdb$pdb_local_endpoint, path), full.names = FALSE)
+pdb_cache_dir.pdb_local <- function(pdb, path, ...){
+  fns <- dir(file.path(pdb$pdb_local_endpoint, path), full.names = FALSE)
   froms <- file.path(path, fns)
   tos <- pdb_cache_path(pdb = pdb, path = file.path(path, fns))
   for(i in seq_along(froms)){

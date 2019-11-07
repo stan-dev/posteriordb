@@ -13,7 +13,7 @@
 #' @param pdb a \code{pdb} object.
 #' @param ... further arguments to supply to \code{dplyr::filter()}
 #' @export
-pdb_filter_posteriors <- function(pdb, ...){
+filter_posteriors <- function(pdb, ...){
   pdb_filter(pdb, path = "posteriors", ...)
 }
 
@@ -31,7 +31,7 @@ pdb_filter <- function(pdb, path, ...){
 
   dat_tbl <- dplyr::filter(dat, ...)
 
-  nms <- unique(pdb_tbl$name)
+  nms <- unique(dat_tbl$name)
   obj_list <- list()
   for(i in seq_along(nms)) {
     obj_list[[i]] <- posterior(name = nms[i], pdb = pdb)

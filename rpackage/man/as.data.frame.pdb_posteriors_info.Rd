@@ -10,9 +10,11 @@
 \arguments{
 \item{x}{any R object.}
 
+\item{row.names}{NULL or a character vector giving the row names for the data frame. Missing values are not allowed.}
+
 \item{optional}{Not used.}
 
-\item{NULL}{or a character vector giving the row names for the data frame. Missing values are not allowed.}
+\item{...}{further arguments to \code{as.data.frame} for a list.}
 }
 \description{
 Coerce to a Data Frame
