@@ -72,13 +72,18 @@ pdb_file_copy.pdb_github <- function(pdb, from, to, overwrite = FALSE, ...){
 #' @rdname data_names
 #' @export
 data_names.pdb_github <- function(pdb, ...) {
-  pns <- github_dir(github_path(pdb, type = "contents", path = "data"),
-             recursive = TRUE, full.names = FALSE)
-  pns <- pns[grepl(pns, pattern = "\\.json\\.zip$")]
+  pns <- github_dir(gh_path = github_path(pdb, type = "contents", path = "data/info"), pdb = pdb)
+  pns <- pns[grepl(pns, pattern = "\\.json")]
   basename(remove_file_extension(pns))
 }
 
-# TODO: Locally cache posterior names, model names and data names
+#' @rdname data_names
+#' @export
+model_names.pdb_github <- function(pdb, ...) {
+  pns <- github_dir(gh_path = github_path(pdb, type = "contents", path = "models/info"), pdb = pdb)
+  pns <- pns[grepl(pns, pattern = "\\.json")]
+  basename(remove_file_extension(pns))
+}
 
 #' @noRd
 #' @rdname pdb_endpoint
