@@ -18,17 +18,6 @@ posterior <- function(name, pdb = pdb()) {
 #' @export
 pdb_posterior <- posterior
 
-# read a posterior object from the data base
-read_posterior_info <- function(pdb, name, ...) {
-  pfn <- pdb_cached_local_file_path(pdb, path = file.path("posteriors", paste0(name, ".json")))
-  po <- jsonlite::read_json(pfn)
-  po$name <- name
-  po$pdb <- pdb
-  po$added_date <- as.Date(po$added_date)
-  class(po) <- "pdb_posterior_info"
-  po
-}
-
 #' @export
 print.pdb_posterior <- function(x, ...) {
   cat0("Posterior\n\n")
