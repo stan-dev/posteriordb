@@ -21,7 +21,7 @@ Run Stan HMC/NUTS. A good default is
 1. 20 000 iter per chain and 10 000 iteration warmup
 
 Check that:
-1. There are no divergent transitions in any chain.
+1. There are no divergent transitions in any chain after warmup.
 
 ### Analytical
 
