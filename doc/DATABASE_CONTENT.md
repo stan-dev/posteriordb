@@ -15,8 +15,8 @@ All posteriors in the database contain (at minimum):
 - `added_date`: Added date (name and github name)
 
 Also, the posterior can contain slots on
-- `references`: What references should be cited if the data is used. This is BibTeX slots. The actual references can be found in `references/references.bib`.
-- `gold_standard` Path to the gold standard with posterior draws
+- `references`: What references should be cited if the posterior is used. This is BibTeX slots. The actual references can be found in `references/references.bib`.
+- `gold_standard`: Posterior name of the gold standard
 - `keywords`: Keywords for the data (see keywords below)
 
 
@@ -76,16 +76,21 @@ Contain models as stan files stored as `models/stan/[model_name].stan`.
 
 ## Gold standard `gold_standards`
 
-Contain gold standard draws stored as zipped JSON as `gold_standards/[posterior_name].json.zip`. See GOLD_STANDARD_CRITERIA.md for details on what is considered to be a gold standard in the posteriordb.
+Contain gold standard information are stored as JSON in `gold_standards/info/[posterior_name].info.json`. The actual draws
+are stored in `gold_standards/draws/[posterior_name].json.zip`.
 
-All gold_standard in the database contains (at minimum):
+See [GOLD_STANDARD_CRITERIA.md](https://github.com/MansMeg/posteriordb/blob/master/docs/GOLD_STANDARD_CRITERIA.md) for details on what is considered to be a gold standard in the posteriordb.
+
+All gold_standard in the database contains (at minimum) the following information:
 - `posterior_name`: The posterior name.
 - `cfg`: Configuration to create a gold standard with the following elements:
   - `inference_method`: How were the draws created (e.g. "stan_sampling" or "analytical")
-  - `inference_method_arguments`: arguments used to create gold_standard, such as `chains`, `iter`, `warmup`, `algorithm` for full reproducibility.
-- `posterior_draws`: a named list with all parameters specified in the stan model file of the posterior nested  as chains, parameters, draws.
+  - `inference_method_arguments`: arguments used to create gold_standard, such as `chains`, `iter`, `warmup`, `algorithm`, `seed` etc. for full reproducibility.
 - `added_by`: Added by (name and github name)
 - `added_date`: Date the file was added (name and github name)
+
+In addition the gold_standard posterior draws ziped JSON file contain at least the following:
+- a named list with all parameters specified in the stan model file of the posterior nested  as chains, parameters, draws.
 
 
 ## References `references`
@@ -101,4 +106,4 @@ JSON-schemas for all elements in the database. Currently not included.
 ## Keyword
 
 In the database, there are multiple keywords used (and can be added by users). Some relevant keywords of interest:
-- stan_benchmarks: Models used for regression tests of stan
+- `stan_benchmarks`: Models included in the Stan Benchmarks
