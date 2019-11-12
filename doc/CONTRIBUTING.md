@@ -3,7 +3,15 @@ Contributing
 
 We are happy for you to contribute with new posteriors to the datasbase. just create a Pull Request with you new content to the posteriordb, the tests on the new content will be checked.
 
-Below are checklists depending on the what you want to contribute.
+Don't hesitate to do a Pull Request (PR) with a new model, data or posterior to the repository. We use the PR for discussion on new material!
+
+Pull request workflow
+-------------
+
+1. Fork this repository
+1. Make a contribution
+1. Open a pull request in GitHub (the tests will the automatically run on Travis)
+
 
 CONTENT CHECKLISTS
 -------------
@@ -36,9 +44,10 @@ If you are adding a totally new framework, create an issue and we see how we can
 
 ### Add new gold standard - CHECKLIST
 
-To see what qualifies as a gold standard, see GOLD_STANDARD_DEFINITION.md.
+To see what qualifies as a gold standard, see [GOLD_STANDARD_DEFINITION.md](https://github.com/MansMeg/posteriordb/blob/master/doc/GOLD_STANDARD_DEFINITION.md).
 
-1. Save the gold standard file in `gold_standard/[posterior_name].json.zip`. See DATABASE_CONTENT.md on how the gold_standard JSON file should be structured.
+1. Save the gold standard information in `gold_standard/info/[posterior_name].info.json`. See [DATABSE_CONTENT.md](https://github.com/MansMeg/posteriordb/blob/master/doc/DATABASE_CONTENT.md) on how the gold_standard JSON file should be structured.
+1. Save the gold standard draws in `gold_standard/draws/[posterior_name].json.zip`. See [DATABSE_CONTENT.md](https://github.com/MansMeg/posteriordb/blob/master/doc/DATABASE_CONTENT.md) on how the gold_standard JSON file with draws should be structured.
 
 
 ### Add new reference - CHECKLIST
@@ -46,19 +55,11 @@ To see what qualifies as a gold standard, see GOLD_STANDARD_DEFINITION.md.
 1. Add the reference to the `references/reference.bib` BiBTeX file.
 
 
+Pre-commit and Tests
+====================
 
-
-
-
-Pull request workflow
--------------
-
-1. Fork this repository and clone your fork locally
-1. Install pre-commit (see **Installing pre-commit** below)
-1. Make changes and commit them
-1. Run tests (see **Tests**)
-1. Push to your fork
-1. Open a pull request in GitHub
+Below are more details on how to run pre-commits for code cleaning and
+tests to test your contribution locally before opening up a PR.
 
 Installing pre-commit
 --------------
