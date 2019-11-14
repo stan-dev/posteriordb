@@ -17,6 +17,7 @@ Imports:
   jsonlite
 Suggests:
   dplyr,
+  posterior,
   httr,
   gh,
   git2r,
