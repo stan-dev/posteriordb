@@ -251,5 +251,5 @@ Content
 -------
 
 See
-[DATABASE\_CONTENT.md](https://github.com/MansMeg/posteriordb/blob/master/DATABASE_CONTENT.md)
+[DATABASE\_CONTENT.md](https://github.com/MansMeg/posteriordb/blob/master/docs/DATABASE_CONTENT.md)
 for the details content of the posterior database.

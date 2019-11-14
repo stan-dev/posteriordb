@@ -18,9 +18,10 @@ The included database contains convenience functions to access data, model code 
 First we create the posterior database to use, here the cloned posterior database.
 
 ```python
->>> from posterior_db import PosteriorDatabase, Posterior
+>>> from posteriordb import PosteriorDatabase
 >>> import os
->>> my_pdb = PosteriorDatabase(os.getcwd())
+>>> pdb_path = os.path.join(os.getcwd(), "posterior_database")
+>>> my_pdb = PosteriorDatabase(pdb_path)
 ```
 
 The above code requires that your working directory is in the main folder of your copy
@@ -65,25 +66,43 @@ In the same fashion, we can list data and models included in the database as
 
 The posterior's name is made up of the data and model fitted
 to the data. Together, these two uniquely define a posterior distribution.
-To access a posterior object we can use the model name.
+To access a posterior object we can use the posterior name.
 
 ```python
->>> po = Posterior("eight_schools-eight_schools_centered", my_pdb)
+>>> posterior = my_pdb.posterior("eight_schools-eight_schools_centered")
 ```
 
-From the posterior object, we can access data, model code (i.e., Stan code
-in this case) and a lot of other useful information.
+From the posterior we can access the dataset and the model
 
 ```python
->>> po.dataset()
+>>> model = posterior.model
+>>> data = posterior.data
+```
 
-{'J': 8,
- 'y': [28, 8, -3, 7, -1, 1, 18, 12],
- 'sigma': [15, 10, 16, 11, 9, 11, 10, 18]}
+We can also access the names of posteriors, models and datasets.
 
->>> sc = po.stan_code()
->>> print(sc)
+```python
+>>> posterior.name
+"eight_schools-eight_schools_centered"
 
+>>> model.name
+"eight_schools_centered"
+
+>>> data.name
+"eight_schools"
+
+```
+
+We can access the same model and dataset also directly from the posterior database
+```python
+>>> model = my_pdb.model("eight_schools_centered")
+>>> data = my_pdb.data("eight_schools")
+```
+
+From the model we can access model code and information about the model
+
+```python
+>>> model.code("stan")
 data {
   int <lower=0> J; // number of schools
   real y[J]; // estimated treatment
@@ -101,55 +120,45 @@ model {
   mu ~ normal(0, 5);
 }
 
-```
-
-We can also access the paths to data and model code files
-
-```python
->>> dfp = po.dataset_file_path()
->>> dfp
-'/tmp/tmpx16edu0w'
-
->>> scfp = po.stan_code_file_path()
->>> scfp
-
+>>> model.code_file_path("stan")
 '/home/eero/posterior_database/content/models/stan/eight_schools_centered.stan'
-```
 
-We can also access information regarding the model and the data used to compute the posterior.
-
-```python
->>> po.data_info
-
-{'keywords': ['bda3_example'],
- 'description': 'A study for the Educational Testing Service to analyze the effects of\nspecial coaching programs on test scores. See Gelman et. al. (2014), Section 5.5 for details.',
- 'urls': ['http://www.stat.columbia.edu/~gelman/arm/examples/schools'],
- 'title': 'The 8 schools dataset of Rubin (1981)',
- 'references': ['rubin1981estimation', 'gelman2013bayesian'],
- 'data_file': 'content/datasets/data/eight_schools.json',
- 'added_by': 'Mans Magnusson',
- 'added_date': '2019-08-12'}
-
-
->>> po.model_info
-
+>>> model.information
 {'keywords': ['bda3_example', 'hiearchical'],
  'description': 'A centered hiearchical model for the 8 schools example of Rubin (1981)',
  'urls': ['http://www.stat.columbia.edu/~gelman/arm/examples/schools'],
  'title': 'A centered hiearchical model for 8 schools',
  'references': ['rubin1981estimation', 'gelman2013bayesian'],
- 'model_code': {'stan': 'content/models/stan/eight_schools_centered.stan'},
  'added_by': 'Mans Magnusson',
  'added_date': '2019-08-12'}
-
 ```
-
 Note that the references are referencing to BibTeX items that can be found in `content/references/references.bib`.
+
+From the dataset we can access the data values and information about it
+
+```python
+>>> data.values()
+{'J': 8,
+ 'y': [28, 8, -3, 7, -1, 1, 18, 12],
+ 'sigma': [15, 10, 16, 11, 9, 11, 10, 18]}
+
+>>> data.file_path()
+'/tmp/tmpx16edu0w'
+
+>>> data.information
+{'keywords': ['bda3_example'],
+ 'description': 'A study for the Educational Testing Service to analyze the effects of\nspecial coaching programs on test scores. See Gelman et. al. (2014), Section 5.5 for details.',
+ 'urls': ['http://www.stat.columbia.edu/~gelman/arm/examples/schools'],
+ 'title': 'The 8 schools dataset of Rubin (1981)',
+ 'references': ['rubin1981estimation', 'gelman2013bayesian'],
+ 'added_by': 'Mans Magnusson',
+ 'added_date': '2019-08-12'}
+```
 
 To access gold standard posterior draws we can use `gold_standard` as follows (NOTE not implemented yet).
 
 ```python
-> gs = po.gold_standard()
+> gs = posterior.gold_standard()
 
 NOT_IMPLEMENTED_YET
 ```

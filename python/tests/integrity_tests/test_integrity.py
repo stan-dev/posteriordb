@@ -1,14 +1,16 @@
 import os
 
 from . import helpers
-from posteriordb import Dataset
-from posteriordb import Model
 from posteriordb import PosteriorDatabase
 
 
 def get_posterior_db():
-    path = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
-    pdb = PosteriorDatabase(path)
+    project_path = os.path.dirname(
+        os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+    )
+    pdb_path = os.path.join(project_path, "posterior_database")
+    pdb = PosteriorDatabase(pdb_path)
+    assert len(pdb.posterior_names()) > 0
     return pdb
 
 

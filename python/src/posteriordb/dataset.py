@@ -4,23 +4,25 @@ import tempfile
 from zipfile import ZipFile
 
 from .posterior_database import PosteriorDatabase
+from .util import drop_keys
 
 
 class Dataset:
     def __init__(self, name: str, posterior_db: PosteriorDatabase):
         self.name = name
         self.posterior_db = posterior_db
-        self.data_info = self.posterior_db.get_data_info(name=self.name)
+        full_information = self.posterior_db.get_data_info(name=self.name)
+        self.information = drop_keys(full_information, "data_file")
 
-    def dataset_file_path(self):
-        data = self.dataset()
+    def file_path(self):
+        data = self.values()
         # make a temp file with unzipped data
         with tempfile.NamedTemporaryFile(mode="w", delete=False) as f:
             json.dump(data, f)
             file_name = f.name
         return file_name
 
-    def dataset(self):
+    def values(self):
         # unzip the file on the fly
         # return contents
         path = self.posterior_db.get_dataset_path(self.name)
