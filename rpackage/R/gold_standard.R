@@ -170,7 +170,7 @@ assert_gold_standard_info <- function(x){
 
 #' Subset a [pdb_gold_standard_draws] object
 #' @param x a [pdb_gold_standard_draws] to subest
-#' @param parameters Parameters to choose.
+#' @param variable Parameters to subset.
 #' @param ... Further arguments (not used).
 #' @export
 subset.pdb_gold_standard_draws <- function(x, variable, ...){

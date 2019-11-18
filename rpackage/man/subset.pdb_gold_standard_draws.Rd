@@ -9,9 +9,9 @@
 \arguments{
 \item{x}{a [pdb_gold_standard_draws] to subest}
 
-\item{...}{Further arguments (not used).}
+\item{variable}{Parameters to subset.}
 
-\item{parameters}{Parameters to choose.}
+\item{...}{Further arguments (not used).}
 }
 \description{
 Subset a [pdb_gold_standard_draws] object
