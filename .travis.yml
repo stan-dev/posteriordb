@@ -24,4 +24,5 @@ matrix:
       before_install:
       - cd rpackage
       r_packages: covr
+      r_github_packages: jgabry/posterior
       after_success: Rscript -e 'covr::codecov()'

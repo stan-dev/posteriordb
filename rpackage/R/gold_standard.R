@@ -175,3 +175,19 @@ subset.pdb_gold_standard_draws <- function(x, parameters, ...){
   x$draws <- subset(x$draws, variable = parameters, regex = TRUE)
   x
 }
+
+
+#' @export
+print.pdb_gold_standard_draws <- function(x, ...) {
+  cat0("Posterior: ", x$name, "\n")
+  print(posterior::summarise_draws(x$draws))
+}
+
+
+#' @export
+print.pdb_gold_standard_info <- function(x, ...) {
+  cat0("Posterior: ", x$name, "\n")
+  cat0("Method: ", x$inference_method, " (", x$inference_version, ")\n")
+  cat0("Arguments:\n")
+  print_list(x$inference_method_arguments)
+}

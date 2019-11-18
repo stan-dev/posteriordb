@@ -27,6 +27,16 @@ file.path0 <- function(...){
   do.call(file.path, arg[!unlist(lapply(arg, FUN = is.null))])
 }
 
+# Print a list as a yaml recursively
+print_list <- function(x, pad = "  ")
+  for(i in seq_along(x)){
+    if(is.list(x[[i]])) {
+      print_list(x[[i]], pad = paste0(pad, pad))
+    } else {
+      cat0(pad, names(x)[i], ": ", x[[i]], "\n")
+    }
+  }
+
 #' Coerce to a Data Frame
 #' @param x any R object.
 #' @param row.names NULL or a character vector giving the row names for the data frame. Missing values are not allowed.
