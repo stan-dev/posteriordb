@@ -13,6 +13,7 @@ read_data_info <- function(x, pdb = NULL, ...) {
   checkmate::assert_class(x, "pdb_posterior")
   data_info <- read_info_json(x, path = "data/info", pdb = pdb, ...)
   class(data_info) <- "pdb_data_info"
+  assert_data_info(model_info)
   data_info
 }
 

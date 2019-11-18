@@ -38,6 +38,7 @@ read_gold_standard_info <- function(x, pdb = NULL, ...) {
   if(is.null(x)) stop("There is currently no gold standard for this posterior.")
   gold_standard_info <- read_info_json(x, path = "gold_standards/info", pdb = pdb, ...)
   class(gold_standard_info) <- "pdb_gold_standard_info"
+  assert_gold_standard_info(gold_standard_info)
   gold_standard_info
 }
 
