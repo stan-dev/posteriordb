@@ -59,4 +59,5 @@ test_that("model_names, data_names and names work", {
   checkmate::expect_choice("eight_schools", nms)
   expect_silent(nms <- model_names(pdb_github_test))
   checkmate::expect_choice("eight_schools_centered", nms)
+  posteriordb:::pdb_clear_cache(pdb_github_test)
 })

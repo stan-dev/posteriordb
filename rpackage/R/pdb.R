@@ -401,7 +401,7 @@ check_pdb <- function(pdb, posterior_idx = NULL) {
 #' @noRd
 #' @keywords internal
 read_info_json <- function(x, path, pdb = NULL, ...){
-  checkmate::assert_choice(path, c("posteriors", "models/info", "data/info"))
+  checkmate::assert_choice(path, c("posteriors", "models/info", "data/info", "gold_standards/info"))
   UseMethod("read_info_json")
 }
 
@@ -436,4 +436,40 @@ read_info_json.pdb_posterior <- function(x, path, pdb = NULL, ...){
   }
   po <- read_info_json(nm, path = path, pdb = x$pdb)
   po
+}
+
+
+#' Write objects to posteriordb
+#' @param x a gold_standard_draws object
+#' @param path a posteriordb path.
+#' @param info is this an info json? Defaults to TRUE.
+#' @param zip Should the json be zipped?
+#' @param pdb a local posteriordb object to write to
+#' @noRd
+#' @keywords internal
+write_json_to_path <- function(x, path, pdb, zip = FALSE, info = TRUE){
+  checkmate::assert_subset(class(x)[1], choices = c("pdb_gold_standard_draws", "pdb_gold_standard_info"))
+  checkmate::assert_string(path)
+  checkmate::assert_class(pdb, "pdb_local")
+  checkmate::assert_flag(zip)
+  checkmate::assert_flag(info)
+
+  if(info) {
+    nm <- paste0(x$name, ".info.json")
+  } else {
+    nm <- paste0(x$name, ".json")
+  }
+  path <- strsplit(path, "/")[[1]]
+
+  fp <- file.path(pdb_endpoint(pdb), do.call(file.path, as.list(path)), nm)
+  checkmate::assert_path_for_output(fp)
+
+  zfp <- paste0(fp, ".zip")
+  writeLines(text = jsonlite::toJSON(x, pretty = TRUE, auto_unbox = TRUE, null = "null", digits = NA),
+             con = fp)
+  if(zip){
+    zip(files = fp, zipfile = zfp, flags = "-j")
+    file.remove(fp)
+  }
+  return(invisible(TRUE))
 }

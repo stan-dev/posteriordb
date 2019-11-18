@@ -12,6 +12,8 @@ Description: R functionality of easy access of different posteriors.
 License: GPL (>= 2)
 RoxygenNote: 6.1.1
 Encoding: UTF-8
+Depends:
+  R (>= 2.10)
 Imports:
   checkmate,
   jsonlite
@@ -22,4 +24,5 @@ Suggests:
   gh,
   git2r,
   remotes,
+  rstan,
   testthat
