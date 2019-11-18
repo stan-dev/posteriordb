@@ -1,4 +1,5 @@
 {
+  "name": "eight_schools",
   "keywords": [
     "bda3_example"
   ],
@@ -11,7 +12,7 @@
     "rubin1981estimation",
     "gelman2013bayesian"
   ],
-  "data_file": "data/data/eight_schools.json",
+  "data_file": "eight_schools.json.zip",
   "added_by": "Mans Magnusson",
   "added_date": "2019-08-12"
 }

@@ -1,4 +1,5 @@
 {
+  "name": "eight_schools-eight_schools_centered",
   "keywords": ["stan_benchmark"],
   "model_name": "eight_schools_centered",
   "gold_standard": "eight_schools-eight_schools_noncentered",
