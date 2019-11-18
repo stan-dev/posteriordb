@@ -9,14 +9,14 @@ Travis CI is used to check that the database conforms in the following way.
 Posteriors are stored as json files as `posteriors/[posterior_name].json`.
 
 All posteriors in the database contain (at minimum):
-- `data_name`: Data
-- `model_name`: Model code
+- `data_name`: Data (name)
+- `model_name`: Model (name)
 - `added_by`: Added by (name and github name)
 - `added_date`: Added date (name and github name)
 
 Also, the posterior can contain slots on
 - `references`: What references should be cited if the posterior is used. This is BibTeX slots. The actual references can be found in `references/references.bib`.
-- `gold_standard`: Posterior name of the gold standard
+- `gold_standard_name`: Gold standard name / posterior name if it extists. Otherwise is `null`.
 - `keywords`: Keywords for the data (see keywords below)
 
 
@@ -34,8 +34,9 @@ All datasets are stored as zipped JSON-objects in `data/data` and information on
 The data info file contains information on the data used and is stored as   `data/info/[data_name].info.json`.
 
 All data in the database contain (at minimum):
+- `name`: The dataset name
 - `data_file`: Path to data JSON in the database
-- `title`: A dataset name
+- `title`: The title for the dataset (used for printing)
 - `added_by`: Added by (name and github name)
 - `added_date`: Date the file was added (name and github name)
 
@@ -59,8 +60,10 @@ The script should be executable (in R or Python) to reproduce the data-set at th
 The model info file contains information on the model and is stored as   `models/info/[model_name].info.json`.
 
 All data in the database contain (at minimum):
+- `name`: The model name
 - `model_code`: A named JSON object with one element per framework. For example, the "stan" points to a model representation as stan code.
-- `title`: A model name
+- `title`: The title for the model (used for printing)
+- `dimensions`: A named list with dimensions per parameter name. Can be used to identify the parameters of the given model if, for example, transformed variables are used. If null, all parameters are relevant and are included in the gold standard.
 - `added_by`: Added by (name and github name)
 - `added_date`: Date the file was added (name and github name)
 
@@ -68,7 +71,7 @@ Also, the posterior can contain slots on
 - `references`: What references should be cited if the model is used. This is BibTeX elements. The actual references should be included in `references/references.bib`.
 - `description`: A short description of the model used.
 - `urls`: urls to the model to read more.
-- `keywords`: Keywords for the data (see keywords below)
+- `keywords`: Keywords for the model (see keywords below)
 
 ### `models/stan`
 
@@ -82,15 +85,16 @@ are stored in `gold_standards/draws/[posterior_name].json.zip`.
 See [GOLD_STANDARD_CRITERIA.md](https://github.com/MansMeg/posteriordb/blob/master/docs/GOLD_STANDARD_CRITERIA.md) for details on what is considered to be a gold standard in the posteriordb.
 
 All gold_standard in the database contains (at minimum) the following information:
-- `posterior_name`: The posterior name.
+- `name`: The posterior/gold_standard name.
 - `cfg`: Configuration to create a gold standard with the following elements:
   - `inference_method`: How were the draws created (e.g. "stan_sampling" or "analytical")
   - `inference_method_arguments`: arguments used to create gold_standard, such as `chains`, `iter`, `warmup`, `algorithm`, `seed` etc. for full reproducibility.
+- `inference_version`: String with version of Rstan/Pystan/stan (e.g. "rstan 2.18.1")
 - `added_by`: Added by (name and github name)
 - `added_date`: Date the file was added (name and github name)
 
 In addition the gold_standard posterior draws ziped JSON file contain at least the following:
-- a named list with all parameters specified in the stan model file of the posterior nested  as chains, parameters, draws.
+- a named list with all parameters specified in the stan model file of the posterior nested as chains, parameters, draws.
 
 
 ## References `references`

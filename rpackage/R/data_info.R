@@ -9,13 +9,11 @@ data_info <- function(po) {
 pdb_data_info <- data_info
 
 # read data info from the data base
-read_data_info <- function(po) {
-  checkmate::assert_class(po, "pdb_posterior")
-  data_info_path <- pdb_cached_local_file_path(po$pdb, file.path("data", "info", paste0(po$data_name, ".info.json")))
-  data_info <- jsonlite::read_json(data_info_path)
-  data_info$name <- po$data_name
-  data_info$added_date <- as.Date(data_info$added_date)
+read_data_info <- function(x, pdb = NULL, ...) {
+  checkmate::assert_class(x, "pdb_posterior")
+  data_info <- read_info_json(x, path = "data/info", pdb = pdb, ...)
   class(data_info) <- "pdb_data_info"
+  assert_data_info(data_info)
   data_info
 }
 
@@ -24,4 +22,20 @@ print.pdb_data_info <- function(x, ...) {
   cat0("Data: ", x$name, "\n")
   cat0(x$title, "\n")
   invisible(x)
+}
+
+assert_data_info <- function(x){
+  checkmate::assert_names(names(x),
+                          subset.of = c("name", "data_file", "title", "added_by", "added_date", "references", "description", "urls", "keywords"),
+                          must.include = c("name", "data_file", "title", "added_by", "added_date"))
+  checkmate::assert_string(x$name)
+  checkmate::assert_string(x$data_file)
+  checkmate::assert_string(x$title)
+  checkmate::assert_string(x$added_by)
+  checkmate::assert_date(x$added_date)
+
+  checkmate::assert_list(x$references, null.ok = TRUE)
+  checkmate::assert_string(x$description, null.ok = TRUE)
+  checkmate::assert_list(x$urls, null.ok = TRUE)
+  checkmate::assert_list(x$keywords, null.ok = TRUE)
 }

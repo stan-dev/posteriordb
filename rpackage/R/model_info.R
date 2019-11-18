@@ -9,13 +9,10 @@ model_info <- function(po) {
 }
 
 # read model info from the data base
-read_model_info <- function(po) {
-  checkmate::assert_class(po, "pdb_posterior")
-  model_info_path <- pdb_cached_local_file_path(po$pdb, file.path("models", "info", paste0(po$model_name, ".info.json")))
-  model_info <- jsonlite::read_json(model_info_path)
-  model_info$name <- po$model_name
-  model_info$added_date <- as.Date(model_info$added_date)
+read_model_info <- function(x, pdb = NULL, ...) {
+  model_info <- read_info_json(x, path = "models/info", pdb = pdb, ...)
   class(model_info) <- "pdb_model_info"
+  assert_model_info(model_info)
   model_info
 }
 
@@ -24,4 +21,23 @@ print.pdb_model_info <- function(x, ...) {
   cat0("Model: ", x$name, "\n")
   cat0(x$title, "\n")
   invisible(x)
+}
+
+
+assert_model_info <- function(x){
+  checkmate::assert_names(names(x),
+                          subset.of = c("name", "model_code", "title", "dimensions", "added_by", "added_date", "references", "description", "urls", "keywords"),
+                          must.include = c("name", "model_code", "title", "dimensions", "added_by", "added_date"))
+  checkmate::assert_string(x$name)
+  checkmate::assert_list(x$model_code)
+  checkmate::assert_string(x$title)
+  checkmate::assert_list(x$dimensions)
+  checkmate::assert_named(x$dimensions)
+  checkmate::assert_string(x$added_by)
+  checkmate::assert_date(x$added_date)
+
+  checkmate::assert_list(x$references, null.ok = TRUE)
+  checkmate::assert_string(x$description, null.ok = TRUE)
+  checkmate::assert_list(x$urls, null.ok = TRUE)
+  checkmate::assert_list(x$keywords, null.ok = TRUE)
 }

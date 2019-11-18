@@ -5,14 +5,24 @@ test_that("Check that gold_standard works as expected", {
 
   expect_silent(pdb_test <- pdb(posterior_db_path))
   expect_silent(po <- posterior("eight_schools-eight_schools_centered", pdb_test))
-  expect_silent(gs <- gold_standard(po))
-  expect_s3_class(gs, "pdb_posterior_fit")
+  expect_silent(gsi1 <- gold_standard_info(po))
+  expect_s3_class(gsi1, "pdb_gold_standard_info")
   expect_silent(po <- posterior("eight_schools-eight_schools_noncentered", pdb_test))
-  expect_silent(gs <- gold_standard(po))
-  expect_s3_class(gs, "pdb_posterior_fit")
-  expect_silent(pd <- posterior_draws(gs))
-  expect_s3_class(pd, "data.frame")
+  expect_silent(gsi2 <- gold_standard_info(po))
+  expect_s3_class(gsi2, "pdb_gold_standard_info")
+  expect_identical(gsi1, gsi2)
+
+  expect_silent(po <- posterior("eight_schools-eight_schools_centered", pdb_test))
+  expect_silent(pd1 <- gold_standard_draws(x = po))
+  expect_s3_class(pd1, "pdb_gold_standard_draws")
+  expect_s3_class(pd1$draws, "draws_list")
+  expect_silent(po <- posterior("eight_schools-eight_schools_noncentered", pdb_test))
+  expect_silent(pd2 <- gold_standard_draws(x = po))
+  expect_identical(pd1, pd2)
+
   expect_silent(po <- posterior("prideprejustice_chapter-ldaK5", pdb_test))
-  expect_error(gs <- gold_standard(po),
+  expect_error(gs <- gold_standard_info(po),
+               regexp = "There is currently no gold standard for this posterior.")
+  expect_error(gs <- gold_standard_draws(po),
                regexp = "There is currently no gold standard for this posterior.")
 })

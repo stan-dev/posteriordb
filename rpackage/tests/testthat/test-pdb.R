@@ -33,3 +33,31 @@ test_that("posteriordb:::check_pdb indicates that github PDB is ok", {
   expect_message(posteriordb:::check_pdb(pdb = pdb_github_test, posterior_idx = 1:2), "Posterior database is ok")
   expect_message(posteriordb:::check_pdb(pdb = pdb_github_test, posterior_idx = 1:2), "Posterior database is ok")
 })
+
+
+test_that("model_names, data_names and names work", {
+  posterior_db_path <- posteriordb:::get_test_pdb_dir()
+  expect_silent(pdb_test <- pdb(posterior_db_path))
+  posteriordb:::pdb_clear_cache(pdb_test)
+  expect_silent(nms <- names(pdb_test))
+  checkmate::expect_choice("eight_schools-eight_schools_centered", nms)
+  expect_silent(nms <- posterior_names(pdb_test))
+  checkmate::expect_choice("eight_schools-eight_schools_centered", nms)
+  expect_silent(nms <- data_names(pdb = pdb_test))
+  checkmate::expect_choice("eight_schools", nms)
+  expect_silent(nms <- model_names(pdb_test))
+  checkmate::expect_choice("eight_schools_centered", nms)
+
+
+  expect_silent(pdb_github_test <- pdb_github("MansMeg/posteriordb/posterior_database"))
+  posteriordb:::pdb_clear_cache(pdb_github_test)
+  expect_silent(nms <- names(pdb_github_test))
+  checkmate::expect_choice("eight_schools-eight_schools_centered", nms)
+  expect_silent(nms <- posterior_names(pdb_github_test))
+  checkmate::expect_choice("eight_schools-eight_schools_centered", nms)
+  expect_silent(nms <- data_names(pdb = pdb_github_test))
+  checkmate::expect_choice("eight_schools", nms)
+  expect_silent(nms <- model_names(pdb_github_test))
+  checkmate::expect_choice("eight_schools_centered", nms)
+  posteriordb:::pdb_clear_cache(pdb_github_test)
+})

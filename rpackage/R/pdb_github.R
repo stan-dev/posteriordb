@@ -47,13 +47,6 @@ posterior_names.pdb_github <- function(pdb, ...) {
   remove_file_extension(pns)
 }
 
-#' @rdname pdb_assert_file_exist
-pdb_assert_file_exist.pdb_github <- function(pdb, path, ...){
-  ghp <- github_path(pdb, type = "contents", path = path)
-  tr_ghp <- try(gh::gh(ghp, .token = github_pat(pdb)))
-  if(inherits(tr_ghp, "try-error")) stop("File does not exist: '", ghp, "'.")
-}
-
 #' @rdname pdb_file_copy
 pdb_file_copy.pdb_github <- function(pdb, from, to, overwrite = FALSE, ...){
   pat <- github_pat(pdb)
@@ -72,13 +65,18 @@ pdb_file_copy.pdb_github <- function(pdb, from, to, overwrite = FALSE, ...){
 #' @rdname data_names
 #' @export
 data_names.pdb_github <- function(pdb, ...) {
-  pns <- github_dir(github_path(pdb, type = "contents", path = "data"),
-             recursive = TRUE, full.names = FALSE)
-  pns <- pns[grepl(pns, pattern = "\\.json\\.zip$")]
+  pns <- github_dir(gh_path = github_path(pdb, type = "contents", path = "data/info"), pdb = pdb)
+  pns <- pns[grepl(pns, pattern = "\\.json")]
   basename(remove_file_extension(pns))
 }
 
-# TODO: Locally cache posterior names, model names and data names
+#' @rdname data_names
+#' @export
+model_names.pdb_github <- function(pdb, ...) {
+  pns <- github_dir(gh_path = github_path(pdb, type = "contents", path = "models/info"), pdb = pdb)
+  pns <- pns[grepl(pns, pattern = "\\.json")]
+  basename(remove_file_extension(pns))
+}
 
 #' @noRd
 #' @rdname pdb_endpoint
@@ -137,4 +135,50 @@ github_pat <- function(pdb = NULL) {
   }
   if(is.null(pdb)) return(NULL)
   pdb$github$pat
+}
+
+#' Download file from GitHub
+#'
+#' A github personal access token
+#' Looks in env var `GITHUB_PAT`
+#' @param download_url A github download url
+#' @param to A local file path to download to
+#' @param pat A github access token
+#' @param overwrite Should an existing file be overwritten?
+#' @keywords internal
+#' @noRd
+github_download <- function(download_url, to, pat, overwrite){
+  checkmate::assert_string(download_url, pattern = "^http(s)?://")
+  checkmate::assert_path_for_output(to, overwrite = TRUE)
+  checkmate::assert_string(pat, null.ok = TRUE)
+  checkmate::assert_flag(overwrite)
+
+  if(file.exists(to) & !overwrite) return(TRUE)
+
+  if(is.null(pat)) {
+    ret <- httr::GET(download_url, httr::write_disk(to, overwrite = overwrite))
+  } else {
+    ret <- httr::GET(download_url, httr::add_headers(c("Authorization" = paste0("token ", pat))), httr::write_disk(to, overwrite = overwrite))
+  }
+  httr::http_error(ret)
+  httr::status_code(ret) == 200L
+}
+
+
+
+
+#' @noRd
+#' @rdname pdb_cache_dir
+#' @keywords internal
+pdb_cache_dir.pdb_github <- function(pdb, path, ...){
+  pat <- github_pat(pdb)
+  ghp <- gh::gh(github_path(pdb, type = "contents", path = path), .token = pat)
+  download_urls <- unlist(lapply(ghp, FUN = function(x) x$download_url))
+  fns <- unlist(lapply(ghp, FUN = function(x) x$name))
+  message("Downloading github content...")
+  for(i in seq_along(download_urls)){
+    to <- pdb_cache_path(pdb = pdb, path = file.path(path, fns[i]))
+    github_download(download_url = download_urls[i], to = to, pat = pat, overwrite = FALSE)
+  }
+  message("Done.")
 }
