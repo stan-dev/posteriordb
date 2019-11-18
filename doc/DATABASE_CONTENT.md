@@ -63,6 +63,7 @@ All data in the database contain (at minimum):
 - `name`: The model name
 - `model_code`: A named JSON object with one element per framework. For example, the "stan" points to a model representation as stan code.
 - `title`: The title for the model (used for printing)
+- `dimensions`: A named list with dimensions per parameter name. Can be used to identify the parameters of the given model if, for example, transformed variables are used. If null, all parameters are relevant and are included in the gold standard.
 - `added_by`: Added by (name and github name)
 - `added_date`: Date the file was added (name and github name)
 
@@ -70,8 +71,7 @@ Also, the posterior can contain slots on
 - `references`: What references should be cited if the model is used. This is BibTeX elements. The actual references should be included in `references/references.bib`.
 - `description`: A short description of the model used.
 - `urls`: urls to the model to read more.
-- `keywords`: Keywords for the data (see keywords below)
-- `parameters`: List with name of (relevant) parameters. Can be used to identify the parameters of the given model if, for example, transformed variables are used. If null, all parameters are relevant and are included in the gold standard.
+- `keywords`: Keywords for the model (see keywords below)
 
 ### `models/stan`
 

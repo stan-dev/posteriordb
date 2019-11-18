@@ -12,7 +12,6 @@
     }
   },
   "inference_version": "rstan 2.19.2",
-  "draws_file": "eight_schools-eight_schools_noncentered.json.zip",
   "added_by": "Mans Magnusson",
   "added_date": "2019-11-18"
 }

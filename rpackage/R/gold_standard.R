@@ -65,7 +65,7 @@ read_gold_standard_draws <- function(x, pdb, ...) {
   if(is.null(x)) stop("There is currently no gold standard for this posterior.")
   gsfp <- pdb_cached_local_file_path(pdb, file.path("gold_standards", "draws", paste0(x, ".json")), unzip = TRUE)
   gsd <- jsonlite::read_json(gsfp, simplifyVector = TRUE)
-  gsd$draws <- posterior::as_draws(gsd$draws)
+  gsd <- posterior::as_draws(gsd)
   class(gsd) <- c("pdb_gold_standard_draws", class(gsd))
   assert_gold_standard_draws(gsd)
   gsd
@@ -123,7 +123,7 @@ gold_standard_draws.character <- function(x, pdb = NULL, ...){
 #' @rdname gold_standard_draws
 #' @export
 gold_standard_draws.pdb_posterior <- function(x, pdb = NULL, ...){
-  read_gold_standard_draws(x = x$gold_standard, pdb = x$pdb)
+  read_gold_standard_draws(x = x$gold_standard_name, pdb = x$pdb)
 }
 
 #' @rdname gold_standard_draws
@@ -143,13 +143,10 @@ gold_standard_draws.stanfit <- function(x, pdb = NULL, ...){
 #' @rdname gold_standard_draws
 #' @export
 assert_gold_standard_draws <- function(x){
-  checkmate::assert_class(x, c("pdb_gold_standard_draws"))
-  checkmate::assert_names(names(x), identical.to = c("name", "draws"))
-  checkmate::assert_string(x$name)
-  checkmate::assert_class(x$draws, c("draws_list"))
+  checkmate::assert_class(x, c("pdb_gold_standard_draws", "draws_list"))
 
   # Assert named chains has the same parameter names
-  par_names <- lapply(x$draws, names)
+  par_names <- lapply(x, names)
   for(i in seq_along(par_names)){
     checkmate::assert_true(identical(par_names[[1]],par_names[[i]]))
   }

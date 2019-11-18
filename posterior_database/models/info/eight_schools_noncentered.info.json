@@ -12,7 +12,7 @@
     "rubin1981estimation",
     "gelman2013bayesian"
   ],
-  "parameters": ["theta", "mu", "tau"],
+  "dimensions": {"theta":8, "mu":1, "tau":1},
   "model_code": {
     "stan": "models/stan/eight_schools_noncentered.stan"
   },
