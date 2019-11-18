@@ -143,10 +143,15 @@ gold_standard_draws.stanfit <- function(x, pdb = NULL, ...){
 #' @rdname gold_standard_draws
 #' @export
 assert_gold_standard_draws <- function(x){
-  checkmate::assert_class(x, c("pdb_gold_standard_draws", "draws_list"))
+  checkmate::assert_class(x, c("pdb_gold_standard_draws"))
+
+  checkmate::assert_names(names(x), subset.of = c("name", "draws"))
+
+  checkmate::assert_string(x$name)
+  checkmate::assert_class(x$draws, c("draws_list"))
 
   # Assert named chains has the same parameter names
-  par_names <- lapply(x, names)
+  par_names <- lapply(x$draws, names)
   for(i in seq_along(par_names)){
     checkmate::assert_true(identical(par_names[[1]],par_names[[i]]))
   }
@@ -167,9 +172,10 @@ assert_gold_standard_info <- function(x){
 #' @param x a [pdb_gold_standard_draws] to subest
 #' @param parameters Parameters to choose.
 #' @param ... Further arguments (not used).
-subset.pdb_gold_standard_draws <- function(x, parameters, ...){
+#' @export
+subset.pdb_gold_standard_draws <- function(x, variable, ...){
   requireNamespace("posterior")
-  parameters <- paste0("^", parameters, "(\\[[0-9]+\\])?$")
+  parameters <- paste0("^", variable, "(\\[[0-9]+\\])?$")
   x$draws <- subset(x$draws, variable = parameters, regex = TRUE)
   x
 }

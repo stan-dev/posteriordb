@@ -4,14 +4,14 @@
 \alias{subset.pdb_gold_standard_draws}
 \title{Subset a [pdb_gold_standard_draws] object}
 \usage{
-\method{subset}{pdb_gold_standard_draws}(x, parameters, ...)
+\method{subset}{pdb_gold_standard_draws}(x, variable, ...)
 }
 \arguments{
 \item{x}{a [pdb_gold_standard_draws] to subest}
 
-\item{parameters}{Parameters to choose.}
-
 \item{...}{Further arguments (not used).}
+
+\item{parameters}{Parameters to choose.}
 }
 \description{
 Subset a [pdb_gold_standard_draws] object
