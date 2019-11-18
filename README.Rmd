@@ -103,6 +103,13 @@ dn <- data_names(my_pdb)
 head(dn)
 ```
 
+We can also get all information on each individual posterior as a tibble with
+
+```{r}
+pos <- posteriors_tbl_df(my_pdb)
+head(pos)
+```
+
 The posterior's name is made up of the data and model fitted
 to the data. Together, these two uniquely define a posterior distribution.
 To access a posterior object we can use the model name.
@@ -141,12 +148,30 @@ model_info(po)
 
 Note that the references are referencing to BibTeX items that can be found in `content/references/references.bib`.
 
-To access gold standard posterior draws we can use the function `gold_standard()` as follows.
+We can also access a list of posteriors with `filter_posteriors()`. The filtering function follows dplyr filter semantics based on the posterior tibble.
 
 ```{r}
-gs <- gold_standard(po)
-draws <- posterior_draws(gs)
-head(draws[, 1:3])
+tbl <- posteriors_tbl_df(my_pdb)
+head(tbl)
+pos <- filter_posteriors(my_pdb, data_name == "eight_schools")
+pos
+```
+
+To access the gold standard posterior we can use the function `gold_standard_info()` to access information on how the gold standard posterior was computed. To access gold standard posterior draws we use `gold_standard_draws()`.
+
+```{r}
+gs_info <- gold_standard_info(po)
+gs_info
+
+gsd <- gold_standard_draws(po)
+gsd
+```
+
+The function `gold_standard_draws()` returns a posterior `draws_list` object that can be summarized and transformed using the `posterior` package.
+
+```{r}
+draws_df <- posterior::as_draws_df(gsd$draws)
+head(draws_df)
 ```
 
 

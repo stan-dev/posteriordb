@@ -410,16 +410,15 @@ read_info_json <- function(x, path, pdb = NULL, ...){
 #' @keywords internal
 read_info_json.character <- function(x, path, pdb = NULL, ...){
   checkmate::assert_class(pdb, "pdb")
+  fn <- x
   if(path != "posteriors") {
-    x <- paste0(x, ".info")
+    fn <- paste0(fn, ".info")
   }
-  fp <- file.path(path, paste0(x, ".json"))
+  fp <- file.path(path, paste0(fn, ".json"))
   pfn <- pdb_cached_local_file_path(pdb, path = fp)
   po <- jsonlite::read_json(pfn)
-  po$name <- x
-  po <- po[c(length(po), 1:(length(po) - 1))] # Put name as first slot
   po$added_date <- as.Date(po$added_date)
-  class(po) <- paste0("pdb_", gsub(x = path, pattern = "/", "_"), "_info")
+  class(po) <- paste0("pdb_", gsub(x = path, pattern = "/", "_"))
   po
 }
 

@@ -34,3 +34,28 @@ pdb_tibble <- function(pdb, path, ...){
   dat <- do.call(rbind, obj_list)
   dplyr::as.tbl(dat)
 }
+
+
+#' Coerce to a Data Frame
+#' @param x a [pdb_posterior] object.
+#' @param row.names NULL or a character vector giving the row names for the data frame. Missing values are not allowed.
+#' @param ... further arguments to \code{as.data.frame} for a list.
+#' @param optional Not used.
+#' @export
+as.data.frame.pdb_posterior <- function(x, row.names = NULL, optional = FALSE, ...){
+  pdb_idx <- which(names(x) == "pdb")
+  keywords_idx <- which(names(x) == "keywords")
+  x[unlist(lapply(x, length)) == 0] <- ""
+  kws <- unlist(x$keywords)
+  df <- as.data.frame(x[-c(keywords_idx, pdb_idx)], stringsAsFactors = FALSE, ...)[rep(1, max(1,length(kws))), ]
+  if(length(kws) == 0){
+    df$keywords <- ""
+  } else {
+    df$keywords <- kws
+  }
+  rownames(df) <- row.names
+  df
+}
+#' @rdname as.data.frame.pdb_posterior
+#' @export
+as.data.frame.pdb_posteriors <- as.data.frame.pdb_posterior

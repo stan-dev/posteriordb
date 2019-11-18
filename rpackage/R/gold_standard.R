@@ -19,7 +19,7 @@ gold_standard_info <- function(x, pdb = NULL, ...) {
 #' @rdname gold_standard_info
 #' @export
 gold_standard_info.pdb_posterior <- function(x, ...) {
-  read_gold_standard_info(x$gold_standard, x$pdb)
+  read_gold_standard_info(x$gold_standard_name, x$pdb)
 }
 
 #' @rdname gold_standard_info
@@ -65,7 +65,7 @@ read_gold_standard_draws <- function(x, pdb, ...) {
   if(is.null(x)) stop("There is currently no gold standard for this posterior.")
   gsfp <- pdb_cached_local_file_path(pdb, file.path("gold_standards", "draws", paste0(x, ".json")), unzip = TRUE)
   gsd <- jsonlite::read_json(gsfp, simplifyVector = TRUE)
-  gsd <- posterior::as_draws(gsd)
+  gsd$draws <- posterior::as_draws(gsd$draws)
   class(gsd) <- c("pdb_gold_standard_draws", class(gsd))
   assert_gold_standard_draws(gsd)
   gsd
