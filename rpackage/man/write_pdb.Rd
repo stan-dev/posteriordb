@@ -19,7 +19,7 @@ write_pdb(x, pdb, overwrite = FALSE, ...)
 \method{write_pdb}{pdb_gold_standard_draws}(x, pdb, overwrite = FALSE,
   ...)
 
-\method{write_pdb}{pdb_data}(x, pdb, name, overwrite = FALSE, ...)
+\method{write_pdb}{pdb_data}(x, pdb, overwrite = FALSE, name, ...)
 
 \method{write_pdb}{pdb_data_info}(x, pdb, overwrite = FALSE, ...)
 
@@ -37,6 +37,8 @@ write_pdb(x, pdb, overwrite = FALSE, ...)
 \item{overwrite}{overwrite existing file?}
 
 \item{...}{further arguments supplied to methods.}
+
+\item{name}{the name of the data (used for [pdb_data] objects only).}
 }
 \description{
 a function to simplify writing to a local pdb.

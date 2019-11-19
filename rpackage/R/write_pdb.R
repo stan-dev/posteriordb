@@ -4,8 +4,9 @@
 #'
 #' @param x an object to write to the pdb.
 #' @param pdb the pdb to write to. Currently only a local pdb.
-#' @param ... further arguments supplied to methods.
 #' @param overwrite overwrite existing file?
+#' @param name the name of the data (used for [pdb_data] objects only).
+#' @param ... further arguments supplied to methods.
 #' @export
 write_pdb <- function(x, pdb, overwrite = FALSE, ...){
   checkmate::assert_class(pdb, "pdb_local")
@@ -29,7 +30,7 @@ write_pdb.pdb_gold_standard_draws <- function(x, pdb, overwrite = FALSE, ...){
 
 #' @rdname write_pdb
 #' @export
-write_pdb.pdb_data <- function(x, pdb, name, overwrite = FALSE, ...){
+write_pdb.pdb_data <- function(x, pdb, overwrite = FALSE, name, ...){
   assert_data(x)
   write_json_to_path(x, "data/data", pdb, name = name, zip = TRUE, info = FALSE, overwrite = overwrite)
 }
