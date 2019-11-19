@@ -45,8 +45,8 @@ test_that("Check that all posteriors can access stan_data and stan_code", {
 
   expect_output(print(po), "Posterior")
 
-  skip("Get posteriors draws directly from po object")
   # Get posteriors draws directly
-  expect_silent(pd <- posterior_draws(po))
+  expect_silent(gsd <- gold_standard_draws(po))
+  expect_silent(gsi <- gold_standard_info(po))
 
 })
