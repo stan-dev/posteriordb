@@ -31,10 +31,13 @@ assert_pdb_posterior <- function(x) {
   checkmate::assert_class(x, "pdb_posterior")
   checkmate::assert_list(x)
   must.include <- c(
-    "model_name", "data_name", "model_info", "data_info", "name",
+    "name", "model_name", "data_name", "gold_standard_name", "dimensions",
+    "model_info", "data_info",
     "pdb", "added_by", "added_date"
   )
   checkmate::assert_names(names(x), must.include = must.include)
+  checkmate::assert_list(x$dimensions)
+  checkmate::assert_named(x$dimensions)
   checkmate::assert_class(x$added_date, "Date")
   checkmate::assert_class(x$data_info$added_date, "Date")
   checkmate::assert_class(x$model_info$added_date, "Date")

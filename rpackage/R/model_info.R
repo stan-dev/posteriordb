@@ -26,13 +26,11 @@ print.pdb_model_info <- function(x, ...) {
 
 assert_model_info <- function(x){
   checkmate::assert_names(names(x),
-                          subset.of = c("name", "model_code", "title", "dimensions", "added_by", "added_date", "references", "description", "urls", "keywords"),
-                          must.include = c("name", "model_code", "title", "dimensions", "added_by", "added_date"))
+                          subset.of = c("name", "model_code", "title", "added_by", "added_date", "references", "description", "urls", "keywords"),
+                          must.include = c("name", "model_code", "title", "added_by", "added_date"))
   checkmate::assert_string(x$name)
   checkmate::assert_list(x$model_code)
   checkmate::assert_string(x$title)
-  checkmate::assert_list(x$dimensions)
-  checkmate::assert_named(x$dimensions)
   checkmate::assert_string(x$added_by)
   checkmate::assert_date(x$added_date)
 
