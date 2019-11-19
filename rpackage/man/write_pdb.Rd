@@ -2,20 +2,24 @@
 % Please edit documentation in R/write_pdb.R
 \name{write_pdb}
 \alias{write_pdb}
-\alias{write_pdb.gold_standard_info}
-\alias{write_pdb.gold_standard_draws}
+\alias{write_pdb.pdb_gold_standard_info}
+\alias{write_pdb.pdb_gold_standard_draws}
 \title{Write objects to pdb}
 \usage{
-write_pdb(x, pdb, ...)
+write_pdb(x, pdb, overwrite = FALSE, ...)
 
-\method{write_pdb}{gold_standard_info}(x, pdb, ...)
+\method{write_pdb}{pdb_gold_standard_info}(x, pdb, overwrite = FALSE,
+  ...)
 
-\method{write_pdb}{gold_standard_draws}(x, pdb, ...)
+\method{write_pdb}{pdb_gold_standard_draws}(x, pdb, overwrite = FALSE,
+  ...)
 }
 \arguments{
 \item{x}{an object to write to the pdb.}
 
 \item{pdb}{the pdb to write to. Currently only a local pdb.}
+
+\item{overwrite}{overwrite existing file?}
 }
 \description{
 a function to simplify writing to a local pdb.
