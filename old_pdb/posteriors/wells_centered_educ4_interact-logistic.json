@@ -1,8 +1,0 @@
-{
-  "keywords": [],
-  "model_name": "logistic",
-  "gold_standard": null,
-  "data_name": "wells_centered_educ4_interact",
-  "added_by": "Mans Magnusson",
-  "added_date": "2019-08-12"
-}
