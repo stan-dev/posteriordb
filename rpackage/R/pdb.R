@@ -441,12 +441,13 @@ read_info_json.pdb_posterior <- function(x, path, pdb = NULL, ...){
 #' Write objects to posteriordb
 #' @param x a gold_standard_draws object
 #' @param path a posteriordb path.
-#' @param info is this an info json? Defaults to TRUE.
+#' @param info is this an info json?
+#' @param overwrite Should an existing file be overwritten?
 #' @param zip Should the json be zipped?
 #' @param pdb a local posteriordb object to write to
 #' @noRd
 #' @keywords internal
-write_json_to_path <- function(x, path, pdb, zip = FALSE, info = TRUE){
+write_json_to_path <- function(x, path, pdb, zip = FALSE, info = TRUE, overwrite = FALSE){
   checkmate::assert_subset(class(x)[1], choices = c("pdb_gold_standard_draws", "pdb_gold_standard_info"))
   checkmate::assert_string(path)
   checkmate::assert_class(pdb, "pdb_local")
@@ -461,7 +462,7 @@ write_json_to_path <- function(x, path, pdb, zip = FALSE, info = TRUE){
   path <- strsplit(path, "/")[[1]]
 
   fp <- file.path(pdb_endpoint(pdb), do.call(file.path, as.list(path)), nm)
-  checkmate::assert_path_for_output(fp)
+  checkmate::assert_path_for_output(fp, overwrite = overwrite)
 
   zfp <- paste0(fp, ".zip")
   writeLines(text = jsonlite::toJSON(x, pretty = TRUE, auto_unbox = TRUE, null = "null", digits = NA),
