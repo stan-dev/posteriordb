@@ -3,7 +3,7 @@
 \name{as.data.frame.pdb_posterior}
 \alias{as.data.frame.pdb_posterior}
 \alias{as.data.frame.pdb_posteriors}
-\title{Coerce to a Data Frame}
+\title{Coerce a [pdb_posterior] to a Data Frame}
 \usage{
 \method{as.data.frame}{pdb_posterior}(x, row.names = NULL,
   optional = FALSE, ...)
@@ -21,5 +21,8 @@
 \item{...}{further arguments to \code{as.data.frame} for a list.}
 }
 \description{
-Coerce to a Data Frame
+Coerce a [pdb_posterior] to a Data Frame
+}
+\details{
+The dataframe will consist of one row per keyword.
 }
