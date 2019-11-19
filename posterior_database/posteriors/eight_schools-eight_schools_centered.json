@@ -4,6 +4,7 @@
   "model_name": "eight_schools_centered",
   "gold_standard_name": "eight_schools-eight_schools_noncentered",
   "data_name": "eight_schools",
+  "dimensions": {"theta":8, "mu":1, "tau":1},
   "added_by": "Mans Magnusson",
   "added_date": "2019-08-12"
 }

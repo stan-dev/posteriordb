@@ -1,0 +1,10 @@
+{
+  "name": "prideprejustice_paragraph-ldaK5",
+  "keywords": ["multimodal"],
+  "model_name": "ldaK5",
+  "gold_standard_name": null,
+  "data_name": "prideprejustice_paragraph",
+  "dimensions": {"theta":10125, "phi":7475},
+  "added_by": "Mans Magnusson",
+  "added_date": "2019-08-12"
+}

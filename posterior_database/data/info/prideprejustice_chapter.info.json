@@ -1,0 +1,13 @@
+{
+  "name": "prideprejustice_chapter",
+  "keywords": [
+    "text"
+  ],
+  "description": "The book has been tokenized, stop words and rare words (<=5) has been removed. Variable 'doc' is chapter id.",
+  "urls": [],
+  "title": "The book 'Pride and Prejustice' by Jane Austen.",
+  "references": [],
+  "data_file": "data/data/prideprejustice_chapter.json",
+  "added_by": "Mans Magnusson",
+  "added_date": "2019-08-12"
+}
