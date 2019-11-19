@@ -30,6 +30,7 @@ assert_model_info <- function(x){
                           must.include = c("name", "model_code", "title", "added_by", "added_date"))
   checkmate::assert_string(x$name)
   checkmate::assert_list(x$model_code)
+  checkmate::assert_names(names(x$model_code), subset.of = c("stan"))
   checkmate::assert_string(x$title)
   checkmate::assert_string(x$added_by)
   checkmate::assert_date(x$added_date)

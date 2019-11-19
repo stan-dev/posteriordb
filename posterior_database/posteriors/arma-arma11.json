@@ -1,0 +1,19 @@
+{
+  "name": "arma-arma11",
+  "keywords": [
+    "stan_benchmark"
+  ],
+  "urls": [],
+  "model_name": "arma11",
+  "data_name": "arma",
+  "gold_standard_name": "arma-arma11",
+  "references": [],
+  "dimensions": {
+    "mu": 1,
+    "phi": 1,
+    "theta": 1,
+    "sigma": 1
+  },
+  "added_date": "2019-11-19",
+  "added_by": "Mans Magnusson"
+}

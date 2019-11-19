@@ -5,8 +5,8 @@
     "synthetic",
     "stan_benchmark"
   ],
-  "title": "Time Series data with an AR(5) process",
-  "description": "An AR(K) time series model, K set to 5 in the included data.",
+  "title": "Time Series data from an AR(5) process",
+  "description": "Simulated data from a AR(5) time series model.",
   "urls": [
     "https://github.com/stan-dev/stat_comp_benchmarks/tree/master/benchmarks/arK"
   ],
