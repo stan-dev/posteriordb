@@ -1,0 +1,16 @@
+{
+  "name": "arK",
+  "keywords": [
+    "time series",
+    "synthetic",
+    "stan_benchmark"
+  ],
+  "title": "Time Series data with an AR(5) process",
+  "description": "An AR(K) time series model, K set to 5 in the included data.",
+  "urls": [
+    "https://github.com/stan-dev/stat_comp_benchmarks/tree/master/benchmarks/arK"
+  ],
+  "data_file": "data/data/arK.json",
+  "added_by": "Mans Magnusson",
+  "added_date": "2019-11-19"
+}
