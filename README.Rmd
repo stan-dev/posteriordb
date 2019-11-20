@@ -23,34 +23,15 @@ There are many purposes with the PDB
 1. A structure that simplifies regression testing of probabilistic programming frameworks.
 1. Providing reliable gold standards for use in inference method development.
 
-### Future
-
-In the immediate future, we plan to
-
-1. Add more posteriors
-1. Add more gold standards
-
 The long term goal is to move the posterior database to an open RESTful NoSQL database for easy access.
 
-## Design choices (so far)
+## Content
 
-The main focus of the database is simplicity in data and model, both in understanding and in use.
+See [DATABASE_CONTENT.md](https://github.com/MansMeg/posteriordb/blob/master/doc/DATABASE_CONTENT.md) for the details content of the posterior database.
 
-The following are the current design choices in designing the posterior database.
+## Contributing
 
-1. Priors are hardcoded in model files as changing the prior changes the posterior.
-   Create a new model to test different priors.
-1. Data transformations are stored as different datasets.
-   Create new data to test different data transformations, subsets, and variable settings. This makes the database larger/less memory efficient but simplifies the analysis of individual posteriors.
-1. Models and data has (model/data).info.json files with model and data specific information.
-1. Templates for different jsons can be found in content/templates and schemas in schemas (Note: these don't exist right now and will be added later)
-1. Prefix 'syn_' stands for synthetic data where the generative process is known and can be found in content/data-raw.
-1. All data preprocessing is included in content/data-raw.
-1. Specific information for different PPL representations of models is included in the PPL syntax files as comments, not in the model.info.json files.
-
-### Add a posterior to the database
-
-Fork and submit it as a PR.
+We are happy with any help in adding posteriors, data and models to the database! See [CONTRIBUTING.md](https://github.com/MansMeg/posteriordb/blob/master/doc/CONTRIBUTING.md) for the details on how to contribute.
 
 ## Using the posterior database from python
 See [python README](./python/README.md)
@@ -183,6 +164,18 @@ head(draws_df)
 ```
 
 
-## Content
+## Design choices (so far)
 
-See [DATABASE_CONTENT.md](https://github.com/MansMeg/posteriordb/blob/master/DATABASE_CONTENT.md) for the details content of the posterior database.
+The main focus of the database is simplicity in data and model, both in understanding and in use.
+
+The following are the current design choices in designing the posterior database.
+
+1. Priors are hardcoded in model files as changing the prior changes the posterior.
+   Create a new model to test different priors.
+1. Data transformations are stored as different datasets.
+   Create new data to test different data transformations, subsets, and variable settings. This makes the database larger/less memory efficient but simplifies the analysis of individual posteriors.
+1. Models and data has (model/data).info.json files with model and data specific information.
+1. Templates for different jsons can be found in content/templates and schemas in schemas (Note: these don't exist right now and will be added later)
+1. Prefix 'syn_' stands for synthetic data where the generative process is known and can be found in content/data-raw.
+1. All data preprocessing is included in content/data-raw.
+1. Specific information for different PPL representations of models is included in the PPL syntax files as comments, not in the model.info.json files.
