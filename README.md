@@ -30,46 +30,23 @@ There are many purposes with the PDB
 6.  Providing reliable gold standards for use in inference method
     development.
 
-### Future
-
-In the immediate future, we plan to
-
-1.  Add more posteriors
-2.  Add more gold standards
-
 The long term goal is to move the posterior database to an open RESTful
 NoSQL database for easy access.
 
-Design choices (so far)
------------------------
+Content
+-------
 
-The main focus of the database is simplicity in data and model, both in
-understanding and in use.
+See
+[DATABASE\_CONTENT.md](https://github.com/MansMeg/posteriordb/blob/master/doc/DATABASE_CONTENT.md)
+for the details content of the posterior database.
 
-The following are the current design choices in designing the posterior
-database.
+Contributing
+------------
 
-1.  Priors are hardcoded in model files as changing the prior changes
-    the posterior. Create a new model to test different priors.
-2.  Data transformations are stored as different datasets. Create new
-    data to test different data transformations, subsets, and variable
-    settings. This makes the database larger/less memory efficient but
-    simplifies the analysis of individual posteriors.
-3.  Models and data has (model/data).info.json files with model and data
-    specific information.
-4.  Templates for different jsons can be found in content/templates and
-    schemas in schemas (Note: these don’t exist right now and will be
-    added later)
-5.  Prefix ‘syn\_’ stands for synthetic data where the generative
-    process is known and can be found in content/data-raw.
-6.  All data preprocessing is included in content/data-raw.
-7.  Specific information for different PPL representations of models is
-    included in the PPL syntax files as comments, not in the
-    model.info.json files.
-
-### Add a posterior to the database
-
-Fork and submit it as a PR.
+We are happy with any help in adding posteriors, data and models to the
+database! See
+[CONTRIBUTING.md](https://github.com/MansMeg/posteriordb/blob/master/doc/CONTRIBUTING.md)
+for the details on how to contribute.
 
 Using the posterior database from python
 ----------------------------------------
@@ -230,14 +207,14 @@ dfp <- data_file_path(po)
 dfp
 ```
 
-    ## [1] "/var/folders/9h/yf354vb917z6gr6mz7bfb1d40000gn/T//Rtmpmqbe6o/posteriordb_cache/data/data/eight_schools.json"
+    ## [1] "/var/folders/9h/yf354vb917z6gr6mz7bfb1d40000gn/T//RtmptE97ZB/posteriordb_cache/data/data/eight_schools.json"
 
 ``` r
 scfp <- stan_code_file_path(po)
 scfp
 ```
 
-    ## [1] "/var/folders/9h/yf354vb917z6gr6mz7bfb1d40000gn/T//Rtmpmqbe6o/posteriordb_cache/models/stan/eight_schools_centered.stan"
+    ## [1] "/var/folders/9h/yf354vb917z6gr6mz7bfb1d40000gn/T//RtmptE97ZB/posteriordb_cache/models/stan/eight_schools_centered.stan"
 
 We can also access information regarding the model and the data used to
 compute the posterior.
@@ -362,9 +339,29 @@ head(draws_df)
     ## # … with 6 more variables: `theta[5]` <dbl>, `theta[6]` <dbl>,
     ## #   `theta[7]` <dbl>, `theta[8]` <dbl>, mu <dbl>, tau <dbl>
 
-Content
--------
+Design choices (so far)
+-----------------------
 
-See
-[DATABASE\_CONTENT.md](https://github.com/MansMeg/posteriordb/blob/master/DATABASE_CONTENT.md)
-for the details content of the posterior database.
+The main focus of the database is simplicity in data and model, both in
+understanding and in use.
+
+The following are the current design choices in designing the posterior
+database.
+
+1.  Priors are hardcoded in model files as changing the prior changes
+    the posterior. Create a new model to test different priors.
+2.  Data transformations are stored as different datasets. Create new
+    data to test different data transformations, subsets, and variable
+    settings. This makes the database larger/less memory efficient but
+    simplifies the analysis of individual posteriors.
+3.  Models and data has (model/data).info.json files with model and data
+    specific information.
+4.  Templates for different jsons can be found in content/templates and
+    schemas in schemas (Note: these don’t exist right now and will be
+    added later)
+5.  Prefix ‘syn\_’ stands for synthetic data where the generative
+    process is known and can be found in content/data-raw.
+6.  All data preprocessing is included in content/data-raw.
+7.  Specific information for different PPL representations of models is
+    included in the PPL syntax files as comments, not in the
+    model.info.json files.
