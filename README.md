@@ -72,7 +72,7 @@ It is also possible to install only the R package and then access the
 posteriors remotely.
 
 ``` r
-remotes::install_github("MansMeg/posterior", subdir = "rpackage/")
+remotes::install_github("MansMeg/posteriordb", subdir = "rpackage/")
 ```
 
 To load the package, just run.
