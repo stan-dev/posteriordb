@@ -82,21 +82,30 @@ Using the posterior database from R (with the R package)
 The included database contains convenience functions to access data,
 model code and information for individual posteriors.
 
-To install the package, clone this repository and run the following
-snippet to install the package in the cloned folder. The R package does
-not contain the content of the posterior database and hence the
-repository needs to be cloned.
+To install the package, you can either clone this repository and run the
+following snippet to install the package in the cloned folder. The R
+package does not contain the content of the posterior database and hence
+the repository needs to be cloned.
 
 ``` r
-devtools::install("rpackage/")
+remotes::install("rpackage/")
 ```
+
+It is also possible to install only the R package and then access the
+posteriors remotely.
+
+``` r
+remotes::install_github("MansMeg/posterior", subdir = "rpackage/")
+```
+
+To load the package, just run.
 
 ``` r
 library(posteriordb)
 ```
 
 First we create the posterior database to use, here we can use the
-database locally (after cloning the repo).
+database locally (if the repo is cloned).
 
 ``` r
 my_pdb <- pdb_local()
@@ -106,7 +115,8 @@ The above code requires that your working directory is in the main
 folder of the cloned repository. Otherwise we can use the `path`
 argument.
 
-We can also simply use the github repository directly.
+We can also simply use the github repository directly to access the
+data.
 
 ``` r
 my_pdb <- pdb_github()
@@ -122,8 +132,12 @@ pos <- posterior_names(my_pdb)
 head(pos)
 ```
 
-    ## [1] "eight_schools-eight_schools_centered"   
-    ## [2] "eight_schools-eight_schools_noncentered"
+    ## [1] "arK-arK"                                
+    ## [2] "arma-arma11"                            
+    ## [3] "eight_schools-eight_schools_centered"   
+    ## [4] "eight_schools-eight_schools_noncentered"
+    ## [5] "garch-garch11"                          
+    ## [6] "gp_pois_regr-gp_pois_regr"
 
 In the same fashion, we can list data and models included in the
 database as
@@ -133,14 +147,17 @@ mn <- model_names(my_pdb)
 head(mn)
 ```
 
-    ## [1] "eight_schools_centered"    "eight_schools_noncentered"
+    ## [1] "arK"                       "arma11"                   
+    ## [3] "eight_schools_centered"    "eight_schools_noncentered"
+    ## [5] "garch11"                   "gp_pois_regr"
 
 ``` r
 dn <- data_names(my_pdb)
 head(dn)
 ```
 
-    ## [1] "eight_schools"
+    ## [1] "arK"           "arma"          "eight_schools" "garch"        
+    ## [5] "gp_pois_regr"  "irt_2pl"
 
 We can also get all information on each individual posterior as a tibble
 with
@@ -150,11 +167,15 @@ pos <- posteriors_tbl_df(my_pdb)
 head(pos)
 ```
 
-    ## # A tibble: 2 x 7
+    ## # A tibble: 6 x 7
     ##   name   model_name gold_standard_n… data_name added_by added_date keywords
     ##   <chr>  <chr>      <chr>            <chr>     <chr>    <date>     <chr>   
-    ## 1 eight… eight_sch… eight_schools-e… eight_sc… Mans Ma… 2019-08-12 stan_be…
-    ## 2 eight… eight_sch… eight_schools-e… eight_sc… Mans Ma… 2019-08-12 stan_be…
+    ## 1 arK-a… arK        arK-arK          arK       Mans Ma… 2019-11-19 stan_be…
+    ## 2 arma-… arma11     arma-arma11      arma      Mans Ma… 2019-11-19 stan_be…
+    ## 3 eight… eight_sch… eight_schools-e… eight_sc… Mans Ma… 2019-08-12 stan_be…
+    ## 4 eight… eight_sch… eight_schools-e… eight_sc… Mans Ma… 2019-08-12 stan_be…
+    ## 5 garch… garch11    garch-garch11    garch     Mans Ma… 2019-11-19 stan_be…
+    ## 6 gp_po… gp_pois_r… gp_pois_regr-gp… gp_pois_… Mans Ma… 2019-11-20 stan_be…
 
 The posterior’s name is made up of the data and model fitted to the
 data. Together, these two uniquely define a posterior distribution. To
@@ -209,14 +230,14 @@ dfp <- data_file_path(po)
 dfp
 ```
 
-    ## [1] "/var/folders/9h/yf354vb917z6gr6mz7bfb1d40000gn/T//Rtmpaoy3Sc/posteriordb_cache/data/data/eight_schools.json"
+    ## [1] "/var/folders/9h/yf354vb917z6gr6mz7bfb1d40000gn/T//Rtmpmqbe6o/posteriordb_cache/data/data/eight_schools.json"
 
 ``` r
 scfp <- stan_code_file_path(po)
 scfp
 ```
 
-    ## [1] "/var/folders/9h/yf354vb917z6gr6mz7bfb1d40000gn/T//Rtmpaoy3Sc/posteriordb_cache/models/stan/eight_schools_centered.stan"
+    ## [1] "/var/folders/9h/yf354vb917z6gr6mz7bfb1d40000gn/T//Rtmpmqbe6o/posteriordb_cache/models/stan/eight_schools_centered.stan"
 
 We can also access information regarding the model and the data used to
 compute the posterior.
@@ -247,11 +268,15 @@ tbl <- posteriors_tbl_df(my_pdb)
 head(tbl)
 ```
 
-    ## # A tibble: 2 x 7
+    ## # A tibble: 6 x 7
     ##   name   model_name gold_standard_n… data_name added_by added_date keywords
     ##   <chr>  <chr>      <chr>            <chr>     <chr>    <date>     <chr>   
-    ## 1 eight… eight_sch… eight_schools-e… eight_sc… Mans Ma… 2019-08-12 stan_be…
-    ## 2 eight… eight_sch… eight_schools-e… eight_sc… Mans Ma… 2019-08-12 stan_be…
+    ## 1 arK-a… arK        arK-arK          arK       Mans Ma… 2019-11-19 stan_be…
+    ## 2 arma-… arma11     arma-arma11      arma      Mans Ma… 2019-11-19 stan_be…
+    ## 3 eight… eight_sch… eight_schools-e… eight_sc… Mans Ma… 2019-08-12 stan_be…
+    ## 4 eight… eight_sch… eight_schools-e… eight_sc… Mans Ma… 2019-08-12 stan_be…
+    ## 5 garch… garch11    garch-garch11    garch     Mans Ma… 2019-11-19 stan_be…
+    ## 6 gp_po… gp_pois_r… gp_pois_regr-gp… gp_pois_… Mans Ma… 2019-11-20 stan_be…
 
 ``` r
 pos <- filter_posteriors(my_pdb, data_name == "eight_schools")
