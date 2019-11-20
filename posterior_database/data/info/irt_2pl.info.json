@@ -1,0 +1,16 @@
+{
+  "name": "irt_2pl",
+  "keywords": [
+    "synthetic",
+    "stan_benchmark"
+  ],
+  "title": "Simulated data from a IRT 2PL model",
+  "description": "Simulated data from a Two Parameter Logistic Item Response Theory Model.",
+  "urls": [
+    "https://github.com/stan-dev/stat_comp_benchmarks/tree/master/benchmarks/irt_2pl"
+  ],
+  "data_file": "data/data/irt_2pl.json",
+  "references": null,
+  "added_date": "2019-11-20",
+  "added_by": "Mans Magnusson"
+}
