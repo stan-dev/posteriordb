@@ -1,0 +1,16 @@
+{
+  "name": "arK-arK",
+  "keywords": [
+    "stan_benchmark"
+  ],
+  "model_name": "arK",
+  "gold_standard_name": "arK-arK",
+  "data_name": "arK",
+  "dimensions": {
+    "alpha": 1,
+    "beta": 5,
+    "sigma": 1
+  },
+  "added_by": "Mans Magnusson",
+  "added_date": "2019-11-19"
+}

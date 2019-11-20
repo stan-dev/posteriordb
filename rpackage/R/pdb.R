@@ -441,34 +441,70 @@ read_info_json.pdb_posterior <- function(x, path, pdb = NULL, ...){
 #' Write objects to posteriordb
 #' @param x a gold_standard_draws object
 #' @param path a posteriordb path.
-#' @param info is this an info json? Defaults to TRUE.
+#' @param info is this an info json?
+#' @param type Output type, [json] or [txt].
+#' @param name Used for code files and data.
+#' @param overwrite Should an existing file be overwritten?
 #' @param zip Should the json be zipped?
 #' @param pdb a local posteriordb object to write to
-#' @noRd
 #' @keywords internal
-write_json_to_path <- function(x, path, pdb, zip = FALSE, info = TRUE){
-  checkmate::assert_subset(class(x)[1], choices = c("pdb_gold_standard_draws", "pdb_gold_standard_info"))
+write_to_path <- function(x, path, pdb, type, name = NULL, zip = FALSE, info = TRUE, overwrite = FALSE){
+  checkmate::assert_subset(class(x)[1], choices = c("character", "pdb_posterior", "pdb_model_info", "pdb_data_info", "pdb_data", "pdb_gold_standard_draws", "pdb_gold_standard_info"))
   checkmate::assert_string(path)
   checkmate::assert_class(pdb, "pdb_local")
+  checkmate::assert_choice(type, c("json", "txt", "stan"))
   checkmate::assert_flag(zip)
   checkmate::assert_flag(info)
 
-  if(info) {
-    nm <- paste0(x$name, ".info.json")
+  if(is.null(name)){
+    nm <- x$name
   } else {
-    nm <- paste0(x$name, ".json")
+    nm <- name
   }
-  path <- strsplit(path, "/")[[1]]
 
+  if(info) {
+    nm <- paste0(nm, ".info.", type)
+  } else {
+    nm <- paste0(nm, ".", type)
+  }
+
+  path <- strsplit(path, "/")[[1]]
   fp <- file.path(pdb_endpoint(pdb), do.call(file.path, as.list(path)), nm)
-  checkmate::assert_path_for_output(fp)
+  checkmate::assert_path_for_output(fp, overwrite = overwrite)
 
   zfp <- paste0(fp, ".zip")
-  writeLines(text = jsonlite::toJSON(x, pretty = TRUE, auto_unbox = TRUE, null = "null", digits = NA),
-             con = fp)
+
+  if(type == "json"){
+    out <- jsonlite::toJSON(x, pretty = TRUE, auto_unbox = TRUE, null = "null", digits = NA)
+  } else if (type == "txt"){
+    out <- x
+  } else if (type == "stan"){
+    out <- x
+  } else {
+    stop(type, " not implemented.")
+  }
+
+  writeLines(text = out, con = fp)
+
   if(zip){
     zip(files = fp, zipfile = zfp, flags = "-j")
     file.remove(fp)
   }
   return(invisible(TRUE))
+}
+
+#' @rdname write_to_path
+#' @keywords internal
+write_json_to_path <- function(x, path, pdb, type, name = NULL, zip = FALSE, info = TRUE, overwrite = FALSE){
+  write_to_path(x, path, pdb, type = "json", name, zip, info, overwrite)
+}
+#' @rdname write_to_path
+#' @keywords internal
+write_txt_to_path <- function(x, path, pdb, type, name = NULL, zip = FALSE, info = TRUE, overwrite = FALSE){
+  write_to_path(x, path, pdb, type = "txt", name, zip, info, overwrite)
+}
+#' @rdname write_to_path
+#' @keywords internal
+write_stan_to_path <- function(x, path, pdb, type, name = NULL, zip = FALSE, info = TRUE, overwrite = FALSE){
+  write_to_path(x, path, pdb, type = "stan", name, zip, info, overwrite)
 }

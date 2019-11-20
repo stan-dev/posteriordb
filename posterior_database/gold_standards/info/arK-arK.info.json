@@ -1,5 +1,5 @@
 {
-  "name": "eight_schools-eight_schools_noncentered",
+  "name": "arK-arK",
   "inference_method": "stan_sampling",
   "inference_method_arguments": {
     "chains": 10,

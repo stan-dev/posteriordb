@@ -1,8 +1,0 @@
-{
-  "keywords": ["stan_benchmark"],
-  "model_name": "eight_schools_centered",
-  "gold_standard": "eight_schools-eight_schools_noncentered",
-  "data_name": "eight_schools",
-  "added_by": "Mans Magnusson",
-  "added_date": "2019-08-12"
-}

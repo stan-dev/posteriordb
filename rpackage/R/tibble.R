@@ -29,25 +29,28 @@ pdb_tibble <- function(pdb, path, ...){
 
   obj_list <- list()
   for(i in seq_along(fnms)) {
-    obj_list[[i]] <- as.data.frame(read_info_json(fnms[i], path = path, pdb = pdb))
+    x <- read_info_json(fnms[i], path = path, pdb = pdb)
+    obj_list[[i]] <- as.data.frame(x)
   }
   dat <- do.call(rbind, obj_list)
   dplyr::as.tbl(dat)
 }
 
 
-#' Coerce to a Data Frame
+#' Coerce a [pdb_posterior] to a Data Frame
+#'
+#' @details The dataframe will consist of one row per keyword.
+#'
 #' @param x a [pdb_posterior] object.
 #' @param row.names NULL or a character vector giving the row names for the data frame. Missing values are not allowed.
 #' @param ... further arguments to \code{as.data.frame} for a list.
 #' @param optional Not used.
 #' @export
 as.data.frame.pdb_posterior <- function(x, row.names = NULL, optional = FALSE, ...){
-  pdb_idx <- which(names(x) == "pdb")
-  keywords_idx <- which(names(x) == "keywords")
-  x[unlist(lapply(x, length)) == 0] <- ""
   kws <- unlist(x$keywords)
-  df <- as.data.frame(x[-c(keywords_idx, pdb_idx)], stringsAsFactors = FALSE, ...)[rep(1, max(1,length(kws))), ]
+  elements <- c("name", "model_name", "gold_standard_name", "data_name", "added_by", "added_date")
+  if(is.null(x$gold_standard_name)) x$gold_standard_name <- "NULL"
+  df <- as.data.frame(x[elements], stringsAsFactors = FALSE, ...)[rep(1, max(1,length(kws))), ]
   if(length(kws) == 0){
     df$keywords <- ""
   } else {

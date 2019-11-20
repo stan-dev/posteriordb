@@ -42,18 +42,7 @@ read_gold_standard_info <- function(x, pdb = NULL, ...) {
   gold_standard_info
 }
 
-#' Write gold_standard_draws json object
-#' @param x a gold_standard_draws object
-#' @param pdb a local posteriordb object to write to
-#' @param zip should the json be ziped?
-#' @param ... further arguments. Currently not used.
-#' @noRd
-#' @keywords internal
-write_gold_standard_info <- function(x, pdb, zip = TRUE, ...){
-  checkmate::assert_class(x, "pdb_gold_standard_info")
-  class(x) <- c(class(x), "list")
-  write_json_to_path(x, "gold_standards/info", pdb, zip = FALSE, info = TRUE)
-}
+
 
 #' Read gold_standard_draws json object
 #' @param x a data, model or posterior name
@@ -69,16 +58,6 @@ read_gold_standard_draws <- function(x, pdb, ...) {
   class(gsd) <- c("pdb_gold_standard_draws", class(gsd))
   assert_gold_standard_draws(gsd)
   gsd
-}
-
-#' Write gold_standard_draws json object
-#' @param x a gold_standard_draws object
-#' @param pdb a local posteriordb object to write to
-#' @noRd
-#' @keywords internal
-write_gold_standard_draws <- function(x, pdb, zip = TRUE, ...){
-  checkmate::assert_class(x, "pdb_gold_standard_draws")
-  write_json_to_path(x, "gold_standards/draws", pdb, zip = TRUE, info = FALSE)
 }
 
 #' Extract data for posterior

@@ -1,0 +1,18 @@
+{
+  "name": "gp_pois_regr",
+  "keywords": [
+    "stan_benchmark",
+    "gaussian process"
+  ],
+  "title": "Gaussian Process Poisson Regression",
+  "description": "Poisson regression with a one-dimensional latent Gaussian process \nusing the exponential quadratic covariance function.",
+  "urls": [
+    "https://github.com/stan-dev/stat_comp_benchmarks/tree/master/benchmarks/gp_pois_regr"
+  ],
+  "model_code": {
+    "stan": "models/stan/gp_pois_regr.stan"
+  },
+  "references": null,
+  "added_date": "2019-11-20",
+  "added_by": "Mans Magnusson"
+}

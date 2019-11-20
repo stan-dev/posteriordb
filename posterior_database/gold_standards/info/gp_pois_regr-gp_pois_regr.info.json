@@ -1,5 +1,5 @@
 {
-  "name": "eight_schools-eight_schools_noncentered",
+  "name": "gp_pois_regr-gp_pois_regr",
   "inference_method": "stan_sampling",
   "inference_method_arguments": {
     "chains": 10,
@@ -8,10 +8,11 @@
     "thin": 10,
     "seed": 4711,
     "control": {
-      "adapt_delta": 0.95
+      "adapt_delta": 0.99,
+      "max_treedepth": 20
     }
   },
   "inference_version": "rstan 2.19.2",
   "added_by": "Mans Magnusson",
-  "added_date": "2019-11-19"
+  "added_date": "2019-11-20"
 }

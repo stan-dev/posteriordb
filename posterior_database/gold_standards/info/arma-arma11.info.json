@@ -1,5 +1,5 @@
 {
-  "name": "eight_schools-eight_schools_noncentered",
+  "name": "arma-arma11",
   "inference_method": "stan_sampling",
   "inference_method_arguments": {
     "chains": 10,
@@ -8,7 +8,7 @@
     "thin": 10,
     "seed": 4711,
     "control": {
-      "adapt_delta": 0.95
+      "adapt_delta": 0.9
     }
   },
   "inference_version": "rstan 2.19.2",

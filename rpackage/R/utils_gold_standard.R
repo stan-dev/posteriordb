@@ -61,6 +61,10 @@ compute_gold_standard_draws_stan_sampling <- function(gsi, pdb){
   stan_object <- do.call(rstan::stan, stan_args)
 
   gsd <- gold_standard_draws(x = stan_object)
+
+  # Subset to relevant prameters
+  gsd <- subset(gsd, variable = names(po$dimensions))
+
   gsd
 }
 

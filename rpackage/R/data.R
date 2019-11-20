@@ -38,3 +38,8 @@ stan_data_file_path <- function(x) {
 stan_data <- function(x) {
   get_data(x)
 }
+
+assert_data <- function(x){
+  checkmate::assert_list(x)
+  checkmate::assert_named(x, type = "unique")
+}
