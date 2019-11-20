@@ -25,4 +25,5 @@ Suggests:
   git2r,
   remotes,
   rstan,
-  testthat
+  testthat,
+  rmarkdown
