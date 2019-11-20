@@ -1,0 +1,16 @@
+{
+  "name": "low_dim_gauss_mix",
+  "keywords": [
+    "synthetic",
+    "stan_benchmark"
+  ],
+  "title": "Low-Dimensional Gaussian Mixture Model Data (well-separated)",
+  "description": "A two-component Gaussian mixture model fit to well-separated data.",
+  "urls": [
+    "https://github.com/stan-dev/stat_comp_benchmarks/tree/master/benchmarks/low_dim_gauss_mix"
+  ],
+  "data_file": "data/data/low_dim_gauss_mix.json",
+  "references": null,
+  "added_date": "2019-11-20",
+  "added_by": "Mans Magnusson"
+}
