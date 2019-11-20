@@ -1,0 +1,15 @@
+{
+  "name": "sir",
+  "keywords": [
+    "stan_benchmark"
+  ],
+  "title": "SIR data",
+  "description": "Data for a Susceptible-Infected-Recovered (SIR) epidemic model.",
+  "urls": [
+    "https://github.com/stan-dev/stat_comp_benchmarks/tree/master/benchmarks/sir"
+  ],
+  "data_file": "data/data/sir.json",
+  "references": null,
+  "added_date": "2019-11-20",
+  "added_by": "Mans Magnusson"
+}

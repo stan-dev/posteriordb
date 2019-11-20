@@ -1,0 +1,18 @@
+{
+  "name": "low_dim_gauss_mix_collapse",
+  "keywords": [
+    "stan_benchmark",
+    "mixture model"
+  ],
+  "title": "A Two-Dimensional (unordered) Gaussian Mixture Model",
+  "description": "A Two-Dimensional Gaussian Mixture Model",
+  "urls": [
+    "https://github.com/stan-dev/stat_comp_benchmarks/tree/master/benchmarks/low_dim_gauss_mix_collapse"
+  ],
+  "model_code": {
+    "stan": "models/stan/low_dim_gauss_mix_collapse.stan"
+  },
+  "references": null,
+  "added_date": "2019-11-20",
+  "added_by": "Mans Magnusson"
+}

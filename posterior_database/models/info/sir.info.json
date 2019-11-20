@@ -1,0 +1,19 @@
+{
+  "name": "sir",
+  "keywords": [
+    "stan_benchmark"
+  ],
+  "title": "Simple SIR model",
+  "description": "A relatively simple susceptible-infected-recovered (SIR) model\nusing the RK45 ODE integrator.",
+  "urls": [
+    "https://github.com/stan-dev/stat_comp_benchmarks/tree/master/benchmarks/sir"
+  ],
+  "model_code": {
+    "stan": "models/stan/sir.stan"
+  },
+  "references": [
+    "grad2012cholera"
+  ],
+  "added_date": "2019-11-20",
+  "added_by": "Mans Magnusson"
+}
