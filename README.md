@@ -74,7 +74,7 @@ head(pn)
     ## [6] "gp_pois_regr-gp_pois_regr"
 
 ``` r
-po <- posterior("eight_schools-eight_schools_centered", pd)
+po <- posterior("eight_schools-eight_schools_centered", pdb = pd)
 po
 ```
 

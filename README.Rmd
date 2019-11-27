@@ -52,7 +52,7 @@ head(pn)
 ```
 
 ```{r}
-po <- posterior("eight_schools-eight_schools_centered", pd)
+po <- posterior("eight_schools-eight_schools_centered", pdb = pd)
 po
 ```
 
