@@ -53,7 +53,7 @@ pdb <- function(pdb_id, pdb_type = "local", cache_path = tempdir(), ...) {
 }
 
 #' @rdname pdb_local
-pdb_official <- function(cache_path = tempdir()){
+pdb_default <- function(cache_path = tempdir()){
   pdb_github("MansMeg/posteriordb/posterior_database", cache_path = cache_path)
 }
 
