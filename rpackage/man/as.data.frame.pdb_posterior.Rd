@@ -5,11 +5,9 @@
 \alias{as.data.frame.pdb_posteriors}
 \title{Coerce a [pdb_posterior] to a Data Frame}
 \usage{
-\method{as.data.frame}{pdb_posterior}(x, row.names = NULL,
-  optional = FALSE, ...)
+\method{as.data.frame}{pdb_posterior}(x, row.names = NULL, optional = FALSE, ...)
 
-\method{as.data.frame}{pdb_posteriors}(x, row.names = NULL,
-  optional = FALSE, ...)
+\method{as.data.frame}{pdb_posteriors}(x, row.names = NULL, optional = FALSE, ...)
 }
 \arguments{
 \item{x}{a [pdb_posterior] object.}

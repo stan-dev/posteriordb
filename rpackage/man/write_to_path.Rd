@@ -7,17 +7,49 @@
 \alias{write_stan_to_path}
 \title{Write objects to posteriordb}
 \usage{
-write_to_path(x, path, pdb, type, name = NULL, zip = FALSE,
-  info = TRUE, overwrite = FALSE)
+write_to_path(
+  x,
+  path,
+  pdb,
+  type,
+  name = NULL,
+  zip = FALSE,
+  info = TRUE,
+  overwrite = FALSE
+)
 
-write_json_to_path(x, path, pdb, type, name = NULL, zip = FALSE,
-  info = TRUE, overwrite = FALSE)
+write_json_to_path(
+  x,
+  path,
+  pdb,
+  type,
+  name = NULL,
+  zip = FALSE,
+  info = TRUE,
+  overwrite = FALSE
+)
 
-write_txt_to_path(x, path, pdb, type, name = NULL, zip = FALSE,
-  info = TRUE, overwrite = FALSE)
+write_txt_to_path(
+  x,
+  path,
+  pdb,
+  type,
+  name = NULL,
+  zip = FALSE,
+  info = TRUE,
+  overwrite = FALSE
+)
 
-write_stan_to_path(x, path, pdb, type, name = NULL, zip = FALSE,
-  info = TRUE, overwrite = FALSE)
+write_stan_to_path(
+  x,
+  path,
+  pdb,
+  type,
+  name = NULL,
+  zip = FALSE,
+  info = TRUE,
+  overwrite = FALSE
+)
 }
 \arguments{
 \item{x}{a gold_standard_draws object}

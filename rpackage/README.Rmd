@@ -32,9 +32,16 @@ library(posteriordb)
 
 First we create the posterior database to use, here we can use the database locally (if the repo is cloned).
 
-```{r}
+```{r, eval=FALSE}
 my_pdb <- pdb_local()
 ```
+
+```{r, eval=TRUE, echo=FALSE}
+path <- getwd()
+x <- file.path(dirname(path), "posterior_database")
+my_pdb <- pdb_local(x)
+```
+
 
 The above code requires that your working directory is in the main folder of the cloned repository. Otherwise we can use the `path` argument.
 
@@ -92,7 +99,7 @@ code <- stan_code(po)
 code
 ```
 
-We can also access the paths to data after they have been unzipped and copied to the R temp directory. By default, the model code is copied to the R temp directory.
+We can also access the paths to data after they have been unzipped and copied to the cache directory set in `pdb` (the R temp directory by default).
 
 ```{r}
 dfp <- data_file_path(po)
@@ -111,12 +118,14 @@ model_info(po)
 
 Note that the references are referencing to BibTeX items that can be found in `content/references/references.bib`.
 
-We can also access a list of posteriors with `filter_posteriors()`. The filtering function follows dplyr filter semantics based on the posterior tibble.
+We can access most of the posterior information as a `tbl_df` using
 
 ```{r}
 tbl <- posteriors_tbl_df(my_pdb)
 head(tbl)
 ```
+
+In addition, we can also access a list of posteriors with `filter_posteriors()`. The filtering function follows dplyr filter semantics based on the posterior tibble.
 
 ```{r}
 pos <- filter_posteriors(my_pdb, data_name == "eight_schools")
