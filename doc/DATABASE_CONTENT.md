@@ -17,6 +17,7 @@ All posteriors in the database contain (at minimum):
 Also, the posterior can contain slots on
 - `references`: What references should be cited if the posterior is used. This is BibTeX slots. The actual references can be found in `references/references.bib`.
 - `gold_standard_name`: Gold standard name / posterior name if it extists. Otherwise is `null`.
+- `dimension`: Dimensions of different parameter names. The sum is the total dimension of the posterior, hence the dimension of Dirichlet vector of length K is K - 1.
 - `keywords`: Keywords for the data (see keywords below)
 
 

@@ -11,7 +11,7 @@
   "dimensions": {
     "mu": 2,
     "sigma": 2,
-    "theta": 2
+    "theta": 1
   },
   "added_date": "2019-11-20",
   "added_by": "Mans Magnusson"
