@@ -1,0 +1,22 @@
+{
+  "name": "irt_2pl-irt_2pl",
+  "keywords": [
+    "stan_benchmark"
+  ],
+  "urls": [],
+  "model_name": "irt_2pl",
+  "data_name": "irt_2pl",
+  "gold_standard_name": null,
+  "references": [],
+  "dimensions": {
+    "sigma_theta": 1,
+    "theta": 100,
+    "sigma_a": 1,
+    "a": 20,
+    "mu_b": 1,
+    "sigma_b": 1,
+    "b": 20
+  },
+  "added_date": "2019-11-20",
+  "added_by": "Mans Magnusson"
+}
