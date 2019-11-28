@@ -5,7 +5,7 @@
 \alias{posterior_names.pdb_github}
 \title{Get all existing posterior names from a posterior database.}
 \usage{
-posterior_names(pdb, ...)
+posterior_names(pdb = pdb_default(), ...)
 
 \method{posterior_names}{pdb_github}(pdb, ...)
 }

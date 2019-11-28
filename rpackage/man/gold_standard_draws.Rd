@@ -8,15 +8,15 @@
 \alias{assert_gold_standard_draws}
 \title{Gold standard posterior draws}
 \usage{
-gold_standard_draws(x, pdb = NULL, ...)
+gold_standard_draws(x, pdb = pdb_default(), ...)
 
-\method{gold_standard_draws}{character}(x, pdb = NULL, ...)
+\method{gold_standard_draws}{character}(x, pdb = pdb_default(), ...)
 
-\method{gold_standard_draws}{character}(x, pdb = NULL, ...)
+\method{gold_standard_draws}{character}(x, pdb = pdb_default(), ...)
 
-\method{gold_standard_draws}{pdb_posterior}(x, pdb = NULL, ...)
+\method{gold_standard_draws}{pdb_posterior}(x, pdb = pdb_default(), ...)
 
-\method{gold_standard_draws}{stanfit}(x, pdb = NULL, ...)
+\method{gold_standard_draws}{stanfit}(x, pdb = pdb_default(), ...)
 
 assert_gold_standard_draws(x)
 }

@@ -13,8 +13,8 @@
 #' @param pdb a \code{pdb} object.
 #' @param ... further arguments to supply to \code{dplyr::filter()}
 #' @export
-filter_posteriors <- function(pdb, ...){
-  pdb_filter(pdb, path = "posteriors", ...)
+filter_posteriors <- function(pdb = pdb_default(), ...){
+  pdb_filter(path = "posteriors", pdb = pdb, ...)
 }
 
 #' Internal filter function
@@ -23,7 +23,7 @@ filter_posteriors <- function(pdb, ...){
 #'
 #' @keywords internal
 #' @param pdb a pdb connection
-pdb_filter <- function(pdb, path, ...){
+pdb_filter <- function(path, pdb, ...){
   checkmate::assert_class(pdb, "pdb")
   checkmate::assert_choice(path, c("posteriors", "models/info", "data/info"))
 

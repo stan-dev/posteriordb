@@ -52,7 +52,8 @@ pdb <- function(pdb_id, pdb_type = "local", cache_path = tempdir(), ...) {
   pdb
 }
 
-#' @rdname pdb_github
+# Note, pdb_local contain all information on pdbs.
+#' @rdname pdb_local
 #' @export
 pdb_default <- function(cache_path = tempdir()){
   pdb_github("MansMeg/posteriordb/posterior_database", cache_path = cache_path)
@@ -98,12 +99,12 @@ pdb_version.pdb_local <- function(pdb, ...){
 #' @param pdb a \code{pdb} object.
 #' @param ... further arguments supplied to specific methods (not in use)
 #' @export
-posterior_names <- function(pdb, ...) {
+posterior_names <- function(pdb = pdb_default(), ...) {
   UseMethod("posterior_names")
 }
 
 #' @export
-posterior_names.pdb_local <- function(pdb, ...) {
+posterior_names.pdb_local <- function(pdb = pdb_default(), ...) {
   pns <- dir(file.path(pdb$pdb_local_endpoint, "posteriors"))
   remove_file_extension(pns)
 }
@@ -118,13 +119,13 @@ names.pdb <- function(x) {
 #' @param pdb a \code{pdb} object.
 #' @param ... Further argument to methods.
 #' @export
-model_names <- function(pdb, ...) {
+model_names <- function(pdb = pdb_default(), ...) {
   UseMethod("model_names")
 }
 
 #' @rdname model_names
 #' @export
-model_names.pdb_local <- function(pdb, ...) {
+model_names.pdb_local <- function(pdb = pdb_default(), ...) {
   pns <- dir(file.path(pdb$pdb_local_endpoint, "models"),
              recursive = TRUE, full.names = FALSE)
   pns <- pns[grepl(pns, pattern = "\\.json$")]
@@ -137,13 +138,13 @@ model_names.pdb_local <- function(pdb, ...) {
 #' @param ... Further argument to methods.
 #'
 #' @export
-data_names <- function(pdb, ...) {
+data_names <- function(pdb = pdb_default(), ...) {
   UseMethod("data_names")
 }
 
 #' @rdname data_names
 #' @export
-data_names.pdb_local <- function(pdb, ...) {
+data_names.pdb_local <- function(pdb = pdb_default(), ...) {
   pns <- dir(file.path(pdb$pdb_local_endpoint, "data"),
              recursive = TRUE, full.names = FALSE)
   pns <- pns[grepl(pns, pattern = "\\.json\\.zip$")]

@@ -6,7 +6,7 @@
 \alias{gold_standard_info.character}
 \title{Gold standard information}
 \usage{
-gold_standard_info(x, pdb = NULL, ...)
+gold_standard_info(x, pdb = pdb_default(), ...)
 
 \method{gold_standard_info}{pdb_posterior}(x, ...)
 

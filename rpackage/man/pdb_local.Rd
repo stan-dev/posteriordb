@@ -3,6 +3,7 @@
 \name{pdb_local}
 \alias{pdb_local}
 \alias{pdb}
+\alias{pdb_default}
 \alias{pdb_github}
 \title{Create a Posterior Database (pdb) connection}
 \usage{
@@ -12,6 +13,8 @@ pdb_local(
 )
 
 pdb(pdb_id, pdb_type = "local", cache_path = tempdir(), ...)
+
+pdb_default(cache_path = tempdir())
 
 pdb_github(
   repo = getOption("pdb_repo", "MansMeg/posteriordb/posterior_database"),

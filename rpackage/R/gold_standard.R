@@ -12,7 +12,7 @@
 #' @seealso gold_standard_draws
 #'
 #' @export
-gold_standard_info <- function(x, pdb = NULL, ...) {
+gold_standard_info <- function(x, pdb = pdb_default(), ...) {
   UseMethod("gold_standard_info")
 }
 
@@ -77,13 +77,13 @@ gold_standard_file_path <- function(x) {
 #' @param ... further arguments supplied to specific methods.
 #' @return a gold_standard, draws_list object.
 #' @export
-gold_standard_draws <- function(x, pdb = NULL, ...){
+gold_standard_draws <- function(x, pdb = pdb_default(), ...){
   UseMethod("gold_standard_draws")
 }
 
 #' @rdname gold_standard_draws
 #' @export
-gold_standard_draws.character <- function(x, pdb = NULL, ...){
+gold_standard_draws.character <- function(x, pdb = pdb_default(), ...){
   if(file.exists(x)){
     pdbl <- pdb_local(x, ...)
     gsd <- gold_standard_draws(posterior(remove_file_extension(basename(x)), pdb = pdbl))
@@ -95,19 +95,19 @@ gold_standard_draws.character <- function(x, pdb = NULL, ...){
 
 #' @rdname gold_standard_draws
 #' @export
-gold_standard_draws.character <- function(x, pdb = NULL, ...){
+gold_standard_draws.character <- function(x, pdb = pdb_default(), ...){
   gold_standard_draws(posterior(x, pdb = pdb))
 }
 
 #' @rdname gold_standard_draws
 #' @export
-gold_standard_draws.pdb_posterior <- function(x, pdb = NULL, ...){
+gold_standard_draws.pdb_posterior <- function(x, pdb = pdb_default(), ...){
   read_gold_standard_draws(x = x$gold_standard_name, pdb = x$pdb)
 }
 
 #' @rdname gold_standard_draws
 #' @export
-gold_standard_draws.stanfit <- function(x, pdb = NULL, ...){
+gold_standard_draws.stanfit <- function(x, pdb = pdb_default(), ...){
   x <- list(name = x@model_name,
             draws = posterior::as_draws_list(posterior::as_draws(x)))
   names(x$draws) <- NULL
