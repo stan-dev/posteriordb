@@ -24,7 +24,7 @@ gold_standard_info.pdb_posterior <- function(x, ...) {
 
 #' @rdname gold_standard_info
 #' @export
-gold_standard_info.character <- function(x, ...) {
+gold_standard_info.character <- function(x, pdb = pdb_default(), ...) {
   gold_standard_info(posterior(x, pdb))
 }
 
