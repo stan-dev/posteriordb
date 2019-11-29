@@ -22,21 +22,17 @@ simulate_data_linear_regression <-
   beta_mean <- as.matrix(beta_mean)
   D <- length(beta_mean)
   sig <- solve(beta_sigma)
-  x <- mvtnorm::rmvnorm(n = n, mean = rep(0, D), sigma = sigma^2 * sig)
+  x <- mvtnorm::rmvnorm(n = n, mean = rep(0, D), sigma = sigma^2 * sig * n)
   y <- as.vector(x%*%beta_mean + rnorm(n, sd = sigma))
   list(y = y, X = x, D = as.integer(D), N = as.integer(n))
 }
 
 # Set parameters
 beta_mean <- rep(1, 5)
-beta_sigma <- diag(0.3, length(beta_mean)) + 0.7
+beta_sigma_i <- diag(rep(0.01, length(beta_mean)))
+beta_sigma_c <- (diag(0.2, length(beta_mean)) + 0.8) / 100
 
 set.seed(4711)
-sblri <- simulate_data_linear_regression(n = 100, beta_mean = beta_mean)
-writeLines(jsonlite::toJSON(sblri, pretty = TRUE, auto_unbox = TRUE), con = "sblri.json")
-zip(zipfile = "sblri.json.zip", files = "sblri.json")
-
+sblri <- simulate_data_linear_regression(n = 100, beta_mean = beta_mean, beta_sigma = beta_sigma_i)
 set.seed(4712)
-sblrc <- simulate_data_linear_regression(n = 100, beta_mean = beta_mean, beta_sigma = beta_sigma)
-writeLines(jsonlite::toJSON(sblri, pretty = TRUE, auto_unbox = TRUE), con = "sblrc.json")
-zip(zipfile = "sblrc.json.zip", files = "sblrc.json")
+sblrc <- simulate_data_linear_regression(n = 100, beta_mean = beta_mean, beta_sigma = beta_sigma_c)
