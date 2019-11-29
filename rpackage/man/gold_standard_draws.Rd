@@ -8,13 +8,11 @@
 \alias{assert_gold_standard_draws}
 \title{Gold standard posterior draws}
 \usage{
-gold_standard_draws(x, pdb = pdb_default(), ...)
+gold_standard_draws(x, ...)
 
 \method{gold_standard_draws}{character}(x, pdb = pdb_default(), ...)
 
-\method{gold_standard_draws}{character}(x, pdb = pdb_default(), ...)
-
-\method{gold_standard_draws}{pdb_posterior}(x, pdb = pdb_default(), ...)
+\method{gold_standard_draws}{pdb_posterior}(x, ...)
 
 \method{gold_standard_draws}{stanfit}(x, pdb = pdb_default(), ...)
 
@@ -23,9 +21,9 @@ assert_gold_standard_draws(x)
 \arguments{
 \item{x}{a [posterior] object or a posterior name.}
 
-\item{pdb}{a [pdb] object (if [x] is a posterior name)}
-
 \item{...}{further arguments supplied to specific methods.}
+
+\item{pdb}{a [pdb] object (if [x] is a posterior name)}
 }
 \value{
 a gold_standard, draws_list object.

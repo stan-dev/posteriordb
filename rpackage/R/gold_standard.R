@@ -77,20 +77,8 @@ gold_standard_file_path <- function(x) {
 #' @param ... further arguments supplied to specific methods.
 #' @return a gold_standard, draws_list object.
 #' @export
-gold_standard_draws <- function(x, pdb = pdb_default(), ...){
+gold_standard_draws <- function(x, ...){
   UseMethod("gold_standard_draws")
-}
-
-#' @rdname gold_standard_draws
-#' @export
-gold_standard_draws.character <- function(x, pdb = pdb_default(), ...){
-  if(file.exists(x)){
-    pdbl <- pdb_local(x, ...)
-    gsd <- gold_standard_draws(posterior(remove_file_extension(basename(x)), pdb = pdbl))
-  } else {
-    gsd <- gold_standard_draws(posterior(x, pdb = pdb))
-  }
-  gsd
 }
 
 #' @rdname gold_standard_draws
@@ -101,7 +89,7 @@ gold_standard_draws.character <- function(x, pdb = pdb_default(), ...){
 
 #' @rdname gold_standard_draws
 #' @export
-gold_standard_draws.pdb_posterior <- function(x, pdb = pdb_default(), ...){
+gold_standard_draws.pdb_posterior <- function(x, ...){
   read_gold_standard_draws(x = x$gold_standard_name, pdb = x$pdb)
 }
 
