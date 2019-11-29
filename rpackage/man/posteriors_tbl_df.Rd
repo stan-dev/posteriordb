@@ -4,7 +4,7 @@
 \alias{posteriors_tbl_df}
 \title{Create Posterior Database tibbles}
 \usage{
-posteriors_tbl_df(pdb, ...)
+posteriors_tbl_df(pdb = pdb_default(), ...)
 }
 \arguments{
 \item{pdb}{a \code{pdb} object.}

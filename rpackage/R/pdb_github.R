@@ -126,11 +126,10 @@ github_path <- function(pdb, type, path = NULL){
 #' A github personal access token
 #' Looks in env var `GITHUB_PAT`
 #' @param pdb A posterior datasbase object to extract pat from.
-#' @keywords internal
-#' @noRd
+#' @export
 github_pat <- function(pdb = NULL) {
   pat <- Sys.getenv("GITHUB_PAT")
-  if (nzchar(pat) > 1) {
+  if (nzchar(pat)) {
     return(pat)
   }
   if(is.null(pdb)) return(NULL)

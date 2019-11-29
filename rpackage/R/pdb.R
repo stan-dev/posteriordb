@@ -450,7 +450,7 @@ read_info_json.pdb_posterior <- function(x, path, pdb = NULL, ...){
 #' @param zip Should the json be zipped?
 #' @param pdb a local posteriordb object to write to
 #' @keywords internal
-write_to_path <- function(x, path, pdb, type, name = NULL, zip = FALSE, info = TRUE, overwrite = FALSE){
+write_to_path <- function(x, path, type, pdb, name = NULL, zip = FALSE, info = TRUE, overwrite = FALSE){
   checkmate::assert_subset(class(x)[1], choices = c("character", "pdb_posterior", "pdb_model_info", "pdb_data_info", "pdb_data", "pdb_gold_standard_draws", "pdb_gold_standard_info"))
   checkmate::assert_string(path)
   checkmate::assert_class(pdb, "pdb_local")

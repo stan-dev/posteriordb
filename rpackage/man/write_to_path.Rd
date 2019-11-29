@@ -10,8 +10,8 @@
 write_to_path(
   x,
   path,
-  pdb,
   type,
+  pdb,
   name = NULL,
   zip = FALSE,
   info = TRUE,
@@ -56,9 +56,9 @@ write_stan_to_path(
 
 \item{path}{a posteriordb path.}
 
-\item{pdb}{a local posteriordb object to write to}
-
 \item{type}{Output type, [json] or [txt].}
+
+\item{pdb}{a local posteriordb object to write to}
 
 \item{name}{Used for code files and data.}
 
