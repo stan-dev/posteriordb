@@ -1,7 +1,7 @@
 Gold Standard Definition
 ========================
 
-The purpose of the gold standard definition is to define the criteria for cbelieving that we have approximately independent draws from the true underlying posterior distribution.
+The purpose of the gold standard definition is to define the criteria for checking that we have approximately independent draws from the true underlying posterior distribution.
 
 A gold standard should contain:
 1. 10 000 draws per parameter in the model.
