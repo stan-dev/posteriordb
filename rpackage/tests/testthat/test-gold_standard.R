@@ -15,6 +15,9 @@ test_that("Check that gold_standard works as expected", {
   expect_s3_class(gsi3, "pdb_gold_standard_info")
   expect_identical(gsi1, gsi3)
 
+  expect_output(print(gsi1), "Posterior: eight_schools-eight_schools_noncentered")
+  expect_output(print(gsi1), "Method: stan_sampling ")
+  expect_output(print(gsi1), "Arguments:")
 
 
   expect_silent(po <- posterior("eight_schools-eight_schools_centered", pdb_test))
@@ -27,6 +30,8 @@ test_that("Check that gold_standard works as expected", {
   expect_silent(pd3 <- gold_standard_draws("eight_schools-eight_schools_centered", pdb_test))
   expect_s3_class(pd3, "pdb_gold_standard_draws")
   expect_identical(pd1, pd3)
+
+  expect_output(print(pd1), "Posterior: eight_schools-eight_schools_noncentered")
 
   expect_silent(po <- posterior("prideprejustice_chapter-ldaK5", pdb_test))
   expect_error(gs <- gold_standard_info(po),
