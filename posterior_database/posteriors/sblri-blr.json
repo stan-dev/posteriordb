@@ -1,0 +1,15 @@
+{
+  "name": "sblri-blr",
+  "keywords": [],
+  "urls": [],
+  "model_name": "blr",
+  "data_name": "sblri",
+  "gold_standard_name": "sblri-blr",
+  "references": [],
+  "dimensions": {
+    "beta": 5,
+    "sigma": 1
+  },
+  "added_date": "2019-11-29",
+  "added_by": "Mans Magnusson"
+}

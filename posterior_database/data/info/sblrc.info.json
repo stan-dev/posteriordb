@@ -1,0 +1,13 @@
+{
+  "name": "sblrc",
+  "keywords": [
+    "synthetic"
+  ],
+  "title": "Data for Bayesian Linear Regession with correlated betas.",
+  "description": "Simulated data with 100 observations and 5 coefficients using an uninformative prior. The true values for beta and sigma is 1 and the betas have a correlation of 0.8 in the posterior and var(beta) = 0.01. See data/data-raw/sblr.R for exact code.",
+  "urls": [],
+  "data_file": "data/data/sblrc.json",
+  "references": null,
+  "added_date": "2019-11-29",
+  "added_by": "Mans Magnusson"
+}
