@@ -1,7 +1,8 @@
 {
   "name": "garch-garch11",
   "keywords": [
-    "stan_benchmark"
+    "stan_benchmark",
+    "time series"
   ],
   "urls": [],
   "model_name": "garch11",
@@ -14,6 +15,6 @@
     "alpha1": 1,
     "beta1": 1
   },
-  "added_date": "2019-11-19",
+  "added_date": "2019-11-29",
   "added_by": "Mans Magnusson"
 }
