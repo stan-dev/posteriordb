@@ -13,6 +13,7 @@ get_data <- function(x, ...) {
 get_data.pdb_posterior <- function(x, ...) {
   sdfp <- data_file_path(x)
   dat <- jsonlite::read_json(sdfp, simplifyVector = TRUE)
+  assert_data(dat)
   dat
 }
 
@@ -39,6 +40,9 @@ stan_data <- function(x) {
   get_data(x)
 }
 
+#' Assert the data format
+#' @noRd
+#' @keywords internal
 assert_data <- function(x){
   checkmate::assert_list(x)
   checkmate::assert_named(x, type = "unique")
