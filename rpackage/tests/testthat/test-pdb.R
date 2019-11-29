@@ -24,3 +24,11 @@ test_that("model_names and data_names works as expected", {
   expect_true(all(slpmn %in% mn))
   expect_true(all(slpdat %in% dn))
 })
+
+
+test_that("pdb_version", {
+  posterior_db_path <- posteriordb:::get_test_pdb_dir()
+  expect_silent(pdb_test <- pdb(posterior_db_path))
+  checkmate::expect_list(pdb_version(pdb_test))
+  checkmate::expect_names(names(pdb_version(pdb_test)), must.include = "sha")
+})
