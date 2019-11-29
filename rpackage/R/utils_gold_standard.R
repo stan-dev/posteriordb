@@ -50,7 +50,7 @@ test_gold_standard_draws.pdb_gold_standard_draws <- function(x, ...){
 #' @keywords internal
 #' @noRd
 compute_gold_standard_draws_stan_sampling <- function(gsi, pdb){
-  checkmate::assert_class(pdb, "pdb")
+  checkmate::assert_class(pdb, "pdb_local")
   assert_gold_standard_info(gsi)
   po <- posterior(name = gsi$name, pdb = pdb)
 
@@ -59,6 +59,9 @@ compute_gold_standard_draws_stan_sampling <- function(gsi, pdb){
                     data = stan_data(po))
   stan_args <- c(stan_args, gsi$inference_method_arguments)
   stan_object <- do.call(rstan::stan, stan_args)
+
+  # Stan model codes are stored locally (seem to be a bug)
+  stan_object@model_name <- gsi$name
 
   gsd <- gold_standard_draws(x = stan_object)
 
