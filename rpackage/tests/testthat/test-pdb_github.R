@@ -37,3 +37,11 @@ test_that("model_names, data_names and names work", {
   checkmate::expect_choice("eight_schools_centered", nms)
   posteriordb:::pdb_clear_cache(pdb_github_test)
 })
+
+
+test_that("pdb_default is github", {
+  skip_if(is.null(github_pat()))
+  expect_silent(pdb_default_test <- pdb_default())
+  expect_silent(pdb_github_test <- pdb_github("MansMeg/posteriordb/posterior_database"))
+  expect_equal(pdb_default_test, pdb_github_test)
+})
