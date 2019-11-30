@@ -26,3 +26,18 @@ compute_gold_standard_draws_stan_sampling <- function(gsi, pdb){
 
   gsd
 }
+
+
+#' @rdname gold_standard_draws
+#' @export
+gold_standard_draws.stanfit <- function(x, pdb = pdb_default(), ...){
+  x <- list(name = x@model_name,
+            draws = posterior::as_draws_list(posterior::as_draws(x)))
+  names(x$draws) <- NULL
+  for(i in seq_along(x$draws)){
+    x$draws[[i]]$lp__ <- NULL
+  }
+  class(x) <- c("pdb_gold_standard_draws", class(x))
+  assert_gold_standard_draws(x)
+  x
+}

@@ -121,20 +121,6 @@ gold_standard_draws.pdb_gold_standard_info <- function(x, pdb = pdb_default(), .
 
 #' @rdname gold_standard_draws
 #' @export
-gold_standard_draws.stanfit <- function(x, pdb = pdb_default(), ...){
-  x <- list(name = x@model_name,
-            draws = posterior::as_draws_list(posterior::as_draws(x)))
-  names(x$draws) <- NULL
-  for(i in seq_along(x$draws)){
-    x$draws[[i]]$lp__ <- NULL
-  }
-  class(x) <- c("pdb_gold_standard_draws", class(x))
-  assert_gold_standard_draws(x)
-  x
-}
-
-#' @rdname gold_standard_draws
-#' @export
 assert_gold_standard_draws <- function(x){
   checkmate::assert_class(x, c("pdb_gold_standard_draws"))
 
