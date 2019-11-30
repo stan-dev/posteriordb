@@ -51,7 +51,7 @@ read_gold_standard_info <- function(x, pdb = NULL, ...) {
 #' @noRd
 #' @keywords internal
 read_gold_standard_draws <- function(x, pdb, ...) {
-  if(is.null(x)) stop("There is currently no gold standard for this posterior.")
+  if(is.null(x)) stop("There is currently no gold standard for this posterior.", call. = FALSE)
   gsfp <- pdb_cached_local_file_path(pdb, file.path("gold_standards", "draws", paste0(x, ".json")), unzip = TRUE)
   gsd <- jsonlite::read_json(gsfp, simplifyVector = TRUE)
   gsd$draws <- posterior::as_draws(gsd$draws)
