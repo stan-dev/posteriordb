@@ -40,9 +40,7 @@ pdb_version.pdb_github <- function(pdb, ...){
   list("sha" = ghp$object$sha)
 }
 
-#' @rdname posterior_names
-#' @export
-posterior_names.pdb_github <- function(pdb, ...) {
+pn.pdb_github <- function(pdb, ...) {
   pns <- github_dir(gh_path = github_path(pdb, type = "contents", path = "posteriors"), pdb = pdb)
   remove_file_extension(pns)
 }

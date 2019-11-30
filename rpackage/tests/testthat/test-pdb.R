@@ -1,15 +1,5 @@
 context("test-pdb")
 
-test_that("posteriordb:::check_pdb indicates that local PDB is ok", {
-  posterior_db_path <- posteriordb:::get_test_pdb_dir()
-  expect_silent(pdb_test <- pdb(posterior_db_path))
-  posteriordb:::pdb_clear_cache(pdb_test)
-  expect_message(posteriordb:::check_pdb(pdb = pdb_test), "Posterior database is ok")
-  expect_message(posteriordb:::check_pdb(pdb = pdb_test), "Posterior database is ok")
-  expect_output(print(pdb_test), "Posterior Database")
-  expect_output(print(pdb_test), "local")
-})
-
 test_that("model_names and data_names works as expected", {
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
   expect_silent(pdb_test <- pdb(posterior_db_path))

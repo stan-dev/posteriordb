@@ -100,11 +100,14 @@ pdb_version.pdb_local <- function(pdb, ...){
 #' @param ... further arguments supplied to specific methods (not in use)
 #' @export
 posterior_names <- function(pdb = pdb_default(), ...) {
-  UseMethod("posterior_names")
+  pn(pdb, ...)
 }
 
-#' @export
-posterior_names.pdb_local <- function(pdb = pdb_default(), ...) {
+pn <- function(pdb, ...) {
+  UseMethod("pn")
+}
+
+pn.pdb_local <- function(pdb, ...) {
   pns <- dir(file.path(pdb$pdb_local_endpoint, "posteriors"))
   remove_file_extension(pns)
 }
@@ -365,35 +368,6 @@ pdb_cache_dir.pdb_local <- function(pdb, path, ...){
     pdb_file_copy(pdb = pdb, from = froms[i], to = tos[i], overwrite = TRUE)
   }
 }
-
-
-#' Check a posterior database
-#' @noRd
-#' @param pdb a \code{pdb} object
-#' @param posterior_idx an index vector indicating what posteriors to check.
-#' @return a boolean indicating if the pdb works as it should.
-check_pdb <- function(pdb, posterior_idx = NULL) {
-  checkmate::assert_class(pdb, "pdb")
-  message("Checking posterior database...")
-  pns <- names(pdb)
-  if(!is.null(posterior_idx)) pns <- pns[posterior_idx]
-  pl <- list()
-  for (i in seq_along(pns)) {
-    pl[[i]] <- posterior(name = pns[i], pdb = pdb)
-  }
-  message("1. All posteriors can be read.")
-  for (i in seq_along(pl)) {
-    stan_code(pl[[i]])
-  }
-  message("2. All stan_code can be read.")
-  for (i in seq_along(pl)) {
-    stan_data(x = pl[[i]])
-  }
-  message("3. All stan_data can be read.")
-  message("Posterior database is ok.\n")
-  invisible(TRUE)
-}
-
 
 #' Read in information json
 #' @param x a data, model or posterior name
