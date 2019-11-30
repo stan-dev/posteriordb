@@ -6,7 +6,7 @@
 \alias{stan_data}
 \title{Extract data for posterior}
 \usage{
-data_file_path(x)
+data_file_path(x, ...)
 
 stan_data_file_path(x)
 

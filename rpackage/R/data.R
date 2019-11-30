@@ -21,17 +21,31 @@ get_data.pdb_posterior <- function(x, ...) {
 #'
 #' @inheritParams model_code_file_path
 #' @export
-data_file_path <- function(x) {
-  checkmate::assert_class(x, "pdb_posterior")
+data_file_path <- function(x, ...) {
+  UseMethod("data_file_path")
+}
+
+#' @inheritParams model_code_file_path
+#' @export
+data_file_path.pdb_posterior <- function(x, ...) {
   fp <- pdb_cached_local_file_path(pdb = x$pdb, path = x$data_info$data_file, unzip = TRUE)
+  checkmate::assert_file_exists(fp)
+  fp
+}
+
+#' @inheritParams model_code_file_path
+#' @export
+data_file_path.character <- function(x, pdb = pdb_default(), ...) {
+  fn <- paste0(x, ".json")
+  fp <- pdb_cached_local_file_path(pdb = pdb, path = file.path("data", "data", fn), unzip = TRUE)
   checkmate::assert_file_exists(fp)
   fp
 }
 
 #' @rdname data_file_path
 #' @export
-stan_data_file_path <- function(x) {
-  data_file_path(x)
+stan_data_file_path <- function(x, ...) {
+  data_file_path(x, ...)
 }
 
 #' @rdname data_file_path
