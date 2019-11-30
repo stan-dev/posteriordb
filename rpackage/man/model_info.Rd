@@ -25,7 +25,11 @@ model_info(x, ...)
 \method{model_info}{character}(x, pdb = pdb_default(), ...)
 }
 \arguments{
-\item{po}{a \code{posterior} object.}
+\item{x}{a object to access information for.}
+
+\item{...}{further arguments to methods.}
+
+\item{pdb}{a \code{pdb} object.}
 }
 \description{
 Access data and model information

@@ -16,9 +16,11 @@ get_data(x, ...)
 \method{get_data}{pdb_data_info}(x, pdb = pdb_default(), ...)
 }
 \arguments{
-\item{x}{a \code{posterior} object to access data from.}
+\item{x}{an object to access data from.}
 
 \item{...}{Currently not used.}
+
+\item{pdb}{a \code{pdb} object.}
 }
 \description{
 Posterior Data Sets

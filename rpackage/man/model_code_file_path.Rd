@@ -40,9 +40,13 @@ stan_code(x, ...)
 pdb_stan_code(x, ...)
 }
 \arguments{
-\item{x}{a \code{posterior} object.}
+\item{x}{an object to access file path to.}
 
 \item{framework}{model code framework (e.g. \code{stan}).}
+
+\item{...}{further arguments supplied to methods.}
+
+\item{pdb}{a \code{pdb} object.}
 }
 \description{
 Extract file paths to model code from posterior object

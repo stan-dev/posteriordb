@@ -1,6 +1,7 @@
 #' Posterior Data Sets
 #'
-#' @param x a \code{posterior} object to access data from.
+#' @param x an object to access data from.
+#' @param pdb a \code{pdb} object.
 #' @param ... Currently not used.
 #'
 #' @export

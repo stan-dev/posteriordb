@@ -1,7 +1,9 @@
 #' Extract file paths to model code from posterior object
 #'
-#' @param x a \code{posterior} object.
+#' @param x an object to access file path to.
 #' @param framework model code framework (e.g. \code{stan}).
+#' @param pdb a \code{pdb} object.
+#' @param ... further arguments supplied to methods.
 #'
 #' @export
 model_code_file_path <- function(x, framework, ...) {

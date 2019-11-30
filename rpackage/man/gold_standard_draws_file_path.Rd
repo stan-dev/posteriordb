@@ -16,7 +16,11 @@ gold_standard_draws_file_path(x, ...)
 \method{gold_standard_draws_file_path}{pdb_gold_standard_info}(x, pdb = pdb_default(), ...)
 }
 \arguments{
-\item{x}{a \code{posterior} object.}
+\item{x}{an object to access file path to.}
+
+\item{...}{further arguments supplied to methods.}
+
+\item{pdb}{a \code{pdb} object.}
 }
 \description{
 Extract data for posterior

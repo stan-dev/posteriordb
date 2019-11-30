@@ -1,6 +1,8 @@
 #' Access data and model information
 #'
-#' @param po a \code{posterior} object.
+#' @param x a object to access information for.
+#' @param pdb a \code{pdb} object.
+#' @param ... further arguments to methods.
 #'
 #' @export
 model_info <- function(x, ...) {

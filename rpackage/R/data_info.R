@@ -2,7 +2,6 @@
 #' @export
 data_info <- function(x, ...) {
   UseMethod("data_info")
-  po$data_info
 }
 
 #' @rdname model_info
