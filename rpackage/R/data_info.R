@@ -15,18 +15,15 @@ data_info.pdb_posterior <- function(x, ...) {
 #' @export
 data_info.character <- function(x, pdb = pdb_default(), ...) {
   checkmate::assert_string(x)
-  read_info_json(x, path = "data/info", pdb = pdb, ...)
+  read_data_info(x, pdb)
 }
-
 
 #' @rdname model_info
 #' @export
 pdb_data_info <- data_info
 
-
 # read data info from the data base
 read_data_info <- function(x, pdb = NULL, ...) {
-  checkmate::assert_class(x, "pdb_posterior")
   data_info <- read_info_json(x, path = "data/info", pdb = pdb, ...)
   class(data_info) <- "pdb_data_info"
   assert_data_info(data_info)

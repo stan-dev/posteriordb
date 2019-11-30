@@ -27,6 +27,12 @@ get_data.character <- function(x, pdb = pdb_default(), ...) {
   dat
 }
 
+#' @rdname get_data
+#' @export
+get_data.pdb_data_info <- function(x, pdb = pdb_default(), ...){
+  get_data(x$name, pdb)
+}
+
 #' Extract data for posterior
 #'
 #' @inheritParams model_code_file_path

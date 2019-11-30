@@ -3,9 +3,21 @@
 #' @param po a \code{posterior} object.
 #'
 #' @export
-model_info <- function(po) {
-  checkmate::assert_class(po, "pdb_posterior")
+model_info <- function(x, ...) {
+  UseMethod("model_info")
+}
+
+#' @rdname model_info
+#' @export
+model_info.pdb_posterior <- function(x, ...) {
   po$model_info
+}
+
+#' @rdname model_info
+#' @export
+model_info.character <- function(x, pdb = pdb_default(), ...) {
+  checkmate::assert_string(x)
+  read_model_info(x, pdb)
 }
 
 # read model info from the data base

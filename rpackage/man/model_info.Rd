@@ -6,6 +6,8 @@
 \alias{data_info.character}
 \alias{pdb_data_info}
 \alias{model_info}
+\alias{model_info.pdb_posterior}
+\alias{model_info.character}
 \title{Access data and model information}
 \usage{
 data_info(x, ...)
@@ -16,7 +18,11 @@ data_info(x, ...)
 
 pdb_data_info(x, ...)
 
-model_info(po)
+model_info(x, ...)
+
+\method{model_info}{pdb_posterior}(x, ...)
+
+\method{model_info}{character}(x, pdb = pdb_default(), ...)
 }
 \arguments{
 \item{po}{a \code{posterior} object.}
