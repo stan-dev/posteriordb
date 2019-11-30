@@ -3,6 +3,7 @@
 \name{model_code_file_path}
 \alias{model_code_file_path}
 \alias{model_code_file_path.pdb_posterior}
+\alias{model_code_file_path.pdb_model_info}
 \alias{model_code_file_path.character}
 \alias{model_code}
 \alias{model_code.pdb_posterior}
@@ -17,6 +18,8 @@
 model_code_file_path(x, framework, ...)
 
 \method{model_code_file_path}{pdb_posterior}(x, framework, ...)
+
+\method{model_code_file_path}{pdb_model_info}(x, framework, pdb = pdb_default(), ...)
 
 \method{model_code_file_path}{character}(x, framework, pdb = pdb_default(), ...)
 

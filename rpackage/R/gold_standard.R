@@ -64,11 +64,31 @@ read_gold_standard_draws <- function(x, pdb, ...) {
 #'
 #' @inheritParams model_code_file_path
 #' @export
-gold_standard_file_path <- function(x) {
-  checkmate::assert_class(x, "pdb_posterior")
-  if(is.null(x$gold_standard)) stop2("There is currently no gold standard for this posterior.")
-  gsfp <- pdb_cached_local_file_path(x$pdb, x$gold_standard, unzip = TRUE)
+gold_standard_draws_file_path <- function(x, ...) {
+  UseMethod("gold_standard_draws_file_path")
+}
+
+#' @rdname gold_standard_draws_file_path
+#' @export
+gold_standard_draws_file_path.pdb_posterior <- function(x, ...) {
+  if(is.null(x$gold_standard_name)) stop2("There is currently no gold standard for this posterior.")
+  gold_standard_draws_file_path(x$gold_standard_name, pdb = x$pdb)
+}
+
+#' @rdname gold_standard_draws_file_path
+#' @export
+gold_standard_draws_file_path.character <- function(x, pdb = pdb_default(), ...) {
+  checkmate::assert_string(x)
+  fp <- paste0("gold_standards/draws/", x, ".json")
+  gsfp <- pdb_cached_local_file_path(pdb, path = fp, unzip = TRUE)
+  checkmate::assert_file_exists(gsfp)
   gsfp
+}
+
+#' @rdname gold_standard_draws_file_path
+#' @export
+gold_standard_draws_file_path.pdb_gold_standard_info <- function(x, pdb = pdb_default(), ...) {
+  gold_standard_draws_file_path(x$name, pdb, ...)
 }
 
 #' Gold standard posterior draws
@@ -91,6 +111,12 @@ gold_standard_draws.character <- function(x, pdb = pdb_default(), ...){
 #' @export
 gold_standard_draws.pdb_posterior <- function(x, ...){
   read_gold_standard_draws(x = x$gold_standard_name, pdb = x$pdb)
+}
+
+#' @rdname gold_standard_draws
+#' @export
+gold_standard_draws.pdb_gold_standard_info <- function(x, pdb = pdb_default(), ...){
+  read_gold_standard_draws(x = x$name, pdb = pdb)
 }
 
 #' @rdname gold_standard_draws

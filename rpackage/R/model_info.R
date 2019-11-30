@@ -10,7 +10,7 @@ model_info <- function(x, ...) {
 #' @rdname model_info
 #' @export
 model_info.pdb_posterior <- function(x, ...) {
-  po$model_info
+  x$model_info
 }
 
 #' @rdname model_info

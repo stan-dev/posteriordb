@@ -4,6 +4,7 @@
 \alias{gold_standard_draws}
 \alias{gold_standard_draws.character}
 \alias{gold_standard_draws.pdb_posterior}
+\alias{gold_standard_draws.pdb_gold_standard_info}
 \alias{gold_standard_draws.stanfit}
 \alias{assert_gold_standard_draws}
 \title{Gold standard posterior draws}
@@ -13,6 +14,8 @@ gold_standard_draws(x, ...)
 \method{gold_standard_draws}{character}(x, pdb = pdb_default(), ...)
 
 \method{gold_standard_draws}{pdb_posterior}(x, ...)
+
+\method{gold_standard_draws}{pdb_gold_standard_info}(x, pdb = pdb_default(), ...)
 
 \method{gold_standard_draws}{stanfit}(x, pdb = pdb_default(), ...)
 

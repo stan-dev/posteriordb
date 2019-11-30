@@ -59,6 +59,12 @@ data_file_path.character <- function(x, pdb = pdb_default(), ...) {
   fp
 }
 
+#' @inheritParams model_code_file_path
+#' @export
+data_file_path.pdb_data_info <- function(x, pdb = pdb_default(), ...) {
+  data_file_path(x$name, pdb = pdb, ...)
+}
+
 #' @rdname data_file_path
 #' @export
 stan_data_file_path <- function(x, ...) {
