@@ -31,6 +31,9 @@ test_that("Check that gold_standard works as expected", {
   expect_s3_class(pd3, "pdb_gold_standard_draws")
   expect_identical(pd1, pd3)
 
+  expect_silent(gsdfp <- gold_standard_draws_file_path(po))
+  expect_true(file.exists(gsdfp))
+
   expect_output(print(pd1), "Posterior: eight_schools-eight_schools_noncentered")
 
   expect_silent(po <- posterior("prideprejustice_chapter-ldaK5", pdb_test))
