@@ -9,9 +9,9 @@ test_that("write data", {
   # Test write data
   expect_error(write_pdb(d, pdb_test, name = "test_data", overwrite = TRUE))
   class(d) <- c("pdb_data", "list")
-  op <- capture_output(expect_silent(write_pdb(d, pdb_test, name = "test_data")))
+  expect_silent(write_pdb(d, pdb_test, name = "test_data"))
   expect_error(write_pdb(d, pdb_test, name = "test_data"))
-  op <- capture_output(expect_silent(write_pdb(d, pdb_test, name = "test_data", overwrite = TRUE)))
+  expect_silent(write_pdb(d, pdb_test, name = "test_data", overwrite = TRUE))
 
   # Test write data info
   di <- po$data_info
@@ -47,7 +47,7 @@ test_that("write model", {
   # Test write model info
   mi <- po$model_info
   mi$name <- "test_model"
-  mi$title <- di$description <- "Test model"
+  mi$title <- mi$description <- "Test model"
   mi$model_code <- list(stan = "models/stan/test_model.stan")
 
   expect_silent(write_pdb(mi, pdb_test))
@@ -95,7 +95,7 @@ test_that("write posterior", {
 
 })
 
-test_that("test and remove test posterior", {
+test_that("test posterior", {
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
   expect_silent(pdb_test <- pdb(posterior_db_path))
   expect_silent(po1 <- posterior("eight_schools-eight_schools_centered", pdb_test))
@@ -105,11 +105,17 @@ test_that("test and remove test posterior", {
   expect_identical(stan_code(po1), stan_code(po2))
   expect_identical(gold_standard_draws(po1)$draws, gold_standard_draws(po2)$draws)
 
-  # Remove posterior
+})
+
+test_that("remove test posterior", {
+  posterior_db_path <- posteriordb:::get_test_pdb_dir()
+  expect_silent(pdb_test <- pdb(posterior_db_path))
+
   expect_silent(posteriordb:::remove_posteriors_from_pdb("test_posterior", pdb = pdb_test))
   expect_silent(posteriordb:::remove_data_from_pdb("test_data", pdb = pdb_test))
   expect_silent(posteriordb:::remove_models_from_pdb("test_model", pdb = pdb_test))
   expect_silent(posteriordb:::remove_gold_standards_from_pdb("test_data-test_model", pdb = pdb_test))
+  posteriordb:::pdb_clear_cache(pdb_test)
 
   expect_error(po2 <- posterior("test_posterior", pdb_test))
 })

@@ -472,9 +472,12 @@ write_to_path <- function(x, path, type, pdb, name = NULL, zip = FALSE, info = T
 
   path <- strsplit(path, "/")[[1]]
   fp <- file.path(pdb_endpoint(pdb), do.call(file.path, as.list(path)), nm)
-  checkmate::assert_path_for_output(fp, overwrite = overwrite)
-
   zfp <- paste0(fp, ".zip")
+  if(zip){
+    checkmate::assert_path_for_output(zfp, overwrite = overwrite)
+  } else {
+    checkmate::assert_path_for_output(fp, overwrite = overwrite)
+  }
 
   if(type == "json"){
     out <- jsonlite::toJSON(x, pretty = TRUE, auto_unbox = TRUE, null = "null", digits = NA)
@@ -489,7 +492,7 @@ write_to_path <- function(x, path, type, pdb, name = NULL, zip = FALSE, info = T
   writeLines(text = out, con = fp)
 
   if(zip){
-    zip(files = fp, zipfile = zfp, flags = "-j")
+    zip(files = fp, zipfile = zfp, flags = "-jq")
     file.remove(fp)
   }
   return(invisible(TRUE))
