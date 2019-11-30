@@ -25,6 +25,8 @@ test_that("Check that all posteriors can access stan_data and stan_code", {
   expect_true(file.exists(mcfp))
   expect_true(grepl(pattern = tempdir(), x = mcfp))
   expect_equal(posteriordb:::get_file_extension(mcfp), "stan")
+  expect_silent(scfp <- stan_code_file_path(po))
+  expect_equal(scfp, mcfp)
 
   # Test model_code
   expect_silent(mc <- model_code(po, framework = "stan"))
@@ -49,4 +51,51 @@ test_that("Check that all posteriors can access stan_data and stan_code", {
   expect_silent(gsd <- gold_standard_draws(po))
   expect_silent(gsi <- gold_standard_info(po))
 
+})
+
+
+
+test_that("Check access only with posterior name", {
+  posterior_db_path <- posteriordb:::get_test_pdb_dir()
+
+  expect_silent(pdb_test <- pdb(posterior_db_path))
+
+  # Test stan_data_file_path
+  expect_silent(sdfp <- data_file_path("eight_schools", pdb_test))
+  expect_true(file.exists(sdfp))
+  # Test data_info
+  expect_silent(di <- data_info("eight_schools", pdb_test))
+
+  expect_silent(mcfp <- model_code_file_path("eight_schools_noncentered", pdb = pdb_test, framework = "stan"))
+  expect_true(file.exists(mcfp))
+
+  # Test model_code/stan_code
+  expect_silent(sc <- stan_code("eight_schools-eight_schools_noncentered", pdb = pdb_test))
+
+  # Test gold_standard
+  expect_silent(gsi <- gold_standard_info("eight_schools-eight_schools_noncentered", pdb = pdb_test))
+  expect_silent(gsd <- gold_standard_draws("eight_schools-eight_schools_noncentered", pdb = pdb_test))
+  expect_silent(gsdfp <- gold_standard_draws_file_path("eight_schools-eight_schools_noncentered", pdb = pdb_test))
+})
+
+
+
+test_that("Check access only with posterior name and default pdb", {
+  skip_if(is.null(github_pat()))
+  # Test stan_data_file_path
+  expect_silent(sdfp <- data_file_path("eight_schools"))
+  expect_true(file.exists(sdfp))
+
+  # Test data_info
+  expect_silent(di <- data_info("eight_schools"))
+
+  # Test model_code/stan_code
+  expect_silent(mcfp <- model_code_file_path("eight_schools_noncentered", framework = "stan"))
+  expect_true(file.exists(mcfp))
+  expect_silent(sc <- stan_code("eight_schools_noncentered"))
+
+  # Test gold_standard
+  expect_silent(gsi <- gold_standard_info("eight_schools-eight_schools_noncentered"))
+  expect_silent(gsd <- gold_standard_draws("eight_schools-eight_schools_noncentered"))
+  expect_silent(gsdfp <- gold_standard_draws_file_path("eight_schools-eight_schools_noncentered"))
 })
