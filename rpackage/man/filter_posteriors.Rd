@@ -4,7 +4,7 @@
 \alias{filter_posteriors}
 \title{Filter Posteriors in Database}
 \usage{
-filter_posteriors(pdb, ...)
+filter_posteriors(pdb = pdb_default(), ...)
 }
 \arguments{
 \item{pdb}{a \code{pdb} object.}

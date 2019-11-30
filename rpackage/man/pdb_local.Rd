@@ -3,21 +3,27 @@
 \name{pdb_local}
 \alias{pdb_local}
 \alias{pdb}
-\alias{pdb_official}
+\alias{pdb_default}
 \alias{pdb_github}
 \title{Create a Posterior Database (pdb) connection}
 \usage{
-pdb_local(path = getOption("pdb_path", file.path(getwd(),
-  "posterior_database")), cache_path = tempdir())
+pdb_local(
+  path = getOption("pdb_path", file.path(getwd(), "posterior_database")),
+  cache_path = tempdir()
+)
 
 pdb(pdb_id, pdb_type = "local", cache_path = tempdir(), ...)
 
-pdb_official(cache_path = tempdir())
+pdb_default(cache_path = tempdir())
 
-pdb_github(repo = getOption("pdb_repo",
-  "MansMeg/posteriordb/posterior_database"), cache_path = tempdir(),
-  ref = "master", subdir = NULL, auth_token = github_pat(),
-  host = "https://api.github.com")
+pdb_github(
+  repo = getOption("pdb_repo", "MansMeg/posteriordb/posterior_database"),
+  cache_path = tempdir(),
+  ref = "master",
+  subdir = NULL,
+  auth_token = github_pat(),
+  host = "https://api.github.com"
+)
 }
 \arguments{
 \item{path}{a local path to a posterior database.}

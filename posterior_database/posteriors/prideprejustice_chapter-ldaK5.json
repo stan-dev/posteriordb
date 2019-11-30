@@ -4,7 +4,7 @@
   "model_name": "ldaK5",
   "gold_standard_name": null,
   "data_name": "prideprejustice_chapter",
-  "dimensions": {"theta":305, "phi":7475},
+  "dimensions": {"theta":244, "phi":7470},
   "added_by": "Mans Magnusson",
   "added_date": "2019-08-12"
 }

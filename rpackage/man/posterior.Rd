@@ -5,9 +5,9 @@
 \alias{pdb_posterior}
 \title{Access a posterior in the posterior database}
 \usage{
-posterior(name, pdb = pdb())
+posterior(name, pdb = pdb_default())
 
-pdb_posterior(name, pdb = pdb())
+pdb_posterior(name, pdb = pdb_default())
 }
 \arguments{
 \item{name}{a posterior name that exist in the posterior database}

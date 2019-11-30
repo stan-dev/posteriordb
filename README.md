@@ -48,65 +48,22 @@ database! See
 [CONTRIBUTING.md](https://github.com/MansMeg/posteriordb/blob/master/doc/CONTRIBUTING.md)
 for the details on how to contribute.
 
-Using the posterior database from python
-----------------------------------------
+Quick usage of the posterior database from R
+--------------------------------------------
 
-See [python README](./python/README.md)
-
-Using the posterior database from R (with the R package)
---------------------------------------------------------
-
-The included database contains convenience functions to access data,
-model code and information for individual posteriors.
-
-To install the package, you can either clone this repository and run the
-following snippet to install the package in the cloned folder. The R
-package does not contain the content of the posterior database and hence
-the repository needs to be cloned.
-
-``` r
-remotes::install("rpackage/")
-```
-
-It is also possible to install only the R package and then access the
-posteriors remotely.
+Install the package from github
 
 ``` r
 remotes::install_github("MansMeg/posteriordb", subdir = "rpackage/")
 ```
 
-To load the package, just run.
+Load the R package and load a posterior from the default posteriordb.
 
 ``` r
 library(posteriordb)
-```
-
-First we create the posterior database to use, here we can use the
-database locally (if the repo is cloned).
-
-``` r
-my_pdb <- pdb_local()
-```
-
-The above code requires that your working directory is in the main
-folder of the cloned repository. Otherwise we can use the `path`
-argument.
-
-We can also simply use the github repository directly to access the
-data.
-
-``` r
-my_pdb <- pdb_github()
-```
-
-Independent of the posterior database used, the following works for all.
-
-To list the posteriors available in the database, use
-`posterior_names()`.
-
-``` r
-pos <- posterior_names(my_pdb)
-head(pos)
+pd <- pdb_default() # Posterior database connection
+pn <- posterior_names(pd)
+head(pn)
 ```
 
     ## [1] "arK-arK"                                
@@ -116,68 +73,24 @@ head(pos)
     ## [5] "garch-garch11"                          
     ## [6] "gp_pois_regr-gp_pois_regr"
 
-In the same fashion, we can list data and models included in the
-database as
-
 ``` r
-mn <- model_names(my_pdb)
-head(mn)
+po <- posterior("eight_schools-eight_schools_centered", pdb = pd)
+po
 ```
 
-    ## [1] "arK"                       "arma11"                   
-    ## [3] "eight_schools_centered"    "eight_schools_noncentered"
-    ## [5] "garch11"                   "gp_pois_regr"
+    ## Posterior
+    ## 
+    ## Data: eight_schools
+    ## The 8 schools dataset of Rubin (1981)
+    ## 
+    ## Model: eight_schools_centered
+    ## A centered hiearchical model for 8 schools
+
+From the posterior we can easily access data and models as
 
 ``` r
-dn <- data_names(my_pdb)
-head(dn)
-```
-
-    ## [1] "arK"           "arma"          "eight_schools" "garch"        
-    ## [5] "gp_pois_regr"  "irt_2pl"
-
-We can also get all information on each individual posterior as a tibble
-with
-
-``` r
-pos <- posteriors_tbl_df(my_pdb)
-head(pos)
-```
-
-    ## # A tibble: 6 x 7
-    ##   name   model_name gold_standard_n… data_name added_by added_date keywords
-    ##   <chr>  <chr>      <chr>            <chr>     <chr>    <date>     <chr>   
-    ## 1 arK-a… arK        arK-arK          arK       Mans Ma… 2019-11-19 stan_be…
-    ## 2 arma-… arma11     arma-arma11      arma      Mans Ma… 2019-11-19 stan_be…
-    ## 3 eight… eight_sch… eight_schools-e… eight_sc… Mans Ma… 2019-08-12 stan_be…
-    ## 4 eight… eight_sch… eight_schools-e… eight_sc… Mans Ma… 2019-08-12 stan_be…
-    ## 5 garch… garch11    garch-garch11    garch     Mans Ma… 2019-11-19 stan_be…
-    ## 6 gp_po… gp_pois_r… gp_pois_regr-gp… gp_pois_… Mans Ma… 2019-11-20 stan_be…
-
-The posterior’s name is made up of the data and model fitted to the
-data. Together, these two uniquely define a posterior distribution. To
-access a posterior object we can use the model name.
-
-``` r
-po <- posterior("eight_schools-eight_schools_centered", my_pdb)
-```
-
-From the posterior object, we can access data, model code (i.e., Stan
-code in this case) and a lot of other useful information.
-
-``` r
-dat <- get_data(po)
-str(dat)
-```
-
-    ## List of 3
-    ##  $ J    : int 8
-    ##  $ y    : int [1:8] 28 8 -3 7 -1 1 18 12
-    ##  $ sigma: int [1:8] 15 10 16 11 9 11 10 18
-
-``` r
-code <- stan_code(po)
-code
+sc <- stan_code(po)
+sc
 ```
 
     ## 
@@ -198,90 +111,22 @@ code
     ##   mu ~ normal(0, 5);
     ## }
 
-We can also access the paths to data after they have been unzipped and
-copied to the R temp directory. By default, the model code is copied to
-the R temp directory.
-
 ``` r
-dfp <- data_file_path(po)
-dfp
+dat <- get_data(po)
+dat
 ```
 
-    ## [1] "/var/folders/9h/yf354vb917z6gr6mz7bfb1d40000gn/T//RtmptE97ZB/posteriordb_cache/data/data/eight_schools.json"
-
-``` r
-scfp <- stan_code_file_path(po)
-scfp
-```
-
-    ## [1] "/var/folders/9h/yf354vb917z6gr6mz7bfb1d40000gn/T//RtmptE97ZB/posteriordb_cache/models/stan/eight_schools_centered.stan"
-
-We can also access information regarding the model and the data used to
-compute the posterior.
-
-``` r
-data_info(po)
-```
-
-    ## Data: eight_schools
-    ## The 8 schools dataset of Rubin (1981)
-
-``` r
-model_info(po)
-```
-
-    ## Model: eight_schools_centered
-    ## A centered hiearchical model for 8 schools
-
-Note that the references are referencing to BibTeX items that can be
-found in `content/references/references.bib`.
-
-We can also access a list of posteriors with `filter_posteriors()`. The
-filtering function follows dplyr filter semantics based on the posterior
-tibble.
-
-``` r
-tbl <- posteriors_tbl_df(my_pdb)
-head(tbl)
-```
-
-    ## # A tibble: 6 x 7
-    ##   name   model_name gold_standard_n… data_name added_by added_date keywords
-    ##   <chr>  <chr>      <chr>            <chr>     <chr>    <date>     <chr>   
-    ## 1 arK-a… arK        arK-arK          arK       Mans Ma… 2019-11-19 stan_be…
-    ## 2 arma-… arma11     arma-arma11      arma      Mans Ma… 2019-11-19 stan_be…
-    ## 3 eight… eight_sch… eight_schools-e… eight_sc… Mans Ma… 2019-08-12 stan_be…
-    ## 4 eight… eight_sch… eight_schools-e… eight_sc… Mans Ma… 2019-08-12 stan_be…
-    ## 5 garch… garch11    garch-garch11    garch     Mans Ma… 2019-11-19 stan_be…
-    ## 6 gp_po… gp_pois_r… gp_pois_regr-gp… gp_pois_… Mans Ma… 2019-11-20 stan_be…
-
-``` r
-pos <- filter_posteriors(my_pdb, data_name == "eight_schools")
-pos
-```
-
-    ## [[1]]
-    ## Posterior
+    ## $J
+    ## [1] 8
     ## 
-    ## Data: eight_schools
-    ## The 8 schools dataset of Rubin (1981)
+    ## $y
+    ## [1] 28  8 -3  7 -1  1 18 12
     ## 
-    ## Model: eight_schools_centered
-    ## A centered hiearchical model for 8 schools
-    ## 
-    ## [[2]]
-    ## Posterior
-    ## 
-    ## Data: eight_schools
-    ## The 8 schools dataset of Rubin (1981)
-    ## 
-    ## Model: eight_schools_noncentered
-    ## A non-centered hiearchical model for 8 schools
+    ## $sigma
+    ## [1] 15 10 16 11  9 11 10 18
 
-To access the gold standard posterior we can use the function
-`gold_standard_info()` to access information on how the gold standard
-posterior was computed. To access gold standard posterior draws we use
-`gold_standard_draws()`.
+Finally we can access gold standard posterior draws and information on
+how those were computed as follows.
 
 ``` r
 gs_info <- gold_standard_info(po)
@@ -318,9 +163,9 @@ gsd
     ##  9 mu        4.44   4.47  3.36  3.34 -1.09  10.0  1.000   10374.    9871.
     ## 10 tau       3.60   2.72  3.26  2.53  0.250  9.92 1.00     9866.   10035.
 
-The function `gold_standard_draws()` returns a posterior `draws_list`
-object that can be summarized and transformed using the `posterior`
-package.
+The posterior is based on the
+[posterior](https://github.com/jgabry/posterior) R package structure and
+can easily be summarized and transformed using the mentioned R package.
 
 ``` r
 draws_df <- posterior::as_draws_df(gsd$draws)
@@ -338,6 +183,16 @@ head(draws_df)
     ## 6      1          6     6       5.95       6.08      7.68       6.25 
     ## # … with 6 more variables: `theta[5]` <dbl>, `theta[6]` <dbl>,
     ## #   `theta[7]` <dbl>, `theta[8]` <dbl>, mu <dbl>, tau <dbl>
+
+Using the posterior database from python
+----------------------------------------
+
+See [python README](./python/README.md)
+
+Using the posterior database from R (extensive)
+-----------------------------------------------
+
+See [python README](./rpackage/README.md)
 
 Design choices (so far)
 -----------------------

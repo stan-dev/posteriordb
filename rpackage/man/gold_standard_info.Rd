@@ -6,11 +6,11 @@
 \alias{gold_standard_info.character}
 \title{Gold standard information}
 \usage{
-gold_standard_info(x, pdb = NULL, ...)
+gold_standard_info(x, pdb = pdb_default(), ...)
 
 \method{gold_standard_info}{pdb_posterior}(x, ...)
 
-\method{gold_standard_info}{character}(x, ...)
+\method{gold_standard_info}{character}(x, pdb = pdb_default(), ...)
 }
 \arguments{
 \item{x}{a \code{posterior} object to access the gold standard for.}

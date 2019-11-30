@@ -5,9 +5,9 @@
 \alias{model_names.pdb_local}
 \title{Get all existing model names from a posterior database}
 \usage{
-model_names(pdb, ...)
+model_names(pdb = pdb_default(), ...)
 
-\method{model_names}{pdb_local}(pdb, ...)
+\method{model_names}{pdb_local}(pdb = pdb_default(), ...)
 }
 \arguments{
 \item{pdb}{a \code{pdb} object.}

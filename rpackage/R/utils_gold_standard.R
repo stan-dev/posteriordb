@@ -41,33 +41,6 @@ test_gold_standard_draws.pdb_gold_standard_draws <- function(x, ...){
   invisible(x)
 }
 
-
-#' Compute a Gold Standard using Rstan
-#'
-#' @param gsi a [gold_standard_info] object.
-#' @param pdb a [pdb] object.
-#'
-#' @keywords internal
-#' @noRd
-compute_gold_standard_draws_stan_sampling <- function(gsi, pdb){
-  checkmate::assert_class(pdb, "pdb")
-  assert_gold_standard_info(gsi)
-  po <- posterior(name = gsi$name, pdb = pdb)
-
-  stan_args <- list(model_name = gsi$name,
-                    model_code = stan_code(po),
-                    data = stan_data(po))
-  stan_args <- c(stan_args, gsi$inference_method_arguments)
-  stan_object <- do.call(rstan::stan, stan_args)
-
-  gsd <- gold_standard_draws(x = stan_object)
-
-  # Subset to relevant prameters
-  gsd <- subset(gsd, variable = names(po$dimensions))
-
-  gsd
-}
-
 #' Compute ESS tail and bulk bounds
 #'
 #' @details Compute the bounds for ESS tail and bulk based on 100 000

@@ -1,0 +1,150 @@
+---
+output:
+  md_document:
+    variant: markdown_github
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+The included database contains convenience functions to access data, model code and information for individual posteriors.
+
+# Installation
+
+To install the package, you can either clone this repository and run the following snippet to install the package or install the package and access it from Github directly (see below).
+
+```{r, eval = FALSE}
+remotes::install("rpackage/")
+```
+
+To install only the R package and then access the posteriors remotely, just install the package from GitHub.
+
+```{r, eval = FALSE}
+remotes::install_github("MansMeg/posterior", subdir = "rpackage/")
+```
+
+To load the package, just run.
+
+```{r}
+library(posteriordb)
+```
+
+# Connect to the posterior database
+
+First we create the posterior database to use, here we can use the database locally (if the repo is cloned).
+
+```{r, eval=FALSE}
+my_pdb <- pdb_local()
+```
+
+```{r, eval=TRUE, echo=FALSE}
+path <- getwd()
+x <- file.path(dirname(path), "posterior_database")
+my_pdb <- pdb_local(x)
+```
+
+
+The above code requires that your working directory is in the main folder of the cloned repository. Otherwise we can use the `path` argument.
+
+We can also simply use the github repository directly to access the data.
+
+```{r, eval=FALSE}
+my_pdb <- pdb_github()
+```
+
+Independent of the posterior database used, the following works for all.
+
+
+# Access content
+
+To list the posteriors available in the database, use `posterior_names()`.
+
+```{r}
+pos <- posterior_names(my_pdb)
+head(pos)
+```
+
+In the same fashion, we can list data and models included in the database as
+
+```{r}
+mn <- model_names(my_pdb)
+head(mn)
+
+dn <- data_names(my_pdb)
+head(dn)
+```
+
+We can also get all information on each individual posterior as a tibble with
+
+```{r}
+pos <- posteriors_tbl_df(my_pdb)
+head(pos)
+```
+
+The posterior's name is made up of the data and model fitted
+to the data. Together, these two uniquely define a posterior distribution.
+To access a posterior object we can use the model name.
+
+```{r}
+po <- posterior("eight_schools-eight_schools_centered", my_pdb)
+```
+
+From the posterior object, we can access data, model code (i.e., Stan code
+in this case) and a lot of other useful information.
+
+```{r}
+dat <- get_data(po)
+str(dat)
+
+code <- stan_code(po)
+code
+```
+
+We can also access the paths to data after they have been unzipped and copied to the cache directory set in `pdb` (the R temp directory by default).
+
+```{r}
+dfp <- data_file_path(po)
+dfp
+
+scfp <- stan_code_file_path(po)
+scfp
+```
+
+We can also access information regarding the model and the data used to compute the posterior.
+
+```{r}
+data_info(po)
+model_info(po)
+```
+
+Note that the references are referencing to BibTeX items that can be found in `content/references/references.bib`.
+
+We can access most of the posterior information as a `tbl_df` using
+
+```{r}
+tbl <- posteriors_tbl_df(my_pdb)
+head(tbl)
+```
+
+In addition, we can also access a list of posteriors with `filter_posteriors()`. The filtering function follows dplyr filter semantics based on the posterior tibble.
+
+```{r}
+pos <- filter_posteriors(my_pdb, data_name == "eight_schools")
+pos
+```
+
+To access the gold standard posterior we can use the function `gold_standard_info()` to access information on how the gold standard posterior was computed. To access gold standard posterior draws we use `gold_standard_draws()`.
+
+```{r}
+gs_info <- gold_standard_info(po)
+gs_info
+
+gsd <- gold_standard_draws(po)
+gsd
+```
+
+The function `gold_standard_draws()` returns a posterior `draws_list` object that can be summarized and transformed using the `posterior` package.
+
+```{r}
+draws_df <- posterior::as_draws_df(gsd$draws)
+head(draws_df)
+```

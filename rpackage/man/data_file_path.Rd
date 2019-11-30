@@ -6,14 +6,16 @@
 \alias{stan_data}
 \title{Extract data for posterior}
 \usage{
-data_file_path(x)
+data_file_path(x, ...)
 
-stan_data_file_path(x)
+stan_data_file_path(x, ...)
 
 stan_data(x)
 }
 \arguments{
-\item{x}{a \code{posterior} object.}
+\item{x}{an object to access file path to.}
+
+\item{...}{further arguments supplied to methods.}
 }
 \description{
 Extract data for posterior

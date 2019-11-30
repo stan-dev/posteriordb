@@ -6,15 +6,15 @@
 #' @param pdb a \code{pdb} object.
 #' @param ... further arguments to supply to \code{dplyr::filter()}
 #' @export
-posteriors_tbl_df <- function(pdb, ...){
+posteriors_tbl_df <- function(pdb = pdb_default(), ...){
   pdb_tibble(pdb, path = "posteriors")
 }
 
-models_tbl_df <- function(pdb, ...){
+models_tbl_df <- function(pdb = pdb_default(), ...){
   pdb_tibble(pdb, path = "models/info")
 }
 
-data_tbl_df <- function(pdb, ...){
+data_tbl_df <- function(pdb = pdb_default(), ...){
   pdb_tibble(pdb, path = "data/info")
 }
 

@@ -10,10 +10,10 @@ Authors@R: c(person("Mans", "Magnusson", email = "mans.magnusson@gmail.com",
 Maintainer: Mans Magnusson <mans.magnusson@gmail.com>
 Description: R functionality of easy access of different posteriors.
 License: GPL (>= 2)
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.1
 Encoding: UTF-8
 Depends:
-  R (>= 2.10)
+  R (>= 3.5.0)
 Imports:
   checkmate,
   jsonlite

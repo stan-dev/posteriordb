@@ -4,7 +4,7 @@
 \alias{pdb_filter}
 \title{Internal filter function}
 \usage{
-pdb_filter(pdb, path, ...)
+pdb_filter(path, pdb, ...)
 }
 \arguments{
 \item{pdb}{a pdb connection}

@@ -13,11 +13,9 @@
 \usage{
 write_pdb(x, pdb, overwrite = FALSE, ...)
 
-\method{write_pdb}{pdb_gold_standard_info}(x, pdb, overwrite = FALSE,
-  ...)
+\method{write_pdb}{pdb_gold_standard_info}(x, pdb, overwrite = FALSE, ...)
 
-\method{write_pdb}{pdb_gold_standard_draws}(x, pdb, overwrite = FALSE,
-  ...)
+\method{write_pdb}{pdb_gold_standard_draws}(x, pdb, overwrite = FALSE, ...)
 
 \method{write_pdb}{pdb_data}(x, pdb, overwrite = FALSE, name, ...)
 

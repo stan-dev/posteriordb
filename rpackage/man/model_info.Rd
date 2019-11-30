@@ -2,18 +2,34 @@
 % Please edit documentation in R/data_info.R, R/model_info.R
 \name{data_info}
 \alias{data_info}
+\alias{data_info.pdb_posterior}
+\alias{data_info.character}
 \alias{pdb_data_info}
 \alias{model_info}
+\alias{model_info.pdb_posterior}
+\alias{model_info.character}
 \title{Access data and model information}
 \usage{
-data_info(po)
+data_info(x, ...)
 
-pdb_data_info(po)
+\method{data_info}{pdb_posterior}(x, ...)
 
-model_info(po)
+\method{data_info}{character}(x, pdb = pdb_default(), ...)
+
+pdb_data_info(x, ...)
+
+model_info(x, ...)
+
+\method{model_info}{pdb_posterior}(x, ...)
+
+\method{model_info}{character}(x, pdb = pdb_default(), ...)
 }
 \arguments{
-\item{po}{a \code{posterior} object.}
+\item{x}{a object to access information for.}
+
+\item{...}{further arguments to methods.}
+
+\item{pdb}{a \code{pdb} object.}
 }
 \description{
 Access data and model information

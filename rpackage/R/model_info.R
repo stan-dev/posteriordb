@@ -1,11 +1,25 @@
 #' Access data and model information
 #'
-#' @param po a \code{posterior} object.
+#' @param x a object to access information for.
+#' @param pdb a \code{pdb} object.
+#' @param ... further arguments to methods.
 #'
 #' @export
-model_info <- function(po) {
-  checkmate::assert_class(po, "pdb_posterior")
-  po$model_info
+model_info <- function(x, ...) {
+  UseMethod("model_info")
+}
+
+#' @rdname model_info
+#' @export
+model_info.pdb_posterior <- function(x, ...) {
+  x$model_info
+}
+
+#' @rdname model_info
+#' @export
+model_info.character <- function(x, pdb = pdb_default(), ...) {
+  checkmate::assert_string(x)
+  read_model_info(x, pdb)
 }
 
 # read model info from the data base

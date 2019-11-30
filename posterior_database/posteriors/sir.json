@@ -1,0 +1,19 @@
+{
+  "name": "sir-sir",
+  "keywords": [
+    "stan_benchmark"
+  ],
+  "urls": [],
+  "model_name": "sir",
+  "data_name": "sir",
+  "gold_standard_name": null,
+  "references": [],
+  "dimensions": {
+    "beta": 1,
+    "gamma": 1,
+    "xi": 1,
+    "delta": 1
+  },
+  "added_date": "2019-11-20",
+  "added_by": "Mans Magnusson"
+}

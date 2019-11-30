@@ -7,9 +7,9 @@
 \alias{model_names.pdb_github}
 \title{Get all existing data names from a posterior database}
 \usage{
-data_names(pdb, ...)
+data_names(pdb = pdb_default(), ...)
 
-\method{data_names}{pdb_local}(pdb, ...)
+\method{data_names}{pdb_local}(pdb = pdb_default(), ...)
 
 \method{data_names}{pdb_github}(pdb, ...)
 

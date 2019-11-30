@@ -2,29 +2,51 @@
 % Please edit documentation in R/model_code.R
 \name{model_code_file_path}
 \alias{model_code_file_path}
+\alias{model_code_file_path.pdb_posterior}
+\alias{model_code_file_path.pdb_model_info}
+\alias{model_code_file_path.character}
 \alias{model_code}
+\alias{model_code.pdb_posterior}
+\alias{model_code.character}
+\alias{model_code.pdb_model_info}
 \alias{pdb_model_code}
 \alias{stan_code_file_path}
 \alias{stan_code}
 \alias{pdb_stan_code}
 \title{Extract file paths to model code from posterior object}
 \usage{
-model_code_file_path(x, framework)
+model_code_file_path(x, framework, ...)
 
-model_code(x, framework)
+\method{model_code_file_path}{pdb_posterior}(x, framework, ...)
 
-pdb_model_code(x, framework)
+\method{model_code_file_path}{pdb_model_info}(x, framework, pdb = pdb_default(), ...)
+
+\method{model_code_file_path}{character}(x, framework, pdb = pdb_default(), ...)
+
+model_code(x, framework, ...)
+
+\method{model_code}{pdb_posterior}(x, framework, ...)
+
+\method{model_code}{character}(x, framework, pdb = pdb_default(), ...)
+
+\method{model_code}{pdb_model_info}(x, framework, pdb = pdb_default(), ...)
+
+pdb_model_code(x, framework, ...)
 
 stan_code_file_path(x)
 
-stan_code(x)
+stan_code(x, ...)
 
-pdb_stan_code(x)
+pdb_stan_code(x, ...)
 }
 \arguments{
-\item{x}{a \code{posterior} object.}
+\item{x}{an object to access file path to.}
 
 \item{framework}{model code framework (e.g. \code{stan}).}
+
+\item{...}{further arguments supplied to methods.}
+
+\item{pdb}{a \code{pdb} object.}
 }
 \description{
 Extract file paths to model code from posterior object

@@ -3,7 +3,7 @@
 #' @param name a posterior name that exist in the posterior database
 #' @param pdb a \code{pdb} posterior database object.
 #' @export
-posterior <- function(name, pdb = pdb()) {
+posterior <- function(name, pdb = pdb_default()) {
   checkmate::assert_string(name)
   checkmate::assert_class(pdb, "pdb")
   po <- read_info_json(name, "posteriors", pdb)

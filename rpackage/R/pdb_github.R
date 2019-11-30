@@ -40,9 +40,7 @@ pdb_version.pdb_github <- function(pdb, ...){
   list("sha" = ghp$object$sha)
 }
 
-#' @rdname posterior_names
-#' @export
-posterior_names.pdb_github <- function(pdb, ...) {
+pn.pdb_github <- function(pdb, ...) {
   pns <- github_dir(gh_path = github_path(pdb, type = "contents", path = "posteriors"), pdb = pdb)
   remove_file_extension(pns)
 }
@@ -126,11 +124,10 @@ github_path <- function(pdb, type, path = NULL){
 #' A github personal access token
 #' Looks in env var `GITHUB_PAT`
 #' @param pdb A posterior datasbase object to extract pat from.
-#' @keywords internal
-#' @noRd
+#' @export
 github_pat <- function(pdb = NULL) {
   pat <- Sys.getenv("GITHUB_PAT")
-  if (nzchar(pat) > 1) {
+  if (nzchar(pat)) {
     return(pat)
   }
   if(is.null(pdb)) return(NULL)
@@ -163,8 +160,6 @@ github_download <- function(download_url, to, pat, overwrite){
   httr::http_error(ret)
   httr::status_code(ret) == 200L
 }
-
-
 
 
 #' @noRd
