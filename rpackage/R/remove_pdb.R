@@ -5,7 +5,7 @@
 #' @param x an object name to remove to the pdb.
 #' @param type Type of object to remove.
 #' @param pdb the pdb to remove from. Only a local pdb.
-remove_from_pdb <- function(x, type, pdb, ...){
+remove_from_pdb <- function(x, type, pdb){
   checkmate::assert_class(pdb, "pdb_local")
   checkmate::assert_character(x)
   checkmate::assert_choice(type, c("posteriors", "models", "data", "gold_standards"))
