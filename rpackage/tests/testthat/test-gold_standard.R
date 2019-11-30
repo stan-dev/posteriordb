@@ -39,3 +39,10 @@ test_that("Check that gold_standard works as expected", {
   expect_error(gs <- gold_standard_draws(po),
                regexp = "There is currently no gold standard for this posterior.")
 })
+
+test_that("test_gold_standard_draws", {
+  posterior_db_path <- posteriordb:::get_test_pdb_dir()
+  expect_silent(pdb_test <- pdb(posterior_db_path))
+  expect_silent(po <- posterior("eight_schools-eight_schools_centered", pdb_test))
+  expect_silent(test_gold_standard_draws(po))
+})

@@ -352,7 +352,6 @@ pdb_cache_dir <- function(pdb, path, ...){
   checkmate::assert_class(pdb, "pdb")
   checkmate::assert_choice(path, choices = c("posteriors", "models/info", "data/info", "gold_standards/info"))
   UseMethod("pdb_cache_dir")
-  invisible(TRUE)
 }
 
 #' @noRd

@@ -25,4 +25,4 @@ matrix:
       - cd rpackage
       r_packages: covr
       r_github_packages: jgabry/posterior
-      after_success: Rscript -e 'covr::codecov()'
+      after_success: Rscript -e 'covr::codecov(line_exclusions = list("R/compute_gold_standard_draws_stan_sampling.R"))'
