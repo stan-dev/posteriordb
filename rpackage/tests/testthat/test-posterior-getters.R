@@ -63,13 +63,13 @@ test_that("Check access only with posterior name", {
   # Test stan_data_file_path
   expect_silent(sdfp <- data_file_path("eight_schools", pdb_test))
   expect_true(file.exists(sdfp))
-  # Test data_info
   expect_silent(di <- data_info("eight_schools", pdb_test))
-
-  expect_silent(mcfp <- model_code_file_path("eight_schools_noncentered", pdb = pdb_test, framework = "stan"))
-  expect_true(file.exists(mcfp))
+  expect_silent(d <- get_data("eight_schools", pdb_test))
 
   # Test model_code/stan_code
+  expect_silent(mcfp <- model_code_file_path("eight_schools_noncentered", pdb = pdb_test, framework = "stan"))
+  expect_true(file.exists(mcfp))
+  expect_silent(mi <- model_info("eight_schools_noncentered", pdb = pdb_test, framework = "stan"))
   expect_silent(sc <- stan_code("eight_schools-eight_schools_noncentered", pdb = pdb_test))
 
   # Test gold_standard
@@ -82,20 +82,6 @@ test_that("Check access only with posterior name", {
 
 test_that("Check access only with posterior name and default pdb", {
   skip_if(is.null(github_pat()))
-  # Test stan_data_file_path
-  expect_silent(sdfp <- data_file_path("eight_schools"))
-  expect_true(file.exists(sdfp))
+  #copy from above
 
-  # Test data_info
-  expect_silent(di <- data_info("eight_schools"))
-
-  # Test model_code/stan_code
-  expect_silent(mcfp <- model_code_file_path("eight_schools_noncentered", framework = "stan"))
-  expect_true(file.exists(mcfp))
-  expect_silent(sc <- stan_code("eight_schools_noncentered"))
-
-  # Test gold_standard
-  expect_silent(gsi <- gold_standard_info("eight_schools-eight_schools_noncentered"))
-  expect_silent(gsd <- gold_standard_draws("eight_schools-eight_schools_noncentered"))
-  expect_silent(gsdfp <- gold_standard_draws_file_path("eight_schools-eight_schools_noncentered"))
 })

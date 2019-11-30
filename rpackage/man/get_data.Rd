@@ -3,11 +3,14 @@
 \name{get_data}
 \alias{get_data}
 \alias{get_data.pdb_posterior}
+\alias{get_data.character}
 \title{Posterior Data Sets}
 \usage{
 get_data(x, ...)
 
 \method{get_data}{pdb_posterior}(x, ...)
+
+\method{get_data}{character}(x, pdb = pdb_default(), ...)
 }
 \arguments{
 \item{x}{a \code{posterior} object to access data from.}

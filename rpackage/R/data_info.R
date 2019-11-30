@@ -1,12 +1,28 @@
 #' @rdname model_info
 #' @export
-data_info <- function(po) {
-  checkmate::assert_class(po, "pdb_posterior")
+data_info <- function(x, ...) {
+  UseMethod("data_info")
   po$data_info
 }
+
+#' @rdname model_info
+#' @export
+data_info.pdb_posterior <- function(x, ...) {
+  x$data_info
+}
+
+#' @rdname model_info
+#' @export
+data_info.character <- function(x, pdb = pdb_default(), ...) {
+  checkmate::assert_string(x)
+  read_info_json(x, path = "data/info", pdb = pdb, ...)
+}
+
+
 #' @rdname model_info
 #' @export
 pdb_data_info <- data_info
+
 
 # read data info from the data base
 read_data_info <- function(x, pdb = NULL, ...) {

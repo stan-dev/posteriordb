@@ -2,13 +2,19 @@
 % Please edit documentation in R/data_info.R, R/model_info.R
 \name{data_info}
 \alias{data_info}
+\alias{data_info.pdb_posterior}
+\alias{data_info.character}
 \alias{pdb_data_info}
 \alias{model_info}
 \title{Access data and model information}
 \usage{
-data_info(po)
+data_info(x, ...)
 
-pdb_data_info(po)
+\method{data_info}{pdb_posterior}(x, ...)
+
+\method{data_info}{character}(x, pdb = pdb_default(), ...)
+
+pdb_data_info(x, ...)
 
 model_info(po)
 }

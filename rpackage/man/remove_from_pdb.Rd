@@ -8,7 +8,7 @@
 \alias{remove_gold_standards_from_pdb}
 \title{Remove objects from local pdb}
 \usage{
-remove_from_pdb(x, type, pdb, ...)
+remove_from_pdb(x, type, pdb)
 
 remove_posteriors_from_pdb(x, pdb)
 

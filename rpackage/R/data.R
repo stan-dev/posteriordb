@@ -17,6 +17,16 @@ get_data.pdb_posterior <- function(x, ...) {
   dat
 }
 
+#' @rdname get_data
+#' @export
+get_data.character <- function(x, pdb = pdb_default(), ...) {
+  checkmate::assert_string(x)
+  sdfp <- data_file_path(x, pdb = pdb)
+  dat <- jsonlite::read_json(sdfp, simplifyVector = TRUE)
+  assert_data(dat)
+  dat
+}
+
 #' Extract data for posterior
 #'
 #' @inheritParams model_code_file_path
@@ -36,6 +46,7 @@ data_file_path.pdb_posterior <- function(x, ...) {
 #' @inheritParams model_code_file_path
 #' @export
 data_file_path.character <- function(x, pdb = pdb_default(), ...) {
+  checkmate::assert_string(x)
   fn <- paste0(x, ".json")
   fp <- pdb_cached_local_file_path(pdb = pdb, path = file.path("data", "data", fn), unzip = TRUE)
   checkmate::assert_file_exists(fp)

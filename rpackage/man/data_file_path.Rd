@@ -8,7 +8,7 @@
 \usage{
 data_file_path(x, ...)
 
-stan_data_file_path(x)
+stan_data_file_path(x, ...)
 
 stan_data(x)
 }
