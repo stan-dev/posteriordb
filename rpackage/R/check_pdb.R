@@ -24,11 +24,11 @@ check_pdb <- function(pdb, posterior_idx = NULL) {
   }
   message("3. All stan_data can be read.")
   for (i in seq_along(pl)) {
-    if(is.null(pl[[i]]$gold_standard_name)) next
-    gold_standard_info(x = pl[[i]])
-    gold_standard_draws(x = pl[[i]])
+    if(is.null(pl[[i]]$reference_posterior_name)) next
+    reference_posterior_info(x = pl[[i]])
+    reference_posterior_draws(x = pl[[i]])
   }
-  message("4. All gold_standard can be read.")
+  message("4. All reference_posteriors can be read.")
   message("Posterior database is ok.\n")
   invisible(TRUE)
 }

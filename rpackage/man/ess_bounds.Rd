@@ -7,7 +7,7 @@
 ess_bounds(x, p = 0.95)
 }
 \arguments{
-\item{x}{a [pdb_gold_standard_draws] object.}
+\item{x}{a [pdb_reference_posterior_draws] object.}
 
 \item{p}{the joint probability for independent ESS estimators.}
 }

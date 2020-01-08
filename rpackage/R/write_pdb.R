@@ -15,17 +15,17 @@ write_pdb <- function(x, pdb, overwrite = FALSE, ...){
 
 #' @rdname write_pdb
 #' @export
-write_pdb.pdb_gold_standard_info <- function(x, pdb, overwrite = FALSE, ...){
-  assert_gold_standard_info(x)
+write_pdb.pdb_reference_posterior_info <- function(x, pdb, overwrite = FALSE, ...){
+  assert_reference_posterior_info(x)
   class(x) <- c(class(x), "list")
-  write_json_to_path(x, "gold_standards/info", pdb, zip = FALSE, info = TRUE, overwrite = overwrite)
+  write_json_to_path(x, "reference_posteriors/info", pdb, zip = FALSE, info = TRUE, overwrite = overwrite)
 }
 
 #' @rdname write_pdb
 #' @export
-write_pdb.pdb_gold_standard_draws <- function(x, pdb, overwrite = FALSE, ...){
-  assert_gold_standard_draws(x)
-  write_json_to_path(x, "gold_standards/draws", pdb, zip = TRUE, info = FALSE, overwrite = overwrite)
+write_pdb.pdb_reference_posterior_draws <- function(x, pdb, overwrite = FALSE, ...){
+  assert_reference_posterior_draws(x)
+  write_json_to_path(x, "reference_posteriors/draws", pdb, zip = TRUE, info = FALSE, overwrite = overwrite)
 }
 
 #' @rdname write_pdb

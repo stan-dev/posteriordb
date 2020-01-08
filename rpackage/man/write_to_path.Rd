@@ -52,7 +52,7 @@ write_stan_to_path(
 )
 }
 \arguments{
-\item{x}{a gold_standard_draws object}
+\item{x}{a [reference_posterior_draws] object}
 
 \item{path}{a posteriordb path.}
 

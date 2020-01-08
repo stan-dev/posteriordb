@@ -5,7 +5,7 @@
 \alias{remove_posteriors_from_pdb}
 \alias{remove_data_from_pdb}
 \alias{remove_models_from_pdb}
-\alias{remove_gold_standards_from_pdb}
+\alias{remove_reference_posterior_from_pdb}
 \title{Remove objects from local pdb}
 \usage{
 remove_from_pdb(x, type, pdb)
@@ -16,7 +16,7 @@ remove_data_from_pdb(x, pdb)
 
 remove_models_from_pdb(x, pdb)
 
-remove_gold_standards_from_pdb(x, pdb)
+remove_reference_posterior_from_pdb(x, pdb)
 }
 \arguments{
 \item{x}{an object name to remove to the pdb.}

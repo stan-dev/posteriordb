@@ -1,31 +1,31 @@
 #' Test that gold standard draws follows the
 #' gold standard definition.
 #'
-#' @param x a posterior name, posterior object or gold_standard_draws object
+#' @param x a posterior name, posterior object or reference_posterior_draws object
 #' @param ... currently not used.
 #'
 #' @export
-test_gold_standard_draws <- function(x, ...){
-  UseMethod("test_gold_standard_draws")
+test_reference_posterior_draws <- function(x, ...){
+  UseMethod("test_reference_posterior_draws")
 }
 
-#' @rdname test_gold_standard_draws
+#' @rdname test_reference_posterior_draws
 #' @export
-test_gold_standard_draws.character <- function(x, ...){
-  x <- gold_standard_draws(x)
-  test_gold_standard_draws(x)
+test_reference_posterior_draws.character <- function(x, ...){
+  x <- reference_posterior_draws(x)
+  test_reference_posterior_draws(x)
 }
 
-#' @rdname test_gold_standard_draws
+#' @rdname test_reference_posterior_draws
 #' @export
-test_gold_standard_draws.pdb_posterior <- function(x, ...){
-  x <- gold_standard_draws(x)
-  test_gold_standard_draws(x)
+test_reference_posterior_draws.pdb_posterior <- function(x, ...){
+  x <- reference_posterior_draws(x)
+  test_reference_posterior_draws(x)
 }
 
-#' @rdname test_gold_standard_draws
+#' @rdname test_reference_posterior_draws
 #' @export
-test_gold_standard_draws.pdb_gold_standard_draws <- function(x, ...){
+test_reference_posterior_draws.pdb_reference_posterior_draws <- function(x, ...){
   # Assert that there is exactly 10000 draws
   checkmate::assert_true(posterior::ndraws(x$draws) == 10000)
   pds <- posterior::summarise_draws(x$draws)
@@ -46,7 +46,7 @@ test_gold_standard_draws.pdb_gold_standard_draws <- function(x, ...){
 #' @details Compute the bounds for ESS tail and bulk based on 100 000
 #' simulated ESS computations.
 #'
-#' @param x a [pdb_gold_standard_draws] object.
+#' @param x a [pdb_reference_posterior_draws] object.
 #' @param p the joint probability for independent ESS estimators.
 #' @keywords internal
 ess_bounds <- function(x, p = 0.95){

@@ -353,7 +353,7 @@ pdb_clear_cache <- function(pdb){
 #' @keywords internal
 pdb_cache_dir <- function(pdb, path, ...){
   checkmate::assert_class(pdb, "pdb")
-  checkmate::assert_choice(path, choices = c("posteriors", "models/info", "data/info", "gold_standards/info"))
+  checkmate::assert_choice(path, choices = c("posteriors", "models/info", "data/info", "reference_posteriors/info"))
   UseMethod("pdb_cache_dir")
 }
 
@@ -376,7 +376,7 @@ pdb_cache_dir.pdb_local <- function(pdb, path, ...){
 #' @noRd
 #' @keywords internal
 read_info_json <- function(x, path, pdb = NULL, ...){
-  checkmate::assert_choice(path, c("posteriors", "models/info", "data/info", "gold_standards/info"))
+  checkmate::assert_choice(path, c("posteriors", "models/info", "data/info", "reference_posteriors/info"))
   UseMethod("read_info_json")
 }
 
@@ -414,7 +414,7 @@ read_info_json.pdb_posterior <- function(x, path, pdb = NULL, ...){
 
 
 #' Write objects to posteriordb
-#' @param x a gold_standard_draws object
+#' @param x a [reference_posterior_draws] object
 #' @param path a posteriordb path.
 #' @param info is this an info json?
 #' @param type Output type, [json] or [txt].
@@ -424,7 +424,7 @@ read_info_json.pdb_posterior <- function(x, path, pdb = NULL, ...){
 #' @param pdb a local posteriordb object to write to
 #' @keywords internal
 write_to_path <- function(x, path, type, pdb, name = NULL, zip = FALSE, info = TRUE, overwrite = FALSE){
-  checkmate::assert_subset(class(x)[1], choices = c("character", "pdb_posterior", "pdb_model_info", "pdb_data_info", "pdb_data", "pdb_gold_standard_draws", "pdb_gold_standard_info"))
+  checkmate::assert_subset(class(x)[1], choices = c("character", "pdb_posterior", "pdb_model_info", "pdb_data_info", "pdb_data", "pdb_reference_posterior_draws", "pdb_reference_posterior_info"))
   checkmate::assert_string(path)
   checkmate::assert_class(pdb, "pdb_local")
   checkmate::assert_choice(type, c("json", "txt", "stan"))

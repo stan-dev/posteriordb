@@ -48,8 +48,8 @@ pdb_tibble <- function(pdb, path, ...){
 #' @export
 as.data.frame.pdb_posterior <- function(x, row.names = NULL, optional = FALSE, ...){
   kws <- unlist(x$keywords)
-  elements <- c("name", "model_name", "gold_standard_name", "data_name", "added_by", "added_date")
-  if(is.null(x$gold_standard_name)) x$gold_standard_name <- "NULL"
+  elements <- c("name", "model_name", "reference_posterior_name", "data_name", "added_by", "added_date")
+  if(is.null(x$gold_standard_name)) x$reference_posterior_name <- "NULL"
   df <- as.data.frame(x[elements], stringsAsFactors = FALSE, ...)[rep(1, max(1,length(kws))), ]
   if(length(kws) == 0){
     df$keywords <- ""

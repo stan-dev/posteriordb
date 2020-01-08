@@ -8,7 +8,7 @@
 remove_from_pdb <- function(x, type, pdb){
   checkmate::assert_class(pdb, "pdb_local")
   checkmate::assert_character(x)
-  checkmate::assert_choice(type, c("posteriors", "models", "data", "gold_standards"))
+  checkmate::assert_choice(type, c("posteriors", "models", "data", "reference_posteriors"))
   eval(parse(paste0("remove_", type, "_from_pdb(x, pdb, ...)")))
 }
 
@@ -35,9 +35,9 @@ remove_models_from_pdb <- function(x, pdb){
 }
 
 #' @rdname remove_from_pdb
-remove_gold_standards_from_pdb <- function(x, pdb){
-  fp1 <- paste0(file.path(pdb_endpoint(pdb), "gold_standards", "info", x), ".info.json")
-  fp2 <- paste0(file.path(pdb_endpoint(pdb), "gold_standards", "draws", x), ".json.zip")
+remove_reference_posterior_from_pdb <- function(x, pdb){
+  fp1 <- paste0(file.path(pdb_endpoint(pdb), "reference_posteriors", "info", x), ".info.json")
+  fp2 <- paste0(file.path(pdb_endpoint(pdb), "reference_posteriors", "draws", x), ".json.zip")
   checkmate::assert_file_exists(c(fp1, fp2))
   file.remove(c(fp1, fp2))
 }

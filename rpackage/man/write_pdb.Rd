@@ -2,8 +2,8 @@
 % Please edit documentation in R/write_pdb.R
 \name{write_pdb}
 \alias{write_pdb}
-\alias{write_pdb.pdb_gold_standard_info}
-\alias{write_pdb.pdb_gold_standard_draws}
+\alias{write_pdb.pdb_reference_posterior_info}
+\alias{write_pdb.pdb_reference_posterior_draws}
 \alias{write_pdb.pdb_data}
 \alias{write_pdb.pdb_data_info}
 \alias{write_pdb.stanmodel}
@@ -13,9 +13,9 @@
 \usage{
 write_pdb(x, pdb, overwrite = FALSE, ...)
 
-\method{write_pdb}{pdb_gold_standard_info}(x, pdb, overwrite = FALSE, ...)
+\method{write_pdb}{pdb_reference_posterior_info}(x, pdb, overwrite = FALSE, ...)
 
-\method{write_pdb}{pdb_gold_standard_draws}(x, pdb, overwrite = FALSE, ...)
+\method{write_pdb}{pdb_reference_posterior_draws}(x, pdb, overwrite = FALSE, ...)
 
 \method{write_pdb}{pdb_data}(x, pdb, overwrite = FALSE, name, ...)
 

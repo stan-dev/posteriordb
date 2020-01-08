@@ -48,8 +48,8 @@ test_that("Check that all posteriors can access stan_data and stan_code", {
   expect_output(print(po), "Posterior")
 
   # Get posteriors draws directly
-  expect_silent(gsd <- gold_standard_draws(po))
-  expect_silent(gsi <- gold_standard_info(po))
+  expect_silent(gsd <- reference_posterior_draws(po))
+  expect_silent(gsi <- reference_posterior_info(po))
 
 })
 
@@ -78,13 +78,13 @@ test_that("Check access only with posterior name", {
   expect_silent(mcfp <- model_code_file_path(mi, pdb = pdb_test, framework = "stan"))
   expect_true(file.exists(mcfp))
 
-  # Test gold_standard
-  expect_silent(gsi <- gold_standard_info("eight_schools-eight_schools_noncentered", pdb = pdb_test))
-  expect_silent(gsd1 <- gold_standard_draws("eight_schools-eight_schools_noncentered", pdb = pdb_test))
-  expect_silent(gsd2 <- gold_standard_draws(x = gsi, pdb = pdb_test))
+  # Test reference_posterior
+  expect_silent(gsi <- reference_posterior_info("eight_schools-eight_schools_noncentered", pdb = pdb_test))
+  expect_silent(gsd1 <- reference_posterior_draws("eight_schools-eight_schools_noncentered", pdb = pdb_test))
+  expect_silent(gsd2 <- reference_posterior_draws(x = gsi, pdb = pdb_test))
   expect_identical(gsd1,gsd2)
-  expect_silent(gsdfp <- gold_standard_draws_file_path("eight_schools-eight_schools_noncentered", pdb = pdb_test))
-  expect_silent(gsdfp <- gold_standard_draws_file_path(gsi, pdb = pdb_test))
+  expect_silent(gsdfp <- reference_posterior_draws_file_path("eight_schools-eight_schools_noncentered", pdb = pdb_test))
+  expect_silent(gsdfp <- reference_posterior_draws_file_path(gsi, pdb = pdb_test))
 })
 
 
@@ -106,11 +106,11 @@ test_that("Check access only with posterior name and default pdb", {
   expect_silent(mcfp <- model_code_file_path("eight_schools_noncentered", framework = "stan"))
   expect_silent(mcfp <- model_code_file_path(mi, framework = "stan"))
 
-  # Test gold_standard
-  expect_silent(gsi <- gold_standard_info("eight_schools-eight_schools_noncentered"))
-  expect_silent(gsd1 <- gold_standard_draws("eight_schools-eight_schools_noncentered"))
-  expect_silent(gsd2 <- gold_standard_draws(x = gsi))
-  expect_silent(gsdfp <- gold_standard_draws_file_path("eight_schools-eight_schools_noncentered"))
-  expect_silent(gsdfp <- gold_standard_draws_file_path(gsi))
+  # Test reference_posterior
+  expect_silent(gsi <- reference_posterior_info("eight_schools-eight_schools_noncentered"))
+  expect_silent(gsd1 <- reference_posterior_draws("eight_schools-eight_schools_noncentered"))
+  expect_silent(gsd2 <- reference_posterior_draws(x = gsi))
+  expect_silent(gsdfp <- reference_posterior_draws_file_path("eight_schools-eight_schools_noncentered"))
+  expect_silent(gsdfp <- reference_posterior_draws_file_path(gsi))
 
 })

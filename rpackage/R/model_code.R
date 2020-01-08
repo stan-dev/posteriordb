@@ -13,8 +13,8 @@ model_code_file_path <- function(x, framework, ...) {
 #' @rdname model_code_file_path
 #' @export
 model_code_file_path.pdb_posterior <- function(x, framework, ...) {
-  checkmate::assert_choice(framework, names(x$model_info$model_code))
-  mcfp <- pdb_cached_local_file_path(x$pdb, x$model_info$model_code[[framework]])
+  checkmate::assert_choice(framework, names(x$model_info$model_implementations))
+  mcfp <- pdb_cached_local_file_path(x$pdb, x$model_info$model_implementations[[framework]]$model_code)
   mcfp
 }
 
