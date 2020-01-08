@@ -40,17 +40,28 @@ print.pdb_model_info <- function(x, ...) {
 
 assert_model_info <- function(x){
   checkmate::assert_names(names(x),
-                          subset.of = c("name", "model_code", "title", "added_by", "added_date", "references", "description", "urls", "keywords"),
-                          must.include = c("name", "model_code", "title", "added_by", "added_date"))
+                          subset.of = c("name", "model_implementations", "title", "prior", "added_by", "added_date", "references", "description", "urls", "keywords"),
+                          must.include = c("name", "model_implementations", "title", "added_by", "added_date"))
   checkmate::assert_string(x$name)
-  checkmate::assert_list(x$model_code)
-  checkmate::assert_names(names(x$model_code), subset.of = c("stan"))
+  checkmate::assert_names(names(x$model_implementations), subset.of = c("stan", "tfp", "pyro", "jags"))
+  for(i in seq_along(x$model_implementations)){
+    checkmate::assert_names(names(x$model_implementations[[i]]), must.include = "model_code", subset.of = c("model_code", "likelihood_code"))
+  }
   checkmate::assert_string(x$title)
   checkmate::assert_string(x$added_by)
   checkmate::assert_date(x$added_date)
 
   checkmate::assert_list(x$references, null.ok = TRUE)
+  for(i in seq_along(x$references)){
+    checkmate::assert_string(x$references[i])
+  }
   checkmate::assert_string(x$description, null.ok = TRUE)
   checkmate::assert_list(x$urls, null.ok = TRUE)
+  for(i in seq_along(x$urls)){
+    checkmate::assert_string(x$urls[[i]])
+  }
   checkmate::assert_list(x$keywords, null.ok = TRUE)
+  for(i in seq_along(x$keywords)){
+    checkmate::assert_string(x$keywords[[i]])
+  }
 }
