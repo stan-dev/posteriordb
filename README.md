@@ -129,8 +129,8 @@ Finally we can access gold standard posterior draws and information on
 how those were computed as follows.
 
 ``` r
-gs_info <- gold_standard_info(po)
-gs_info
+rp_info <- reference_posterior_info(po)
+rp_info
 ```
 
     ## Posterior: eight_schools-eight_schools_noncentered
@@ -144,7 +144,7 @@ gs_info
     ##     adapt_delta: 0.95
 
 ``` r
-gsd <- gold_standard_draws(po)
+gsd <- reference_posterior_draws(po)
 gsd
 ```
 

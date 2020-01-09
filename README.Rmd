@@ -68,14 +68,14 @@ dat <- get_data(po)
 dat
 ```
 
-Finally we can access gold standard posterior draws and information on how those were computed as follows.
+Finally we can access reference posterior draws and information on how those were computed as follows.
 
 ```{r}
-gs_info <- gold_standard_info(po)
-gs_info
+rpd <- reference_posterior_draws(po)
+rpd
 
-gsd <- gold_standard_draws(po)
-gsd
+rpdi <- reference_posterior_draws_info(po)
+rpdi
 ```
 
 The posterior is based on the [posterior](https://github.com/jgabry/posterior) R package structure and can easily be summarized and transformed using the mentioned R package.
@@ -85,6 +85,21 @@ draws_df <- posterior::as_draws_df(gsd$draws)
 head(draws_df)
 ```
 
+Similarly we can access reference posterior expectations and quantiles
+
+```{r}
+rpm <- reference_posterior_moments(po)
+rpm
+
+rpmi <- reference_posterior_moments_info(po)
+rpmi
+
+rpq <- reference_posterior_quantiles(po)
+rpq
+
+rpqi <- reference_posterior_quantiles_info(po)
+rpqi
+```
 
 ## Using the posterior database from python
 See [python README](./python/README.md)
