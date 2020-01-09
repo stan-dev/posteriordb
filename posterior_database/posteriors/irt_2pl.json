@@ -6,7 +6,7 @@
   "urls": [],
   "model_name": "irt_2pl",
   "data_name": "irt_2pl",
-  "gold_standard_name": null,
+  "reference_posterior_name": null,
   "references": [],
   "dimensions": {
     "sigma_theta": 1,

@@ -4,7 +4,7 @@
   "urls": [],
   "model_name": "blr",
   "data_name": "sblri",
-  "gold_standard_name": "sblri-blr",
+  "reference_posterior_name": "sblri-blr",
   "references": [],
   "dimensions": {
     "beta": 5,

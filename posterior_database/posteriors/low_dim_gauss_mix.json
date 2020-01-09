@@ -6,7 +6,7 @@
   "urls": [],
   "model_name": "low_dim_gauss_mix",
   "data_name": "low_dim_gauss_mix",
-  "gold_standard_name": "low_dim_gauss_mix-low_dim_gauss_mix",
+  "reference_posterior_name": "low_dim_gauss_mix-low_dim_gauss_mix",
   "references": [],
   "dimensions": {
     "mu": 2,

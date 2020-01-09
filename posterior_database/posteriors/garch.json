@@ -6,7 +6,7 @@
   "urls": [],
   "model_name": "garch11",
   "data_name": "garch",
-  "gold_standard_name": "garch-garch11",
+  "reference_posterior_name": "garch-garch11",
   "references": [],
   "dimensions": {
     "mu": 1,
