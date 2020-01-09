@@ -23,7 +23,7 @@ reference_posterior_info.pdb_posterior <- function(x, ...) {
 
 #' @rdname reference_posterior_info
 #' @export
-reference_posterior_info.character <- function(x, pdb = pdb_default(), ...) {
+reference_posterior_info.character <- function(x, pdb = pdb_default(), type = ...) {
   reference_posterior_info(posterior(x, pdb))
 }
 
@@ -33,9 +33,9 @@ reference_posterior_info.character <- function(x, pdb = pdb_default(), ...) {
 #' @param pdb a posterior db object to access the info json from
 #' @noRd
 #' @keywords internal
-read_reference_posterior_info <- function(x, pdb = NULL, ...) {
+read_reference_posterior_info <- function(x, pdb = NULL, type = "draws", ...) {
   if(is.null(x)) stop("There is currently no reference posterior for this posterior.")
-  reference_posterior_info <- read_info_json(x, path = "reference_posterior/info", pdb = pdb, ...)
+  reference_posterior_info <- read_info_json(x, path = paste0("reference_posterior/", type), pdb = pdb, ...)
   class(reference_posterior_info) <- "pdb_reference_posterior_info"
   assert_reference_posterior_info(reference_posterior_info)
   reference_posterior_info
@@ -50,10 +50,14 @@ read_reference_posterior_info <- function(x, pdb = NULL, ...) {
 #' @noRd
 #' @keywords internal
 read_reference_posterior_draws <- function(x, pdb, ...) {
+  checkmate::assert_string(x, null.ok = TRUE)
   if(is.null(x)) stop("There is currently no reference posterior for this posterior.", call. = FALSE)
+  checkmate::assert_class(pdb, classes = "pdb")
+
   rpfp <- pdb_cached_local_file_path(pdb, file.path("reference_posteriors", "draws", paste0(x, ".json")), unzip = TRUE)
   rpd <- jsonlite::read_json(rpfp, simplifyVector = TRUE)
   rpd$draws <- posterior::as_draws(rpd$draws)
+  rpd$info <- reference_posterior_draws_info(x, pdb)
   class(rpd) <- c("pdb_reference_posterior_draws", class(rpd))
   assert_reference_posterior_draws(rpd)
   rpd
@@ -127,6 +131,7 @@ assert_reference_posterior_draws <- function(x){
 
   checkmate::assert_string(x$name)
   checkmate::assert_class(x$draws, c("draws_list"))
+  checkmate::assert_class(x$info, c("pdb_reference_posterior_info"))
 
   # Assert named chains has the same parameter names
   par_names <- lapply(x$draws, names)
@@ -184,8 +189,15 @@ subset.pdb_reference_posterior_draws <- function(x, variable, ...){
 
 #' @export
 print.pdb_reference_posterior_draws <- function(x, ...) {
-  cat0("Posterior: ", x$name, "\n")
-  print(posterior::summarise_draws(x$draws))
+  cat0("Reference Posterior: ", x$name, "\n")
+  cat0("  Total draws: ", posterior::nchains(x$draws))
+  cat0("  Dimensions: ", posterior::nvariables(x$draws))
+}
+
+#' @export
+summary.pdb_reference_posterior_draws <- function(object, ...) {
+  cat0("Reference Posterior: ", object$name, "\n")
+  print(posterior::summarise_draws(object$draws))
 }
 
 

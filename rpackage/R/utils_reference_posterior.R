@@ -65,9 +65,9 @@ ess_bounds <- function(x){
 #       ess_tail = unname(stats::quantile(esst, c(alpha/2, 1-alpha/2))))
 }
 
-
+#' @export
 thin_draws.pdb_reference_posterior_draws <- function(x, thin, ...){
-  rpd
+  x$draws <- posterior::thin_draws(x$draws, thin, ...)
+  checkmate::assert_class(x, "pdb_reference_posterior_draws")
+  x
 }
-
-rpd$draws

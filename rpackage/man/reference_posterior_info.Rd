@@ -10,7 +10,7 @@ reference_posterior_info(x, pdb = pdb_default(), ...)
 
 \method{reference_posterior_info}{pdb_posterior}(x, ...)
 
-\method{reference_posterior_info}{character}(x, pdb = pdb_default(), ...)
+\method{reference_posterior_info}{character}(x, pdb = pdb_default(), type = ...)
 }
 \arguments{
 \item{x}{a \code{posterior} object to access the reference posterior for.}
