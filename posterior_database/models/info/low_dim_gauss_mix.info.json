@@ -1,18 +1,23 @@
 {
   "name": "low_dim_gauss_mix",
+  "title": "A Two-Dimensional Gaussian Mixture Model",
+  "description": "A Two-Dimensional Gaussian Mixture Model",
   "keywords": [
     "stan_benchmark",
     "mixture model"
   ],
-  "title": "A Two-Dimensional Gaussian Mixture Model",
-  "description": "A Two-Dimensional Gaussian Mixture Model",
+  "references": null,
   "urls": [
     "https://github.com/stan-dev/stat_comp_benchmarks/tree/master/benchmarks/low_dim_gauss_mix"
   ],
-  "model_code": {
-    "stan": "models/stan/low_dim_gauss_mix.stan"
+  "prior": {
+    "keywords": []
   },
-  "references": null,
-  "added_date": "2019-11-20",
-  "added_by": "Mans Magnusson"
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/low_dim_gauss_mix.stan"
+    }
+  },
+  "added_by": "Mans Magnusson",
+  "added_date": "2019-11-20"
 }

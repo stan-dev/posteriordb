@@ -1,12 +1,21 @@
 {
   "name": "ldaK5",
-  "keywords": [],
-  "description": "Latent Dirichlet Allocation (LDA) with token indicators summed out.",
-  "urls": ["https://mc-stan.org/docs/2_18/stan-users-guide/latent-dirichlet-allocation.html"],
   "title": "LDA with 5 topics",
-  "references": ["blei2003latent"],
-  "model_code": {
-    "stan": "models/stan/ldaK5.stan"
+  "description": "Latent Dirichlet Allocation (LDA) with token indicators summed out.",
+  "keywords": [],
+  "references": [
+    "blei2003latent"
+  ],
+  "urls": [
+    "https://mc-stan.org/docs/2_18/stan-users-guide/latent-dirichlet-allocation.html"
+  ],
+  "prior": {
+    "keywords": []
+  },
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/ldaK5.stan"
+    }
   },
   "added_by": "Mans Magnusson",
   "added_date": "2019-08-12"

@@ -1,18 +1,23 @@
 {
   "name": "garch11",
+  "title": "Generalized Autoregressive Conditional Heteroscedastic Model",
+  "description": "A GARCH(1, 1) time series model.",
   "keywords": [
     "stan_benchmark",
     "time series"
   ],
-  "title": "Generalized Autoregressive Conditional Heteroscedastic Model",
-  "description": "A GARCH(1, 1) time series model.",
+  "references": null,
   "urls": [
     "https://github.com/stan-dev/stat_comp_benchmarks/tree/master/benchmarks/garch"
   ],
-  "model_code": {
-    "stan": "models/stan/garch11.stan"
+  "prior": {
+    "keywords": []
   },
-  "references": null,
-  "added_date": "2019-11-29",
-  "added_by": "Mans Magnusson"
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/garch11.stan"
+    }
+  },
+  "added_by": "Mans Magnusson",
+  "added_date": "2019-11-29"
 }
