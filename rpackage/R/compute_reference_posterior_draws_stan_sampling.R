@@ -19,12 +19,12 @@ compute_reference_posterior_draws_stan_sampling <- function(rpi, pdb){
   # Stan model codes are stored locally (seem to be a bug)
   stan_object@model_name <- rpi$name
 
-  gsd <- reference_posterior_draws(x = stan_object)
+  rpd <- reference_posterior_draws(x = stan_object, info = rpi)
 
   # Subset to relevant prameters
-  gsd <- subset(gsd, variable = names(po$dimensions))
+  rpd <- subset.pdb_reference_posterior_draws(rpd, variable = names(po$dimensions))
 
-  gsd
+  rpd
 }
 
 
