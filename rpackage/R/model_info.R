@@ -51,17 +51,9 @@ assert_model_info <- function(x){
   checkmate::assert_string(x$added_by)
   checkmate::assert_date(x$added_date)
 
-  checkmate::assert_list(x$references, null.ok = TRUE)
-  for(i in seq_along(x$references)){
-    checkmate::assert_string(x$references[i])
-  }
   checkmate::assert_string(x$description, null.ok = TRUE)
-  checkmate::assert_list(x$urls, null.ok = TRUE)
-  for(i in seq_along(x$urls)){
-    checkmate::assert_string(x$urls[[i]])
-  }
-  checkmate::assert_list(x$keywords, null.ok = TRUE)
-  for(i in seq_along(x$keywords)){
-    checkmate::assert_string(x$keywords[[i]])
-  }
+
+  checkmate::assert_character(x$references, null.ok = TRUE)
+  checkmate::assert_character(x$urls)
+  checkmate::assert_character(x$keywords, null.ok = TRUE)
 }

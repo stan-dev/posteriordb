@@ -391,7 +391,7 @@ read_info_json.character <- function(x, path, pdb = NULL, ...){
   }
   fp <- file.path(path, paste0(fn, ".json"))
   pfn <- pdb_cached_local_file_path(pdb, path = fp)
-  po <- jsonlite::read_json(pfn)
+  po <- jsonlite::read_json(pfn, simplifyVector = TRUE)
   po$added_date <- as.Date(po$added_date)
   class(po) <- paste0("pdb_", gsub(x = path, pattern = "/", "_"))
   po
