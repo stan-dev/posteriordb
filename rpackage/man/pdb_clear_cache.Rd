@@ -4,7 +4,7 @@
 \alias{pdb_clear_cache}
 \title{Clear posterior database cache}
 \usage{
-pdb_clear_cache(pdb)
+pdb_clear_cache(pdb = pdb_default())
 }
 \arguments{
 \item{pdb}{a \code{pdb} to clear cache for}

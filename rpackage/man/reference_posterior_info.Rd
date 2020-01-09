@@ -6,14 +6,16 @@
 \alias{reference_posterior_info.character}
 \title{Reference posterior information}
 \usage{
-reference_posterior_info(x, pdb = pdb_default(), ...)
+reference_posterior_info(x, type, pdb = pdb_default(), ...)
 
-\method{reference_posterior_info}{pdb_posterior}(x, ...)
+\method{reference_posterior_info}{pdb_posterior}(x, type, ...)
 
-\method{reference_posterior_info}{character}(x, pdb = pdb_default(), type = ...)
+\method{reference_posterior_info}{character}(x, type, pdb = pdb_default(), ...)
 }
 \arguments{
 \item{x}{a \code{posterior} object to access the reference posterior for.}
+
+\item{type}{Type of reference posterior [draws] or [expectations].}
 
 \item{pdb}{a \code{pdb} posterior database connection.}
 
