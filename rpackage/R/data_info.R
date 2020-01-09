@@ -46,8 +46,8 @@ assert_data_info <- function(x){
   checkmate::assert_string(x$added_by)
   checkmate::assert_date(x$added_date)
 
-  checkmate::assert_list(x$references, null.ok = TRUE)
+  checkmate::assert_character(x$references, null.ok = TRUE)
   checkmate::assert_string(x$description, null.ok = TRUE)
-  checkmate::assert_list(x$urls, null.ok = TRUE)
-  checkmate::assert_list(x$keywords, null.ok = TRUE)
+  checkmate::assert_character(x$urls, null.ok = TRUE)
+  checkmate::assert_character(x$keywords, null.ok = TRUE)
 }

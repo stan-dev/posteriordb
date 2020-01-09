@@ -6,36 +6,38 @@
 #'
 #' @param x a \code{posterior} object to access the reference posterior for.
 #' @param pdb a \code{pdb} posterior database connection.
+#' @param type Type of reference posterior [draws] or [expectations].
 #' @param ... Currently not used.
 #'
 #' @seealso reference_posterior_draws
 #'
 #' @export
-reference_posterior_info <- function(x, pdb = pdb_default(), ...) {
+reference_posterior_info <- function(x, type, pdb = pdb_default(), ...) {
   UseMethod("reference_posterior_info")
 }
 
 #' @rdname reference_posterior_info
 #' @export
-reference_posterior_info.pdb_posterior <- function(x, ...) {
-  read_reference_posterior_info(x$reference_posterior_name, x$pdb)
+reference_posterior_info.pdb_posterior <- function(x, type, ...) {
+  read_reference_posterior_info(x = x$reference_posterior_name, type = type, pdb = x$pdb)
 }
 
 #' @rdname reference_posterior_info
 #' @export
-reference_posterior_info.character <- function(x, pdb = pdb_default(), type = ...) {
-  reference_posterior_info(posterior(x, pdb))
+reference_posterior_info.character <- function(x, type, pdb = pdb_default(), ...) {
+  reference_posterior_info(x = posterior(x, pdb), type = type)
 }
 
 
 #' Read in reference_posterior_info json object
 #' @param x a data, model or posterior name
 #' @param pdb a posterior db object to access the info json from
+#' @param type Type of reference posterior [draws] or [expectations].
 #' @noRd
 #' @keywords internal
-read_reference_posterior_info <- function(x, pdb = NULL, type = "draws", ...) {
+read_reference_posterior_info <- function(x, type, pdb = NULL, ...) {
   if(is.null(x)) stop("There is currently no reference posterior for this posterior.")
-  reference_posterior_info <- read_info_json(x, path = paste0("reference_posterior/", type), pdb = pdb, ...)
+  reference_posterior_info <- read_info_json(x, path = paste0("reference_posteriors/", type), pdb = pdb, ...)
   class(reference_posterior_info) <- "pdb_reference_posterior_info"
   assert_reference_posterior_info(reference_posterior_info)
   reference_posterior_info

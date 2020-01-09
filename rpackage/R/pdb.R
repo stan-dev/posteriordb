@@ -336,7 +336,7 @@ pdb_assert_file_exist.pdb_local <- function(pdb, path, ...){
 #' Clear posterior database cache
 #' @param pdb a \code{pdb} to clear cache for
 #' @keywords internal
-pdb_clear_cache <- function(pdb){
+pdb_clear_cache <- function(pdb = pdb_default()){
   cached_files <- dir(pdb_cache_path(pdb, ""), recursive = TRUE, full.names = TRUE)
   file.remove(cached_files)
 }
@@ -376,7 +376,7 @@ pdb_cache_dir.pdb_local <- function(pdb, path, ...){
 #' @noRd
 #' @keywords internal
 read_info_json <- function(x, path, pdb = NULL, ...){
-  checkmate::assert_choice(path, c("posteriors", "models/info", "data/info", "reference_posteriors/info"))
+  checkmate::assert_choice(path, c("posteriors", "models/info", "data/info", "reference_posteriors/draws", "reference_posteriors/expectations"))
   UseMethod("read_info_json")
 }
 
