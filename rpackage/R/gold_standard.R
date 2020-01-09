@@ -18,6 +18,18 @@ reference_posterior_info <- function(x, type, pdb = pdb_default(), ...) {
 
 #' @rdname reference_posterior_info
 #' @export
+reference_posterior_draws_info <- function(x, pdb = pdb_default(), ...) {
+  reference_posterior_info(x, type = "draws", pdb = pdb)
+}
+
+#' @rdname reference_posterior_info
+#' @export
+reference_posterior_expectations_info <- function(x, pdb = pdb_default(), ...) {
+  reference_posterior_info(x, type = "expectations", pdb = pdb)
+}
+
+#' @rdname reference_posterior_info
+#' @export
 reference_posterior_info.pdb_posterior <- function(x, type, ...) {
   read_reference_posterior_info(x = x$reference_posterior_name, type = type, pdb = x$pdb)
 }
@@ -96,11 +108,12 @@ reference_posterior_draws_file_path.pdb_reference_posterior_info <- function(x, 
   reference_posterior_draws_file_path(x$name, pdb, ...)
 }
 
-#' Reference Posterior posterior draws
+
+#' Reference Posterior posterior Draws and Expectations
 #' @param x a [posterior] object or a posterior name.
 #' @param pdb a [pdb] object (if [x] is a posterior name)
 #' @param ... further arguments supplied to specific methods.
-#' @return a reference posterior, draws_list object.
+#' @return a [pdb_reference_posterior] object.
 #' @export
 reference_posterior_draws <- function(x, ...){
   UseMethod("reference_posterior_draws")
@@ -209,4 +222,11 @@ print.pdb_reference_posterior_info <- function(x, ...) {
   cat0("Method: ", x$inference$method, " (", x$versions[[1]], ")\n")
   cat0("Arguments:\n")
   print_list(x$inference$method_arguments)
+}
+
+
+#' @rdname reference_posterior_draws
+#' @export
+reference_posterior_expectations <- function(x, ...){
+  stop("not implemented!")
 }

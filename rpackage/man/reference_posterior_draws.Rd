@@ -8,7 +8,8 @@
 \alias{reference_posterior_draws.pdb_posterior}
 \alias{reference_posterior_draws.pdb_reference_posterior_info}
 \alias{assert_reference_posterior_draws}
-\title{Reference Posterior posterior draws}
+\alias{reference_posterior_expectations}
+\title{Reference Posterior posterior Draws and Expectations}
 \usage{
 \method{reference_posterior_draws}{stanfit}(x, pdb = pdb_default(), ...)
 
@@ -21,6 +22,8 @@ reference_posterior_draws(x, ...)
 \method{reference_posterior_draws}{pdb_reference_posterior_info}(x, pdb = pdb_default(), ...)
 
 assert_reference_posterior_draws(x)
+
+reference_posterior_expectations(x, ...)
 }
 \arguments{
 \item{x}{a [posterior] object or a posterior name.}
@@ -30,8 +33,8 @@ assert_reference_posterior_draws(x)
 \item{...}{further arguments supplied to specific methods.}
 }
 \value{
-a reference posterior, draws_list object.
+a [pdb_reference_posterior] object.
 }
 \description{
-Reference Posterior posterior draws
+Reference Posterior posterior Draws and Expectations
 }

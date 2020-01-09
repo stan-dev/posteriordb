@@ -8,13 +8,13 @@
 \title{Test that gold standard draws follows the
 gold standard definition.}
 \usage{
-test_reference_posterior_draws(x, n = 10000, ...)
+test_reference_posterior_draws(x, ...)
 
-\method{test_reference_posterior_draws}{character}(x, n = 10000, ...)
+\method{test_reference_posterior_draws}{character}(x, ...)
 
-\method{test_reference_posterior_draws}{pdb_posterior}(x, n = 10000, ...)
+\method{test_reference_posterior_draws}{pdb_posterior}(x, ...)
 
-\method{test_reference_posterior_draws}{pdb_reference_posterior_draws}(x, n = 10000, ...)
+\method{test_reference_posterior_draws}{pdb_reference_posterior_draws}(x, ...)
 }
 \arguments{
 \item{x}{a posterior name, posterior object or reference_posterior_draws object}

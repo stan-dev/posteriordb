@@ -5,29 +5,29 @@
 #' @param ... currently not used.
 #'
 #' @export
-test_reference_posterior_draws <- function(x, n = 10000, ...){
+test_reference_posterior_draws <- function(x, ...){
   UseMethod("test_reference_posterior_draws")
 }
 
 #' @rdname test_reference_posterior_draws
 #' @export
-test_reference_posterior_draws.character <- function(x, n = 10000, ...){
+test_reference_posterior_draws.character <- function(x, ...){
   x <- reference_posterior_draws(x)
   test_reference_posterior_draws(x)
 }
 
 #' @rdname test_reference_posterior_draws
 #' @export
-test_reference_posterior_draws.pdb_posterior <- function(x, n = 10000, ...){
+test_reference_posterior_draws.pdb_posterior <- function(x, ...){
   x <- reference_posterior_draws(x)
   test_reference_posterior_draws(x)
 }
 
 #' @rdname test_reference_posterior_draws
 #' @export
-test_reference_posterior_draws.pdb_reference_posterior_draws <- function(x, n = 10000, ...){
+test_reference_posterior_draws.pdb_reference_posterior_draws <- function(x, ...){
   # Assert that there is exactly 10000 draws
-  checkmate::assert_true(posterior::ndraws(x$draws) == n)
+  if(posterior::ndraws(x$draws) != 10000) warning("Not 10 000 samples.")
   pds <- posterior::summarise_draws(x$draws)
 
   # Assert the effective sample size is correct/within bounds
@@ -65,6 +65,17 @@ ess_bounds <- function(x){
 #       ess_tail = unname(stats::quantile(esst, c(alpha/2, 1-alpha/2))))
 }
 
+#' Thin draws objects to reduce their size and autocorrelation of the chains.
+#'
+#' @description Thin [pdb_reference_posterior_draws] objects to reduce their size and autocorrelation of the chains.
+#'
+#' @param x An R object for which the methods are defined.
+#' @param thin A positive integer specifying the period for selecting draws.
+#' @param ... Arguments passed to individual methods (if applicable).
+#'
+#' @return
+#' A thinned [pdb_reference_posterior_draws] object.
+#'
 #' @export
 thin_draws.pdb_reference_posterior_draws <- function(x, thin, ...){
   x$draws <- posterior::thin_draws(x$draws, thin, ...)
