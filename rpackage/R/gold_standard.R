@@ -112,6 +112,7 @@ reference_posterior_draws_file_path.pdb_reference_posterior_info <- function(x, 
 #' Reference Posterior posterior Draws and Expectations
 #' @param x a [posterior] object or a posterior name.
 #' @param pdb a [pdb] object (if [x] is a posterior name)
+#' @param info a [pdb_reference_posterior_info] object
 #' @param ... further arguments supplied to specific methods.
 #' @return a [pdb_reference_posterior] object.
 #' @export
@@ -140,16 +141,13 @@ reference_posterior_draws.pdb_reference_posterior_info <- function(x, pdb = pdb_
 #' @rdname reference_posterior_draws
 #' @export
 assert_reference_posterior_draws <- function(x){
-  checkmate::assert_class(x, c("pdb_reference_posterior_draws"))
+  checkmate::assert_class(x, c("pdb_reference_posterior_draws", "draws_list"))
 
-  checkmate::assert_names(names(x), subset.of = c("name", "draws"))
-
-  checkmate::assert_string(x$name)
-  checkmate::assert_class(x$draws, c("draws_list"))
-  checkmate::assert_class(x$info, c("pdb_reference_posterior_info"))
+  checkmate::assert_string(attr(x, "name"))
+  checkmate::assert_class(attr(x, "info"), c("pdb_reference_posterior_info"))
 
   # Assert named chains has the same parameter names
-  par_names <- lapply(x$draws, names)
+  par_names <- lapply(x, names)
   for(i in seq_along(par_names)){
     checkmate::assert_true(identical(par_names[[1]],par_names[[i]]))
   }
@@ -160,7 +158,7 @@ assert_reference_posterior_draws <- function(x){
 #' @keywords internal
 assert_reference_posterior_info <- function(x){
   checkmate::assert_class(x, "pdb_reference_posterior_info")
-  checkmate::assert_names(names(x), identical.to = c("name", "inference", "diagnostics", "added_by", "added_date", "versions"))
+  checkmate::assert_names(names(x), identical.to = c("name", "inference", "diagnostics", "comments", "added_by", "added_date", "versions"))
   checkmate::assert_string(x$name)
 
   checkmate::assert_true(x$inference$method %in% c("stan_sampling", "analytical"))
@@ -197,22 +195,25 @@ assert_reference_posterior_info <- function(x){
 subset.pdb_reference_posterior_draws <- function(x, variable, ...){
   requireNamespace("posterior")
   parameters <- paste0("^", variable, "(\\[[0-9]+\\])?$")
-  x$draws <- subset(x$draws, variable = parameters, regex = TRUE)
+  attrs <- attributes(x)
+  class(x) <- class(x)[-1]
+  x <- subset(x, variable = parameters, regex = TRUE)
+  attributes(x) <- attrs
   x
 }
 
 
 #' @export
 print.pdb_reference_posterior_draws <- function(x, ...) {
-  cat0("Reference Posterior: ", x$name, "\n")
-  cat0("  Total draws: ", posterior::nchains(x$draws))
-  cat0("  Dimensions: ", posterior::nvariables(x$draws))
+  cat0("Reference Posterior: ", attr(x, "name"), "\n")
+  cat0("  Total draws: ", posterior::ndraws(x))
+  cat0("  Dimensions: ", posterior::nvariables(x))
 }
 
 #' @export
 summary.pdb_reference_posterior_draws <- function(object, ...) {
-  cat0("Reference Posterior: ", object$name, "\n")
-  print(posterior::summarise_draws(object$draws))
+  cat0("Reference Posterior: ", attr(object, "name"), "\n")
+  print(posterior::summarise_draws(object))
 }
 
 
