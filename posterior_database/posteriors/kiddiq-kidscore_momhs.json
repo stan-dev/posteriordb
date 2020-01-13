@@ -1,0 +1,15 @@
+{
+  "name": "kiddiq-kidscore_momhs",
+  "keywords": ["ARM", "Ch. 3", "stan_examples"],
+  "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.3",
+  "model_name": "kidscore_momhs",
+  "data_name": "kiddiq",
+  "reference_posterior_name": "kiddiq-kidscore_momhs",
+  "references": "gelman2006data",
+  "dimensions": {
+    "beta": 2,
+    "sigma": 1
+  },
+  "added_date": "2020-01-10",
+  "added_by": "Mans Magnusson"
+}

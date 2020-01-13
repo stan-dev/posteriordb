@@ -19,10 +19,12 @@ compute_reference_posterior_draws_stan_sampling <- function(rpi, pdb){
   # Stan model codes are stored locally (seem to be a bug)
   stan_object@model_name <- rpi$name
 
+  # pdb_diagnostics(stan_object)
+
   rpd <- reference_posterior_draws(x = stan_object, info = rpi)
 
   # Subset to relevant prameters
-  rpd <- subset.pdb_reference_posterior_draws(rpd, variable = names(po$dimensions))
+  rpd <- subset(rpd, variable = names(po$dimensions))
 
   rpd
 }
@@ -30,14 +32,16 @@ compute_reference_posterior_draws_stan_sampling <- function(rpi, pdb){
 
 #' @rdname reference_posterior_draws
 #' @export
-reference_posterior_draws.stanfit <- function(x, pdb = pdb_default(), ...){
-  x <- list(name = x@model_name,
-            draws = posterior::as_draws_list(posterior::as_draws(x)))
-  names(x$draws) <- NULL
-  for(i in seq_along(x$draws)){
-    x$draws[[i]]$lp__ <- NULL
+reference_posterior_draws.stanfit <- function(x, info, pdb = pdb_default(), ...){
+  checkmate::assert_class(info, "pdb_reference_posterior_info")
+  draws <- posterior::as_draws_list(posterior::as_draws(x))
+  names(draws) <- NULL
+  for(i in seq_along(draws)){
+    draws[[i]]$lp__ <- NULL
   }
-  class(x) <- c("pdb_reference_posterior_draws", class(x))
-  assert_reference_posterior_draws(x)
-  x
+  attr(draws, "name") <- x@model_name
+  attr(draws, "info") <- info
+  class(draws) <- c("pdb_reference_posterior_draws", class(draws))
+  assert_reference_posterior_draws(draws)
+  draws
 }

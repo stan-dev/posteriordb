@@ -11,7 +11,7 @@
 \alias{reference_posterior_expectations}
 \title{Reference Posterior posterior Draws and Expectations}
 \usage{
-\method{reference_posterior_draws}{stanfit}(x, pdb = pdb_default(), ...)
+\method{reference_posterior_draws}{stanfit}(x, info, pdb = pdb_default(), ...)
 
 reference_posterior_draws(x, ...)
 
@@ -27,6 +27,8 @@ reference_posterior_expectations(x, ...)
 }
 \arguments{
 \item{x}{a [posterior] object or a posterior name.}
+
+\item{info}{a [pdb_reference_posterior_info] object}
 
 \item{pdb}{a [pdb] object (if [x] is a posterior name)}
 
