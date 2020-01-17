@@ -1,15 +1,15 @@
 {
-  "name": "kiddiq-kidscore_momhs",
+  "name": "kidiq-kidscore_momiq",
   "keywords": ["ARM", "Ch. 3", "stan_examples"],
   "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.3",
-  "model_name": "kidscore_momhs",
-  "data_name": "kiddiq",
-  "reference_posterior_name": "kiddiq-kidscore_momhs",
+  "model_name": "kidscore_momiq",
+  "data_name": "kidiq",
+  "reference_posterior_name": null,
   "references": "gelman2006data",
   "dimensions": {
     "beta": 2,
     "sigma": 1
   },
-  "added_date": "2020-01-10",
-  "added_by": "Mans Magnusson"
+  "added_date": "2020-01-13",
+  "added_by": "Oliver Järnefelt"
 }

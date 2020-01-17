@@ -1,9 +1,9 @@
 {
-  "name": "kidiq+mom_work-kid_interaction_c",
+  "name": "kidiq_with_mom_work-kid_interaction_c",
   "keywords": ["ARM", "Ch. 4", "stan_examples"],
   "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.4",
   "model_name": "kid_interaction_c",
-  "data_name": "kidiq+mom_work",
+  "data_name": "kidiq_with_mom_work",
   "reference_posterior_name": null,
   "references": "gelman2006data",
   "dimensions": {
