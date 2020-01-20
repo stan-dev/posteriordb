@@ -6,3 +6,5 @@ rpackage/.Rdata
 .Rproj.user
 README.html
 *.Rproj
+posterior_database/add_scripts
+posterior_database/notes
