@@ -1,0 +1,15 @@
+{
+  "name": "kidiq_with_mom_work-kid_interaction_z",
+  "keywords": ["ARM", "Ch. 4", "stan_examples"],
+  "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.4",
+  "model_name": "kid_interaction_z",
+  "data_name": "kidiq_with_mom_work",
+  "reference_posterior_name": null,
+  "references": "gelman2006data",
+  "dimensions": {
+    "beta": 4,
+    "sigma": 1
+  },
+  "added_date": "2020-01-22",
+  "added_by": "Oliver Järnefelt"
+}

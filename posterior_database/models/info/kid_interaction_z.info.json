@@ -1,0 +1,18 @@
+{
+  "name": "kid_interaction_z",
+  "keywords": ["ARM", "Ch. 4", "stan_examples"],
+  "title": "Multiple Interacting Predictors Standardized Linear Model",
+  "prior": {
+    "keywords": "stan_recommended_35dbfe6"
+  },
+  "description": "kid_score ~ z_mom_hs + z_mom_iq + z_mom_hs:z_mom_iq",
+  "urls": "https://raw.githubusercontent.com/stan-dev/example-models/master/ARM/Ch.4/kidiq_interaction_z.stan",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/kid_interaction_z.stan"
+    }
+  },
+  "references": "gelman2006data",
+  "added_date": "2020-01-22",
+  "added_by": "Oliver Järnefelt"
+}
