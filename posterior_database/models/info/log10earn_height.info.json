@@ -1,0 +1,18 @@
+{
+  "name": "log10earn_height",
+  "keywords": ["ARM", "Ch. 4", "stan_examples"],
+  "title": "One Predictor Log10-linear Model",
+  "prior": {
+    "keywords": "stan_recommended_35dbfe6"
+  },
+  "description": "log10(earn) ~ height",
+  "urls": "https://raw.githubusercontent.com/stan-dev/example-models/master/ARM/Ch.4/log10earn_height.stan",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/log10earn_height.stan"
+    }
+  },
+  "references": "gelman2006data",
+  "added_date": "2020-01-23",
+  "added_by": "Oliver Järnefelt"
+}
