@@ -1,8 +1,8 @@
 {
-  "name": "kidiq_with_mom_work-kid_interaction_c2",
+  "name": "kidiq_with_mom_work-kidscore_interaction_c2",
   "keywords": ["ARM", "Ch. 4", "stan_examples"],
   "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.4",
-  "model_name": "kid_interaction_c2",
+  "model_name": "kidscore_interaction_c2",
   "data_name": "kidiq_with_mom_work",
   "reference_posterior_name": null,
   "references": "gelman2006data",
@@ -10,6 +10,6 @@
     "beta": 4,
     "sigma": 1
   },
-  "added_date": "2020-01-22",
+  "added_date": "2020-01-25",
   "added_by": "Oliver Järnefelt"
 }

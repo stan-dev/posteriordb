@@ -1,5 +1,5 @@
 {
-  "name": "kid_interaction_c",
+  "name": "kidscore_interaction_c",
   "keywords": ["ARM", "Ch. 4", "stan_examples"],
   "title": "Multiple Interacting Predictors Centered Linear Model",
   "prior": {
@@ -9,10 +9,10 @@
   "urls": "https://raw.githubusercontent.com/stan-dev/example-models/master/ARM/Ch.4/kidiq_interaction_c.stan",
   "model_implementations": {
     "stan": {
-      "model_code": "models/stan/kid_interaction_c.stan"
+      "model_code": "models/stan/kidscore_interaction_c.stan"
     }
   },
   "references": "gelman2006data",
-  "added_date": "2020-01-17",
+  "added_date": "2020-01-25",
   "added_by": "Oliver Järnefelt"
 }

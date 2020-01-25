@@ -1,18 +1,18 @@
 {
-  "name": "kid_interaction_c2",
+  "name": "kidscore_interaction_c2",
   "keywords": ["ARM", "Ch. 4", "stan_examples"],
   "title": "Multiple Interacting Predictors Conventionally Centered Linear Model",
   "prior": {
     "keywords": "stan_recommended_35dbfe6"
   },
-  "description": "kid_score ~ c2_mom_hs + c2_mom_iq + c2_mom_hs:c2_mom_iq,\nc2_mom_hs <- mom_hs - 0.5, \nc2_mom_iq <- mom_iq - 100",
+  "description": "kid_score ~ c2_mom_hs + c2_mom_iq + c2_mom_hs:c2_mom_iq, c2_mom_hs <- mom_hs - 0.5, c2_mom_iq <- mom_iq - 100",
   "urls": "https://raw.githubusercontent.com/stan-dev/example-models/master/ARM/Ch.4/kidiq_interaction_c2.stan",
   "model_implementations": {
     "stan": {
-      "model_code": "models/stan/kid_interaction_c2.stan"
+      "model_code": "models/stan/kidscore_interaction_c2.stan"
     }
   },
   "references": "gelman2006data",
-  "added_date": "2020-01-22",
+  "added_date": "2020-01-25",
   "added_by": "Oliver Järnefelt"
 }
