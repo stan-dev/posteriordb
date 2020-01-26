@@ -1,0 +1,18 @@
+{
+  "name": "logmesquite_logvolume",
+  "keywords": ["ARM", "Ch. 4", "stan_examples"],
+  "title": "Log-Log Model",
+  "prior": {
+    "keywords": "stan_recommended_35dbfe6"
+  },
+  "description": "log(weight) ~ log(canopy_volume)\ncanopy_volume <- diam1 * diam2 * canopy_height",
+  "urls": "https://raw.githubusercontent.com/stan-dev/example-models/master/ARM/Ch.4/mesquite_volume.stan",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/logmesquite_logvolume.stan"
+    }
+  },
+  "references": "gelman2006data",
+  "added_date": "2020-01-26",
+  "added_by": "Oliver Järnefelt"
+}
