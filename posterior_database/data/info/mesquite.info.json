@@ -1,0 +1,11 @@
+{
+  "name": "mesquite",
+  "keywords": ["ARM", "Ch. 4", "stan_examples"],
+  "title": "Total production (biomass) of mesquite leaves as function of easily measured parameters of the plant,\nbefore actual harvesting takes place. Two groups: 26 mesquite bushes and 20 mesquite bushes measured\nat a different time of year.",
+  "description": "- N: number of observations\n- canopy_height: height of the canopy\n- density: plant unit density (# of primary stems per plant unit)\n- diam1: diameter of the canopy (the leaf area of the bush) in meters, measured along the longer axis of the bush\n- diam2: canopy diameter measured along the shorter axis\n- group: group of measurements (0 for the first group, 1 for the second group)\n- total_height: total height of the bush\n- weight: leaf weight\n",
+  "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.4",
+  "data_file": "data/data/mesquite.json",
+  "references": "gelman2006data",
+  "added_date": "2020-01-26",
+  "added_by": "Oliver Järnefelt"
+}
