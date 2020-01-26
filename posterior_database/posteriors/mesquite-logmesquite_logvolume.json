@@ -7,7 +7,7 @@
   "reference_posterior_name": null,
   "references": "gelman2006data",
   "dimensions": {
-    "beta": 7,
+    "beta": 2,
     "sigma": 1
   },
   "added_date": "2020-01-26",
