@@ -1,0 +1,18 @@
+{
+  "name": "kidscore_mom_work",
+  "keywords": ["ARM", "Ch. 4", "stan_examples"],
+  "title": "Multiple Factor Level Predictors Linear Model",
+  "prior": {
+    "keywords": "stan_recommended_35dbfe6"
+  },
+  "description": "kid_score ~ as.factor(mom_work)",
+  "urls": "https://raw.githubusercontent.com/stan-dev/example-models/master/ARM/Ch.4/kidscore_momwork.stan",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/kidscore_mom_work.stan"
+    }
+  },
+  "references": "gelman2006data",
+  "added_date": "2020-01-26",
+  "added_by": "Oliver Järnefelt"
+}

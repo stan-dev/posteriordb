@@ -1,0 +1,15 @@
+{
+  "name": "kidiq_with_mom_work-kidscore_mom_work",
+  "keywords": ["ARM", "Ch. 4", "stan_examples"],
+  "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.4",
+  "model_name": "kidscore_mom_work",
+  "data_name": "kidiq_with_mom_work",
+  "reference_posterior_name": null,
+  "references": "gelman2006data",
+  "dimensions": {
+    "beta": 4,
+    "sigma": 1
+  },
+  "added_date": "2020-01-26",
+  "added_by": "Oliver Järnefelt"
+}
