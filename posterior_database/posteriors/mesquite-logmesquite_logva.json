@@ -1,13 +1,13 @@
 {
-  "name": "mesquite-logmesquite_logvas",
+  "name": "mesquite-logmesquite_logva",
   "keywords": ["ARM", "Ch. 4", "stan_examples"],
   "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.4",
-  "model_name": "logmesquite_logvas",
+  "model_name": "logmesquite_logva",
   "data_name": "mesquite",
   "reference_posterior_name": null,
   "references": "gelman2006data",
   "dimensions": {
-    "beta": 7,
+    "beta": 4,
     "sigma": 1
   },
   "added_date": "2020-01-30",
