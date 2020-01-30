@@ -5,7 +5,7 @@
   "prior": {
     "keywords": "stan_recommended_35dbfe6"
   },
-  "description": "log(weight) ~ log(canopy.volume) + log(canopy.area) + group",
+  "description": "log(weight) ~ log(canopy.volume) + log(canopy.area) + group\ncanopy_volume <- diam1 * diam2 * canopy_height\ncanopy_area   <- diam1 * diam2",
   "urls": "https://raw.githubusercontent.com/stan-dev/example-models/master/ARM/Ch.4/mesquite_va.stan",
   "model_implementations": {
     "stan": {
