@@ -1,0 +1,18 @@
+{
+  "name": "accel_splines",
+  "keywords": ["stan_benchmark", "spline"],
+  "title": "Splines for time-series data with varying mean and std",
+  "prior": {
+    "keywords": "stan_recommended_35dbfe6"
+  },
+  "description": "accel ~ s(times, k=40),\nsigma ~ s(times, k=40)",
+  "urls": "https://github.com/bbbales2/cmdstan-warmup/blob/develop/examples/accel_splines/",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/accel_splines.stan"
+    }
+  },
+  "references": "bales2019selecting",
+  "added_date": "2020-02-01",
+  "added_by": "Oliver Järnefelt"
+}
