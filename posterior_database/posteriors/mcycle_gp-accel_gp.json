@@ -5,7 +5,7 @@
   "model_name": "accel_gp",
   "data_name": "mcycle_gp",
   "reference_posterior_name": null,
-  "references": ["bales2019selecting", "silverman1985some"],
+  "references": ["bales2019selecting", "venables2013modern"],
   "dimensions": {
     "Intercept": 1,
     "sdgp_1": 1,
@@ -16,6 +16,6 @@
     "lscale_sigma_1": 1,
     "zgp_sigma_1": 20
   },
-  "added_date": "2020-01-31",
+  "added_date": "2020-02-01",
   "added_by": "Oliver Järnefelt"
 }
