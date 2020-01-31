@@ -1,9 +1,9 @@
 {
-  "name": "mcycle-accel_gp",
+  "name": "mcycle_gp-accel_gp",
   "keywords": ["stan_benchmark", "gaussian process"],
   "urls": "https://github.com/bbbales2/cmdstan-warmup/blob/develop/examples/accel_gp/",
   "model_name": "accel_gp",
-  "data_name": "mcycle",
+  "data_name": "mcycle_gp",
   "reference_posterior_name": null,
   "references": ["bales2019selecting", "silverman1985some"],
   "dimensions": {
