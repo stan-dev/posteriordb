@@ -1,0 +1,21 @@
+{
+  "name": "mcycle-accel_gp",
+  "keywords": ["stan_benchmark", "gaussian process"],
+  "urls": "https://github.com/bbbales2/cmdstan-warmup/blob/develop/examples/accel_gp/",
+  "model_name": "accel_gp",
+  "data_name": "mcycle",
+  "reference_posterior_name": null,
+  "references": ["bales2019selecting", "silverman1985some"],
+  "dimensions": {
+    "Intercept": 1,
+    "sdgp_1": 1,
+    "lscale_1": 1,
+    "zgp_1": 40,
+    "Intercept_sigma": 1,
+    "sdgp_sigma_1": 1,
+    "lscale_sigma_1": 1,
+    "zgp_sigma_1": 20
+  },
+  "added_date": "2020-01-31",
+  "added_by": "Oliver Järnefelt"
+}

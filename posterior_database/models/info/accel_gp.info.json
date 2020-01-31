@@ -1,0 +1,18 @@
+{
+  "name": "accel_gp",
+  "keywords": ["stan_benchmark", "gaussian process"],
+  "title": "Gaussian Processes that model the mean and std of acceleration",
+  "prior": {
+    "keywords": "stan_recommended_35dbfe6"
+  },
+  "description": "accel ~ gp(times, k=40, c=3/2,\nsigma ~ gp(times, k=20, c=3/2)",
+  "urls": "https://github.com/bbbales2/cmdstan-warmup/blob/develop/examples/accel_gp/",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/accel_gp.stan"
+    }
+  },
+  "references": "bales2019selecting",
+  "added_date": "2020-01-31",
+  "added_by": "Oliver Järnefelt"
+}
