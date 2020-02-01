@@ -8,18 +8,16 @@ data {
   int Ks;  // number of linear effects
   matrix[N, Ks] Xs;  // design matrix for the linear effects
   // data for spline s(times,k=40)
-  int nb_1;  // number of bases
-  int knots_1[nb_1];  // number of knots
+  int knots_1;  // number of knots
   // basis function matrices
-  matrix[N, knots_1[1]] Zs_1_1;
+  matrix[N, knots_1] Zs_1_1;
   // data for splines
   int Ks_sigma;  // number of linear effects
   matrix[N, Ks_sigma] Xs_sigma;  // design matrix for the linear effects
   // data for spline s(times,k=40)
-  int nb_sigma_1;  // number of bases
-  int knots_sigma_1[nb_sigma_1];  // number of knots
+  int knots_sigma_1;  // number of knots
   // basis function matrices
-  matrix[N, knots_sigma_1[1]] Zs_sigma_1_1;
+  matrix[N, knots_sigma_1] Zs_sigma_1_1;
   int prior_only;  // should the likelihood be ignored?
 }
 transformed data {
@@ -31,7 +29,7 @@ parameters {
   vector[Ks] bs;
   // parameters for spline s(times,k=40)
   // standarized spline coefficients
-  vector[knots_1[1]] zs_1_1;
+  vector[knots_1] zs_1_1;
   // standard deviations of the coefficients
   real<lower=0> sds_1_1;
   // temporary intercept for centered predictors
@@ -40,15 +38,15 @@ parameters {
   vector[Ks_sigma] bs_sigma;
   // parameters for spline s(times,k=40)
   // standarized spline coefficients
-  vector[knots_sigma_1[1]] zs_sigma_1_1;
+  vector[knots_sigma_1] zs_sigma_1_1;
   // standard deviations of the coefficients
   real<lower=0> sds_sigma_1_1;
 }
 transformed parameters {
   // actual spline coefficients
-  vector[knots_1[1]] s_1_1 = sds_1_1 * zs_1_1;
+  vector[knots_1] s_1_1 = sds_1_1 * zs_1_1;
   // actual spline coefficients
-  vector[knots_sigma_1[1]] s_sigma_1_1 = sds_sigma_1_1 * zs_sigma_1_1;
+  vector[knots_sigma_1] s_sigma_1_1 = sds_sigma_1_1 * zs_sigma_1_1;
 }
 model {
   // initialize linear predictor term
