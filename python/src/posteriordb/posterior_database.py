@@ -77,7 +77,9 @@ class PosteriorDatabase:
 
     def get_model_code_path(self, name, framework):
         model_info = self.get_model_info(name)
-        path_within_posterior_db = model_info["model_code"][framework]
+        path_within_posterior_db = model_info["model_implementations"][framework][
+            "model_code"
+        ]
         full_path = os.path.join(self.path, path_within_posterior_db)
         return full_path
 
