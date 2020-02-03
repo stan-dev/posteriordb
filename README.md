@@ -192,7 +192,7 @@ See [python README](./python/README.md)
 Using the posterior database from R (extensive)
 -----------------------------------------------
 
-See [python README](./rpackage/README.md)
+See [R README](./rpackage/README.md)
 
 Design choices (so far)
 -----------------------
