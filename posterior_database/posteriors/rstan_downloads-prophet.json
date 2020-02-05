@@ -1,0 +1,18 @@
+{
+  "name": "rstan_downloads-prophet",
+  "keywords": ["stan_benchmark", "time series", "structural time series"],
+  "urls": "https://github.com/bbbales2/cmdstan-warmup/blob/develop/examples/prophet",
+  "model_name": "prophet",
+  "data_name": "rstan_downloads",
+  "reference_posterior_name": null,
+  "references": ["taylor2018forecasting", "bales2019selecting"],
+  "dimensions": {
+    "k": 1,
+    "m": 1,
+    "delta": 25,
+    "sigma_obs": 1,
+    "beta": 34
+  },
+  "added_date": "2020-02-06",
+  "added_by": "Oliver Järnefelt"
+}

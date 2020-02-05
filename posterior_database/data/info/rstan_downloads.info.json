@@ -1,0 +1,11 @@
+{
+  "name": "rstan_downloads",
+  "keywords": ["cran", "cranlog", "time series"],
+  "title": "- T: number of time periods\n  - K: number of regressors\n  - t: time\n  - cap: capacities for logistic trend\n  - y: time series\n  - S: number of changepoints\n  - t_change: times of trend changepoints\n  - X: regressors\n  - sigmas: scale on seasonality prior\n  - tau: scale on changepoints prior\n  - trend_indicator: 0 for linear, 1 for logistic\n  - s_a: indicator of additive features\n  - s_m: indicator of multiplicative features",
+  "description": "Preprocessed rstan downloads time series data for cmdstan using a modified version of prophet.",
+  "urls": "https://github.com/bbbales2/cmdstan-warmup/blob/develop/examples/prophet",
+  "data_file": "data/data/rstan_downloads.json",
+  "references": "bales2019selecting",
+  "added_date": "2020-02-06",
+  "added_by": "Oliver Järnefelt"
+}

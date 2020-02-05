@@ -5,7 +5,7 @@
   "model_name": "kilpisjarvi",
   "data_name": "kilpisjarvi_mod",
   "reference_posterior_name": null,
-  "references": ["bales2019selecting", "wickham2016ggplot2"],
+  "references": ["bales2019selecting"],
   "dimensions": {
     "alpha": 1,
     "beta": 1,
