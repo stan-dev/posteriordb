@@ -1,0 +1,18 @@
+{
+  "name": "kilpisjarvi",
+  "keywords": ["stan_benchmark", "linear regression"],
+  "title": "Multiple Highly Correlated Predictors Linear Model",
+  "prior": {
+    "keywords": "stan_recommended_35dbfe6"
+  },
+  "description": "y ~ x",
+  "urls": "https://raw.githubusercontent.com/bbbales2/cmdstan-warmup/develop/examples/kilpisjarvi/kilpisjarvi.stan",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/kilpisjarvi.stan"
+    }
+  },
+  "references": "bales2019selecting",
+  "added_date": "2020-02-05",
+  "added_by": "Oliver Järnefelt"
+}
