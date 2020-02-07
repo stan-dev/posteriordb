@@ -1,0 +1,11 @@
+{
+  "name": "radon_mod",
+  "keywords": ["stan_examples", "ARM", "Ch. 22"],
+  "title": "- N: number of observations\n  - J: number of counties  \n  - x: floor measurements\n  - y: log-radon measurements\n  - u: county uranium reading\n  - county: counties\n  - holdout: is in holdout set",
+  "description": "Modified Radon data set containing data of radon levels in three hundred eighty-six different counties in the USA.",
+  "urls": "https://github.com/bbbales2/cmdstan-warmup/blob/develop/examples/radon",
+  "data_file": "data/data/radon_mod.json",
+  "references": "gelman2006data",
+  "added_date": "2020-02-07",
+  "added_by": "Oliver Järnefelt"
+}

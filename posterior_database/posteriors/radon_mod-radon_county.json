@@ -1,0 +1,17 @@
+{
+  "name": "radon_mod-radon_county",
+  "keywords": ["stan_benchmark", "hierarchical model"],
+  "urls": "https://github.com/bbbales2/cmdstan-warmup/blob/develop/examples/radon",
+  "model_name": "radon_county",
+  "data_name": "radon_mod",
+  "reference_posterior_name": null,
+  "references": ["gelman2006data", "bales2019selecting"],
+  "dimensions": {
+    "a": 386,
+    "mu_a": 1,
+    "sigma_a": 1,
+    "sigma_y": 1
+  },
+  "added_date": "2020-02-07",
+  "added_by": "Oliver Järnefelt"
+}
