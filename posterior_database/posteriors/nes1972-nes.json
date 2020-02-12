@@ -1,0 +1,15 @@
+{
+  "name": "nes1972-nes",
+  "keywords": ["ARM", "Ch. 4", "stan_examples"],
+  "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.4",
+  "model_name": "nes",
+  "data_name": "nes1972",
+  "reference_posterior_name": null,
+  "references": "gelman2006data",
+  "dimensions": {
+    "beta": 9,
+    "sigma": 1
+  },
+  "added_date": "2020-02-12",
+  "added_by": "Oliver Järnefelt"
+}
