@@ -1,6 +1,7 @@
 from .dataset import Dataset
 from .model import Model
 from .posterior_database import PosteriorDatabase
+from .util import drop_keys
 
 
 class Posterior:
@@ -14,6 +15,11 @@ class Posterior:
         self.model = Model(self.posterior_info["model_name"], posterior_db)
 
         self.data = Dataset(self.posterior_info["data_name"], posterior_db)
+
+        self.information = drop_keys(
+            self.posterior_info,
+            ["name", "model_name", "data_name", "reference_posterior_name"],
+        )
 
     def gold_standard(self):
         # gold_standard_file = self.posterior_info["gold_standard"]
