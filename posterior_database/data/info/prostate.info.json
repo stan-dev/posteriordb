@@ -1,0 +1,11 @@
+{
+  "name": "prostate",
+  "keywords": ["microarray cancer classification", "medical"],
+  "title": "Prostate cancer dataset",
+  "description": "Prostate cancer dataset with 5966 predictors and 102 instances",
+  "urls": "http://featureselection.asu.edu/datasets.php",
+  "data_file": "data/data/prostate.json",
+  "references": "li2018feature",
+  "added_date": "2020-02-29",
+  "added_by": "Oliver Järnefelt"
+}
