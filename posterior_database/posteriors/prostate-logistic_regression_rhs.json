@@ -5,7 +5,7 @@
   "model_name": "logistic_regression_rhs",
   "data_name": "prostate",
   "reference_posterior_name": null,
-  "references": "piironen2017sparsity",
+  "references": ["piironen2017sparsity", "li2018feature"],
   "dimensions": {
     "beta0": 1,
     "z": 5966,
