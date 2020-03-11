@@ -14,7 +14,6 @@ model {
   for (k in 1:2)
     mu[k] ~ normal(0,10);
   for (n in 1:N)
-    target += log_mix(theta,
-    								  normal_lpdf(y[n]|mu[1],1.0),
-    								  normal_lpdf(y[n]|mu[2],1.0));
+    target += log_mix(theta, normal_lpdf(y[n]|mu[1],1.0), normal_lpdf(y[n]|mu[2],1.0));
 }
+
