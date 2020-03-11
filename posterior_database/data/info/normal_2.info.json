@@ -1,8 +1,8 @@
 {
   "name": "normal_mixture",
   "keywords": ["basic_estimators", "stan_examples"],
-  "title": "Data from a gaussian mixture with unknown proportion and means, known variance",
-  "description": "- N: number of observations\n- y: cognitive test scores of threeand four-year-old children\n- theta: mixture weight\n- mu1: mean of 1st component\n- mu2: mean of 2nd component",
+  "title": "Data from two gaussians",
+  "description": "- N: number of observations\n- theta: mixture weight\n- mu1: mean of 1st component\n- mu2: mean of 2nd component",
   "urls": "https://github.com/stan-dev/example-models/tree/master/basic_estimators",
   "data_file": "data/data/normal_mixture.json",
   "references": "",
