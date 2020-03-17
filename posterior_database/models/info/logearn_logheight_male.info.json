@@ -1,0 +1,18 @@
+{
+  "name": "logearn_logheight_male",
+  "keywords": ["ARM", "Ch. 4", "stan_examples"],
+  "title": "Multiple Predictors Log-Log Model",
+  "prior": {
+    "keywords": "stan_recommended_35dbfe6"
+  },
+  "description": "log(earn) ~ log(height) + male",
+  "urls": "https://raw.githubusercontent.com/stan-dev/example-models/master/ARM/Ch.4/logearn_logheight.stan",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/logearn_logheight_male.stan"
+    }
+  },
+  "references": "gelman2006data",
+  "added_date": "2020-01-25",
+  "added_by": "Oliver Järnefelt"
+}

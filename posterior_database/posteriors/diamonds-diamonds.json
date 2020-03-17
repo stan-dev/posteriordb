@@ -1,0 +1,16 @@
+{
+  "name": "diamonds-diamonds",
+  "keywords": ["stan_benchmark", "linear regression"],
+  "urls": "https://github.com/bbbales2/cmdstan-warmup/blob/develop/examples/diamonds",
+  "model_name": "diamonds",
+  "data_name": "diamonds",
+  "reference_posterior_name": null,
+  "references": ["bales2019selecting", "wickham2016ggplot2"],
+  "dimensions": {
+    "b": 24,
+    "Intercept": 1,
+    "sigma": 1
+  },
+  "added_date": "2020-02-01",
+  "added_by": "Oliver Järnefelt"
+}

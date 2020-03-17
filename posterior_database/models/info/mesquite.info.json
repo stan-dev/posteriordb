@@ -1,0 +1,18 @@
+{
+  "name": "mesquite",
+  "keywords": ["ARM", "Ch. 4", "stan_examples"],
+  "title": "Multiple Predictors Linear Model",
+  "prior": {
+    "keywords": "stan_recommended_35dbfe6"
+  },
+  "description": "weight ~ diam1 + diam2 + canopy.height + total.height + density + group",
+  "urls": "https://raw.githubusercontent.com/stan-dev/example-models/master/ARM/Ch.4/mesquite.stan",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/mesquite.stan"
+    }
+  },
+  "references": "gelman2006data",
+  "added_date": "2020-01-26",
+  "added_by": "Oliver Järnefelt"
+}

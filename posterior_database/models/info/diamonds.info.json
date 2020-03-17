@@ -1,0 +1,18 @@
+{
+  "name": "diamonds",
+  "keywords": ["stan_benchmark", "linear regression"],
+  "title": "Multiple Highly Correlated Predictors Log-Log Model",
+  "prior": {
+    "keywords": "stan_recommended_35dbfe6"
+  },
+  "description": "log(price) ~ carat * (log(x) + log(y) + log(z)) + cut + color + clarity",
+  "urls": "https://github.com/bbbales2/cmdstan-warmup/blob/develop/examples/diamonds",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/diamonds.stan"
+    }
+  },
+  "references": "bales2019selecting",
+  "added_date": "2020-02-01",
+  "added_by": "Oliver Järnefelt"
+}

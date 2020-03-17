@@ -1,0 +1,11 @@
+{
+  "name": "ovarian",
+  "keywords": ["microarray cancer classification", "medical"],
+  "title": "Ovarian cancer dataset",
+  "description": "Ovarian cancer dataset with 1536 predictors and 54 instances",
+  "urls": "",
+  "data_file": "data/data/ovarian.json",
+  "references": "",
+  "added_date": "2020-02-29",
+  "added_by": "Oliver Järnefelt"
+}

@@ -1,0 +1,16 @@
+{
+  "name": "kilpisjarvi_mod-kilpisjarvi",
+  "keywords": ["stan_benchmark", "linear regression"],
+  "urls": "https://github.com/bbbales2/cmdstan-warmup/blob/develop/examples/kilpisjarvi",
+  "model_name": "kilpisjarvi",
+  "data_name": "kilpisjarvi_mod",
+  "reference_posterior_name": null,
+  "references": ["bales2019selecting"],
+  "dimensions": {
+    "alpha": 1,
+    "beta": 1,
+    "sigma": 1
+  },
+  "added_date": "2020-02-05",
+  "added_by": "Oliver Järnefelt"
+}

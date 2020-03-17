@@ -1,0 +1,21 @@
+{
+  "name": "mcycle_splines-accel_splines",
+  "keywords": ["stan_benchmark", "spline"],
+  "urls": "https://github.com/bbbales2/cmdstan-warmup/blob/develop/examples/accel_splines/",
+  "model_name": "accel_splines",
+  "data_name": "mcycle_splines",
+  "reference_posterior_name": null,
+  "references": ["bales2019selecting", "venables2013modern"],
+  "dimensions": {
+    "Intercept": 1,
+    "bs": 1,
+    "zs_1_1": 38,
+    "sds_1_1": 1,
+    "Intercept_sigma": 1,
+    "bs_sigma": 1,
+    "zs_sigma_1_1": 38,
+    "sds_sigma_1_1": 1
+  },
+  "added_date": "2020-02-01",
+  "added_by": "Oliver Järnefelt"
+}

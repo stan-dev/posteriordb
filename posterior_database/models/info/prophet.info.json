@@ -1,0 +1,18 @@
+{
+  "name": "prophet",
+  "keywords": ["stan_benchmark", "time series"],
+  "title": "Structural Time Series Model",
+  "prior": {
+    "keywords": "stan_recommended_35dbfe6"
+  },
+  "description": "Structural Time Series Model",
+  "urls": "https://raw.githubusercontent.com/facebook/prophet/master/R/inst/stan/prophet.stan",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/prophet.stan"
+    }
+  },
+  "references": "taylor2018forecasting",
+  "added_date": "2020-02-06",
+  "added_by": "Oliver Järnefelt"
+}

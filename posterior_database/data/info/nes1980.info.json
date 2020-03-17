@@ -1,0 +1,11 @@
+{
+  "name": "nes1980",
+  "keywords": ["ARM", "Ch. 4", "stan_examples"],
+  "title": "Data from the National Election Study",
+  "description": "- N: number of observations\n  - age_discrete: age category { 1: 18-29, 2: 30-44, 3: 45-64, 4: 65+ }\n  - educ1: education { 1: no high school, 2: high school graduate, 3: some college, 4: college graduate }\n  - gender: { 0: male, 1: female } \n  - income: income percentile { 1: 0-16th, 2: 17-33rd, 3: 34-67th, 4: 68-95th 5: 96-100th }\n  - partyid7: party identification { 1: strong Democrat, 2: Democrat, 3: weak Democrat, 4: independent, 5: weak Republican, 6: Republican, 7: strong Republican }\n  - race_adj: ethnicity { 0: white,  1: black, 0.5: other }\n  - real_ideo: political ideology { 1: strong liberal, 2: liberal, ..., 7: strong conservative }\n  - year: 1972 or 1976 or 1980 or 1984 or 1988 or 1992 or 1996 or 2000",
+  "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.4",
+  "data_file": "data/data/nes1980.json",
+  "references": "gelman2006data",
+  "added_date": "2020-02-12",
+  "added_by": "Oliver Järnefelt"
+}

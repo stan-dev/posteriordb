@@ -1,0 +1,11 @@
+{
+  "name": "kilpisjarvi_mod",
+  "keywords": ["finnish meteorological institute", "time series"],
+  "title": "- N: number of observations\n  - x: year\n  - y: average temperature of summer",
+  "description": "Modified Kilpisjarvi data set with larger x values to enhance correlatedness of model parameters",
+  "urls": "https://github.com/bbbales2/cmdstan-warmup/blob/develop/examples/kilpisjarvi",
+  "data_file": "data/data/kilpisjarvi_mod.json",
+  "references": "bales2019selecting",
+  "added_date": "2020-02-07",
+  "added_by": "Oliver Järnefelt"
+}
