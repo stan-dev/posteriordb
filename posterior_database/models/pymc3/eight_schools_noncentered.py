@@ -1,10 +1,11 @@
+import numpy as np
 import pymc3 as pm3
 
 
 def model(data):
     J = data["J"]  # number of schools
-    y_obs = data["y"]  # estimated treatment
-    sigma = data["sigma"]  # std of estimated effect
+    y_obs = np.array(data["y"])  # estimated treatment
+    sigma = np.array(data["sigma"])  # std of estimated effect
     with pm3.Model() as pymc_model:
 
         mu = pm3.Normal(

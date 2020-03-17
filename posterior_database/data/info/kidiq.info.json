@@ -1,10 +1,10 @@
 {
-  "name": "kiddiq",
+  "name": "kidiq",
   "keywords": ["ARM", "Ch. 3", "stan_examples"],
   "title": "Cognitive test scores of three- and four-year-old children",
   "description": "  - N         : number of observations\n  - kid_score : cognitive test scores of three- and four-year-old children\n  - mom_hs    : did mother complete high school? 1: Yes, 0: No\n  - mom_iq    : mother IQ score\n  - mom_hs_new: new data for prediction\n  - mom_iq_new: new data for prediction",
   "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.3",
-  "data_file": "data/data/kiddiq.json",
+  "data_file": "data/data/kidiq.json",
   "references": "gelman2006data",
   "added_date": "2020-01-10",
   "added_by": "Mans Magnusson"

@@ -1,0 +1,11 @@
+{
+  "name": "kidiq_with_mom_work",
+  "keywords": ["ARM", "Ch. 4", "stan_examples"],
+  "title": "Cognitive test scores of threeand four-year-old children",
+  "description": "- N        : number of observations\n  - kid_score: cognitive test scores of threeand four-year-old children\n  - mom_hs   : did mother complete high school? 1: Yes, 0: No\n  - mom_iq   : mother IQ score\n  - mom_work : 1: mother did not work in first three years of child's life\n               2: mother worked in second or third year of child's life\n               3: mother worked part-time in first year of child's life\n               4: mother worked full-time in first year of child's life",
+  "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.4",
+  "data_file": "data/data/kidiq_with_mom_work.json",
+  "references": "gelman2006data",
+  "added_date": "2020-01-17",
+  "added_by": "Oliver Järnefelt"
+}
