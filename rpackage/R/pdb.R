@@ -161,7 +161,7 @@ print.pdb <- function(x, ...) {
   cat0("Path: ", x$pdb_id, "\n")
   cat0("Version:\n")
   for (vn in names(x$version)) {
-    cat0("  ", vn, ":", x$version[[vn]], "\n")
+    cat0("  ", vn, ": ", x$version[[vn]], "\n")
   }
   invisible(x)
 }

@@ -2,7 +2,7 @@
 #' @export
 pdb_github <- function(repo = getOption("pdb_repo", "MansMeg/posteriordb/posterior_database"),
                        cache_path = tempdir(),
-                       ref = "master",
+                       ref = github_ref(),
                        subdir = NULL,
                        auth_token = github_pat(),
                        host = "https://api.github.com"){
@@ -133,6 +133,23 @@ github_pat <- function(pdb = NULL) {
   if(is.null(pdb)) return(NULL)
   pdb$github$pat
 }
+
+#' Retrieve Github reference.
+#'
+#' A github reference to use
+#' Looks in env var `GITHUB_REF`
+#' @param pdb A posterior datasbase object to extract pat from.
+#' @export
+github_ref <- function(pdb = NULL) {
+  ref <- Sys.getenv("GITHUB_REF")
+  if (nzchar(ref)) {
+    return(ref)
+  } else {
+    return("master")
+  }
+}
+
+
 
 #' Download file from GitHub
 #'
