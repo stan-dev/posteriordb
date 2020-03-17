@@ -1,5 +1,6 @@
 library(janeaustenr)
 library(tidytext)
+library(dplyr)
 
 data("prideprejudice")
 
