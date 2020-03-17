@@ -1,7 +1,11 @@
 import os
 
 from .posterior_database import PosteriorDatabase
+from .pymc3_model_implementation import PyMC3ModelImplementation
+from .stan_model_implementation import StanModelImplementation
 from .util import drop_keys
+
+implementations = {"stan": StanModelImplementation, "pymc3": PyMC3ModelImplementation}
 
 
 class Model:
@@ -9,7 +13,8 @@ class Model:
         self.name = name
         self.posterior_db = posterior_db
         full_model_info = self.posterior_db.get_model_info(name=self.name)
-        self.information = drop_keys(full_model_info, "model_code")
+        self.information = drop_keys(full_model_info, "model_implementations")
+        self._implementations = full_model_info["model_implementations"]
 
     def code_file_path(self, framework: str):
         """
@@ -33,3 +38,11 @@ class Model:
 
     def stan_code_file_path(self):
         return self.code_file_path("stan")
+
+    def implementation(self, framework):
+        implementation_info = self._implementations[framework]
+        implementation_class = implementations[framework]
+        implementation_obj = implementation_class(
+            self.posterior_db, **implementation_info
+        )
+        return implementation_obj
