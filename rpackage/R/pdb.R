@@ -112,11 +112,6 @@ pn.pdb_local <- function(pdb, ...) {
   remove_file_extension(pns)
 }
 
-#' @export
-names.pdb <- function(x) {
-  posterior_names(x)
-}
-
 #' Get all existing model names from a posterior database
 #'
 #' @param pdb a \code{pdb} object.

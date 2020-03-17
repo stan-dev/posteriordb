@@ -6,7 +6,7 @@
 check_pdb <- function(pdb, posterior_idx = NULL) {
   checkmate::assert_class(pdb, "pdb")
   message("Checking posterior database...")
-  pns <- names(pdb)
+  pns <- posterior_names(pdb)
   if(!is.null(posterior_idx)) pns <- pns[posterior_idx]
   pl <- list()
   for (i in seq_along(pns)) {
