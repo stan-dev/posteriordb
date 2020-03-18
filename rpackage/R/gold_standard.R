@@ -170,8 +170,6 @@ assert_reference_posterior_info <- function(x){
                                           "effective_sample_size_tail",
                                           "r_hat",
                                           "divergent_transitions",
-                                          "effective_sample_size_bulk_per_iteration",
-                                          "effective_sample_size_tail_per_iteration",
                                           "expected_fraction_of_missing_information"))
   }
 
