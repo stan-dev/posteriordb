@@ -19,7 +19,7 @@ pdb_default(cache_path = tempdir())
 pdb_github(
   repo = getOption("pdb_repo", "MansMeg/posteriordb/posterior_database"),
   cache_path = tempdir(),
-  ref = "master",
+  ref = github_ref(),
   subdir = NULL,
   auth_token = github_pat(),
   host = "https://api.github.com"
