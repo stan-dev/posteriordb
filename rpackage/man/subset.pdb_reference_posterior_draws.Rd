@@ -9,7 +9,7 @@
 \arguments{
 \item{x}{a [pdb_reference_posterior_draws] to subest}
 
-\item{variable}{Parameters to subset.}
+\item{variable}{parameter names to subset.}
 
 \item{...}{Further arguments (not used).}
 }

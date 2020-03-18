@@ -187,15 +187,14 @@ assert_reference_posterior_info <- function(x){
 
 #' Subset a [pdb_reference_posterior_draws] object
 #' @param x a [pdb_reference_posterior_draws] to subest
-#' @param variable Parameters to subset.
+#' @param variable parameter names to subset.
 #' @param ... Further arguments (not used).
 #' @export
 subset.pdb_reference_posterior_draws <- function(x, variable, ...){
   requireNamespace("posterior")
-  parameters <- paste0("^", variable, "(\\[[0-9]+\\])?$")
   attrs <- attributes(x)
   class(x) <- class(x)[-1]
-  x <- subset(x, variable = parameters, regex = TRUE)
+  x <- subset(x, variable = variable, regex = FALSE)
   attributes(x) <- attrs
   x
 }
