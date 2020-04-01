@@ -65,10 +65,14 @@ compute_stan_sampling_diagnostics <- function(x, keep_dimensions ){
   checkmate::assert_character(keep_dimensions)
 
   d <- list()
-  pds <- posterior::summarise_draws(x)
+  pd <- posterior::as_draws(x)
+  pds <- posterior::summarise_draws(pd)
   checkmate::assert_subset(keep_dimensions, pds$variable)
 
   keep_idx <- pds$variable %in% keep_dimensions
+
+  # ndraws
+  d$ndraws <- posterior::ndraws(pd)
 
   # ESS bulk
   d$effective_sample_size_bulk <- pds$ess_bulk[keep_idx]

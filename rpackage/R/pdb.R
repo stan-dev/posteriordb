@@ -427,7 +427,11 @@ write_to_path <- function(x, path, type, pdb, name = NULL, zip = FALSE, info = T
   checkmate::assert_flag(info)
 
   if(is.null(name)){
-    nm <- x$name
+    if(is.null(x$name)){
+      nm <- info(x)$name
+    } else {
+      nm <- x$name
+    }
   } else {
     nm <- name
   }

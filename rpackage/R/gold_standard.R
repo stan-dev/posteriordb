@@ -158,7 +158,7 @@ assert_reference_posterior_draws <- function(x){
 #' @keywords internal
 assert_reference_posterior_info <- function(x){
   checkmate::assert_class(x, "pdb_reference_posterior_info")
-  checkmate::assert_names(names(x), identical.to = c("name", "inference", "diagnostics", "comments", "added_by", "added_date", "versions"))
+  checkmate::assert_names(names(x), identical.to = c("name", "inference", "diagnostics", "checks", "comments", "added_by", "added_date", "versions"))
   checkmate::assert_string(x$name)
 
   checkmate::assert_true(x$inference$method %in% c("stan_sampling", "analytical"))
@@ -166,11 +166,15 @@ assert_reference_posterior_info <- function(x){
 
   if(!is.null(x$diagnostics)){
     checkmate::assert_names(names(x$diagnostics),
-                            subset.of = c("effective_sample_size_bulk",
+                            subset.of = c("ndraws",
+                                          "effective_sample_size_bulk",
                                           "effective_sample_size_tail",
                                           "r_hat",
                                           "divergent_transitions",
                                           "expected_fraction_of_missing_information"))
+  }
+  if(!is.null(x$checks)){
+    checkmate::assert_named(x$checks)
   }
 
   checkmate::assert_string(x$added_by)
