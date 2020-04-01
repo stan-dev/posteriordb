@@ -51,7 +51,7 @@ check_reference_posterior_draws.pdb_reference_posterior_draws <- function(x, ...
   tst$efmi_above_0_2 <- TRUE
 
   # Add checks made to reference posterior
-  rpi$checks <- tst
+  rpi$checks_made <- tst
 
   # Add the rp information
   assert_reference_posterior_info(rpi)
