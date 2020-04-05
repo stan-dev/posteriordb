@@ -1,6 +1,6 @@
 {
   "name": "dogs",
-  "keywords": ["ARM", "Ch. 4", "stan_examples"],
+  "keywords": ["ARM", "Ch. 24", "stan_examples"],
   "title": "Logistic Mixed Effects Model",
   "prior": {
     "keywords": "stan_recommended_35dbfe6"
