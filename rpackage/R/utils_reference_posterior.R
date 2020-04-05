@@ -1,43 +1,64 @@
-#' Test that gold standard draws follows the
-#' gold standard definition.
+#' Check that reference posterior draws follows the
+#' reference posterior definition.
 #'
 #' @param x a posterior name, posterior object or reference_posterior_draws object
 #' @param ... currently not used.
 #'
 #' @export
-test_reference_posterior_draws <- function(x, ...){
-  UseMethod("test_reference_posterior_draws")
+check_reference_posterior_draws <- function(x, ...){
+  UseMethod("check_reference_posterior_draws")
 }
 
-#' @rdname test_reference_posterior_draws
+#' @rdname check_reference_posterior_draws
 #' @export
-test_reference_posterior_draws.character <- function(x, ...){
+check_reference_posterior_draws.character <- function(x, ...){
   x <- reference_posterior_draws(x)
-  test_reference_posterior_draws(x)
+  check_reference_posterior_draws(x)
 }
 
-#' @rdname test_reference_posterior_draws
+#' @rdname check_reference_posterior_draws
 #' @export
-test_reference_posterior_draws.pdb_posterior <- function(x, ...){
+check_reference_posterior_draws.pdb_posterior <- function(x, ...){
   x <- reference_posterior_draws(x)
-  test_reference_posterior_draws(x)
+  check_reference_posterior_draws(x)
 }
 
-#' @rdname test_reference_posterior_draws
+#' @rdname check_reference_posterior_draws
 #' @export
-test_reference_posterior_draws.pdb_reference_posterior_draws <- function(x, ...){
+check_reference_posterior_draws.pdb_reference_posterior_draws <- function(x, ...){
+  assert_reference_posterior_draws(x)
+  rpi <- info(x)
+  assert_reference_posterior_info(rpi)
+
+  tst <- list()
+
   # Assert that there is exactly 10000 draws
-  if(posterior::ndraws(x$draws) != 10000) warning("Not 10 000 samples.")
-  pds <- posterior::summarise_draws(x$draws)
+  checkmate::assert_true(rpi$diagnostics$ndraws == 10000)
+  tst$ndraws_is_10k <- TRUE
 
   # Assert the effective sample size is correct/within bounds
-  ess_bnds <- ess_bounds(x$draws)
-  checkmate::assert_numeric(pds$ess_bulk, lower = ess_bnds$ess_bulk[1], upper = ess_bnds$ess_bulk[2])
-  checkmate::assert_numeric(pds$ess_tail, lower = ess_bnds$ess_tail[1], upper = ess_bnds$ess_tail[2])
+  ess_bnds <- ess_bounds(x)
+  checkmate::assert_numeric(rpi$diagnostics$effective_sample_size_bulk, lower = ess_bnds$ess_bulk[2], upper = ess_bnds$ess_bulk[1])
+  checkmate::assert_numeric(rpi$diagnostics$effective_sample_size_tail, lower = ess_bnds$ess_tail[2], upper = ess_bnds$ess_tail[1])
+  tst$ess_within_bounds <- TRUE
 
   # Assert all Rhat < 1.01
-  checkmate::assert_numeric(pds$rhat, upper = 1.01)
+  checkmate::assert_numeric(rpi$diagnostics$r_hat, upper = 1.01)
+  tst$r_hat_below_1_01 <- TRUE
 
+  # Assert that the EFMI is larger than 0.2
+  checkmate::assert_numeric(rpi$diagnostics$expected_fraction_of_missing_information, lower = 0.2)
+  tst$efmi_above_0_2 <- TRUE
+
+  # Add checks made to reference posterior
+  rpi$checks_made <- tst
+
+  # Add the rp information
+  assert_reference_posterior_info(rpi)
+  attr(x, "info") <- rpi
+
+  # Check the reference posterior
+  assert_reference_posterior_draws(x)
   invisible(x)
 }
 
@@ -54,15 +75,17 @@ ess_bounds <- function(x){
 
   npar <- posterior::nvariables(x)
   ndraws <- posterior::ndraws(x)
+  # We approximate ESS SD as follows (after some simulations)
+  # We then use 4 SD to check the ESSs
   approx_ess_sd <- sqrt(7) * sqrt(ndraws)
-#  alpha <- 1 - exp(log(p)/npar)
-#  essb <- esst <- NULL # To mask check NOTEs
   bnds <- ndraws + 4 * c(approx_ess_sd, -approx_ess_sd)
+
+  #  alpha <- 1 - exp(log(p)/npar)
+  #  essb <- esst <- NULL # To mask check NOTEs
 
   list(ess_bulk = bnds,
        ess_tail = bnds)
-#  list(ess_bulk = unname(stats::quantile(essb, c(alpha/2, 1-alpha/2))),
-#       ess_tail = unname(stats::quantile(esst, c(alpha/2, 1-alpha/2))))
+
 }
 
 #' Thin draws objects to reduce their size and autocorrelation of the chains.

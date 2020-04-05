@@ -13,7 +13,7 @@
 \usage{
 write_pdb(x, pdb, overwrite = FALSE, ...)
 
-\method{write_pdb}{pdb_reference_posterior_info}(x, pdb, overwrite = FALSE, ...)
+\method{write_pdb}{pdb_reference_posterior_info}(x, pdb, overwrite = FALSE, type, ...)
 
 \method{write_pdb}{pdb_reference_posterior_draws}(x, pdb, overwrite = FALSE, ...)
 

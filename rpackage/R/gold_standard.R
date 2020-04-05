@@ -158,7 +158,7 @@ assert_reference_posterior_draws <- function(x){
 #' @keywords internal
 assert_reference_posterior_info <- function(x){
   checkmate::assert_class(x, "pdb_reference_posterior_info")
-  checkmate::assert_names(names(x), identical.to = c("name", "inference", "diagnostics", "comments", "added_by", "added_date", "versions"))
+  checkmate::assert_names(names(x), identical.to = c("name", "inference", "diagnostics", "checks", "comments", "added_by", "added_date", "versions"))
   checkmate::assert_string(x$name)
 
   checkmate::assert_true(x$inference$method %in% c("stan_sampling", "analytical"))
@@ -166,13 +166,15 @@ assert_reference_posterior_info <- function(x){
 
   if(!is.null(x$diagnostics)){
     checkmate::assert_names(names(x$diagnostics),
-                            subset.of = c("effective_sample_size_bulk",
+                            subset.of = c("ndraws",
+                                          "effective_sample_size_bulk",
                                           "effective_sample_size_tail",
                                           "r_hat",
                                           "divergent_transitions",
-                                          "effective_sample_size_bulk_per_iteration",
-                                          "effective_sample_size_tail_per_iteration",
                                           "expected_fraction_of_missing_information"))
+  }
+  if(!is.null(x$checks)){
+    checkmate::assert_named(x$checks)
   }
 
   checkmate::assert_string(x$added_by)
@@ -189,15 +191,14 @@ assert_reference_posterior_info <- function(x){
 
 #' Subset a [pdb_reference_posterior_draws] object
 #' @param x a [pdb_reference_posterior_draws] to subest
-#' @param variable Parameters to subset.
+#' @param variable parameter names to subset.
 #' @param ... Further arguments (not used).
 #' @export
 subset.pdb_reference_posterior_draws <- function(x, variable, ...){
   requireNamespace("posterior")
-  parameters <- paste0("^", variable, "(\\[[0-9]+\\])?$")
   attrs <- attributes(x)
   class(x) <- class(x)[-1]
-  x <- subset(x, variable = parameters, regex = TRUE)
+  x <- subset(x, variable = variable, regex = FALSE)
   attributes(x) <- attrs
   x
 }

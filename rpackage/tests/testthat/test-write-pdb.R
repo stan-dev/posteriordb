@@ -126,4 +126,6 @@ test_that("remove test posterior", {
   posteriordb:::pdb_clear_cache(pdb_test)
 
   expect_error(po2 <- posterior("test_posterior", pdb_test))
+
+  skip("Test that the diagnostic vectors are named and that the naming doesnt dissapear when writing.")
 })

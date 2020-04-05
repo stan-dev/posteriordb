@@ -15,17 +15,19 @@ write_pdb <- function(x, pdb, overwrite = FALSE, ...){
 
 #' @rdname write_pdb
 #' @export
-write_pdb.pdb_reference_posterior_info <- function(x, pdb, overwrite = FALSE, ...){
+write_pdb.pdb_reference_posterior_info <- function(x, pdb, overwrite = FALSE, type, ...){
+  checkmate::assert_choice(type, choices = c("draws", "expectations"))
   assert_reference_posterior_info(x)
   class(x) <- c(class(x), "list")
-  write_json_to_path(x, "reference_posteriors/info", pdb, zip = FALSE, info = TRUE, overwrite = overwrite)
+  write_json_to_path(x, paste("reference_posteriors", type, "info", sep = "/"), pdb, zip = FALSE, info = TRUE, overwrite = overwrite)
 }
 
 #' @rdname write_pdb
 #' @export
 write_pdb.pdb_reference_posterior_draws <- function(x, pdb, overwrite = FALSE, ...){
   assert_reference_posterior_draws(x)
-  write_json_to_path(x, "reference_posteriors/draws", pdb, zip = TRUE, info = FALSE, overwrite = overwrite)
+  write_pdb(info(x), pdb = pdb, overwrite = overwrite, type = "draws")
+  write_json_to_path(x, "reference_posteriors/draws/draws", pdb, zip = TRUE, info = FALSE, overwrite = overwrite)
 }
 
 #' @rdname write_pdb

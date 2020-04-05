@@ -112,11 +112,6 @@ pn.pdb_local <- function(pdb, ...) {
   remove_file_extension(pns)
 }
 
-#' @export
-names.pdb <- function(x) {
-  posterior_names(x)
-}
-
 #' Get all existing model names from a posterior database
 #'
 #' @param pdb a \code{pdb} object.
@@ -161,7 +156,7 @@ print.pdb <- function(x, ...) {
   cat0("Path: ", x$pdb_id, "\n")
   cat0("Version:\n")
   for (vn in names(x$version)) {
-    cat0("  ", vn, ":", x$version[[vn]], "\n")
+    cat0("  ", vn, ": ", x$version[[vn]], "\n")
   }
   invisible(x)
 }
@@ -432,7 +427,11 @@ write_to_path <- function(x, path, type, pdb, name = NULL, zip = FALSE, info = T
   checkmate::assert_flag(info)
 
   if(is.null(name)){
-    nm <- x$name
+    if(is.null(x$name)){
+      nm <- info(x)$name
+    } else {
+      nm <- x$name
+    }
   } else {
     nm <- name
   }
