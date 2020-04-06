@@ -47,16 +47,6 @@ prideprejustice_paragraph <-
        alpha = rep(0.1, 5L),
        beta = rep(0.1, length(vocabulary)))
 
-writeLines(jsonlite::toJSON(prideprejustice_paragraph, pretty = TRUE, auto_unbox = TRUE), con = "prideprejustice_paragraph.json")
-zip(zipfile = "prideprejustice_paragraph.json.zip", files = "prideprejustice_paragraph.json")
-
-data_info <- list(title = jsonlite::unbox("The book 'Pride and Prejustice' by Jane Austen."),
-                  description = jsonlite::unbox("The book has been tokenized, stop words and rare words (<=5) has been removed. Variable 'doc' is paragraph id."),
-                  urls = character(0),
-                  references = character(0),
-                  keywords = "text data")
-jsonlite::write_json(data_info, "prideprejustice_paragraph.info.json", pretty = TRUE)
-
 prideprejustice_chapter <-
   list(V = length(vocabulary),
        M = length(unique(tidy_pride$chapter)),
@@ -65,13 +55,3 @@ prideprejustice_chapter <-
        doc = tidy_pride$chapter,
        alpha = rep(0.1, 5L),
        beta = rep(0.1, length(vocabulary)))
-
-writeLines(jsonlite::toJSON(prideprejustice_chapter, pretty = TRUE, auto_unbox = TRUE), con = "prideprejustice_chapter.json")
-zip(zipfile = "prideprejustice_chapter.json.zip", files = "prideprejustice_chapter.json")
-
-data_info <- list(title = jsonlite::unbox("The book 'Pride and Prejustice' by Jane Austen."),
-                  description = jsonlite::unbox("The book has been tokenized, stop words and rare words (<=5) has been removed. Variable 'doc' is chapter id."),
-                  urls = character(0),
-                  references = character(0),
-                  keywords = "text data")
-jsonlite::write_json(data_info, "prideprejustice_chapter.info.json", pretty = TRUE)
