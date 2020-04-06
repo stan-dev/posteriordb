@@ -9,6 +9,7 @@
 \alias{model_code.pdb_posterior}
 \alias{model_code.character}
 \alias{model_code.pdb_model_info}
+\alias{model_code.stanmodel}
 \alias{pdb_model_code}
 \alias{stan_code_file_path}
 \alias{stan_code}
@@ -30,6 +31,8 @@ model_code(x, framework, ...)
 \method{model_code}{character}(x, framework, pdb = pdb_default(), ...)
 
 \method{model_code}{pdb_model_info}(x, framework, pdb = pdb_default(), ...)
+
+\method{model_code}{stanmodel}(x, info, ...)
 
 pdb_model_code(x, framework, ...)
 

@@ -2,9 +2,12 @@
 % Please edit documentation in R/generics.R
 \name{info}
 \alias{info}
+\alias{info<-}
 \title{Extract information}
 \usage{
 info(x)
+
+info(x) <- value
 }
 \arguments{
 \item{x}{a [pdb_data], [pdb_model_code] and [pdb_reference_posterior]}

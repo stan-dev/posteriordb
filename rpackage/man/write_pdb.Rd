@@ -7,6 +7,7 @@
 \alias{write_pdb.pdb_data}
 \alias{write_pdb.pdb_data_info}
 \alias{write_pdb.stanmodel}
+\alias{write_pdb.pdb_model_code}
 \alias{write_pdb.pdb_model_info}
 \alias{write_pdb.pdb_posterior}
 \title{Write objects to pdb}
@@ -17,11 +18,13 @@ write_pdb(x, pdb, overwrite = FALSE, ...)
 
 \method{write_pdb}{pdb_reference_posterior_draws}(x, pdb, overwrite = FALSE, ...)
 
-\method{write_pdb}{pdb_data}(x, pdb, overwrite = FALSE, name, ...)
+\method{write_pdb}{pdb_data}(x, pdb, overwrite = FALSE, ...)
 
 \method{write_pdb}{pdb_data_info}(x, pdb, overwrite = FALSE, ...)
 
 \method{write_pdb}{stanmodel}(x, pdb, overwrite = FALSE, ...)
+
+\method{write_pdb}{pdb_model_code}(x, pdb, overwrite = FALSE, ...)
 
 \method{write_pdb}{pdb_model_info}(x, pdb, overwrite = FALSE, ...)
 

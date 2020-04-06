@@ -5,6 +5,8 @@
 \alias{get_data.pdb_posterior}
 \alias{get_data.character}
 \alias{get_data.pdb_data_info}
+\alias{get_data.list}
+\alias{pdb_data}
 \title{Posterior Data Sets}
 \usage{
 get_data(x, ...)
@@ -14,6 +16,10 @@ get_data(x, ...)
 \method{get_data}{character}(x, pdb = pdb_default(), ...)
 
 \method{get_data}{pdb_data_info}(x, pdb = pdb_default(), ...)
+
+\method{get_data}{list}(x, info, ...)
+
+pdb_data(x, ...)
 }
 \arguments{
 \item{x}{an object to access data from.}

@@ -5,6 +5,7 @@
 \alias{write_json_to_path}
 \alias{write_txt_to_path}
 \alias{write_stan_to_path}
+\alias{write_model_code_to_path}
 \title{Write objects to posteriordb}
 \usage{
 write_to_path(
@@ -45,6 +46,17 @@ write_stan_to_path(
   path,
   pdb,
   type,
+  name = NULL,
+  zip = FALSE,
+  info = TRUE,
+  overwrite = FALSE
+)
+
+write_model_code_to_path(
+  x,
+  path,
+  pdb,
+  framework,
   name = NULL,
   zip = FALSE,
   info = TRUE,
