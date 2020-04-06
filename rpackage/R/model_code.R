@@ -41,11 +41,7 @@ model_code <- function(x, framework, ...) {
 #' @rdname model_code_file_path
 #' @export
 model_code.pdb_posterior <- function(x, framework, ...) {
-  scfp <- model_code_file_path(x, framework)
-  out <- paste0(readLines(scfp), collapse = "\n")
-  class(out) <- "pdb_model_code"
-  assert_model_code(out)
-  out
+  model_code(x$model_name, framework, pdb = x$pdb, ...)
 }
 
 #' @rdname model_code_file_path
@@ -54,9 +50,9 @@ model_code.character <- function(x, framework, pdb = pdb_default(), ...) {
   checkmate::assert_string(x)
   scfp <- model_code_file_path(x, framework, pdb, ...)
   out <- paste0(readLines(scfp), collapse = "\n")
-  class(out) <- "pdb_model_code"
+  class(out) <- c("pdb_model_code", "character")
   framework(out) <- framework
-  info(out) <- model_info(x)
+  info(out) <- model_info(x, pdb = pdb)
   assert_model_code(out)
   out
 }
@@ -150,4 +146,4 @@ framework.pdb_model_code <- function(x){
   x
 }
 
-supported_frameworks <- function() c("stan")
+supported_frameworks <- function() c("stan", "pymc3", "tfp", "pyro", "jags")

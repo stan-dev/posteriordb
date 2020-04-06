@@ -12,11 +12,7 @@ get_data <- function(x, ...) {
 #' @rdname get_data
 #' @export
 get_data.pdb_posterior <- function(x, ...) {
-  sdfp <- data_file_path(x)
-  dat <- jsonlite::read_json(sdfp, simplifyVector = TRUE)
-  info(dat) <- data_info(x, pdb)
-  assert_data(dat)
-  dat
+  get_data(x$data_name, pdb = x$pdb, ...)
 }
 
 #' @rdname get_data
@@ -25,6 +21,7 @@ get_data.character <- function(x, pdb = pdb_default(), ...) {
   checkmate::assert_string(x)
   sdfp <- data_file_path(x, pdb = pdb)
   dat <- jsonlite::read_json(sdfp, simplifyVector = TRUE)
+  class(dat) <- c("pdb_data", "list")
   info(dat) <- data_info(x, pdb)
   assert_data(dat)
   dat
@@ -99,6 +96,14 @@ stan_data <- function(x) {
 #' @keywords internal
 assert_data <- function(x){
   checkmate::assert_list(x)
+  checkmate::assert_class(x, "pdb_data")
   checkmate::assert_named(x, type = "unique")
   checkmate::assert_class(info(x), "pdb_data_info")
+}
+
+#' @export
+print.pdb_data <- function(x, ...) {
+  attr(x, "info") <- NULL
+  x <- unclass(x)
+  NextMethod("print")
 }
