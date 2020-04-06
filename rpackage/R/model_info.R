@@ -11,6 +11,10 @@ model_info <- function(x, ...) {
 
 #' @rdname model_info
 #' @export
+pdb_model_info <- model_info
+
+#' @rdname model_info
+#' @export
 model_info.pdb_posterior <- function(x, ...) {
   x$model_info
 }
@@ -20,6 +24,14 @@ model_info.pdb_posterior <- function(x, ...) {
 model_info.character <- function(x, pdb = pdb_default(), ...) {
   checkmate::assert_string(x)
   read_model_info(x, pdb)
+}
+
+#' @rdname model_info
+#' @export
+model_info.list <- function(x, pdb = NULL, ...) {
+  class(x) <- "pdb_model_info"
+  assert_model_info(x)
+  x
 }
 
 # read model info from the data base

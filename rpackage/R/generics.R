@@ -6,3 +6,9 @@
 info <- function(x) {
   attr(x, "info")
 }
+
+#' @rdname info
+`info<-` <- function(x, value){
+  attr(x, "info") <- value
+  x
+}

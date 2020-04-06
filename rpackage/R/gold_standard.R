@@ -151,8 +151,7 @@ reference_posterior_draws.pdb_reference_posterior_info <- function(x, pdb = pdb_
 assert_reference_posterior_draws <- function(x){
   checkmate::assert_class(x, c("pdb_reference_posterior_draws", "draws_list"))
 
-  checkmate::assert_string(attr(x, "name"))
-  checkmate::assert_class(attr(x, "info"), c("pdb_reference_posterior_info"))
+  checkmate::assert_class(info(x), c("pdb_reference_posterior_info"))
 
   # Assert named chains has the same parameter names
   par_names <- lapply(x, names)

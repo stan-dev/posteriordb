@@ -14,6 +14,7 @@ get_data <- function(x, ...) {
 get_data.pdb_posterior <- function(x, ...) {
   sdfp <- data_file_path(x)
   dat <- jsonlite::read_json(sdfp, simplifyVector = TRUE)
+  info(dat) <- data_info(x, pdb)
   assert_data(dat)
   dat
 }
@@ -24,6 +25,7 @@ get_data.character <- function(x, pdb = pdb_default(), ...) {
   checkmate::assert_string(x)
   sdfp <- data_file_path(x, pdb = pdb)
   dat <- jsonlite::read_json(sdfp, simplifyVector = TRUE)
+  info(dat) <- data_info(x, pdb)
   assert_data(dat)
   dat
 }
@@ -33,6 +35,20 @@ get_data.character <- function(x, pdb = pdb_default(), ...) {
 get_data.pdb_data_info <- function(x, pdb = pdb_default(), ...){
   get_data(x$name, pdb)
 }
+
+#' @rdname get_data
+#' @export
+get_data.list <- function(x, info, ...){
+  checkmate::assert_class(info, "pdb_data_info")
+  class(x) <- c("pdb_data", "list")
+  info(x) <- info
+  assert_data(x)
+  x
+}
+
+#' @rdname get_data
+#' @export
+pdb_data <- get_data
 
 #' Extract data for posterior
 #'
@@ -84,4 +100,5 @@ stan_data <- function(x) {
 assert_data <- function(x){
   checkmate::assert_list(x)
   checkmate::assert_named(x, type = "unique")
+  checkmate::assert_class(info(x), "pdb_data_info")
 }

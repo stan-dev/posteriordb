@@ -44,6 +44,7 @@ model_code.pdb_posterior <- function(x, framework, ...) {
   scfp <- model_code_file_path(x, framework)
   out <- paste0(readLines(scfp), collapse = "\n")
   class(out) <- "pdb_model_code"
+  assert_model_code(out)
   out
 }
 
@@ -54,16 +55,27 @@ model_code.character <- function(x, framework, pdb = pdb_default(), ...) {
   scfp <- model_code_file_path(x, framework, pdb, ...)
   out <- paste0(readLines(scfp), collapse = "\n")
   class(out) <- "pdb_model_code"
+  framework(out) <- framework
+  info(out) <- model_info(x)
+  assert_model_code(out)
   out
 }
 
 #' @rdname model_code_file_path
 #' @export
 model_code.pdb_model_info <- function(x, framework, pdb = pdb_default(), ...) {
-  scfp <- model_code_file_path(x$name, framework, pdb, ...)
-  out <- paste0(readLines(scfp), collapse = "\n")
-  class(out) <- "pdb_model_code"
-  out
+  model_code(x$name, framework, pdb, ...)
+}
+
+#' @rdname model_code_file_path
+#' @export
+model_code.stanmodel <- function(x, info, ...){
+  mc <- x@model_code
+  class(mc) <- "pdb_model_code"
+  framework(mc) <- "stan"
+  info(mc) <- info
+  assert_model_code(mc)
+  mc
 }
 
 #' @rdname model_code_file_path
@@ -92,3 +104,50 @@ stan_code <- function(x, ...) {
 #' @rdname model_code_file_path
 #' @export
 pdb_stan_code <- stan_code
+
+
+assert_model_code <- function(x){
+  checkmate::assert_class(x, "pdb_model_code")
+  checkmate::assert_string(x)
+  checkmate::assert_choice(framework(x), choices = supported_frameworks())
+  checkmate::assert_class(info(x), "pdb_model_info")
+}
+
+#' Identify the framework for a given [model_code]
+#'
+#' @param x a [pdb_model_code] object
+#'
+#' @export
+framework <- function(x){
+  UseMethod("framework")
+}
+
+#' @rdname framework
+#' @export
+framework.pdb_model_code <- function(x){
+  attr(x, which = "framework")
+}
+
+#' @rdname framework
+#' @export
+`framework<-` <- function(x, value){
+  UseMethod("framework<-")
+}
+
+#' @rdname framework
+#' @export
+`framework<-.character` <- function(x, value){
+  checkmate::assert_choice(value, supported_frameworks())
+  attr(x, "framework") <- value
+  x
+}
+
+#' @rdname framework
+#' @export
+`framework<-.pdb_model_code` <- function(x, value){
+  checkmate::assert_choice(value, supported_frameworks())
+  x <- `framework<-.character`(x, value)
+  x
+}
+
+supported_frameworks <- function() c("stan")

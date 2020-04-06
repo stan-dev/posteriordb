@@ -419,10 +419,10 @@ read_info_json.pdb_posterior <- function(x, path, pdb = NULL, ...){
 #' @param pdb a local posteriordb object to write to
 #' @keywords internal
 write_to_path <- function(x, path, type, pdb, name = NULL, zip = FALSE, info = TRUE, overwrite = FALSE){
-  checkmate::assert_subset(class(x)[1], choices = c("character", "pdb_posterior", "pdb_model_info", "pdb_data_info", "pdb_data", "pdb_reference_posterior_draws", "pdb_reference_posterior_info"))
+  checkmate::assert_subset(class(x)[1], choices = c("character", "pdb_posterior", "pdb_model_info", "pdb_data_info", "pdb_data", "pdb_model_code", "pdb_reference_posterior_draws", "pdb_reference_posterior_info"))
   checkmate::assert_string(path)
   checkmate::assert_class(pdb, "pdb_local")
-  checkmate::assert_choice(type, c("json", "txt", "stan"))
+  checkmate::assert_choice(type, c("json", "txt", supported_frameworks()))
   checkmate::assert_flag(zip)
   checkmate::assert_flag(info)
 
@@ -484,4 +484,10 @@ write_txt_to_path <- function(x, path, pdb, type, name = NULL, zip = FALSE, info
 #' @keywords internal
 write_stan_to_path <- function(x, path, pdb, type, name = NULL, zip = FALSE, info = TRUE, overwrite = FALSE){
   write_to_path(x, path, pdb, type = "stan", name, zip, info, overwrite)
+}
+
+#' @rdname write_to_path
+#' @keywords internal
+write_model_code_to_path <- function(x, path, pdb, framework, name = NULL, zip = FALSE, info = TRUE, overwrite = FALSE){
+  write_to_path(x, paste0(path, framework), pdb, type = framework, name, zip, info, overwrite)
 }

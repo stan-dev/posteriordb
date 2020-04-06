@@ -32,9 +32,10 @@ write_pdb.pdb_reference_posterior_draws <- function(x, pdb, overwrite = FALSE, .
 
 #' @rdname write_pdb
 #' @export
-write_pdb.pdb_data <- function(x, pdb, overwrite = FALSE, name, ...){
+write_pdb.pdb_data <- function(x, pdb, overwrite = FALSE, ...){
   assert_data(x)
-  write_json_to_path(x, "data/data", pdb, name = name, zip = TRUE, info = FALSE, overwrite = overwrite)
+  write_pdb(info(x), pdb = pdb, overwrite = overwrite)
+  write_json_to_path(x, "data/data", pdb, name = info(x)$name, zip = TRUE, info = FALSE, overwrite = overwrite)
 }
 
 #' @rdname write_pdb
@@ -49,6 +50,14 @@ write_pdb.pdb_data_info <- function(x, pdb,  overwrite = FALSE, ...){
 #' @export
 write_pdb.stanmodel <- function(x, pdb, overwrite = FALSE, ...){
   write_stan_to_path(x = x@model_code, "models/stan", pdb, name = x@model_name, zip = FALSE, info = FALSE, overwrite = overwrite)
+}
+
+#' @rdname write_pdb
+#' @export
+write_pdb.pdb_model_code <- function(x, pdb,  overwrite = FALSE, ...){
+  assert_model_code(x)
+  write_pdb(info(x), pdb, overwrite = overwrite)
+  write_model_code_to_path(x, path = "models/", pdb = pdb, name = info(x)$name, framework = framework(x), zip = FALSE, info = FALSE, overwrite = overwrite)
 }
 
 #' @rdname write_pdb
