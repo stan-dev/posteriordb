@@ -40,6 +40,14 @@ reference_posterior_info.character <- function(x, type, pdb = pdb_default(), ...
   reference_posterior_info(x = posterior(x, pdb), type = type)
 }
 
+#' @rdname reference_posterior_info
+#' @export
+reference_posterior_info.list <- function(x, type = NULL, pdb = NULL, ...) {
+  class(x) <- "pdb_reference_posterior_info"
+  assert_reference_posterior_info(x)
+  x
+}
+
 
 #' Read in reference_posterior_info json object
 #' @param x a data, model or posterior name
@@ -158,7 +166,7 @@ assert_reference_posterior_draws <- function(x){
 #' @keywords internal
 assert_reference_posterior_info <- function(x){
   checkmate::assert_class(x, "pdb_reference_posterior_info")
-  checkmate::assert_names(names(x), identical.to = c("name", "inference", "diagnostics", "checks", "comments", "added_by", "added_date", "versions"))
+  checkmate::assert_names(names(x), identical.to = c("name", "inference", "diagnostics", "checks_made", "comments", "added_by", "added_date", "versions"))
   checkmate::assert_string(x$name)
 
   checkmate::assert_true(x$inference$method %in% c("stan_sampling", "analytical"))
@@ -166,15 +174,19 @@ assert_reference_posterior_info <- function(x){
 
   if(!is.null(x$diagnostics)){
     checkmate::assert_names(names(x$diagnostics),
-                            subset.of = c("ndraws",
-                                          "effective_sample_size_bulk",
-                                          "effective_sample_size_tail",
-                                          "r_hat",
-                                          "divergent_transitions",
-                                          "expected_fraction_of_missing_information"))
+                            must.include = c("ndraws"))
+    if(x$inference$method == "stan_sampling"){
+      checkmate::assert_names(names(x$diagnostics),
+                              must.include = c("nchains",
+                                               "effective_sample_size_bulk",
+                                               "effective_sample_size_tail",
+                                               "r_hat",
+                                               "divergent_transitions",
+                                               "expected_fraction_of_missing_information"))
+    }
   }
-  if(!is.null(x$checks)){
-    checkmate::assert_named(x$checks)
+  if(!is.null(x$checks_made)){
+    checkmate::assert_named(x$checks_made)
   }
 
   checkmate::assert_string(x$added_by)

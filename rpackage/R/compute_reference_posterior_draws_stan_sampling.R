@@ -71,19 +71,24 @@ compute_stan_sampling_diagnostics <- function(x, keep_dimensions ){
 
   keep_idx <- pds$variable %in% keep_dimensions
 
+
+  # diagnostic_information
+  d$diagnostic_information <- list(names = pds$variable[keep_idx])
+
   # ndraws
   d$ndraws <- posterior::ndraws(pd)
 
+  # nchains
+  d$nchains <- posterior::nchains(pd)
+
   # ESS bulk
   d$effective_sample_size_bulk <- pds$ess_bulk[keep_idx]
-  names(d$effective_sample_size_bulk) <- pds$variable[keep_idx]
+
   # ESS tail
   d$effective_sample_size_tail <- pds$ess_tail[keep_idx]
-  names(d$effective_sample_size_tail) <- pds$variable[keep_idx]
 
   # r_hat
   d$r_hat <- pds$rhat[keep_idx]
-  names(d$r_hat) <- pds$variable[keep_idx]
 
   # divergent_transitions
   hmc_params <- get_sampler_params(x, inc_warmup = FALSE)

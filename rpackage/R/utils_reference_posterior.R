@@ -36,25 +36,32 @@ check_reference_posterior_draws.pdb_reference_posterior_draws <- function(x, ...
   checkmate::assert_true(rpi$diagnostics$ndraws == 10000)
   tst$ndraws_is_10k <- TRUE
 
-  # Assert the effective sample size is correct/within bounds
-  ess_bnds <- ess_bounds(x)
-  checkmate::assert_numeric(rpi$diagnostics$effective_sample_size_bulk, lower = ess_bnds$ess_bulk[2], upper = ess_bnds$ess_bulk[1])
-  checkmate::assert_numeric(rpi$diagnostics$effective_sample_size_tail, lower = ess_bnds$ess_tail[2], upper = ess_bnds$ess_tail[1])
-  tst$ess_within_bounds <- TRUE
+  if(rpi$inference$method == "stan_sampling"){
+    # Assert that at least 4 chains has been used
+    checkmate::assert_true(rpi$diagnostics$nchains >= 4)
+    tst$nchains_is_gte_4 <- TRUE
 
-  # Assert all Rhat < 1.01
-  checkmate::assert_numeric(rpi$diagnostics$r_hat, upper = 1.01)
-  tst$r_hat_below_1_01 <- TRUE
+    # Assert the effective sample size is correct/within bounds
+    ess_bnds <- ess_bounds(x)
+    checkmate::assert_numeric(rpi$diagnostics$effective_sample_size_bulk, lower = ess_bnds$ess_bulk[2], upper = ess_bnds$ess_bulk[1])
+    checkmate::assert_numeric(rpi$diagnostics$effective_sample_size_tail, lower = ess_bnds$ess_tail[2], upper = ess_bnds$ess_tail[1])
+    tst$ess_within_bounds <- TRUE
 
-  # Assert that the EFMI is larger than 0.2
-  checkmate::assert_numeric(rpi$diagnostics$expected_fraction_of_missing_information, lower = 0.2)
-  tst$efmi_above_0_2 <- TRUE
+    # Assert all Rhat < 1.01
+    checkmate::assert_numeric(rpi$diagnostics$r_hat, upper = 1.01)
+    tst$r_hat_below_1_01 <- TRUE
+
+    # Assert that the EFMI is larger than 0.2
+    checkmate::assert_numeric(rpi$diagnostics$expected_fraction_of_missing_information, lower = 0.2)
+    tst$efmi_above_0_2 <- TRUE
+
+  }
 
   # Add checks made to reference posterior
   rpi$checks_made <- tst
 
   # Add the rp information
-  assert_reference_posterior_info(rpi)
+  assert_reference_posterior_info(x = rpi)
   attr(x, "info") <- rpi
 
   # Check the reference posterior

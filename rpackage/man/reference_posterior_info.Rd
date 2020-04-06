@@ -6,6 +6,7 @@
 \alias{reference_posterior_expectations_info}
 \alias{reference_posterior_info.pdb_posterior}
 \alias{reference_posterior_info.character}
+\alias{reference_posterior_info.list}
 \title{Reference posterior information}
 \usage{
 reference_posterior_info(x, type, pdb = pdb_default(), ...)
@@ -17,6 +18,8 @@ reference_posterior_expectations_info(x, pdb = pdb_default(), ...)
 \method{reference_posterior_info}{pdb_posterior}(x, type, ...)
 
 \method{reference_posterior_info}{character}(x, type, pdb = pdb_default(), ...)
+
+\method{reference_posterior_info}{list}(x, type = NULL, pdb = NULL, ...)
 }
 \arguments{
 \item{x}{a \code{posterior} object to access the reference posterior for.}
