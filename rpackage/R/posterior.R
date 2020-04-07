@@ -35,7 +35,7 @@ pdb_posterior <- posterior
 
 #' @export
 print.pdb_posterior <- function(x, ...) {
-  cat0("Posterior\n\n")
+  cat0("Posterior (", x$name, ")\n\n")
   print(x$data_info)
   cat0("\n")
   print(x$model_info)
