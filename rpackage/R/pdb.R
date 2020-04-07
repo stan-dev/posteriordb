@@ -371,8 +371,18 @@ pdb_cache_dir.pdb_local <- function(pdb, path, ...){
 #' @noRd
 #' @keywords internal
 read_info_json <- function(x, path, pdb = NULL, ...){
-  checkmate::assert_choice(path, c("posteriors", "models/info", "data/info", "reference_posteriors/draws", "reference_posteriors/expectations"))
+  checkmate::assert_choice(path, supported_pdb_paths())
   UseMethod("read_info_json")
+}
+
+supported_pdb_paths <- function(){
+  c("posteriors",
+    "models/info",
+    "data/info",
+    "reference_posteriors/draws/draws",
+    "reference_posteriors/draws/info",
+    "reference_posteriors/expectations/expectations",
+    "reference_posteriors/expectations/info")
 }
 
 #' @rdname read_info_json

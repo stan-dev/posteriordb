@@ -18,9 +18,17 @@ reference_posterior_info <- function(x, type, pdb = pdb_default(), ...) {
 
 #' @rdname reference_posterior_info
 #' @export
+pdb_reference_posterior_info <- reference_posterior_info
+
+#' @rdname reference_posterior_info
+#' @export
 reference_posterior_draws_info <- function(x, pdb = pdb_default(), ...) {
   reference_posterior_info(x, type = "draws", pdb = pdb)
 }
+
+#' @rdname reference_posterior_info
+#' @export
+pdb_reference_posterior_draws_info <- reference_posterior_draws_info
 
 #' @rdname reference_posterior_info
 #' @export
@@ -57,7 +65,7 @@ reference_posterior_info.list <- function(x, type = NULL, pdb = NULL, ...) {
 #' @keywords internal
 read_reference_posterior_info <- function(x, type, pdb = NULL, ...) {
   if(is.null(x)) stop("There is currently no reference posterior for this posterior.")
-  reference_posterior_info <- read_info_json(x, path = paste0("reference_posteriors/", type), pdb = pdb, ...)
+  reference_posterior_info <- read_info_json(x, path = paste0("reference_posteriors/", type, "/info"), pdb = pdb, ...)
   class(reference_posterior_info) <- "pdb_reference_posterior_info"
   assert_reference_posterior_info(reference_posterior_info)
   reference_posterior_info
@@ -76,10 +84,10 @@ read_reference_posterior_draws <- function(x, pdb, ...) {
   if(is.null(x)) stop("There is currently no reference posterior for this posterior.", call. = FALSE)
   checkmate::assert_class(pdb, classes = "pdb")
 
-  rpfp <- pdb_cached_local_file_path(pdb, file.path("reference_posteriors", "draws", paste0(x, ".json")), unzip = TRUE)
+  rpfp <- pdb_cached_local_file_path(pdb, file.path("reference_posteriors", "draws", "draws", paste0(x, ".json")), unzip = TRUE)
   rpd <- jsonlite::read_json(rpfp, simplifyVector = TRUE)
-  rpd$draws <- posterior::as_draws(rpd$draws)
-  rpd$info <- reference_posterior_draws_info(x, pdb)
+  rpd <- posterior::as_draws_list(rpd)
+  info(rpd) <- reference_posterior_draws_info(x, pdb)
   class(rpd) <- c("pdb_reference_posterior_draws", class(rpd))
   assert_reference_posterior_draws(rpd)
   rpd
@@ -217,14 +225,13 @@ subset.pdb_reference_posterior_draws <- function(x, variable, ...){
 
 #' @export
 print.pdb_reference_posterior_draws <- function(x, ...) {
-  cat0("Reference Posterior: ", attr(x, "name"), "\n")
-  cat0("  Total draws: ", posterior::ndraws(x))
-  cat0("  Dimensions: ", posterior::nvariables(x))
+  cat0("Reference Posterior: ", info(x)$name, "\n")
+  NextMethod("print")
 }
 
 #' @export
 summary.pdb_reference_posterior_draws <- function(object, ...) {
-  cat0("Reference Posterior: ", attr(object, "name"), "\n")
+  cat0("Reference Posterior: ", info(object)$name, "\n")
   print(posterior::summarise_draws(object))
 }
 
