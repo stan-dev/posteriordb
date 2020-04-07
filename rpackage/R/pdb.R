@@ -108,8 +108,16 @@ pn <- function(pdb, ...) {
 }
 
 pn.pdb_local <- function(pdb, ...) {
-  pns <- dir(file.path(pdb$pdb_local_endpoint, "posteriors"))
+  pns <- dir(pdb_file_path(pdb, "posteriors"))
   remove_file_extension(pns)
+}
+
+pdb_file_path <- function(pdb, ...){
+  UseMethod("pdb_file_path")
+}
+
+pdb_file_path.pdb_local <- function(pdb, ...){
+  file.path(pdb$pdb_local_endpoint, ...)
 }
 
 #' Get all existing model names from a posterior database
@@ -124,7 +132,7 @@ model_names <- function(pdb = pdb_default(), ...) {
 #' @rdname model_names
 #' @export
 model_names.pdb_local <- function(pdb = pdb_default(), ...) {
-  pns <- dir(file.path(pdb$pdb_local_endpoint, "models"),
+  pns <- dir(pdb_file_path(pdb, "models"),
              recursive = TRUE, full.names = FALSE)
   pns <- pns[grepl(pns, pattern = "\\.json$")]
   basename(remove_file_extension(pns))
@@ -143,7 +151,7 @@ data_names <- function(pdb = pdb_default(), ...) {
 #' @rdname data_names
 #' @export
 data_names.pdb_local <- function(pdb = pdb_default(), ...) {
-  pns <- dir(file.path(pdb$pdb_local_endpoint, "data"),
+  pns <- dir(pdb_file_path(pdb, "data"),
              recursive = TRUE, full.names = FALSE)
   pns <- pns[grepl(pns, pattern = "\\.json\\.zip$")]
   basename(remove_file_extension(pns))
@@ -248,7 +256,7 @@ pdb_cached_local_file_path <- function(pdb, path, unzip = FALSE){
   # Copy (and unzip) file to cache
   if(unzip){
     cp_zip <- paste0(cp, ".zip")
-    pdb_file_copy(pdb, path_zip, cp_zip, overwrite = TRUE)
+    pdb_file_copy(pdb, from = path_zip, to = cp_zip, overwrite = TRUE)
     utils::unzip(zipfile = cp_zip, exdir = dirname(cp_zip))
   } else {
     pdb_file_copy(pdb, from = path, to = cp, overwrite = TRUE)
@@ -312,7 +320,7 @@ pdb_file_copy <- function(pdb, from, to, overwrite = FALSE, ...){
 #' @rdname pdb_file_copy
 pdb_file_copy.pdb_local <- function(pdb, from, to, overwrite = FALSE, ...){
   pdb_assert_file_exist(pdb, from)
-  file.copy(from = file.path(pdb$pdb_local_endpoint, from), to = to, overwrite = overwrite, ...)
+  file.copy(from = pdb_file_path(pdb, from), to = to, overwrite = overwrite, ...)
 }
 
 #' Assert that a file exists
@@ -356,7 +364,7 @@ pdb_cache_dir <- function(pdb, path, ...){
 #' @rdname pdb_cache_dir
 #' @keywords internal
 pdb_cache_dir.pdb_local <- function(pdb, path, ...){
-  fns <- dir(file.path(pdb$pdb_local_endpoint, path), full.names = FALSE)
+  fns <- dir(pdb_file_path(pdb, path), full.names = FALSE)
   froms <- file.path(path, fns)
   tos <- pdb_cache_path(pdb = pdb, path = file.path(path, fns))
   for(i in seq_along(froms)){
