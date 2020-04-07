@@ -1,7 +1,6 @@
 context("test-write-pdb")
 
 test_that("write data", {
-  skip("Fix new reference draws")
 
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
   expect_silent(pdb_test <- pdb(posterior_db_path))
@@ -9,22 +8,29 @@ test_that("write data", {
   expect_silent(d <- get_data(po))
 
   # Test write data
-  expect_error(write_pdb(d, pdb_test, name = "test_data", overwrite = TRUE))
-  class(d) <- c("pdb_data", "list")
-  expect_silent(write_pdb(d, pdb_test, name = "test_data"))
-  expect_error(write_pdb(d, pdb_test, name = "test_data"))
-  expect_silent(write_pdb(d, pdb_test, name = "test_data", overwrite = TRUE))
+  di <- info(d); di$name <- "test_data"; info(d) <- di
+  expect_silent(write_pdb(d, pdb_test))
+  expect_error(write_pdb(d, pdb_test))
+  expect_silent(write_pdb(d, pdb_test, overwrite = TRUE))
 
   # Test write data info
-  di <- po$data_info
   di$name <- "test_data"
   di$title <- di$description <- "Test data"
   di$data_file <- "data/data/test_data.json"
 
-  expect_silent(write_pdb(di, pdb_test))
+  expect_silent(write_pdb(di, pdb_test, overwrite = TRUE))
   expect_error(write_pdb(di, pdb_test))
   expect_silent(write_pdb(di, pdb_test, overwrite = TRUE))
 
+  info(d) <- di
+  expect_silent(dt <- pdb_data("test_data", pdb_test))
+  expect_identical(d, dt)
+  expect_silent(dti <- pdb_data_info("test_data", pdb_test))
+
+  expect_silent(remove_pdb(x = dt, pdb = pdb_test))
+  pdb_clear_cache(pdb_test)
+  expect_error(pdb_data("test_data", pdb_test))
+  expect_error(pdb_data_info("test_data", pdb_test))
 })
 
 
