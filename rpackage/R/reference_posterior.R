@@ -112,7 +112,7 @@ reference_posterior_draws_file_path.pdb_posterior <- function(x, ...) {
 #' @export
 reference_posterior_draws_file_path.character <- function(x, pdb = pdb_default(), ...) {
   checkmate::assert_string(x)
-  fp <- paste0("reference_posteriors/draws/", x, ".json")
+  fp <- paste0("reference_posteriors/draws/draws/", x, ".json")
   rpfp <- pdb_cached_local_file_path(pdb, path = fp, unzip = TRUE)
   checkmate::assert_file_exists(rpfp)
   rpfp
