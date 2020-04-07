@@ -138,6 +138,10 @@ reference_posterior_draws <- function(x, ...){
 
 #' @rdname reference_posterior_draws
 #' @export
+pdb_reference_posterior_draws <- reference_posterior_draws
+
+#' @rdname reference_posterior_draws
+#' @export
 reference_posterior_draws.character <- function(x, pdb = pdb_default(), ...){
   reference_posterior_draws(posterior(x, pdb = pdb))
 }

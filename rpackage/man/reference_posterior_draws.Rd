@@ -4,6 +4,7 @@
 \name{reference_posterior_draws.stanfit}
 \alias{reference_posterior_draws.stanfit}
 \alias{reference_posterior_draws}
+\alias{pdb_reference_posterior_draws}
 \alias{reference_posterior_draws.character}
 \alias{reference_posterior_draws.pdb_posterior}
 \alias{reference_posterior_draws.pdb_reference_posterior_info}
@@ -14,6 +15,8 @@
 \method{reference_posterior_draws}{stanfit}(x, info, pdb = pdb_default(), ...)
 
 reference_posterior_draws(x, ...)
+
+pdb_reference_posterior_draws(x, ...)
 
 \method{reference_posterior_draws}{character}(x, pdb = pdb_default(), ...)
 
