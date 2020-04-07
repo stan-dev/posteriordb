@@ -259,3 +259,5 @@ print.pdb_reference_posterior_info <- function(x, ...) {
 reference_posterior_expectations <- function(x, ...){
   stop("not implemented!")
 }
+
+supported_reference_posterior_types <- function() c("draws", "expectations")

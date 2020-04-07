@@ -16,7 +16,7 @@ write_pdb <- function(x, pdb, overwrite = FALSE, ...){
 #' @rdname write_pdb
 #' @export
 write_pdb.pdb_reference_posterior_info <- function(x, pdb, overwrite = FALSE, type, ...){
-  checkmate::assert_choice(type, choices = c("draws", "expectations"))
+  checkmate::assert_choice(type, choices = supported_reference_posterior_types())
   assert_reference_posterior_info(x)
   class(x) <- c(class(x), "list")
   write_json_to_path(x, paste("reference_posteriors", type, "info", sep = "/"), pdb, zip = FALSE, info = TRUE, overwrite = overwrite)

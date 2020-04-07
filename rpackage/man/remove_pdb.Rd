@@ -9,7 +9,7 @@
 \alias{remove_pdb.pdb_model_info}
 \alias{remove_pdb.pdb_posterior}
 \alias{remove_pdb.pdb_reference_posterior_draws}
-\alias{remove_pdb.pdb_reference_posterior_draws_info}
+\alias{remove_pdb.pdb_reference_posterior_info}
 \title{Remove objects from local pdb}
 \usage{
 remove_pdb(x, pdb, ...)
@@ -28,7 +28,7 @@ remove_pdb(x, pdb, ...)
 
 \method{remove_pdb}{pdb_reference_posterior_draws}(x, pdb, ...)
 
-\method{remove_pdb}{pdb_reference_posterior_draws_info}(x, pdb, ...)
+\method{remove_pdb}{pdb_reference_posterior_info}(x, pdb, type, ...)
 }
 \arguments{
 \item{x}{an object to remove to the pdb.}

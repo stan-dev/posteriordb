@@ -61,8 +61,9 @@ remove_pdb.pdb_reference_posterior_draws <- function(x, pdb, ...){
 }
 
 #' @rdname remove_pdb
-remove_pdb.pdb_reference_posterior_draws_info <- function(x, pdb, ...){
-  fn <- paste0(info(x)$name, ".info.json")
-  fp <- pdb_file_path(pdb, "reference_posteriors", "draws", "info", fn)
+remove_pdb.pdb_reference_posterior_info <- function(x, pdb, type, ...){
+  checkmate::assert_choice(type, choices = supported_reference_posterior_types())
+  fn <- paste0(x$name, ".info.json")
+  fp <- pdb_file_path(pdb, "reference_posteriors", type, "info", fn)
   remove_pdb(fp, pdb)
 }
