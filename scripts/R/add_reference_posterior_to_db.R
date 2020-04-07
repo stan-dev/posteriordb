@@ -31,8 +31,6 @@ rpi <- reference_posterior_info(rp_info)
 pdb <- pdb_local()
 rfd <- posteriordb:::compute_reference_posterior_draws_stan_sampling(rpi = rpi, pdb)
 
-str(rfd)
-
 # Check the reference posterior for the reference posterior definition
 rpc <- check_reference_posterior_draws(x = rfd)
 
