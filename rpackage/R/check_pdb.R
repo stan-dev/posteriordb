@@ -26,9 +26,13 @@ check_pdb <- function(pdb, posterior_idx = NULL) {
   for (i in seq_along(pl)) {
     if(is.null(pl[[i]]$reference_posterior_name)) next
     reference_posterior_draws(x = pl[[i]])
-    reference_posterior_expectations(x = pl[[i]])
+    #reference_posterior_expectations(x = pl[[i]])
   }
-  message("4. All reference_posteriors can be read.")
+  message("4. All reference_posteriors_draws can be read.")
+
+  # TODO
+  # message("5. All data, models and reference posteriors have posterior.")
+
   message("Posterior database is ok.\n")
   invisible(TRUE)
 }
