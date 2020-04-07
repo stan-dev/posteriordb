@@ -6,7 +6,7 @@
   "urls": [],
   "model_name": "gp_pois_regr",
   "data_name": "gp_pois_regr",
-  "reference_posterior_name": "gp_pois_regr-gp_pois_regr",
+  "reference_posterior_name": null,
   "references": [],
   "dimensions": {
     "rho": 1,

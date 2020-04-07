@@ -4,7 +4,7 @@
   "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.3",
   "model_name": "kidscore_momhs",
   "data_name": "kidiq",
-  "reference_posterior_name": "kiddiq-kidscore_momhs",
+  "reference_posterior_name": null,
   "references": "gelman2006data",
   "dimensions": {
     "beta": 2,
