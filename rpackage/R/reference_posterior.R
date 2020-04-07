@@ -85,8 +85,10 @@ read_reference_posterior_draws <- function(x, pdb, ...) {
   checkmate::assert_class(pdb, classes = "pdb")
 
   rpfp <- pdb_cached_local_file_path(pdb, file.path("reference_posteriors", "draws", "draws", paste0(x, ".json")), unzip = TRUE)
-  rpd <- jsonlite::read_json(rpfp, simplifyVector = TRUE)
+  rpd <- jsonlite::read_json(rpfp, simplifyVector = FALSE)
+  rpd <- lapply(rpd, FUN = function(X) lapply(X, as.numeric))
   rpd <- posterior::as_draws_list(rpd)
+  names(rpd) <- NULL
   info(rpd) <- reference_posterior_draws_info(x, pdb)
   class(rpd) <- c("pdb_reference_posterior_draws", class(rpd))
   assert_reference_posterior_draws(rpd)
@@ -170,6 +172,9 @@ assert_reference_posterior_draws <- function(x){
   for(i in seq_along(par_names)){
     checkmate::assert_true(identical(par_names[[1]],par_names[[i]]))
   }
+
+  # Assert chains don't have names
+  checkmate::assert_null(names(x))
 }
 
 #' Assert a [pdb_reference_posterior_info] object

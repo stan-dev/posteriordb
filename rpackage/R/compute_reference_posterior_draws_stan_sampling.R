@@ -44,7 +44,7 @@ reference_posterior_draws.stanfit <- function(x, info, pdb = pdb_default(), ...)
   for(i in seq_along(draws)){
     draws[[i]]$lp__ <- NULL
   }
-  attr(draws, "name") <- x@model_name
+
   attr(draws, "info") <- info
   class(draws) <- c("pdb_reference_posterior_draws", class(draws))
   assert_reference_posterior_draws(draws)
