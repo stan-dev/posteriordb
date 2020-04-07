@@ -2,7 +2,9 @@
 % Please edit documentation in R/gold_standard.R
 \name{reference_posterior_info}
 \alias{reference_posterior_info}
+\alias{pdb_reference_posterior_info}
 \alias{reference_posterior_draws_info}
+\alias{pdb_reference_posterior_draws_info}
 \alias{reference_posterior_expectations_info}
 \alias{reference_posterior_info.pdb_posterior}
 \alias{reference_posterior_info.character}
@@ -11,7 +13,11 @@
 \usage{
 reference_posterior_info(x, type, pdb = pdb_default(), ...)
 
+pdb_reference_posterior_info(x, type, pdb = pdb_default(), ...)
+
 reference_posterior_draws_info(x, pdb = pdb_default(), ...)
+
+pdb_reference_posterior_draws_info(x, pdb = pdb_default(), ...)
 
 reference_posterior_expectations_info(x, pdb = pdb_default(), ...)
 

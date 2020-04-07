@@ -8,7 +8,7 @@
 compute_reference_posterior_draws_stan_sampling <- function(rpi, pdb){
   checkmate::assert_class(pdb, "pdb_local")
   assert_reference_posterior_info(x = rpi)
-  po <- posterior(name = rpi$name, pdb = pdb)
+  po <- posterior(rpi$name, pdb = pdb)
   pdn <- posterior_dimension_names(x = po$dimensions)
 
   stan_args <- list(model_name = rpi$name,
