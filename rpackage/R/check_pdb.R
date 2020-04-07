@@ -10,7 +10,7 @@ check_pdb <- function(pdb, posterior_idx = NULL) {
   if(!is.null(posterior_idx)) pns <- pns[posterior_idx]
   pl <- list()
   for (i in seq_along(pns)) {
-    pl[[i]] <- posterior(name = pns[i], pdb = pdb)
+    pl[[i]] <- posterior(pns[i], pdb = pdb)
   }
   message("1. All posteriors can be read.")
   for (i in seq_along(pl)) {
