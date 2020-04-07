@@ -33,6 +33,10 @@ check_pdb <- function(pdb, posterior_idx = NULL) {
   # TODO
   # message("5. All data, models and reference posteriors have posterior.")
 
+  # TODO
+  # message("6. Check that all file names are having the same names.")
+
+
   message("Posterior database is ok.\n")
   invisible(TRUE)
 }
