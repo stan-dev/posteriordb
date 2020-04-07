@@ -1,15 +1,33 @@
 context("test-info")
 
-test_that("Test that data, code and reference_posteriors return an info object", {
+test_that("info() should extract the object information", {
 
-  # info() should extract the information attribute info
-  skip("Implement this")
+  posterior_db_path <- posteriordb:::get_test_pdb_dir()
+  expect_silent(pdb_test <- pdb(posterior_db_path))
+  expect_silent(po <- posterior("eight_schools-eight_schools_noncentered", pdb = pdb_test))
 
-  skip("Add that data is returned as a pdb_data object")
+  # Data
+  expect_silent(d <- pdb_data(po))
+  expect_silent(di1 <- pdb_data_info(po))
+  expect_silent(di2 <- info(d))
+  expect_identical(di1, di2)
+  expect_s3_class(d, "pdb_data")
+  expect_s3_class(d, "list")
 
-  skip("Add info attributes to all pdb_data objects, model_code objects and pdb_reference_posterior objects and posterior object. etc")
-  skip("Add name attributes to all pdb_data objects, model_code objects and pdb_reference_posterior objects and posterior object. etc - check that this is the case")
+  # Models
+  expect_silent(m <- pdb_model_code(po, "stan"))
+  expect_silent(mi1 <- pdb_model_info(po))
+  expect_silent(mi2 <- info(m))
+  expect_identical(mi1, mi2)
+  expect_s3_class(m, "pdb_model_code")
+  expect_s3_class(m, "character")
 
-
+  # Reference posterior draws
+  expect_silent(rp <- pdb_reference_posterior_draws(po, "stan"))
+  expect_silent(rpi1 <- pdb_reference_posterior_draws_info(po))
+  expect_silent(rpi2 <- info(rp))
+  expect_identical(rpi1, rpi2)
+  expect_s3_class(rp, "pdb_reference_posterior_draws")
+  expect_s3_class(rp, "draws_list")
 
 })
