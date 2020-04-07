@@ -1,0 +1,18 @@
+{
+  "name": "election88_full",
+  "keywords": ["ARM", "Ch. 14", "stan_examples"],
+  "title": "Generalized Linear Mixed Effects Model",
+  "prior": {
+    "keywords": "stan_recommended_35dbfe6"
+  },
+  "description": "y ~ logistic(black + female + v_prev_full + (1 | age) + (1 | age_edu) \n+ (1 | state) + (1 | region_full))",
+  "urls": "https://raw.githubusercontent.com/stan-dev/example-models/master/ARM/Ch.14/election88_full.stan",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/election88_full.stan"
+    }
+  },
+  "references": "gelman2006data",
+  "added_date": "2020-03-28",
+  "added_by": "Oliver Järnefelt"
+}

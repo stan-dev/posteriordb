@@ -1,0 +1,18 @@
+{
+  "name": "pilots",
+  "keywords": ["ARM", "Ch. 14", "stan_examples"],
+  "title": "Linear Mixed Effects Model",
+  "prior": {
+    "keywords": "stan_recommended_35dbfe6"
+  },
+  "description": "y ~ 1 + (1 | group) + (1 | scenario))",
+  "urls": "https://raw.githubusercontent.com/stan-dev/example-models/master/ARM/Ch.14/pilots.stan",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/pilots.stan"
+    }
+  },
+  "references": "gelman2006data",
+  "added_date": "2020-03-28",
+  "added_by": "Oliver Järnefelt"
+}

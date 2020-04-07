@@ -1,0 +1,11 @@
+{
+  "name": "election88",
+  "keywords": ["ARM", "Ch. 14", "stan_examples"],
+  "title": "Data from seven CBS News polls conducted during the week\nbefore the 1988 presidential election",
+  "description": "- N: number of observations\n- n_age: number of age groups\n- n_edu: number of edu groups\n- n_age_edu: number of age-edu groups\n- n_state: number of states\n- n_region_full: number of regions\n- age: age category\n- age_edu: age-edu value\n- black: is black? 1: Yes, 0: No\n- edu: education level\n- female: is female? 1: Yes, 0: No\n- region_full: region number\n- state: state number\n- v_prev_full: preview values\n- y: vote outcome\n",
+  "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.14",
+  "data_file": "data/data/election88.json",
+  "references": "gelman2006data",
+  "added_date": "2020-03-28",
+  "added_by": "Oliver Järnefelt"
+}
