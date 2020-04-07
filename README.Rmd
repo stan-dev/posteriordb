@@ -52,53 +52,55 @@ head(pn)
 ```
 
 ```{r}
-po <- posterior("eight_schools-eight_schools_centered", pdb = pd)
+po <- pdb_posterior("eight_schools-eight_schools_centered", pdb = pd)
 po
 ```
 
 From the posterior we can easily access data and models as
 
 ```{r}
-sc <- stan_code(po)
+sc <- pdb_stan_code(x = po)
 sc
 ```
 
+We can get additional information about the model by using `info()`.
+
 ```{r}
-dat <- get_data(po)
+info(sc)
+```
+
+To access data for a specific posterior we can use `pdb_data()`
+
+```{r}
+dat <- pdb_data(po)
 dat
 ```
 
-Finally we can access reference posterior draws and information on how those were computed as follows.
+Finally we can access reference posterior draws for the given posterior.
 
 ```{r}
 rpd <- reference_posterior_draws(po)
-rpd
-
-rpdi <- reference_posterior_draws_info(po)
-rpdi
 ```
 
-The posterior is based on the [posterior](https://github.com/jgabry/posterior) R package structure and can easily be summarized and transformed using the mentioned R package.
+The posterior is based on the [posterior](https://github.com/jgabry/posterior) R package structure and can easily be summarized and transformed using the `posterior` R package.
 
 ```{r}
-draws_df <- posterior::as_draws_df(gsd$draws)
-head(draws_df)
+library(posterior)
+summarize_draws(rpd)
 ```
 
-Similarly we can access reference posterior expectations and quantiles
+Using `info()` we can access more details information on the reference posterior.
 
 ```{r}
-rpm <- reference_posterior_moments(po)
-rpm
+info(rpd)
+```
 
-rpmi <- reference_posterior_moments_info(po)
-rpmi
+It is also possible to access only information for models, data, and draws as follows.
 
-rpq <- reference_posterior_quantiles(po)
-rpq
-
-rpqi <- reference_posterior_quantiles_info(po)
-rpqi
+```{r}
+pdb_model_info(po)
+pdb_data_info(po)
+pdb_reference_posterior_draws_info(po)
 ```
 
 ## Using the posterior database from python

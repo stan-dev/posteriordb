@@ -19,7 +19,7 @@ remotes::install("rpackage/")
 To install only the R package and then access the posteriors remotely, just install the package from GitHub.
 
 ```{r, eval = FALSE}
-remotes::install_github("MansMeg/posterior", subdir = "rpackage/")
+remotes::install_github("MansMeg/posteriordb", subdir = "rpackage/")
 ```
 
 To load the package, just run.
@@ -92,8 +92,8 @@ From the posterior object, we can access data, model code (i.e., Stan code
 in this case) and a lot of other useful information.
 
 ```{r}
-dat <- get_data(po)
-str(dat)
+dat <- pdb_data(po)
+dat
 
 code <- stan_code(po)
 code
@@ -128,23 +128,27 @@ head(tbl)
 In addition, we can also access a list of posteriors with `filter_posteriors()`. The filtering function follows dplyr filter semantics based on the posterior tibble.
 
 ```{r}
-pos <- filter_posteriors(my_pdb, data_name == "eight_schools")
+pos <- filter_posteriors(pdb = my_pdb, data_name == "eight_schools")
 pos
 ```
 
-To access the gold standard posterior we can use the function `gold_standard_info()` to access information on how the gold standard posterior was computed. To access gold standard posterior draws we use `gold_standard_draws()`.
+To access reference posterior draws we use `reference_posterior_draws()`.
 
 ```{r}
-gs_info <- gold_standard_info(po)
-gs_info
-
-gsd <- gold_standard_draws(po)
-gsd
+rpd <- reference_posterior_draws(po)
 ```
 
-The function `gold_standard_draws()` returns a posterior `draws_list` object that can be summarized and transformed using the `posterior` package.
+The function `reference_posterior_draws()` returns a posterior `draws_list` object that can be summarized and transformed using the `posterior` package.
 
 ```{r}
-draws_df <- posterior::as_draws_df(gsd$draws)
-head(draws_df)
+posterior::summarize_draws(rpd)
+```
+
+To access information on the reference posterior we can use `reference_posterior_draws_info()` or just use `info()` on the reference posterior. This give soime basic information on how the reference posterior was computed.
+
+```{r}
+rpi <- reference_posterior_draws_info(po)
+rpi
+
+info(rpd)
 ```
