@@ -6,6 +6,9 @@
 \usage{
 posterior_dimension_names(x)
 }
+\arguments{
+\item{x}{a dimensions slot from a [pdb_posterior]}
+}
 \description{
 Construct dimension names from a posterior dimension list
 }

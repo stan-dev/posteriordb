@@ -36,6 +36,8 @@ remove_pdb(x, pdb, ...)
 \item{pdb}{the pdb to remove from. Currently only a local pdb.}
 
 \item{...}{further arguments supplied to methods.}
+
+\item{type}{supported reference posterior types.}
 }
 \description{
 a function to simplify removing object from a local pdb.

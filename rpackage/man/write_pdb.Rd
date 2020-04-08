@@ -39,7 +39,7 @@ write_pdb(x, pdb, overwrite = FALSE, ...)
 
 \item{...}{further arguments supplied to methods.}
 
-\item{name}{the name of the data (used for [pdb_data] objects only).}
+\item{type}{supported reference posterior types.}
 }
 \description{
 a function to simplify writing to a local pdb.

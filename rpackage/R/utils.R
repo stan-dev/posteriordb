@@ -40,6 +40,8 @@ print_list <- function(x, pad = "  "){
 
 
 #' Construct dimension names from a posterior dimension list
+#'
+#' @param x a dimensions slot from a [pdb_posterior]
 posterior_dimension_names <- function(x){
   checkmate::assert_list(x)
   checkmate::assert_named(x)

@@ -27,6 +27,8 @@ pdb_data(x, ...)
 \item{...}{Currently not used.}
 
 \item{pdb}{a \code{pdb} object.}
+
+\item{info}{a \code{pdb_data_info} object.}
 }
 \description{
 Posterior Data Sets

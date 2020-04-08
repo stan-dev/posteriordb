@@ -5,7 +5,9 @@
 #'
 #' @param x an object to remove to the pdb.
 #' @param pdb the pdb to remove from. Currently only a local pdb.
+#' @param type supported reference posterior types.
 #' @param ... further arguments supplied to methods.
+#'
 remove_pdb <- function(x, pdb, ...){
   checkmate::assert_class(pdb, "pdb_local")
   UseMethod("remove_pdb")

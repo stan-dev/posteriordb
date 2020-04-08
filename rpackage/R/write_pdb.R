@@ -5,7 +5,7 @@
 #' @param x an object to write to the pdb.
 #' @param pdb the pdb to write to. Currently only a local pdb.
 #' @param overwrite overwrite existing file?
-#' @param name the name of the data (used for [pdb_data] objects only).
+#' @param type supported reference posterior types.
 #' @param ... further arguments supplied to methods.
 #' @export
 write_pdb <- function(x, pdb, overwrite = FALSE, ...){

@@ -2,6 +2,7 @@
 #'
 #' @param x an object to access data from.
 #' @param pdb a \code{pdb} object.
+#' @param info a \code{pdb_data_info} object.
 #' @param ... Currently not used.
 #'
 #' @export

@@ -19,7 +19,9 @@ framework(x) <- value
 \method{framework}{pdb_model_code}(x) <- value
 }
 \arguments{
-\item{x}{a [pdb_model_code] object}
+\item{x}{a [pdb_model_code] object.}
+
+\item{value}{a supported framework.}
 }
 \description{
 Identify the framework for a given [model_code]

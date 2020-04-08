@@ -1,7 +1,8 @@
 #' Access a posterior in the posterior database
 #'
-#' @param name a posterior name that exist in the posterior database
+#' @param x a posterior name that exist in the posterior database
 #' @param pdb a \code{pdb} posterior database object.
+#' @param ... currently not in use.
 #' @export
 posterior <- function(x, pdb = pdb_default(), ...) {
   UseMethod("posterior")

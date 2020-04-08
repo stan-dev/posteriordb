@@ -91,7 +91,7 @@ compute_stan_sampling_diagnostics <- function(x, keep_dimensions ){
   d$r_hat <- pds$rhat[keep_idx]
 
   # divergent_transitions
-  hmc_params <- get_sampler_params(x, inc_warmup = FALSE)
+  hmc_params <- rstan::get_sampler_params(x, inc_warmup = FALSE)
   d$divergent_transitions <- unlist(lapply(hmc_params, function(x) sum(x[, "divergent__"])))
 
   # expected_fraction_of_missing_information
