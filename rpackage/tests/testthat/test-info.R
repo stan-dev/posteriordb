@@ -3,7 +3,8 @@ context("test-info")
 test_that("info() should extract the object information", {
 
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
-  expect_silent(pdb_test <- pdb(posterior_db_path))
+  expect_silent(pdb_test <- pdb_local(posterior_db_path))
+  pdb_clear_cache()
   expect_silent(po <- posterior("eight_schools-eight_schools_noncentered", pdb = pdb_test))
 
   # Data
