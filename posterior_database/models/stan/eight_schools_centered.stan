@@ -12,6 +12,6 @@ parameters {
 model {
   tau ~ cauchy(0, 5); // a non-informative prior
   theta ~ normal(mu, tau);
-  y ~ normal(theta , sigma);
+  y ~ normal(theta, sigma);
   mu ~ normal(0, 5);
 }
