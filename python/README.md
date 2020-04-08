@@ -4,9 +4,9 @@ Currently only python 3.6+ is supported. Python 3.5+ support can be added if nee
 
 ## Installation
 
-Currently only local install is supported. From the main directory of this project run
+Currently only local install is supported. From the python directory of this project run
 ```bash
-pip install python/posterior_db
+python setup.py install
 ```
 
 Installing from git url will be supported soon. Publishing the package to PyPI will also happen at some point.
