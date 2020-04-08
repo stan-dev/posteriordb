@@ -18,4 +18,3 @@ parameters {
 model {
   log_weight ~ normal(beta[1] + beta[2] * log_canopy_volume, sigma);
 }
-

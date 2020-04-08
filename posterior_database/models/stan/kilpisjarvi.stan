@@ -21,4 +21,3 @@ model {
   beta ~ normal(pmubeta, psbeta);
   y ~ normal(alpha + beta * x, sigma);
 }
-

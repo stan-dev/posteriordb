@@ -47,4 +47,3 @@ generated quantities {
   for (i in 1:n)
     log_lik[i] = bernoulli_logit_glm_lpmf({y[i]} | [x[i]], beta0, beta);
 }
-

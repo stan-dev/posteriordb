@@ -21,4 +21,3 @@ model {
   kid_score ~ normal(beta[1] + beta[2] * work2 + beta[3] * work3
                      + beta[4] * work4, sigma);
 }
-

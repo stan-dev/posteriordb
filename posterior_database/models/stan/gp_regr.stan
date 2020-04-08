@@ -21,4 +21,3 @@ model {
 
   y ~ multi_normal_cholesky(rep_vector(0, N), L_cov);
 }
-

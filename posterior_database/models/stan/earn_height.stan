@@ -10,4 +10,3 @@ parameters {
 model {
   earn ~ normal(beta[1] + beta[2] * height, sigma);
 }
-

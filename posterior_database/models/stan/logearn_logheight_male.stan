@@ -17,4 +17,3 @@ parameters {
 model {                      // vectorization
   log_earn ~ normal(beta[1] + beta[2] * log_height + beta[3] * male, sigma);
 }
-

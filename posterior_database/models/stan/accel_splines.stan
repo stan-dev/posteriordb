@@ -77,4 +77,3 @@ generated quantities {
   // actual population-level intercept
   real b_sigma_Intercept = Intercept_sigma;
 }
-

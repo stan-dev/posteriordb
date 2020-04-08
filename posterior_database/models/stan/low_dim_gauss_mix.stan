@@ -18,4 +18,3 @@ model {
                      normal_lpdf(y[n] | mu[1], sigma[1]),
                      normal_lpdf(y[n] | mu[2], sigma[2]));
 }
-

@@ -20,4 +20,3 @@ model {
   kid_score ~ normal(beta[1] + beta[2] * z_mom_hs + beta[3] * z_mom_iq 
                      + beta[4] * inter, sigma);
 }
-

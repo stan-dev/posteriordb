@@ -33,4 +33,3 @@ model {
                       + beta[7] * group,
                       sigma);
 }
-

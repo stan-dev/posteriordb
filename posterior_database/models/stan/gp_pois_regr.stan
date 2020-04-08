@@ -27,4 +27,3 @@ model {
 
   k ~ poisson_log(f);
 }
-

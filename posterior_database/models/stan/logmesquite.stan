@@ -32,4 +32,3 @@ model {
                   + beta[6] * log_density + beta[7] * group,
                   sigma);
 }
-

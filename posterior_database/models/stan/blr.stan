@@ -17,4 +17,3 @@ model {
   // likelihood
   target += normal_lpdf(y | X * beta, sigma);
 }
-

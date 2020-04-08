@@ -15,4 +15,3 @@ parameters {
 model {
   log_earn ~ normal(beta[1] + beta[2] * height + beta[3] * male, sigma);
 }
-

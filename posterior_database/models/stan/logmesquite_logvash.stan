@@ -29,4 +29,3 @@ model {
                       + beta[5] * log_total_height + beta[6] * group,
                       sigma);
 }
-

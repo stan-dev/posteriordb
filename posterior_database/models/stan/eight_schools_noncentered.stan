@@ -19,4 +19,3 @@ model {
   mu ~ normal(0, 5); // a non-informative prior
   tau ~ cauchy(0, 5);
 }
-

@@ -69,4 +69,3 @@ model {
   B_hat ~ lognormal(log(col(to_matrix(y), 4)), 0.15);
 
 }
-

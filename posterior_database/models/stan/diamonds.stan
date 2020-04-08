@@ -40,4 +40,3 @@ generated quantities {
   // actual population-level intercept
   real b_Intercept = Intercept - dot_product(means_X, b);
 }
-

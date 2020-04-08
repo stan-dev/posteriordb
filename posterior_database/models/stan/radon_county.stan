@@ -21,4 +21,3 @@ model {
   a ~ normal (mu_a, sigma_a);
   y ~ normal(y_hat, sigma_y);
 }
-
