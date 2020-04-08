@@ -18,3 +18,4 @@ model {
                   + beta[6] * density + beta[7] * group,
                   sigma);
 }
+

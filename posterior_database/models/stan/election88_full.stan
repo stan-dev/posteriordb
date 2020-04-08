@@ -46,3 +46,4 @@ model {
   beta ~ normal(0, 100);
   y ~ bernoulli_logit(y_hat);
 }
+

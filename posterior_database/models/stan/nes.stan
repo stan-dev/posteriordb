@@ -30,3 +30,4 @@ model {                      // vectorization
                     + beta[8] * gender + beta[9] * income,
                     sigma);
 }
+

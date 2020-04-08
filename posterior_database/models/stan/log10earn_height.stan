@@ -16,3 +16,4 @@ parameters {
 model {
   log10_earn ~ normal(beta[1] + beta[2] * height, sigma);
 }
+

@@ -30,3 +30,4 @@ model {
 
   err ~ normal(0, sigma);
 }
+

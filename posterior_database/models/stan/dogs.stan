@@ -29,3 +29,4 @@ model {
       y[i,j] ~ bernoulli_logit(p[i,j]);
   }
 }
+

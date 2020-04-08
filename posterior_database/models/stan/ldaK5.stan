@@ -23,3 +23,4 @@ model {
     target += log_sum_exp(gamma);  // likelihood;
   }
 }
+

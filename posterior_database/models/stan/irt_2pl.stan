@@ -30,3 +30,4 @@ model {
   for (i in 1:I)
     y[i] ~ bernoulli_logit(a[i] * (theta - b[i]));
 }
+

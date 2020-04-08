@@ -11,3 +11,4 @@ model {
   sigma ~ cauchy(0, 2.5);
   kid_score ~ normal(beta[1] + beta[2] * mom_iq, sigma);
 }
+

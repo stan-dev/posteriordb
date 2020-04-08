@@ -73,3 +73,4 @@ generated quantities {
   for (n in 1:N_t)
     C_ppc[n] = lognormal_rng(log(C[n, 1]), sigma);
 }
+

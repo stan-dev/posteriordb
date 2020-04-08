@@ -30,3 +30,4 @@ model {
       y[i,j] ~ bernoulli(p[i,j]);
   }
 }
+

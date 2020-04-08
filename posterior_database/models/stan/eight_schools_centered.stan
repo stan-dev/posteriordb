@@ -1,4 +1,3 @@
-
 data {
   int <lower=0> J; // number of schools
   real y[J]; // estimated treatment
@@ -15,3 +14,4 @@ model {
   y ~ normal(theta , sigma);
   mu ~ normal(0, 5);
 }
+

@@ -23,3 +23,4 @@ model {
                       + beta[3] * log_canopy_area + beta[4] * group,
                       sigma);
 }
+
