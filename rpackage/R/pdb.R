@@ -378,7 +378,7 @@ pdb_cache_dir.pdb_local <- function(pdb, path, ...){
 #' @param pdb a posterior db object to access the info json from
 #' @noRd
 #' @keywords internal
-read_info_json <- function(x, path, pdb = NULL, ...){
+read_info_json <- function(x, path, pdb, ...){
   checkmate::assert_choice(path, supported_pdb_paths())
   UseMethod("read_info_json")
 }
@@ -396,7 +396,7 @@ supported_pdb_paths <- function(){
 #' @rdname read_info_json
 #' @noRd
 #' @keywords internal
-read_info_json.character <- function(x, path, pdb = NULL, ...){
+read_info_json.character <- function(x, path, pdb, ...){
   checkmate::assert_class(pdb, "pdb")
   fn <- x
   if(path != "posteriors") {

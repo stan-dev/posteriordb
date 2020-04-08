@@ -35,7 +35,7 @@ model_info.list <- function(x, pdb = NULL, ...) {
 }
 
 # read model info from the data base
-read_model_info <- function(x, pdb = NULL, ...) {
+read_model_info <- function(x, pdb, ...) {
   model_info <- read_info_json(x, path = "models/info", pdb = pdb, ...)
   class(model_info) <- "pdb_model_info"
   assert_model_info(model_info)
