@@ -1,6 +1,6 @@
 data {
-  int<lower=0> N; 
-  int<lower=0> J; 
+  int<lower=0> N;
+  int<lower=0> J;
   int<lower=1,upper=J> county[N];
   vector[N] y;
 }
@@ -10,7 +10,7 @@ parameters {
   real mu_a;
   real<lower=0,upper=100> sigma_a;
   real<lower=0,upper=100> sigma_y;
-} 
+}
 
 model {
   vector[N] y_hat;
