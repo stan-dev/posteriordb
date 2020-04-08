@@ -10,5 +10,4 @@ test_that("posteriordb:::check_pdb indicates that local PDB content is ok", {
   expect_output(print(pdb_test), "local")
   posteriordb:::pdb_clear_cache(pdb_test)
 
-  skip("Do to dos in check_pdb")
 })

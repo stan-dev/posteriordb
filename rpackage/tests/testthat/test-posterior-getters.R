@@ -107,8 +107,7 @@ test_that("Check access only with posterior name and default pdb", {
   expect_silent(mcfp <- model_code_file_path(mi, framework = "stan"))
 
   # Test reference_posterior
-  skip("fix reference posterior")
-  expect_silent(gsi <- reference_posterior_info("eight_schools-eight_schools_noncentered"))
+  expect_silent(gsi <- reference_posterior_draws_info("eight_schools-eight_schools_noncentered"))
   expect_silent(gsd1 <- reference_posterior_draws("eight_schools-eight_schools_noncentered"))
   expect_silent(gsd2 <- reference_posterior_draws(x = gsi))
   expect_silent(gsdfp <- reference_posterior_draws_file_path("eight_schools-eight_schools_noncentered"))
