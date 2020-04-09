@@ -1,4 +1,3 @@
-
 data {
   int<lower=0> n;				      // number of observations
   int<lower=0> d;             // number of predictors
@@ -38,7 +37,7 @@ model {
   tau ~ student_t(nu_global, 0, scale_global*2);
   caux ~ inv_gamma(0.5*slab_df, 0.5*slab_df);
   beta0 ~ normal(0, scale_icept);
-  
+
   y ~ bernoulli_logit_glm(x, beta0, beta);
 }
 generated quantities {

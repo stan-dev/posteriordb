@@ -10,7 +10,7 @@ transformed parameters {
   matrix[n_dogs,n_trials] n_avoid;
   matrix[n_dogs,n_trials] n_shock;
   matrix[n_dogs,n_trials] p;
-  
+
   for (j in 1:n_dogs) {
     n_avoid[j,1] = 0;
     n_shock[j,1] = 0;
