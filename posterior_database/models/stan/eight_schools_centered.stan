@@ -1,4 +1,3 @@
-
 data {
   int <lower=0> J; // number of schools
   real y[J]; // estimated treatment
