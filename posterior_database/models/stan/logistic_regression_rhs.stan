@@ -1,4 +1,3 @@
-
 data {
   int<lower=0> n;				      // number of observations
   int<lower=0> d;             // number of predictors

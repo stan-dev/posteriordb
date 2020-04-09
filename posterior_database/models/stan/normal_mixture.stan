@@ -1,6 +1,7 @@
 // normal mixture, unknown proportion and means, known variance
 // p(y|mu,theta) = theta * Normal(y|mu[1],1) + (1-theta) * Normal(y|mu[2],1);
 
+
 data {
   int<lower=0>  N;
   real y[N];
