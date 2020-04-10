@@ -22,6 +22,9 @@ test_that("model_names, data_names and posterior_names work", {
   checkmate::expect_choice("eight_schools", nms)
   expect_silent(nms <- model_names(pdb_test))
   checkmate::expect_choice("eight_schools_centered", nms)
+  expect_silent(nms <- reference_posterior_names(pdb_test, "draws"))
+  checkmate::expect_choice("eight_schools-eight_schools_noncentered", nms)
+
 
   expect_silent(pdb_github_test <- pdb_github("MansMeg/posteriordb/posterior_database"))
   posteriordb:::pdb_clear_cache(pdb_github_test)
@@ -31,6 +34,8 @@ test_that("model_names, data_names and posterior_names work", {
   checkmate::expect_choice("eight_schools", nms)
   expect_silent(nms <- model_names(pdb_github_test))
   checkmate::expect_choice("eight_schools_centered", nms)
+  expect_silent(nms <- reference_posterior_names(pdb_test, "draws"))
+  checkmate::expect_choice("eight_schools-eight_schools_noncentered", nms)
   posteriordb:::pdb_clear_cache(pdb_github_test)
 })
 

@@ -76,6 +76,15 @@ model_names.pdb_github <- function(pdb, ...) {
   basename(remove_file_extension(pns))
 }
 
+#' @rdname data_names
+#' @export
+reference_posterior_names.pdb_github <- function(pdb, ...) {
+  pns <- github_dir(gh_path = github_path(pdb, type = "contents", path = "reference_posteriors/draws/info"), pdb = pdb)
+  pns <- pns[grepl(pns, pattern = "\\.json")]
+  basename(remove_file_extension(pns))
+}
+
+
 #' @noRd
 #' @rdname pdb_endpoint
 #' @keywords internal
