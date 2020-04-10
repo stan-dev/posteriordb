@@ -11,14 +11,8 @@ compute_reference_posterior_draws_stan_sampling <- function(rpi, pdb){
   po <- posterior(rpi$name, pdb = pdb)
   pdn <- posterior_dimension_names(x = po$dimensions)
 
-  stan_args <- list(model_name = rpi$name,
-                    model_code = stan_code(po),
-                    data = stan_data(po))
-  stan_args <- c(stan_args, rpi$inference$method_arguments)
-  stan_object <- do.call(rstan::stan, stan_args)
-
-  # Stan model codes are stored locally (seem to be a bug)
-  stan_object@model_name <- rpi$name
+  stan_object <- run_stan(po,
+                          stan_args = rpi$inference$method_arguments)
 
   # Compute the diagnostics from the stan object and add it to the slot
   rpi$diagnostics <- compute_stan_sampling_diagnostics(x = stan_object, keep_dimensions = pdn)
