@@ -12,6 +12,8 @@ reference_posterior_names(pdb = pdb_default(), type, ...)
 \arguments{
 \item{pdb}{a \code{pdb} object.}
 
+\item{type}{supported reference posterior types.}
+
 \item{...}{Further argument to methods.}
 }
 \description{

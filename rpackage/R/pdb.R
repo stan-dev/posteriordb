@@ -160,6 +160,7 @@ data_names.pdb_local <- function(pdb = pdb_default(), ...) {
 #' Get all existing reference posterior names from a posterior database
 #'
 #' @param pdb a \code{pdb} object.
+#' @param type supported reference posterior types.
 #' @param ... Further argument to methods.
 #'
 #' @export

@@ -5,6 +5,7 @@
 #'
 #' @param x a [pdb_posterior] object.
 #' @param stan_args Arguments supplied to [rstan::stan] to compute the posterior
+#' @param ... currently not in use.
 #'
 run_stan <- function(x, stan_args, ...){
   UseMethod("run_stan")

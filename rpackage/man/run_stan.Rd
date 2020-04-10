@@ -13,6 +13,8 @@ run_stan(x, stan_args, ...)
 \item{x}{a [pdb_posterior] object.}
 
 \item{stan_args}{Arguments supplied to [rstan::stan] to compute the posterior}
+
+\item{...}{currently not in use.}
 }
 \description{
 Run Stan on a posterior
