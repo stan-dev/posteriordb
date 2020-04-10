@@ -2,6 +2,7 @@
 
 posteriordb has different uses. Below is list of example use cases and what features are important in each use case.
 
+
 ## Unit testing
 
 Developers of different algorithms can use the posterior database to get data, models and reference posteriors to asses that the software is working as it should.
@@ -17,7 +18,7 @@ If an inference algorithm has asymptotically decreasing bias and variance, then 
 
 True summaries can be computed analytically for some simpler models, which are not necessarily that interesting from the modelling perspective, but are useful for detecting problems as the truth is known exactly. It is easiest to compare estimated and true posterior moments and quantiles for scalar quantities. For closed form marginals we can also use quantile-quantile (QQ) plots and empirical cumulative distribution function (ECDF) plots for visual exploration of unexpected discrepancies. Uniformity of probability intergral transform (PIT) tests can be used to test the whole marginal, although the interpretation of different uniformity tests is more complex than point estimate comparisons.
 
-The set of applicable models can be expanded by including models which don't have closed form marginals, but for which we have high confidence that we can obtain draws from the true posterior. The ideal would be to use independent draws, which is feasible for some models for which the posterior factorizes to series of closed form distributions and we can obtain independent draws from each of those. We can also use Markov Chain Monte Carlo (MCMC) for posteriors which are known to be well behaving and that given MCMC has been shown to be reliable for those posteriors. For example, dynamic Hamiltonian Monte Carlo (HMC) is known to work well for many models. In case of MCMC, the chains should be thinned so that the draws are approximately independent to make the further comparisons easier. When applying MC or MCMC to obtain the reference posterior, a very large number of draws should be used. Monte Carlo standard errors can be used to check the accuracy of the empirical expectations. A very large number of draws could be used to compute some set of posterior moments and quantiles, and just a large number of posterior draws could be stored to enable QQ- and ECDF-plots to analyse the properties of the discrepancies. 
+The set of applicable models can be expanded by including models which don't have closed form marginals, but for which we have high confidence that we can obtain draws from the true posterior. The ideal would be to use independent draws, which is feasible for some models for which the posterior factorizes to series of closed form distributions and we can obtain independent draws from each of those. We can also use Markov Chain Monte Carlo (MCMC) for posteriors which are known to be well behaving and that given MCMC has been shown to be reliable for those posteriors. For example, dynamic Hamiltonian Monte Carlo (HMC) is known to work well for many models. In case of MCMC, the chains should be thinned so that the draws are approximately independent to make the further comparisons easier. When applying MC or MCMC to obtain the reference posterior, a very large number of draws should be used. Monte Carlo standard errors can be used to check the accuracy of the empirical expectations. A very large number of draws could be used to compute some set of posterior moments and quantiles, and just a large number of posterior draws could be stored to enable QQ- and ECDF-plots to analyse the properties of the discrepancies.
 
 In cases where we are not certain whether we can get reliable posterior draws, simulation based calibration (SBC) should also be applied.
 
@@ -62,4 +63,3 @@ Whenever there is some code on the internet, it is possible that someone copies 
 ## Models and data for teaching
 
 A teacher in Bayesian Statistics may be able to use the posterior database to give students simple access to data and Stan code that has been tested and are known to work. Hence, the posterior database can also be used as a teaching tool.
-
