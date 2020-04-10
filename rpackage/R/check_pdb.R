@@ -2,6 +2,12 @@
 #'
 #' @param pdb a \code{pdb} object
 #' @param posterior_idx an index vector indicating what posteriors to check.
+#'
+#' @details
+#' [check_pdb()] checks that the content exists as specified
+#' [check_pdb_run_stan()] test to run all posteriors with stan models.
+#' [check_pdb_stan_syntax()] check that all stan model code files can be parsed.
+#'
 #' @return a boolean indicating if the pdb works as it should.
 check_pdb <- function(pdb, posterior_idx = NULL) {
   checkmate::assert_class(pdb, "pdb")
@@ -64,12 +70,10 @@ check_pdb <- function(pdb, posterior_idx = NULL) {
 }
 
 #' @rdname check_pdb
-check_extensive_pdb <- function(pdb, posterior_idx = NULL) {
+check_pdb_run_stan <- function(pdb, posterior_idx = NULL) {
   checkmate::assert_class(pdb, "pdb")
-  check_pdb(pdb, posterior_idx)
 
-  # Extensive checks
-  message("Extensive checks...")
+  message("Check that stan can be run for all models ...")
   pns <- posterior_names(pdb)
   if(!is.null(posterior_idx)) pns <- pns[posterior_idx]
   pl <- list()
@@ -88,5 +92,22 @@ check_extensive_pdb <- function(pdb, posterior_idx = NULL) {
   }
   message("All posteriors with stan code can be run.")
 
+}
 
+
+check_pdb_stan_syntax <- function(pdb, posterior_idx = NULL) {
+  checkmate::assert_class(pdb, "pdb")
+
+  message("Checking stan syntax...")
+  pns <- posterior_names(pdb)
+  if(!is.null(posterior_idx)) pns <- pns[posterior_idx]
+  pl <- list()
+  for (i in seq_along(pns)) {
+    pl[[i]] <- posterior(pns[i], pdb = pdb)
+  }
+
+  for(i in seq_along(pl)){
+    suppressWarnings(sp <- rstan::stanc(model_code = stan_code(pl[[i]]), model_name = pl[[i]]$name))
+  }
+  message("All posteriors with stan code has correct stan syntax.")
 }
