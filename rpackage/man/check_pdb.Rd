@@ -3,11 +3,17 @@
 \name{check_pdb}
 \alias{check_pdb}
 \alias{check_pdb_run_stan}
+\alias{check_pdb_stan_syntax}
+\alias{check_pdb_references}
 \title{Check the content a posterior database}
 \usage{
 check_pdb(pdb, posterior_idx = NULL)
 
 check_pdb_run_stan(pdb, posterior_idx = NULL)
+
+check_pdb_stan_syntax(pdb, posterior_idx = NULL)
+
+check_pdb_references(pdb, posterior_idx = NULL)
 }
 \arguments{
 \item{pdb}{a \code{pdb} object}

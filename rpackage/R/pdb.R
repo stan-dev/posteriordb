@@ -410,7 +410,8 @@ supported_pdb_paths <- function(){
     "reference_posteriors/draws/draws",
     "reference_posteriors/draws/info",
     "reference_posteriors/expectations/expectations",
-    "reference_posteriors/expectations/info")
+    "reference_posteriors/expectations/info",
+    "bibliography")
 }
 
 #' @rdname read_info_json
