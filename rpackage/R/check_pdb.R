@@ -30,11 +30,34 @@ check_pdb <- function(pdb, posterior_idx = NULL) {
   }
   message("4. All reference_posteriors_draws can be read.")
 
-  # TODO
-  # message("5. All data, models and reference posteriors have posterior.")
 
-  # TODO
-  # message("6. Check that all file names are having the same names.")
+  mnp <- dnp <- rpnp <- character(length(pns))
+  for (i in seq_along(pns)) {
+    pl[[i]] <- posterior(pns[i], pdb = pdb)
+    mnp[i] <- model_info(pl[[i]])$name
+    dnp[i] <- data_info(pl[[i]])$name
+    tc <- try(rp <- reference_posterior_draws_info(pl[[i]]), silent = TRUE)
+    if(!inherits(tc, "try-error")){
+      rpnp[i] <- rp$name
+    }
+  }
+  mns <- model_names(pdb)
+  dns <- data_names(pdb)
+  rpns <- reference_posterior_names(pdb, "draws")
+  model_bool <- mns %in% mnp
+  if(!all(model_bool)){
+    stop("Model(s) " , paste0(mns[!model_bool], collapse = ", "), " is missing in posteriors.", call. = FALSE)
+  }
+  data_bool <- dns %in% dnp
+  if(!all(data_bool)){
+    stop("Data " , paste0(dns[!data_bool], collapse = ", "), " is missing in posteriors.", call. = FALSE)
+  }
+  rp_bool <- rpns %in% rpnp
+  if(!all(rp_bool)){
+    stop("Reference posteriors " , paste0(rpns[!rp_bool], collapse = ", "), " is missing in posteriors.", call. = FALSE)
+  }
+  message("5. All data, models and reference posteriors have posterior.")
+
 
 
   message("Posterior database is ok.\n")
