@@ -1,5 +1,5 @@
-#' Check a posterior database
-#' @noRd
+#' Check the content a posterior database
+#'
 #' @param pdb a \code{pdb} object
 #' @param posterior_idx an index vector indicating what posteriors to check.
 #' @return a boolean indicating if the pdb works as it should.
@@ -77,8 +77,14 @@ check_extensive_pdb <- function(pdb, posterior_idx = NULL) {
     pl[[i]] <- posterior(pns[i], pdb = pdb)
   }
 
+  try_list <- list()
   for(i in seq_along(pl)){
-    run_stan(pl[[i]])
+    try_list[[i]] <- try(suppressWarnings(so <- capture_output(run_stan(pl[[i]], stan_args = list(iter = 100, warmup = 50, chains = 1)))))
+    if(inherits(try_list[[i]], "try-error")){
+      message("'", pl[[i]]$name, "' cannot be run with stan.")
+    } else {
+      message("'", pl[[i]]$name, "' is working with stan.")
+    }
   }
   message("All posteriors with stan code can be run.")
 
