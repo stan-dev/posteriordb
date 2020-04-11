@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils_reference_posterior.R
 \name{thin_draws.pdb_reference_posterior_draws}
 \alias{thin_draws.pdb_reference_posterior_draws}
-\title{Thin draws objects to reduce their size and autocorrelation of the chains.}
+\title{Thin draws to reduce their size and autocorrelation of the chains.}
 \usage{
 thin_draws.pdb_reference_posterior_draws(x, thin, ...)
 }
