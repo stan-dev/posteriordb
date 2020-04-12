@@ -190,6 +190,12 @@ print.pdb <- function(x, ...) {
   invisible(x)
 }
 
+#' @export
+print.pdb_github <- function(x, ...) {
+  x$pdb_id <- paste(x$pdb_id, "@", x$github$ref)
+  NextMethod("print")
+}
+
 #' Extract the pdb type from class name
 #' @noRd
 #' @param a \code{pdb} object.
