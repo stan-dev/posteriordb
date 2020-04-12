@@ -140,7 +140,7 @@ check_pdb_references <- function(pdb, posterior_idx = NULL) {
 
   ref_in_bib <- refs %in% bibnms
   if(any(!ref_in_bib)){
-    stop("Reference '", refs[!ref_in_bib], "' in data base but not in abibliography.", call. = FALSE)
+    stop("Reference '", refs[!ref_in_bib], "' in database but not in th bibliography.", call. = FALSE)
   }
 
   bib_in_ref <- bibnms %in% refs
