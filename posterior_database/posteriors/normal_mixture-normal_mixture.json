@@ -1,0 +1,15 @@
+{
+  "name": "normal_mixture-normal_mixture",
+  "keywords": ["basic_estimators", "stan_examples"],
+  "urls": "https://github.com/stan-dev/example-models/tree/master/basic_estimators",
+  "model_name": "normal_mixture",
+  "data_name": "normal_mixture",
+  "reference_posterior_name": null,
+  "references": "",
+  "dimensions": {
+    "theta": 1,
+    "mu": 2
+  },
+  "added_date": "2020-04-20",
+  "added_by": "Oliver Järnefelt"
+}
