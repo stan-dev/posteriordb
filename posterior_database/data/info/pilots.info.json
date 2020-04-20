@@ -1,0 +1,11 @@
+{
+  "name": "pilots",
+  "keywords": ["ARM", "Ch. 14", "stan_examples"],
+  "title": "Data from a psychological experiment of pilots on flight simulators",
+  "description": "Success rates of pilots at a flight simulator under five different treatments\nat eight different airports. Data Dimensions:\n- N: number of observations\n- n_scenarios: number of scenarios (airports)\n- n_groups: number of groups (treatments)\n- scenario_id: scenario indicator\n- group_id: group indicator\n- y: success rate",
+  "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.14",
+  "data_file": "data/data/pilots.json",
+  "references": "gelman2006data",
+  "added_date": "2020-04-09",
+  "added_by": "Oliver Järnefelt"
+}

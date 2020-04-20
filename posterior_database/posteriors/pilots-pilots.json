@@ -1,0 +1,20 @@
+{
+  "name": "pilots-pilots",
+  "keywords": ["ARM", "Ch. 14", "stan_examples", "stan_benchmark"],
+  "urls": "",
+  "model_name": "pilots",
+  "data_name": "pilots",
+  "reference_posterior_name": null,
+  "references": "gelman2006data",
+  "dimensions": {
+    "a": 5,
+    "b": 8,
+    "mu_a": 1,
+    "mu_b": 1,
+    "sigma_a": 1,
+    "sigma_b": 1,
+    "sigma_y": 1
+  },
+  "added_date": "2020-04-20",
+  "added_by": "Oliver Järnefelt"
+}
