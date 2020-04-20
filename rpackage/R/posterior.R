@@ -13,6 +13,7 @@ posterior <- function(x, pdb = pdb_default(), ...) {
 posterior.character <- function(x, pdb = pdb_default(), ...) {
   checkmate::assert_string(x)
   checkmate::assert_class(pdb, "pdb")
+  x <- handle_aliases(x, type = "posteriors", pdb)
   po <- read_info_json(x, "posteriors", pdb)
   po$pdb <- pdb
   class(po) <- "pdb_posterior"
