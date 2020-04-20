@@ -19,29 +19,37 @@ check_pdb <- function(pdb, posterior_idx = NULL) {
   for (i in seq_along(pns)) {
     pl[[i]] <- posterior(pns[i], pdb = pdb)
   }
-  message("1. All posteriors can be read.")
+  message("- All posteriors can be read.")
   for (i in seq_along(pl)) {
     model_info(pl[[i]])
     stan_code(pl[[i]])
   }
-  message("2. All stan_code can be read.")
+  message("- All stan_code can be read.")
   for (i in seq_along(pl)) {
     data_info(x = pl[[i]])
     stan_data(x = pl[[i]])
   }
-  message("3. All stan_data can be read.")
+  message("- All stan_data can be read.")
+
   for (i in seq_along(pl)) {
     if(is.null(pl[[i]]$reference_posterior_name)) next
     reference_posterior_draws(x = pl[[i]])
     #reference_posterior_expectations(x = pl[[i]])
   }
-  message("4. All reference_posteriors_draws can be read.")
+  message("- All reference_posteriors_draws can be read.")
 
 
+
+  a <- pdb_aliases("posteriors", pdb)
+  checkmate::assert_character(names(a), unique = TRUE)
+  pn <- unname(unlist(a))
+  checkmate::assert_subset(pn, posterior_names(pdb))
+  checkmate::assert_true(all(!names(a) %in% posterior_names(pdb)))
+  message("- Aliases are ok.")
 
   if(is.null(posterior_idx)){
     suppressMessages(check_pdb_references(pdb))
-    message("5. References and bibliography are ok.")
+    message("- References and bibliography are ok.")
 
     mnp <- dnp <- rpnp <- character(length(pns))
     for (i in seq_along(pns)) {
@@ -68,10 +76,12 @@ check_pdb <- function(pdb, posterior_idx = NULL) {
     if(!all(rp_bool)){
       stop("Reference posteriors " , paste0(rpns[!rp_bool], collapse = ", "), " is missing in posteriors.", call. = FALSE)
     }
-    message("6. All data, models and reference posteriors are part of a posteriors.")
+    message("- All data, models and reference posteriors are part of a posteriors.")
   }
 
-  message("Posterior database is ok.\n")
+
+
+  message("\nPosterior database is ok.\n")
   invisible(TRUE)
 }
 
