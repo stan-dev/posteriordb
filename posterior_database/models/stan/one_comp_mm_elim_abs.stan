@@ -24,7 +24,9 @@ functions {
 
 data {
   real t0;    // Initial time in days;
-  real C0[1]; // Initial concentration at t0 in mg/L
+  // This is currently hardcoded in data transformations
+  // Uncomment this line to get original model
+  // real C0[1]; // Initial concentration at t0 in mg/L
 
   real D;   // Total dosage in mg
   real V;   // Compartment volume in L
@@ -37,6 +39,8 @@ data {
 }
 
 transformed data {
+  // Comment out the next line to get the original model
+  real C0[1] = {0.0};
   real x_r[2] = {D, V};
   int x_i[0];
 }

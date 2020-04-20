@@ -132,9 +132,9 @@ model_names <- function(pdb = pdb_default(), ...) {
 #' @rdname model_names
 #' @export
 model_names.pdb_local <- function(pdb = pdb_default(), ...) {
-  pns <- dir(pdb_file_path(pdb, "models"),
+  pns <- dir(pdb_file_path(pdb, "models", "info"),
              recursive = TRUE, full.names = FALSE)
-  pns <- pns[grepl(pns, pattern = "\\.json$")]
+  pns <- pns[grepl(pns, pattern = "\\.info\\.json$")]
   basename(remove_file_extension(pns))
 }
 
@@ -151,9 +151,30 @@ data_names <- function(pdb = pdb_default(), ...) {
 #' @rdname data_names
 #' @export
 data_names.pdb_local <- function(pdb = pdb_default(), ...) {
-  pns <- dir(pdb_file_path(pdb, "data"),
+  pns <- dir(pdb_file_path(pdb, "data", "info"),
              recursive = TRUE, full.names = FALSE)
-  pns <- pns[grepl(pns, pattern = "\\.json\\.zip$")]
+  pns <- pns[grepl(pns, pattern = "\\.info\\.json$")]
+  basename(remove_file_extension(pns))
+}
+
+#' Get all existing reference posterior names from a posterior database
+#'
+#' @param pdb a \code{pdb} object.
+#' @param type supported reference posterior types.
+#' @param ... Further argument to methods.
+#'
+#' @export
+reference_posterior_names <- function(pdb = pdb_default(), type, ...) {
+  checkmate::assert_choice(type, supported_reference_posterior_types())
+  UseMethod("reference_posterior_names")
+}
+
+#' @rdname reference_posterior_names
+#' @export
+reference_posterior_names.pdb_local <- function(pdb = pdb_default(), type, ...) {
+  pns <- dir(pdb_file_path(pdb, "reference_posteriors", type, "info"),
+             recursive = TRUE, full.names = FALSE)
+  pns <- pns[grepl(pns, pattern = "\\.info\\.json$")]
   basename(remove_file_extension(pns))
 }
 
@@ -167,6 +188,12 @@ print.pdb <- function(x, ...) {
     cat0("  ", vn, ": ", x$version[[vn]], "\n")
   }
   invisible(x)
+}
+
+#' @export
+print.pdb_github <- function(x, ...) {
+  x$pdb_id <- paste(x$pdb_id, "@", x$github$ref)
+  NextMethod("print")
 }
 
 #' Extract the pdb type from class name
@@ -390,7 +417,8 @@ supported_pdb_paths <- function(){
     "reference_posteriors/draws/draws",
     "reference_posteriors/draws/info",
     "reference_posteriors/expectations/expectations",
-    "reference_posteriors/expectations/info")
+    "reference_posteriors/expectations/info",
+    "bibliography")
 }
 
 #' @rdname read_info_json

@@ -1,0 +1,11 @@
+{
+  "name": "covid19imperial_v2",
+  "keywords": "",
+  "title": "Data on infected and deaths in the covid19 pandemic in Europe",
+  "description": "Data on deaths and infections in the covid19 pandemic for 14 European contries.\nThe data is access from the github repository with git hash 09615b6 in 2020-04-12.",
+  "urls": "https://github.com/ImperialCollegeLondon/covid19model/",
+  "data_file": "data/data/covid19imperial_v2.json",
+  "references": "flaxman2020report",
+  "added_date": "2020-04-12",
+  "added_by": "Måns Magnusson"
+}

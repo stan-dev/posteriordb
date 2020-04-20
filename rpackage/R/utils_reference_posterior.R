@@ -95,7 +95,7 @@ ess_bounds <- function(x){
 
 }
 
-#' Thin draws objects to reduce their size and autocorrelation of the chains.
+#' Thin draws to reduce their size and autocorrelation of the chains.
 #'
 #' @description Thin [pdb_reference_posterior_draws] objects to reduce their size and autocorrelation of the chains.
 #'

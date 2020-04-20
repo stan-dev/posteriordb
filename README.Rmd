@@ -39,7 +39,7 @@ We are happy with any help in adding posteriors, data and models to the database
 Install the package from github
 
 ```{r, eval = FALSE}
-remotes::install_github("MansMeg/posteriordb", subdir = "rpackage/")
+remotes::install_github("MansMeg/posteriordb", subdir = "rpackage")
 ```
 
 Load the R package and load a posterior from the default posteriordb.
