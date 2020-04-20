@@ -421,6 +421,18 @@ supported_pdb_paths <- function(){
     "bibliography")
 }
 
+#' Read JSON objects from the posterior database
+#'
+#' @param fn file name
+#' @param path path to file name in pdb
+#' @param pdb a [pdb] object
+#' @param ... further arguments supplied to [jsonlite::read_json()]
+read_json_from_pdb <- function(fn, path, pdb, ...){
+  fp <- file.path(path, fn)
+  cfp <- pdb_cached_local_file_path(pdb, path = fp)
+  jsonlite::read_json(cfp, ...)
+}
+
 #' @rdname read_info_json
 #' @noRd
 #' @keywords internal
@@ -430,9 +442,10 @@ read_info_json.character <- function(x, path, pdb, ...){
   if(path != "posteriors") {
     fn <- paste0(fn, ".info")
   }
-  fp <- file.path(path, paste0(fn, ".json"))
-  pfn <- pdb_cached_local_file_path(pdb, path = fp)
-  po <- jsonlite::read_json(pfn, simplifyVector = TRUE)
+  fn <- paste0(fn, ".json")
+
+  po <- read_json_from_pdb(fn, path, pdb, simplifyVector = TRUE)
+
   po$added_date <- as.Date(po$added_date)
   class(po) <- paste0("pdb_", gsub(x = path, pattern = "/", "_"))
   po
