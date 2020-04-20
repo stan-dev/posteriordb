@@ -3,7 +3,7 @@
   "keywords": ["basic_estimators", "stan_examples"],
   "urls": "https://github.com/stan-dev/example-models/tree/master/basic_estimators",
   "model_name": "normal_mixture",
-  "data_name": "normal_mixture",
+  "data_name": "normal_2",
   "reference_posterior_name": null,
   "references": "",
   "dimensions": {
