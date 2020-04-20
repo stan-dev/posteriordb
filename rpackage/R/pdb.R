@@ -426,6 +426,7 @@ supported_pdb_paths <- function(){
 #' @param fn file name
 #' @param path path to file name in pdb
 #' @param pdb a [pdb] object
+#' @param ... further arguments supplied to [jsonlite::read_json()]
 read_json_from_pdb <- function(fn, path, pdb, ...){
   fp <- file.path(path, fn)
   cfp <- pdb_cached_local_file_path(pdb, path = fp)

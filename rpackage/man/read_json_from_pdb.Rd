@@ -12,6 +12,8 @@ read_json_from_pdb(fn, path, pdb, ...)
 \item{path}{path to file name in pdb}
 
 \item{pdb}{a [pdb] object}
+
+\item{...}{further arguments supplied to [jsonlite::read_json()]}
 }
 \description{
 Read JSON objects from the posterior database

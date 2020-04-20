@@ -89,7 +89,7 @@ check_pdb_run_stan <- function(pdb, posterior_idx = NULL) {
 
   try_list <- list()
   for(i in seq_along(pl)){
-    try_list[[i]] <- try(suppressWarnings(so <- capture_output(run_stan(pl[[i]], stan_args = list(iter = 100, warmup = 50, chains = 1)))))
+    try_list[[i]] <- try(suppressWarnings(so <- utils::capture.output(run_stan(pl[[i]], stan_args = list(iter = 100, warmup = 50, chains = 1)))))
     if(inherits(try_list[[i]], "try-error")){
       message("'", pl[[i]]$name, "' cannot be run with stan.")
     } else {
