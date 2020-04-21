@@ -1,43 +1,71 @@
+
 #' Remove objects from local pdb
 #'
-#' @description a function to simplify writing to a local pdb.
+#' @description a function to simplify removing object from a local pdb.
 #'
-#' @param x an object name to remove to the pdb.
-#' @param type Type of object to remove.
-#' @param pdb the pdb to remove from. Only a local pdb.
-remove_from_pdb <- function(x, type, pdb){
+#' @param x an object to remove to the pdb.
+#' @param pdb the pdb to remove from. Currently only a local pdb.
+#' @param type supported reference posterior types.
+#' @param ... further arguments supplied to methods.
+#'
+remove_pdb <- function(x, pdb, ...){
   checkmate::assert_class(pdb, "pdb_local")
-  checkmate::assert_character(x)
-  checkmate::assert_choice(type, c("posteriors", "models", "data", "reference_posteriors"))
-  eval(parse(paste0("remove_", type, "_from_pdb(x, pdb, ...)")))
+  UseMethod("remove_pdb")
 }
 
-#' @rdname remove_from_pdb
-remove_posteriors_from_pdb <- function(x, pdb){
-  fp <- paste0(file.path(pdb_endpoint(pdb), "posteriors", x), ".json")
-  checkmate::assert_file_exists(fp)
-  file.remove(fp)
+#' @rdname remove_pdb
+remove_pdb.character <- function(x, pdb, ...){
+  checkmate::assert_file_exists(x)
+  file.remove(x)
 }
 
-#' @rdname remove_from_pdb
-remove_data_from_pdb <- function(x, pdb){
-  fp1 <- paste0(file.path(pdb_endpoint(pdb), "data", "data", x), ".json.zip")
-  fp2 <- paste0(file.path(pdb_endpoint(pdb), "data", "info", x), ".info.json")
-  checkmate::assert_file_exists(c(fp1, fp2))
-  file.remove(c(fp1, fp2))
+#' @rdname remove_pdb
+remove_pdb.pdb_data <- function(x, pdb, ...){
+  fn <- paste0(info(x)$name, ".json.zip")
+  fp <- pdb_file_path(pdb, "data", "data", fn)
+  remove_pdb(fp, pdb)
 }
 
-#' @rdname remove_from_pdb
-remove_models_from_pdb <- function(x, pdb){
-  fp1 <- paste0(file.path(pdb_endpoint(pdb), "models", "info", x), ".info.json")
-  fp2 <- paste0(file.path(pdb_endpoint(pdb), "models", "stan", x), ".stan")
-  file.remove(c(fp1, fp2))
+#' @rdname remove_pdb
+remove_pdb.pdb_data_info <- function(x, pdb, ...){
+  fn <- paste0(x$name, ".info.json")
+  fp <- pdb_file_path(pdb, "data", "info", fn)
+  remove_pdb(fp, pdb)
 }
 
-#' @rdname remove_from_pdb
-remove_reference_posterior_from_pdb <- function(x, pdb){
-  fp1 <- paste0(file.path(pdb_endpoint(pdb), "reference_posteriors", "info", x), ".info.json")
-  fp2 <- paste0(file.path(pdb_endpoint(pdb), "reference_posteriors", "draws", x), ".json.zip")
-  checkmate::assert_file_exists(c(fp1, fp2))
-  file.remove(c(fp1, fp2))
+#' @rdname remove_pdb
+remove_pdb.pdb_model_code <- function(x, pdb, ...){
+  fw <- framework(x)
+  fn <- paste0(info(x)$name, ".", fw)
+  fp <- pdb_file_path(pdb, "models", fw, fn)
+  remove_pdb(fp, pdb)
+}
+
+#' @rdname remove_pdb
+remove_pdb.pdb_model_info <- function(x, pdb, ...){
+  fn <- paste0(x$name, ".info.json")
+  fp <- pdb_file_path(pdb, "models", "info", fn)
+  remove_pdb(fp, pdb)
+}
+
+#' @rdname remove_pdb
+remove_pdb.pdb_posterior <- function(x, pdb, ...){
+  fn <- paste0(x$name, ".json")
+  fp <- pdb_file_path(pdb, "posteriors", fn)
+  remove_pdb(fp, pdb)
+}
+
+#' @rdname remove_pdb
+remove_pdb.pdb_reference_posterior_draws <- function(x, pdb, ...){
+  fn <- paste0(info(x)$name, ".json.zip")
+  fp <- pdb_file_path(pdb, "reference_posteriors", "draws", "draws", fn)
+  remove_pdb(fp, pdb)
+}
+
+#' @rdname remove_pdb
+remove_pdb.pdb_reference_posterior_info <- function(x, pdb, type, ...){
+  checkmate::assert_choice(type, choices = supported_reference_posterior_types())
+  fn <- paste0(x$name, ".info.json")
+  fp <- pdb_file_path(pdb, "reference_posteriors", type, "info", fn)
+  remove_pdb(fp, pdb)
 }

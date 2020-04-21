@@ -1,0 +1,44 @@
+{
+  "name": "eight_schools-eight_schools_noncentered",
+  "inference": {
+    "method": "stan_sampling",
+    "method_arguments": {
+      "chains": 10,
+      "iter": 20000,
+      "warmup": 10000,
+      "thin": 10,
+      "seed": 4711,
+      "control": {
+        "adapt_delta": 0.95
+      }
+    }
+  },
+  "diagnostics": {
+    "diagnostic_information": {
+      "names": ["mu", "tau", "theta[1]", "theta[2]", "theta[3]", "theta[4]", "theta[5]", "theta[6]", "theta[7]", "theta[8]"]
+    },
+    "ndraws": 10000,
+    "nchains": 10,
+    "effective_sample_size_bulk": [10041.0896201168, 9989.27163956509, 10095.2967716424, 10048.7605290177, 9533.22696994086, 10026.3139529165, 9921.76671546211, 9782.69125918, 10038.5121243522, 9605.15453269234],
+    "effective_sample_size_tail": [9973.47696505836, 9992.18100324749, 9732.47952723908, 10139.1087989181, 9338.98171714254, 9665.77831222399, 10206.5263539246, 10038.5763550319, 9689.92308837161, 9870.88374609811],
+    "r_hat": [0.99976115558753, 0.999845473374448, 0.999788767583518, 0.999839736117519, 1.00013610191566, 1.00026622626714, 1.00048367344003, 1.00004664967257, 0.999931527294236, 0.999968330173144],
+    "divergent_transitions": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "expected_fraction_of_missing_information": [2.05778655284332, 1.94573243779057, 1.86149816455514, 2.0354076442815, 2.04937069252516, 2.00964369757938, 1.92195205578032, 1.95938358722255, 1.99564854416914, 1.99024021839922]
+  },
+  "checks_made": {
+    "ndraws_is_10k": true,
+    "nchains_is_gte_4": true,
+    "ess_within_bounds": true,
+    "r_hat_below_1_01": true,
+    "efmi_above_0_2": true
+  },
+  "comments": null,
+  "added_by": "Måns Magnusson",
+  "added_date": "2020-04-06",
+  "versions": {
+    "rstan_version": "rstan 2.21.1",
+    "r_Makevars": "# clang: start\nCFLAGS=-isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk\nCCFLAGS=-isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk\nCXXFLAGS=-isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk\nCPPFLAGS=-isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -I/usr/local/include\n\nSHLIB_CXXLDFLAGS+=-Wl,-rpath,/Library/Frameworks/R.framework/Resources/lib /Library/Frameworks/R.framework/Resources/lib/libc++abi.1.dylib\nSHLIB_CXX11LDFLAGS+=-Wl,-rpath,/Library/Frameworks/R.framework/Resources/lib /Library/Frameworks/R.framework/Resources/lib/libc++abi.1.dylib\nSHLIB_CXX14LDFLAGS+=-Wl,-rpath,/Library/Frameworks/R.framework/Resources/lib /Library/Frameworks/R.framework/Resources/lib/libc++abi.1.dylib\n# clang: end",
+    "r_version": "R version 3.6.1 (2019-07-05)",
+    "r_session": "R version 3.6.1 (2019-07-05)\nPlatform: x86_64-apple-darwin15.6.0 (64-bit)\nRunning under: macOS Catalina 10.15.3\n\nMatrix products: default\nBLAS:   /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib\nLAPACK: /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRlapack.dylib\n\nlocale:\n[1] sv_SE.UTF-8/sv_SE.UTF-8/sv_SE.UTF-8/C/sv_SE.UTF-8/sv_SE.UTF-8\n\nattached base packages:\n[1] stats     graphics  grDevices utils     datasets  methods  \n[7] base     \n\nother attached packages:\n[1] posteriordb_0.1      testthat_2.3.0       rstan_2.21.1        \n[4] ggplot2_3.2.1        StanHeaders_2.21.0-1 posterior_0.0.2     \n\nloaded via a namespace (and not attached):\n [1] tidyselect_0.2.5   purrr_0.3.3        V8_3.0.1          \n [4] colorspace_1.4-1   vctrs_0.2.4        stats4_3.6.1      \n [7] loo_2.2.0          rlang_0.4.5        pkgbuild_1.0.6    \n[10] pillar_1.4.3       glue_1.3.2         withr_2.1.2       \n[13] matrixStats_0.55.0 lifecycle_0.2.0    munsell_0.5.0     \n[16] gtable_0.3.0       codetools_0.2-16   inline_0.3.15     \n[19] callr_3.4.1        ps_1.3.0           curl_4.3          \n[22] parallel_3.6.1     fansi_0.4.1        Rcpp_1.0.3        \n[25] scales_1.1.0       backports_1.1.5    checkmate_2.0.0   \n[28] desc_1.2.0         pkgload_1.0.2      RcppParallel_4.4.4\n[31] jsonlite_1.6       abind_1.4-5        gridExtra_2.3     \n[34] packrat_0.5.0      processx_3.4.1     dplyr_0.8.3       \n[37] grid_3.6.1         rprojroot_1.3-2    cli_2.0.2         \n[40] tools_3.6.1        magrittr_1.5       lazyeval_0.2.2    \n[43] tibble_3.0.0       crayon_1.3.4       pkgconfig_2.0.3   \n[46] ellipsis_0.3.0     prettyunits_1.1.1  assertthat_0.2.1  \n[49] rstudioapi_0.10    R6_2.4.1           compiler_3.6.1    "
+  }
+}

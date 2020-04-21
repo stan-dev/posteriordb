@@ -1,0 +1,11 @@
+{
+  "name": "normal_5",
+  "keywords": ["basic_estimators", "stan_examples"],
+  "title": "Data from 5 Gaussians",
+  "description": "- K: number of Gaussians\n- N: total number of observations\n- y: draws from the Gaussians\n- z: cluster labels\n- Ns: number of draws from each Gaussian\n- mus: means of the Gaussians\n- sigmas: sds of the Gaussians\n",
+  "urls": "",
+  "data_file": "data/data/normal_5.json",
+  "references": "",
+  "added_date": "2020-03-11",
+  "added_by": "Oliver Järnefelt"
+}

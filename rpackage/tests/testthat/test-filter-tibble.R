@@ -1,4 +1,4 @@
-context("test-filter")
+context("test-filter-tibble")
 
 test_that("Filter posteriors locally and on github", {
 

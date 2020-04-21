@@ -4,7 +4,7 @@ data {
   vector[N] height;
 }
 transformed data {           // log transformation
-  vector[N] log_earn;        
+  vector[N] log_earn;
   log_earn = log(earn);
 }
 parameters {

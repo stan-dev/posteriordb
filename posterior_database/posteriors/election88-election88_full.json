@@ -1,0 +1,24 @@
+{
+  "name": "election88-election88_full",
+  "keywords": ["ARM", "Ch. 14", "stan_examples"],
+  "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.14",
+  "model_name": "election88_full",
+  "data_name": "election88",
+  "reference_posterior_name": null,
+  "references": "gelman2006data",
+  "dimensions": {
+    "a": 4,
+    "b": 4,
+    "c": 16,
+    "d": 51,
+    "e": 5,
+    "beta": 5,
+    "sigma_a": 1,
+    "sigma_b": 1,
+    "sigma_c": 1,
+    "sigma_d": 1,
+    "sigma_e": 1
+  },
+  "added_date": "2020-03-28",
+  "added_by": "Oliver Järnefelt"
+}

@@ -34,7 +34,7 @@ pdb_filter <- function(path, pdb, ...){
   nms <- unique(dat_tbl$name)
   obj_list <- list()
   for(i in seq_along(nms)) {
-    obj_list[[i]] <- posterior(name = nms[i], pdb = pdb)
+    obj_list[[i]] <- posterior(nms[i], pdb = pdb)
   }
   obj_list
 }

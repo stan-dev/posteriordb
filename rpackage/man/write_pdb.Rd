@@ -7,21 +7,24 @@
 \alias{write_pdb.pdb_data}
 \alias{write_pdb.pdb_data_info}
 \alias{write_pdb.stanmodel}
+\alias{write_pdb.pdb_model_code}
 \alias{write_pdb.pdb_model_info}
 \alias{write_pdb.pdb_posterior}
 \title{Write objects to pdb}
 \usage{
 write_pdb(x, pdb, overwrite = FALSE, ...)
 
-\method{write_pdb}{pdb_reference_posterior_info}(x, pdb, overwrite = FALSE, ...)
+\method{write_pdb}{pdb_reference_posterior_info}(x, pdb, overwrite = FALSE, type, ...)
 
 \method{write_pdb}{pdb_reference_posterior_draws}(x, pdb, overwrite = FALSE, ...)
 
-\method{write_pdb}{pdb_data}(x, pdb, overwrite = FALSE, name, ...)
+\method{write_pdb}{pdb_data}(x, pdb, overwrite = FALSE, ...)
 
 \method{write_pdb}{pdb_data_info}(x, pdb, overwrite = FALSE, ...)
 
 \method{write_pdb}{stanmodel}(x, pdb, overwrite = FALSE, ...)
+
+\method{write_pdb}{pdb_model_code}(x, pdb, overwrite = FALSE, ...)
 
 \method{write_pdb}{pdb_model_info}(x, pdb, overwrite = FALSE, ...)
 
@@ -36,7 +39,7 @@ write_pdb(x, pdb, overwrite = FALSE, ...)
 
 \item{...}{further arguments supplied to methods.}
 
-\item{name}{the name of the data (used for [pdb_data] objects only).}
+\item{type}{supported reference posterior types.}
 }
 \description{
 a function to simplify writing to a local pdb.

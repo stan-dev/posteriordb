@@ -2,7 +2,7 @@
 #' @export
 pdb_github <- function(repo = getOption("pdb_repo", "MansMeg/posteriordb/posterior_database"),
                        cache_path = tempdir(),
-                       ref = "master",
+                       ref = github_ref(),
                        subdir = NULL,
                        auth_token = github_pat(),
                        host = "https://api.github.com"){
@@ -76,6 +76,15 @@ model_names.pdb_github <- function(pdb, ...) {
   basename(remove_file_extension(pns))
 }
 
+#' @rdname data_names
+#' @export
+reference_posterior_names.pdb_github <- function(pdb, ...) {
+  pns <- github_dir(gh_path = github_path(pdb, type = "contents", path = "reference_posteriors/draws/info"), pdb = pdb)
+  pns <- pns[grepl(pns, pattern = "\\.json")]
+  basename(remove_file_extension(pns))
+}
+
+
 #' @noRd
 #' @rdname pdb_endpoint
 #' @keywords internal
@@ -133,6 +142,23 @@ github_pat <- function(pdb = NULL) {
   if(is.null(pdb)) return(NULL)
   pdb$github$pat
 }
+
+#' Retrieve Github reference.
+#'
+#' A github reference to use
+#' Looks in env var `GITHUB_REF`
+#' @param pdb A posterior datasbase object to extract pat from.
+#' @export
+github_ref <- function(pdb = NULL) {
+  ref <- Sys.getenv("GITHUB_REF")
+  if (nzchar(ref)) {
+    return(ref)
+  } else {
+    return("master")
+  }
+}
+
+
 
 #' Download file from GitHub
 #'

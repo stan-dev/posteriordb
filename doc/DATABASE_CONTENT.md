@@ -87,12 +87,17 @@ See [GOLD_STANDARD_CRITERIA.md](https://github.com/MansMeg/posteriordb/blob/mast
 
 All gold_standard in the database contains (at minimum) the following information:
 - `name`: The posterior/gold_standard name.
-- `cfg`: Configuration to create a gold standard with the following elements:
-  - `inference_method`: How were the draws created (e.g. "stan_sampling" or "analytical")
-  - `inference_method_arguments`: arguments used to create gold_standard, such as `chains`, `iter`, `warmup`, `algorithm`, `seed` etc. for full reproducibility.
-- `inference_version`: String with version of Rstan/Pystan/stan (e.g. "rstan 2.18.1")
-- `added_by`: Added by (name and github name)
-- `added_date`: Date the file was added (name and github name)
+ "comments", "added_by", "added_date", "versions"
+- `inference`:
+  - `method`: How were the draws created (e.g. "stan_sampling" or "analytical")
+  - `method_arguments`: arguments used to create reference_posterior, such as `chains`, `iter`, `warmup`, `algorithm`, `seed` etc. for full reproducibility.
+- `diagnostics`: Stored diagnostic values of the reference posterior
+- `checks_made`: Checks that has been made on the reference posterior to asses it comply to the reference posterior definition. See [REFERENCE_POSTERIOR_DEFINITION.md](https://github.com/MansMeg/posteriordb/blob/master/docs/REFERENCE_POSTERIOR_DEFINITION.md).
+- `comments`: Additional comments on the
+- `added_by`: Added by (name)
+- `added_date`: Date the file was added
+- `versions`:
+
 
 In addition the gold_standard posterior draws ziped JSON file contain at least the following:
 - a named list with all parameters specified in the stan model file of the posterior nested as chains, parameters, draws.

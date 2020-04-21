@@ -1,0 +1,18 @@
+{
+  "name": "nes",
+  "keywords": ["ARM", "Ch. 4", "stan_examples"],
+  "title": "Multiple Predictor Linear Model",
+  "prior": {
+    "keywords": "stan_recommended_35dbfe6"
+  },
+  "description": "partyid7 ~ real_ideo + race_adj + age30_44 + age45_64 + age65up + educ1 + gender + income",
+  "urls": "https://raw.githubusercontent.com/stan-dev/example-models/master/ARM/Ch.4/nes.stan",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/nes.stan"
+    }
+  },
+  "references": "gelman2006data",
+  "added_date": "2020-02-12",
+  "added_by": "Oliver Järnefelt"
+}

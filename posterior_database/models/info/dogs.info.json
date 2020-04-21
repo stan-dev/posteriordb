@@ -1,0 +1,18 @@
+{
+  "name": "dogs",
+  "keywords": ["ARM", "Ch. 24", "stan_examples"],
+  "title": "Logistic Mixed Effects Model",
+  "prior": {
+    "keywords": "stan_recommended_35dbfe6"
+  },
+  "description": "y ~ logistic(n_avoid + n_shock)",
+  "urls": "https://raw.githubusercontent.com/stan-dev/example-models/master/ARM/Ch.24/dogs.stan",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/dogs.stan"
+    }
+  },
+  "references": "gelman2006data",
+  "added_date": "2020-04-05",
+  "added_by": "Oliver Järnefelt"
+}

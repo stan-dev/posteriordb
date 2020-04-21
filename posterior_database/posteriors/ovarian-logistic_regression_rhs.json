@@ -1,0 +1,18 @@
+{
+  "name": "ovarian-logistic_regression_rhs",
+  "keywords": ["stan_benchmark", "logistic regression"],
+  "urls": "",
+  "model_name": "logistic_regression_rhs",
+  "data_name": "ovarian",
+  "reference_posterior_name": null,
+  "references": "piironen2017sparsity",
+  "dimensions": {
+    "beta0": 1,
+    "z": 1536,
+    "tau": 1,
+    "lambda": 1536,
+    "caux": 1
+  },
+  "added_date": "2020-02-29",
+  "added_by": "Oliver Järnefelt"
+}

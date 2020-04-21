@@ -1,4 +1,5 @@
 // generated with brms 2.10.0
+
 functions {
 }
 data {
@@ -40,4 +41,3 @@ generated quantities {
   // actual population-level intercept
   real b_Intercept = Intercept - dot_product(means_X, b);
 }
-

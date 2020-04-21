@@ -1,12 +1,20 @@
 #' Access a posterior in the posterior database
 #'
-#' @param name a posterior name that exist in the posterior database
+#' @param x a posterior name that exist in the posterior database
 #' @param pdb a \code{pdb} posterior database object.
+#' @param ... currently not in use.
 #' @export
-posterior <- function(name, pdb = pdb_default()) {
-  checkmate::assert_string(name)
+posterior <- function(x, pdb = pdb_default(), ...) {
+  UseMethod("posterior")
+}
+
+#' @rdname posterior
+#' @export
+posterior.character <- function(x, pdb = pdb_default(), ...) {
+  checkmate::assert_string(x)
   checkmate::assert_class(pdb, "pdb")
-  po <- read_info_json(name, "posteriors", pdb)
+  x <- handle_aliases(x, type = "posteriors", pdb)
+  po <- read_info_json(x, "posteriors", pdb)
   po$pdb <- pdb
   class(po) <- "pdb_posterior"
   po$model_info <- read_model_info(po)
@@ -14,13 +22,22 @@ posterior <- function(name, pdb = pdb_default()) {
   assert_pdb_posterior(po)
   po
 }
+
+#' @rdname posterior
+#' @export
+posterior.list <- function(x, pdb = NULL, ...) {
+  class(x) <- "pdb_posterior"
+  assert_pdb_posterior(x)
+  x
+}
+
 #' @rdname posterior
 #' @export
 pdb_posterior <- posterior
 
 #' @export
 print.pdb_posterior <- function(x, ...) {
-  cat0("Posterior\n\n")
+  cat0("Posterior (", x$name, ")\n\n")
   print(x$data_info)
   cat0("\n")
   print(x$model_info)

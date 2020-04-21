@@ -1,0 +1,14 @@
+{
+  "name": "dogs-dogs",
+  "keywords": ["ARM", "Ch. 24", "stan_examples"],
+  "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.24",
+  "model_name": "dogs",
+  "data_name": "dogs",
+  "reference_posterior_name": "dogs-dogs",
+  "references": "gelman2006data",
+  "dimensions": {
+    "beta": 3
+  },
+  "added_date": "2020-04-05",
+  "added_by": "Oliver Järnefelt"
+}

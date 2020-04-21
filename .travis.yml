@@ -1,5 +1,14 @@
 matrix:
   include:
+    - language: r
+      r: release
+      cache: packages
+      warnings_are_errors: true
+      before_install:
+      - cd rpackage
+      r_packages: covr
+      r_github_packages: jgabry/posterior
+      after_success: Rscript -e 'covr::codecov(line_exclusions = list("R/compute_gold_standard_draws_stan_sampling.R"))'
     - language: python
       python: "3.6"
       before_install: cd python
@@ -17,12 +26,3 @@ matrix:
       python: "3.7"
       install: pip install pre-commit
       script: pre-commit run --all-files --show-diff-on-failure
-    - language: r
-      r: release
-      cache: packages
-      warnings_are_errors: true
-      before_install:
-      - cd rpackage
-      r_packages: covr
-      r_github_packages: jgabry/posterior
-      after_success: Rscript -e 'covr::codecov(line_exclusions = list("R/compute_gold_standard_draws_stan_sampling.R"))'

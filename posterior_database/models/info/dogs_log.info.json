@@ -1,0 +1,18 @@
+{
+  "name": "dogs_log",
+  "keywords": ["ARM", "Ch. 24", "stan_examples"],
+  "title": "Logarithmic Mixed Effects Model",
+  "prior": {
+    "keywords": "stan_recommended_35dbfe6"
+  },
+  "description": "y ~ exp(n_avoid + n_shock)",
+  "urls": "https://raw.githubusercontent.com/stan-dev/example-models/master/ARM/Ch.24/dogs_log.stan",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/dogs_log.stan"
+    }
+  },
+  "references": "gelman2006data",
+  "added_date": "2020-04-05",
+  "added_by": "Oliver Järnefelt"
+}

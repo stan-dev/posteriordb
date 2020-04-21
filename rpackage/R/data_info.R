@@ -19,10 +19,20 @@ data_info.character <- function(x, pdb = pdb_default(), ...) {
 
 #' @rdname model_info
 #' @export
+data_info.list <- function(x, pdb = NULL, ...) {
+  class(x) <- "pdb_data_info"
+  assert_data_info(x)
+  x
+}
+
+#' @rdname model_info
+#' @export
 pdb_data_info <- data_info
 
+
+
 # read data info from the data base
-read_data_info <- function(x, pdb = NULL, ...) {
+read_data_info <- function(x, pdb, ...) {
   data_info <- read_info_json(x, path = "data/info", pdb = pdb, ...)
   class(data_info) <- "pdb_data_info"
   assert_data_info(data_info)

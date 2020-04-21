@@ -36,6 +36,9 @@ class PosteriorDatabase:
         self.path = path
         # TODO assert that path is a valid posterior database
 
+    def full_path(self, path: str):
+        return os.path.join(self.path, path)
+
     def posterior(self, name):
         # inline import needed to avoid import loop
         from .posterior import Posterior

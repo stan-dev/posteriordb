@@ -1,0 +1,11 @@
+{
+  "name": "normal_2",
+  "keywords": ["basic_estimators", "stan_examples"],
+  "title": "Data from a bimodal gaussian",
+  "description": "-N: number of observations\n- theta: mixture weight\n- mu1: mean of 1st component\n- mu2: mean of 2nd component",
+  "urls": "https://github.com/stan-dev/example-models/tree/master/basic_estimators",
+  "data_file": "data/data/normal_2.json",
+  "references": "",
+  "added_date": "2020-04-20",
+  "added_by": "Oliver Järnefelt"
+}

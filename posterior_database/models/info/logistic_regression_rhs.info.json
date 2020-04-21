@@ -1,0 +1,18 @@
+{
+  "name": "logistic_regression_rhs",
+  "keywords": ["stan_benchmark", "logistic regression"],
+  "title": "Logistic Regression with Regularized Horseshoe Prior",
+  "prior": {
+    "keywords": "stan_recommended_35dbfe6"
+  },
+  "description": "y ~ Ber(x)",
+  "urls": "",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/logistic_regression_rhs.stan"
+    }
+  },
+  "references": "piironen2017sparsity",
+  "added_date": "2020-02-29",
+  "added_by": "Oliver Järnefelt"
+}

@@ -54,7 +54,7 @@ Quick usage of the posterior database from R
 Install the package from github
 
 ``` r
-remotes::install_github("MansMeg/posteriordb", subdir = "rpackage/")
+remotes::install_github("MansMeg/posteriordb", subdir = "rpackage")
 ```
 
 Load the R package and load a posterior from the default posteriordb.
