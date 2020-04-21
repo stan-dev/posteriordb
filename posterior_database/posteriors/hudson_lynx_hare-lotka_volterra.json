@@ -4,7 +4,7 @@
   "urls": ["hewitt1921conservation", "howard2009modeling", "lotka1925principles", "volterra1926fluctuations", "volterra1927variazioni"],
   "model_name": "lotka_volterra",
   "data_name": "hudson_lynx_hare",
-  "reference_posterior_name": null,
+  "reference_posterior_name": "hudson_lynx_hare-lotka_volterra",
   "references": "gelman2006data",
   "dimensions": {
     "theta": 4,
