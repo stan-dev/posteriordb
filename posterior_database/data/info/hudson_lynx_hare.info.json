@@ -1,0 +1,11 @@
+{
+  "name": "hudson_lynx_hare",
+  "keywords": "stan_examples",
+  "title": "Data from Howard (2009), originally from Hewitt (1921)",
+  "description": "Data for the number of pelts collected by the Hudson’s Bay Company in the years 1900-1920.\nData Dimensions:\n- Year: the year of observation\n- Lynx: number of lynx pelts in thousands\n- Hare: number of hare pelts in thousands",
+  "urls": "https://github.com/stan-dev/example-models/blob/master/knitr/lotka-volterra",
+  "data_file": "data/data/hudson_lynx_hare.json",
+  "references": ["hewitt1921conservation", "howard2009modeling"],
+  "added_date": "2020-04-21",
+  "added_by": "Oliver Järnefelt"
+}

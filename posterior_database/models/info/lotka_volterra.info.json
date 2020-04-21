@@ -1,0 +1,18 @@
+{
+  "name": "lotka_volterra",
+  "keywords": ["mechanistic","stan_examples"],
+  "title": "Lotka-Volterra Error Model",
+  "prior": {
+    "keywords": "stan_recommended_35dbfe6"
+  },
+  "description": "A statistical model to account for measurement error and unexplained variation\nthat uses the deterministic solutions to the Lotka-Volterra equations as expected population sizes",
+  "urls": "https://raw.githubusercontent.com/stan-dev/example-models/master/knitr/lotka-volterra/lotka-volterra.stan",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/lotka_volterra.stan"
+    }
+  },
+  "references": ["lotka1925principles", "volterra1926fluctuations", "volterra1927variazioni"],
+  "added_date": "2020-04-21",
+  "added_by": "Oliver Järnefelt"
+}

@@ -1,0 +1,16 @@
+{
+  "name": "hudson_lynx_hare-lotka_volterra",
+  "keywords": ["stan_examples", "stan_benchmark"],
+  "urls": ["hewitt1921conservation", "howard2009modeling", "lotka1925principles", "volterra1926fluctuations", "volterra1927variazioni"],
+  "model_name": "lotka_volterra",
+  "data_name": "hudson_lynx_hare",
+  "reference_posterior_name": null,
+  "references": "gelman2006data",
+  "dimensions": {
+    "theta": 4,
+    "z_init": 2,
+    "sigma": 2
+  },
+  "added_date": "2020-04-21",
+  "added_by": "Oliver Järnefelt"
+}
