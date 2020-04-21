@@ -1,6 +1,6 @@
 {
   "name": "lotka_volterra",
-  "keywords": ["", "stan_examples"],
+  "keywords": ["mechanistic", "stan_examples"],
   "title": "Lotka-Volterra Error Model",
   "prior": {
     "keywords": "stan_recommended_35dbfe6"
