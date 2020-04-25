@@ -4,7 +4,7 @@
   "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.4",
   "model_name": "logearn_interaction",
   "data_name": "earnings",
-  "reference_posterior_name": null,
+  "reference_posterior_name": "earnings-logearn_interaction",
   "references": "gelman2006data",
   "dimensions": {
     "beta": 4,
