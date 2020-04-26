@@ -4,7 +4,7 @@
   "urls": "https://github.com/bbbales2/cmdstan-warmup/blob/develop/examples/kilpisjarvi",
   "model_name": "kilpisjarvi",
   "data_name": "kilpisjarvi_mod",
-  "reference_posterior_name": null,
+  "reference_posterior_name": "kilpisjarvi_mod-kilpisjarvi",
   "references": ["bales2019selecting"],
   "dimensions": {
     "alpha": 1,
