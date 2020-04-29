@@ -107,42 +107,51 @@ parameters {
   // temporary intercept for centered predictors
   real Intercept;
   // GP standard deviation parameters
-  vector<lower=0>[Kgp_1] sdgp_1;
+  real<lower=0> sdgp_1;
   // GP length-scale parameters
-  vector<lower=0>[1] lscale_1[Kgp_1];
+  real<lower=0> lscale_1;
   // latent variables of the GP
   vector[NBgp_1] zgp_1;
   // temporary intercept for centered predictors
   real Intercept_sigma;
   // GP standard deviation parameters
-  vector<lower=0>[Kgp_sigma_1] sdgp_sigma_1;
+  real<lower=0> sdgp_sigma_1;
   // GP length-scale parameters
-  vector<lower=0>[1] lscale_sigma_1[Kgp_sigma_1];
+  real<lower=0> lscale_sigma_1;
   // latent variables of the GP
   vector[NBgp_sigma_1] zgp_sigma_1;
 }
 transformed parameters {
+	// vector versions of real parameters
+  vector<lower=0>[Kgp_1] vsdgp_1;
+  vector<lower=0>[1] vlscale_1[Kgp_1];
+  vector<lower=0>[Kgp_sigma_1] vsdgp_sigma_1;
+  vector<lower=0>[1] vlscale_sigma_1[Kgp_sigma_1];
+  vsdgp_1[1] = sdgp_1;
+  vlscale_1[1,1] = lscale_1;
+  vsdgp_sigma_1[1] = sdgp_sigma_1;
+  vlscale_sigma_1[1,1] = lscale_sigma_1;
 }
 model {
   // initialize linear predictor term
-  vector[N] mu = Intercept + rep_vector(0, N) + gpa(Xgp_1, sdgp_1[1], lscale_1[1], zgp_1, slambda_1);
+  vector[N] mu = Intercept + rep_vector(0, N) + gpa(Xgp_1, vsdgp_1[1], vlscale_1[1], zgp_1, slambda_1);
   // initialize linear predictor term
-  vector[N] sigma = Intercept_sigma + rep_vector(0, N) + gpa(Xgp_sigma_1, sdgp_sigma_1[1], lscale_sigma_1[1], zgp_sigma_1, slambda_sigma_1);
+  vector[N] sigma = Intercept_sigma + rep_vector(0, N) + gpa(Xgp_sigma_1, vsdgp_sigma_1[1], vlscale_sigma_1[1], zgp_sigma_1, slambda_sigma_1);
   for (n in 1:N) {
     // apply the inverse link function
     sigma[n] = exp(sigma[n]);
   }
   // priors including all constants
   target += student_t_lpdf(Intercept | 3, -13, 36);
-  target += student_t_lpdf(sdgp_1 | 3, 0, 36)
+  target += student_t_lpdf(vsdgp_1 | 3, 0, 36)
     - 1 * student_t_lccdf(0 | 3, 0, 36);
   target += normal_lpdf(zgp_1 | 0, 1);
-  target += inv_gamma_lpdf(lscale_1[1] | 1.124909, 0.0177);
+  target += inv_gamma_lpdf(vlscale_1[1] | 1.124909, 0.0177);
   target += student_t_lpdf(Intercept_sigma | 3, 0, 10);
-  target += student_t_lpdf(sdgp_sigma_1 | 3, 0, 36)
+  target += student_t_lpdf(vsdgp_sigma_1 | 3, 0, 36)
     - 1 * student_t_lccdf(0 | 3, 0, 36);
   target += normal_lpdf(zgp_sigma_1 | 0, 1);
-  target += inv_gamma_lpdf(lscale_sigma_1[1] | 1.124909, 0.0177);
+  target += inv_gamma_lpdf(vlscale_sigma_1[1] | 1.124909, 0.0177);
   // likelihood including all constants
   if (!prior_only) {
     target += normal_lpdf(Y | mu, sigma);
