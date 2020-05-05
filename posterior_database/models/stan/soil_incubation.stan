@@ -5,7 +5,7 @@ functions {
    *
    * This is the version that does not deal with measurement error.
    *
-   * System State C is two dimensional with C[1] and C[2] 
+   * System State C is two dimensional with C[1] and C[2]
    * being carbon in pools 1 and 2.
    *
    * The system has parameters
@@ -44,7 +44,7 @@ functions {
     k2 <- theta[2];
     alpha21 <- theta[3];
     alpha12 <- theta[4];
-    
+
     dC_dt[1] <- -k1 * C[1] + alpha12 * k2 * C[2];
     dC_dt[2] <- - k2 * C[2] + alpha21 * k1 * C[1] ;
 
@@ -72,7 +72,7 @@ functions {
    */
   real[] evolved_CO2(int N_t, real t0, real[] ts,
                      real gamma, real totalC_t0,
-                     real k1, real k2, 
+                     real k1, real k2,
                      real alpha21, real alpha12,
                      real[] x_r, int[] x_i) {
 
@@ -90,7 +90,7 @@ functions {
     theta[3] <- alpha21;
     theta[4] <- alpha12;
 
-    C_hat <- integrate_ode(two_pool_feedback, 
+    C_hat <- integrate_ode(two_pool_feedback,
                            C_t0, t0, ts, theta, x_r, x_i);
 
     for (t in 1:N_t)
