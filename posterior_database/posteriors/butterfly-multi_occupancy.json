@@ -1,0 +1,20 @@
+{
+  "name": "butterfly-multi_occupancy",
+  "keywords": ["stan_examples", "stan_benchmark"],
+  "urls": "",
+  "model_name": "multi_occupancy",
+  "data_name": "butterfly",
+  "reference_posterior_name": null,
+  "references": "dorazio2006estimating",
+  "dimensions": {
+    "alpha": 1,
+    "beta": 1,
+    "Omega": 1,
+    "rho_uv": 1,
+    "sigma_uv": 2,
+    "uv1": 50,
+    "uv2": 50
+  },
+  "added_date": "2020-05-06",
+  "added_by": "Oliver Järnefelt"
+}

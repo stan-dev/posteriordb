@@ -4,7 +4,7 @@
   "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.4",
   "model_name": "logmesquite",
   "data_name": "mesquite",
-  "reference_posterior_name": null,
+  "reference_posterior_name": "mesquite-logmesquite",
   "references": "gelman2006data",
   "dimensions": {
     "beta": 7,
