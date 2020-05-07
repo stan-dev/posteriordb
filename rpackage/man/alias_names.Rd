@@ -10,8 +10,6 @@ alias_names(type, pdb = pdb_default())
 \item{type}{type of alias names. Cureently only posteriors.}
 
 \item{pdb}{a \code{pdb} object.}
-
-\item{...}{Further argument to methods.}
 }
 \description{
 Get all existing alias names from a posterior database

@@ -2,7 +2,6 @@
 #'
 #' @param pdb a \code{pdb} object.
 #' @param type type of alias names. Cureently only posteriors.
-#' @param ... Further argument to methods.
 #'
 #' @export
 alias_names <- function(type, pdb = pdb_default()){
