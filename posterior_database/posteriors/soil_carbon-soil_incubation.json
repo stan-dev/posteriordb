@@ -1,0 +1,19 @@
+{
+  "name": "soil_carbon-soil_incubation",
+  "keywords": ["stan_examples", "stan_benchmark"],
+  "urls": "https://github.com/stan-dev/example-models/blob/master/knitr/soil-carbon",
+  "model_name": "soil_incubation",
+  "data_name": "soil_carbon",
+  "reference_posterior_name": null,
+  "references": "sierra2014modeling",
+  "dimensions": {
+    "k1": 1,
+    "k2": 1,
+    "alpha21": 1,
+    "alpha12": 1,
+    "gamma": 1,
+    "sigma": 1
+  },
+  "added_date": "2020-05-04",
+  "added_by": "Oliver Järnefelt"
+}

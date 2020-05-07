@@ -1,0 +1,11 @@
+{
+  "name": "butterfly",
+  "keywords": "stan_examples",
+  "title": "Data from Dorazio et al. (2006)",
+  "description": "The data consists of an the observation of butterfly species in grazed seminatural grasslands located\nin south-central Sweden in July 1997.\nData Dimensions:\n- n: number of distinct butterfly species detected\n- J: distinct sites visited\n- K: visits to each site\n- X: n×J matrix where x_ij is the number of visits in which species i was observed at site j\n- S: size of supercommunity out of which community is drawn\n",
+  "urls": "http://esapubs.org/archive/ecol/E087/050/butterflyData.txt",
+  "data_file": "data/data/butterfly.json",
+  "references": "dorazio2006estimating",
+  "added_date": "2020-05-06",
+  "added_by": "Oliver Järnefelt"
+}

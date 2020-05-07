@@ -1,0 +1,11 @@
+{
+  "name": "soil_carbon",
+  "keywords": "stan_examples",
+  "title": "Data from Sierra and Müller (2014)",
+  "description": "Data from a soil incubation experiment in which\na series of 25 measurements over time of evolved CO2 were taken. At each time point,\nmultiple readings were taken from replicates and aggregated into a mean and standard deviation.\nData Dimensions:\n- totalC_t0: total carbon at t0\n- t0: initial time point\n- N_t: number of measurements\n- ts: time points [t0, tN_t]\n- eCO2mean: mean of total carbon evolved from the system since t0\n- eCO2sd: sd of total carbon evolved from the system since t0\n",
+  "urls": "https://github.com/stan-dev/example-models/blob/master/knitr/soil-carbon/AK_T25.data.R",
+  "data_file": "data/data/soil_carbon.json",
+  "references": "sierra2014modeling",
+  "added_date": "2020-05-04",
+  "added_by": "Oliver Järnefelt"
+}

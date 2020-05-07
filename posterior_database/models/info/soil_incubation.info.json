@@ -1,0 +1,18 @@
+{
+  "name": "soil_incubation",
+  "keywords": ["time_series", "stan_examples"],
+  "title": "Two Pool Linear Model with Feedback",
+  "prior": {
+    "keywords": "stan_recommended_35dbfe6"
+  },
+  "description": "A statistical two-pool model with decomposition rates for each pool\nas well as transfer rates from one pool to another.",
+  "urls": "https://github.com/stan-dev/example-models/blob/master/knitr/soil-carbon/soil_incubation.stan",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/soil_incubation.stan"
+    }
+  },
+  "references": "sierra2014modeling",
+  "added_date": "2020-05-04",
+  "added_by": "Oliver Järnefelt"
+}

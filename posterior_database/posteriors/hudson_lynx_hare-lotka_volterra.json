@@ -1,11 +1,11 @@
 {
   "name": "hudson_lynx_hare-lotka_volterra",
   "keywords": ["stan_examples", "stan_benchmark"],
-  "urls": ["hewitt1921conservation", "howard2009modeling", "lotka1925principles", "volterra1926fluctuations", "volterra1927variazioni"],
+  "urls": "https://github.com/stan-dev/example-models/blob/master/knitr/lotka-volterra",
   "model_name": "lotka_volterra",
   "data_name": "hudson_lynx_hare",
   "reference_posterior_name": "hudson_lynx_hare-lotka_volterra",
-  "references": "gelman2006data",
+  "references": ["hewitt1921conservation", "howard2009modeling", "lotka1925principles", "volterra1926fluctuations", "volterra1927variazioni"],
   "dimensions": {
     "theta": 4,
     "z_init": 2,
