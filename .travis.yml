@@ -9,6 +9,13 @@ matrix:
       r_packages: covr
       r_github_packages: jgabry/posterior
       after_success: Rscript -e 'covr::codecov(line_exclusions = list("R/compute_gold_standard_draws_stan_sampling.R"))'
+    - language: r
+      r: oldrel
+      cache: packages
+      warnings_are_errors: true
+      before_install:
+      - cd rpackage
+      r_github_packages: jgabry/posterior
     - language: python
       python: "3.6"
       before_install: cd python
