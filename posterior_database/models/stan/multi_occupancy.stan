@@ -25,7 +25,7 @@ functions {
         + J * lp_unobserved(K, logit_psi, logit_theta);
       return log_sum_exp(lp_unavailable, lp_available);
     }
-}§
+}
 data {
   int<lower=1> J;  // sites within region
   int<lower=1> K;  // visits to sites
