@@ -9,7 +9,7 @@ data {
 parameters {
   simplex[K] theta1;
   simplex[K] theta2;
-  // enforce an ordering: phi[1] <= phi[2] 
+  // enforce an ordering: phi[1] <= phi[2]
   positive_ordered[K] phi;      // emission parameter for 1/speed
   positive_ordered[K] lambda;   // emission parameter for hoop dist
 }
