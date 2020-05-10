@@ -1,0 +1,16 @@
+{
+  "name": "hmm_example-hmm_example",
+  "keywords": ["stan_examples", "stan_benchmark"],
+  "urls": "https://github.com/imadmali/bball-hmm/blob/master",
+  "model_name": "hmm_example",
+  "data_name": "hmm_example",
+  "reference_posterior_name": "hmm_example-hmm_example",
+  "references": "",
+  "dimensions": {
+    "theta1": 2,
+    "theta2": 2,
+    "mu": 2
+  },
+  "added_date": "2020-05-10",
+  "added_by": "Oliver Järnefelt"
+}

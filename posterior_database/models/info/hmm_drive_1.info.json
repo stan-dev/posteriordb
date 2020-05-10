@@ -1,0 +1,18 @@
+{
+  "name": "hmm_drive_1",
+  "keywords": ["hidden markov model", "stan_examples"],
+  "title": "Hidden Markov Model",
+  "prior": {
+    "keywords": "stan_recommended_35dbfe6"
+  },
+  "description": "A Hidden Markov Model with normal distribution for emission probabilities",
+  "urls": "https://github.com/imadmali/bball-hmm/blob/master/models/drive_1.stan",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/hmm_drive_1.stan"
+    }
+  },
+  "references": "",
+  "added_date": "2020-05-10",
+  "added_by": "Oliver Järnefelt"
+}
