@@ -1,0 +1,17 @@
+{
+  "name": "bball_drive_event_1-hmm_drive_1",
+  "keywords": ["stan_examples", "stan_benchmark"],
+  "urls": "https://github.com/imadmali/bball-hmm/blob/master",
+  "model_name": "hmm_drive_1",
+  "data_name": "bball_drive_event_1",
+  "reference_posterior_name": null,
+  "references": "",
+  "dimensions": {
+    "theta1": 2,
+    "theta2": 2,
+    "phi": 2,
+    "lambda": 2
+  },
+  "added_date": "2020-05-10",
+  "added_by": "Oliver Järnefelt"
+}
