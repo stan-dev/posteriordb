@@ -22,6 +22,9 @@
     },
     "pymc3": {
       "model_code": "models/pymc3/eight_schools_centered.py"
+    },
+    "jags": {
+      "model_code": "models/jags/eight_schools_centered.jags"
     }
   },
   "added_by": "Mans Magnusson",
