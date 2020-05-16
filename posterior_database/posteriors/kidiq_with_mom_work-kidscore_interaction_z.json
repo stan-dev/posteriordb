@@ -4,7 +4,7 @@
   "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.4",
   "model_name": "kidscore_interaction_z",
   "data_name": "kidiq_with_mom_work",
-  "reference_posterior_name": null,
+  "reference_posterior_name": "kidiq_with_mom_work-kidscore_interaction_z",
   "references": "gelman2006data",
   "dimensions": {
     "beta": 4,
