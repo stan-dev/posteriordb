@@ -1,0 +1,44 @@
+{
+  "name": "kidiq-kidscore_momhsiq",
+  "inference": {
+    "method": "stan_sampling",
+    "method_arguments": {
+      "chains": 10,
+      "iter": 20000,
+      "warmup": 10000,
+      "thin": 10,
+      "seed": 4711,
+      "control": {
+        "adapt_delta": 0.8
+      }
+    }
+  },
+  "diagnostics": {
+    "diagnostic_information": {
+      "names": ["beta[1]", "beta[2]", "beta[3]", "sigma"]
+    },
+    "ndraws": 10000,
+    "nchains": 10,
+    "effective_sample_size_bulk": [10261.1339699153, 10231.4957351984, 10250.2853386041, 10062.1856671618],
+    "effective_sample_size_tail": [10079.2391372892, 9953.80983922285, 10074.5986042733, 9914.740345211],
+    "r_hat": [0.999869000404669, 1.00011735563098, 0.999836416246855, 1.00053606689533],
+    "divergent_transitions": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "expected_fraction_of_missing_information": [1.96606679499034, 2.06176484692665, 2.05598322842441, 1.90234956255607, 2.03136969985891, 2.00916989171201, 2.06417949120362, 1.99690889413627, 2.0089226830519, 1.96529260910074]
+  },
+  "checks_made": {
+    "ndraws_is_10k": true,
+    "nchains_is_gte_4": true,
+    "ess_within_bounds": true,
+    "r_hat_below_1_01": true,
+    "efmi_above_0_2": true
+  },
+  "comments": null,
+  "added_by": "Oliver Järnefelt",
+  "added_date": "2020-05-16",
+  "versions": {
+    "rstan_version": "rstan 2.19.2",
+    "r_Makevars": "\nCXX14FLAGS=-O3 -march=native -mtune=native -fPIC\nCXX14=g++",
+    "r_version": "R version 3.6.1 (2019-07-05)",
+    "r_session": "R version 3.6.1 (2019-07-05)\nPlatform: x86_64-pc-linux-gnu (64-bit)\nRunning under: Ubuntu 16.04.6 LTS\n\nMatrix products: default\nBLAS:   /usr/lib/libblas/libblas.so.3.6.0\nLAPACK: /usr/lib/lapack/liblapack.so.3.6.0\n\nlocale:\n [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=fi_FI.UTF-8        LC_COLLATE=en_US.UTF-8    \n [5] LC_MONETARY=fi_FI.UTF-8    LC_MESSAGES=en_US.UTF-8    LC_PAPER=fi_FI.UTF-8       LC_NAME=C                 \n [9] LC_ADDRESS=C               LC_TELEPHONE=C             LC_MEASUREMENT=fi_FI.UTF-8 LC_IDENTIFICATION=C       \n\nattached base packages:\n[1] stats     graphics  grDevices utils     datasets  methods   base     \n\nother attached packages:\n[1] posterior_0.0.1    posteriordb_0.1    rstan_2.19.2       ggplot2_3.2.1      StanHeaders_2.19.0\n\nloaded via a namespace (and not attached):\n [1] Rcpp_1.0.2         pillar_1.4.2       compiler_3.6.1     prettyunits_1.0.2  tools_3.6.1        pkgbuild_1.0.6    \n [7] checkmate_2.0.0    tibble_2.1.3       gtable_0.3.0       pkgconfig_2.0.3    rlang_0.4.6        cli_2.0.2         \n[13] rstudioapi_0.11    yaml_2.2.0         parallel_3.6.1     loo_2.1.0          gridExtra_2.3      withr_2.1.2       \n[19] dplyr_0.8.3        stats4_3.6.1       grid_3.6.1         tidyselect_0.2.5   glue_1.4.0         inline_0.3.15     \n[25] R6_2.4.0           processx_3.4.1     fansi_0.4.0        purrr_0.3.3        callr_3.4.3        magrittr_1.5      \n[31] backports_1.1.6    scales_1.0.0       ps_1.3.0           matrixStats_0.55.0 abind_1.4-5        assertthat_0.2.1  \n[37] colorspace_1.4-1   lazyeval_0.2.2     munsell_0.5.0      crayon_1.3.4      "
+  }
+}
