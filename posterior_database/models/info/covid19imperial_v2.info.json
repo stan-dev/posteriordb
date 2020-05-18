@@ -1,18 +1,18 @@
 {
   "name": "covid19imperial_v2",
-  "keywords": "hiearchical",
-  "title": "A hiearchical model for estimating intervetion effects in the covid-19 pandemic",
+  "keywords": "epidemiology",
+  "title": "Epidemic model v2 of Flaxman et al (2020)",
   "prior": {
-    "keywords": []
+    "keywords": null
   },
-  "description": "A hiearchical model for estimating intervetion effects in the covid-19 pandemic",
-  "urls": "https://github.com/ImperialCollegeLondon/covid19model/",
+  "description": "A Bayesian model for estimating intervetion effects in the 2020 covid-19 pandemic.",
+  "urls": "https://github.com/ImperialCollegeLondon/covid19model",
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/covid19imperial_v2.stan"
     }
   },
   "references": "flaxman2020report",
-  "added_date": "2020-04-12",
-  "added_by": "Måns Magnusson"
+  "added_date": "2020-05-18",
+  "added_by": "Mans Magnusson"
 }
