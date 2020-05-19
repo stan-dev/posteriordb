@@ -1,0 +1,22 @@
+{
+  "name": "ecdc0401-covid19imperial_v3",
+  "keywords": null,
+  "urls": null,
+  "model_name": "covid19imperial_v3",
+  "data_name": "ecdc0401",
+  "reference_posterior_name": null,
+  "references": "flaxman2020report",
+  "dimensions": {
+    "mu": 14,
+    "alpha_hier": 6,
+    "kappa": 1,
+    "lockdown": 14,
+    "gamma": 1,
+    "y": 14,
+    "phi": 1,
+    "tau": 1,
+    "ifr_noise": 14
+  },
+  "added_date": "2020-05-18",
+  "added_by": "Mans Magnusson"
+}
