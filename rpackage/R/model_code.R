@@ -152,4 +152,4 @@ framework.pdb_model_code <- function(x){
   x
 }
 
-supported_frameworks <- function() c("stan", "pymc3", "tfp", "pyro", "jags")
+supported_frameworks <- function() c("stan", "pymc3", "tfp", "pyro")
