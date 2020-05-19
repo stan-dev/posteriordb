@@ -1,9 +1,9 @@
 {
-  "name": "covid19imperial_v2-covid19imperial_v2",
+  "name": "ecdc0501-covid19imperial_v2",
   "keywords": null,
-  "urls": "https://github.com/ImperialCollegeLondon/covid19model/",
+  "urls": null,
   "model_name": "covid19imperial_v2",
-  "data_name": "covid19imperial_v2",
+  "data_name": "ecdc0501",
   "reference_posterior_name": null,
   "references": "flaxman2020report",
   "dimensions": {
@@ -13,9 +13,8 @@
     "y": 14,
     "phi": 1,
     "tau": 1,
-    "ifr_noise": 14,
-    "alpha": 6
+    "ifr_noise": 14
   },
   "added_date": "2020-05-18",
-  "added_by": "Måns Magnusson"
+  "added_by": "Mans Magnusson"
 }
