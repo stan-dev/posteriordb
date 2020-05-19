@@ -25,6 +25,8 @@ check_pdb_posteriors(
 \item{pdb}{a \code{pdb} object}
 
 \item{posterior_idx}{an index vector indicating what posteriors to check.}
+
+\item{posteriors}{a character vector with posterior names.}
 }
 \value{
 a boolean indicating if the pdb works as it should.

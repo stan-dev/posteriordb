@@ -2,6 +2,7 @@
 #'
 #' @param pdb a \code{pdb} object
 #' @param posterior_idx an index vector indicating what posteriors to check.
+#' @param posteriors a character vector with posterior names.
 #'
 #' @details
 #' [check_pdb()] checks that the content exists as specified

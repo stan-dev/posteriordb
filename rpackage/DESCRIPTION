@@ -25,5 +25,6 @@ Suggests:
   git2r,
   remotes,
   rstan,
+  rjags,
   testthat,
   bibtex
