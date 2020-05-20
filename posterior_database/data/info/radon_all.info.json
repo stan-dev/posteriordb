@@ -1,0 +1,11 @@
+{
+  "name": "radon_all",
+  "keywords": "radon",
+  "title": "The Radon contamination dataset of Gelman and Hill (2006)",
+  "description": "A data set containing data of radon levels in three hundred eighty-six different counties in the USA. \n\n - N: number of observations\n  - J: number of counties  \n  - floor_measure: floor measurements \n  - log_radon: log-radon measurements\n  - log_uppm: county uranium reading\n  - county: county id",
+  "urls": "https://mc-stan.org/users/documentation/case-studies/radon.html",
+  "data_file": "data/data/radon_all.json",
+  "references": "gelman2006data",
+  "added_date": "2020-05-20",
+  "added_by": "Mans Magnusson"
+}
