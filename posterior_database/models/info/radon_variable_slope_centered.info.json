@@ -1,0 +1,18 @@
+{
+  "name": "radon_variable_slope_centered",
+  "keywords": "radon",
+  "title": "Variable slope hiearchical Radon model (centered)",
+  "prior": {
+    "keywords": "stan_recommended_35dbfe6"
+  },
+  "description": "A linear model with a global intercept and different regression coefficients using an hiearchical prior. This model uses a centered parametrization.",
+  "urls": "https://mc-stan.org/users/documentation/case-studies/radon.html",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/radon_variable_slope_centered.stan"
+    }
+  },
+  "references": "gelman2006data",
+  "added_date": "2020-05-21",
+  "added_by": "Mans Magnusson"
+}
