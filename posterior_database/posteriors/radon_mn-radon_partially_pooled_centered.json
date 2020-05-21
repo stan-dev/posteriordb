@@ -1,0 +1,17 @@
+{
+  "name": "radon_mn-radon_partially_pooled_centered",
+  "keywords": ["radon", "stan_case_study"],
+  "urls": "https://mc-stan.org/users/documentation/case-studies/radon.html",
+  "model_name": "radon_partially_pooled_centered",
+  "data_name": "radon_mn",
+  "reference_posterior_name": null,
+  "references": "gelman2006data",
+  "dimensions": {
+    "alpha": 85,
+    "mu_alpha": 1,
+    "sigma_alpha": 1,
+    "sigma_y": 1
+  },
+  "added_date": "2020-05-21",
+  "added_by": "Mans Magnusson"
+}

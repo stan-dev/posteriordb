@@ -1,14 +1,16 @@
 {
-  "name": "radon_all-radon_pooled",
+  "name": "radon_all-radon_variable_slope_centered",
   "keywords": "radon",
   "urls": null,
-  "model_name": "radon_pooled",
+  "model_name": "radon_variable_slope_centered",
   "data_name": "radon_all",
   "reference_posterior_name": null,
   "references": "gelman2006data",
   "dimensions": {
     "alpha": 1,
-    "beta": 1,
+    "beta": 386,
+    "mu_beta": 1,
+    "sigma_beta": 1,
     "sigma_y": 1
   },
   "added_date": "2020-05-21",

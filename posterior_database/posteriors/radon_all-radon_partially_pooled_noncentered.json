@@ -1,14 +1,15 @@
 {
-  "name": "radon_all-radon_pooled",
+  "name": "radon_all-radon_partially_pooled_noncentered",
   "keywords": "radon",
   "urls": null,
-  "model_name": "radon_pooled",
+  "model_name": "radon_partially_pooled_noncentered",
   "data_name": "radon_all",
   "reference_posterior_name": null,
   "references": "gelman2006data",
   "dimensions": {
-    "alpha": 1,
-    "beta": 1,
+    "alpha": 386,
+    "mu_alpha": 1,
+    "sigma_alpha": 1,
     "sigma_y": 1
   },
   "added_date": "2020-05-21",
