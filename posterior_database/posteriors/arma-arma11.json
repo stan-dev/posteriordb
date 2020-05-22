@@ -6,7 +6,7 @@
   "urls": [],
   "model_name": "arma11",
   "data_name": "arma",
-  "reference_posterior_name": null,
+  "reference_posterior_name": "arma-arma11",
   "references": [],
   "dimensions": {
     "mu": 1,
