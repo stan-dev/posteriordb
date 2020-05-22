@@ -4,7 +4,7 @@
     "stan_benchmark"
   ],
   "model_name": "arK",
-  "reference_posterior_name": null,
+  "reference_posterior_name": "arK-arK",
   "data_name": "arK",
   "dimensions": {
     "alpha": 1,
