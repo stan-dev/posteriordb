@@ -1,0 +1,19 @@
+{
+  "name": "sat-hier_2pl",
+  "keywords": ["stan_examples", "stan_benchmark"],
+  "urls": "https://mc-stan.org/users/documentation/case-studies/hierarchical_2pl.html",
+  "model_name": "hier_2pl",
+  "data_name": "sat",
+  "reference_posterior_name": null,
+  "references": ["glas2003computerized", "furr2016hier"],
+  "dimensions": {
+    "theta": 600,
+    "xi1": 32,
+    "xi2": 32,
+    "mu": 2,
+    "tau": 2,
+    "L_Omega": 2
+  },
+  "added_date": "2020-05-19",
+  "added_by": "Oliver Järnefelt"
+}
