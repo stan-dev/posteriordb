@@ -5,6 +5,7 @@
 \alias{check_pdb_run_stan}
 \alias{check_pdb_stan_syntax}
 \alias{check_pdb_references}
+\alias{check_pdb_posteriors}
 \title{Check the content a posterior database}
 \usage{
 check_pdb(pdb, posterior_idx = NULL)
@@ -14,11 +15,18 @@ check_pdb_run_stan(pdb, posterior_idx = NULL)
 check_pdb_stan_syntax(pdb, posterior_idx = NULL)
 
 check_pdb_references(pdb, posterior_idx = NULL)
+
+check_pdb_posteriors(
+  pdb,
+  posteriors = c("ecdc0401-covid19imperial_v2", "ecdc0401-covid19imperial_v3")
+)
 }
 \arguments{
 \item{pdb}{a \code{pdb} object}
 
 \item{posterior_idx}{an index vector indicating what posteriors to check.}
+
+\item{posteriors}{a character vector with posterior names.}
 }
 \value{
 a boolean indicating if the pdb works as it should.
@@ -30,4 +38,5 @@ Check the content a posterior database
 [check_pdb()] checks that the content exists as specified
 [check_pdb_run_stan()] test to run all posteriors with stan models.
 [check_pdb_stan_syntax()] check that all stan model code files can be parsed.
+[check_pdb_posteriors()] check a vector of posterior names.
 }

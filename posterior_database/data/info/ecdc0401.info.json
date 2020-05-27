@@ -1,0 +1,11 @@
+{
+  "name": "ecdc0401",
+  "keywords": null,
+  "title": "Data on covid-19 deaths from ECDC until 2020-04-01",
+  "description": "Data downloaded from ECDC 2020-05-14 on deaths in covid-19 until 2020-04-01 for 14 different countries, together with data on different\ngovernment interventions. \nNote that this data has been downloaded later than the data used in the report, and hence the results are not nessecarily the same",
+  "urls": "https://www.ecdc.europa.eu/en/publications-data/download-todays-data-geographic-distribution-covid-19-cases-worldwide",
+  "data_file": "data/data/ecdc0401.json",
+  "references": "flaxman2020report",
+  "added_date": "2020-05-18",
+  "added_by": "Mans Magnusson"
+}

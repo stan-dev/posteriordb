@@ -1,7 +1,7 @@
 {
-  "name": "covid19imperial_v2",
+  "name": "covid19imperial_v3",
   "keywords": "epidemiology",
-  "title": "Epidemic model v2 of Flaxman et al (2020)",
+  "title": "Epidemic model v3 of Flaxman et al (2020)",
   "prior": {
     "keywords": null
   },
@@ -9,10 +9,10 @@
   "urls": "https://github.com/ImperialCollegeLondon/covid19model",
   "model_implementations": {
     "stan": {
-      "model_code": "models/stan/covid19imperial_v2.stan"
+      "model_code": "models/stan/covid19imperial_v3.stan"
     }
   },
-  "references": "flaxman2020report",
+  "references": null,
   "added_date": "2020-05-18",
   "added_by": "Mans Magnusson"
 }
