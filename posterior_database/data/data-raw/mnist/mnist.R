@@ -37,12 +37,12 @@ Nt <- dim(xt_std)[1];
 # trim data *****************************************
 N_MAX = 100;
 Nt_MAX = 100;
-mnist_100 <- list(K = K,
+mnist_100 <- list(K = K, M = M,
                   x = x_std[1:N_MAX, ], N = N_MAX, y = yp1[1:N_MAX],
                   xt = xt_std[1:Nt_MAX, ], Nt = Nt_MAX, yt = ytp1[1:Nt_MAX])
 save(mnist_100, file = "mnist_100.rda")
 
-mnist <- list(K = K,
+mnist <- list(K = K, M = M,
               x = x_std, N = nrow(x_std), y = yp1,
               xt = xt_std, Nt = nrow(xt_std), yt = ytp1)
 save(mnist, file = "mnist.rda")
