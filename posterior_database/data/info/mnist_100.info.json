@@ -1,0 +1,11 @@
+{
+  "name": "mnist_100",
+  "keywords": "images",
+  "title": "The MNIST 100 dataset",
+  "description": "The first 100 test and train observations from the MNIST dataset.",
+  "urls": ["https://github.com/stan-dev/example-models/tree/master/knitr/neural-nets", "http://yann.lecun.com/exdb/mnist/"],
+  "data_file": "data/data/mnist_100.json",
+  "references": "lecun1998gradient",
+  "added_date": "2020-05-28",
+  "added_by": "Mans Magnusson"
+}
