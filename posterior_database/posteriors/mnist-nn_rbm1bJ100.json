@@ -1,0 +1,15 @@
+{
+  "name": "mnist-nn_rbm1bJ100",
+  "keywords": "neural net",
+  "urls": null,
+  "model_name": "nn_rbm1bJ100",
+  "data_name": "mnist",
+  "reference_posterior_name": null,
+  "references": null,
+  "dimensions": {
+    "alpha": 78500,
+    "beta": 909
+  },
+  "added_date": "2020-05-28",
+  "added_by": "Mans Magnusson"
+}
