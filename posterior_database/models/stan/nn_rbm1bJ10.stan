@@ -15,12 +15,14 @@ transformed data{
 parameters {
   matrix[M + 1, J] alpha;
   matrix[J + 1, K - 1] beta;
+  real<lower=0> sigma_alpha;
+  real<lower=0> sigma_beta;  
 }
 
 model {
   matrix[N, K] v = append_col(ones, (append_col(ones, tanh(x1 * alpha)) * beta));
-  to_vector(alpha) ~ normal(0, 2);
-  to_vector(beta) ~ normal(0, 2);
+  to_vector(alpha) ~ normal(0, sigma_alpha);
+  to_vector(beta) ~ normal(0, sigma_beta);
   for (n in 1:N)
     y[n] ~ categorical_logit(v[n]');
 }
