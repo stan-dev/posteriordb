@@ -16,11 +16,16 @@ parameters {
   matrix[M + 1, J] alpha;
   matrix[J + 1, K - 1] beta;
   real<lower=0> sigma_alpha;
-  real<lower=0> sigma_beta;  
+  real<lower=0> sigma_beta;
 }
 
 model {
   matrix[N, K] v = append_col(ones, (append_col(ones, tanh(x1 * alpha)) * beta));
+
+  // Prior
+  sigma_alpha ~ inv_gamma((0.05 / M^2)^2, 0.5);
+  sigma_beta ~ inv_gamma((0.05 / J^2)^2, 0.5);
+
   to_vector(alpha) ~ normal(0, sigma_alpha);
   to_vector(beta) ~ normal(0, sigma_beta);
   for (n in 1:N)
