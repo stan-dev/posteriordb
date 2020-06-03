@@ -20,16 +20,20 @@ transformed data{
 }
 
 parameters {
-  matrix[M + 1, J] alpha;
-  matrix[J + 1, K - 1] beta;
   real<lower=0> sigma2_alpha;
   real<lower=0> sigma2_beta;
+  matrix[M, J] alpha;
+  matrix[J, K - 1] beta;
+  row_vector[J] alpha1;
+  row_vector[K - 1] beta1;
 }
 
 model {
-  matrix[N, K] v = append_col(ones, (append_col(ones, tanh(x1 * alpha)) * beta));
+  matrix[N, K] v = append_col(ones, (append_col(ones, tanh(x1 * append_row(alpha1, alpha))) * append_row(beta1, beta)));
 
-  // Prior
+  // Priors
+  alpha1 ~ normal(0, 1);
+  beta1 ~ normal(0, 1);
   sigma2_alpha ~ inv_gamma(nu_alpha / 2, nu_alpha * s2_0_alpha / 2);
   sigma2_beta ~ inv_gamma(nu_beta / 2, nu_beta * s2_0_beta / 2);
 
