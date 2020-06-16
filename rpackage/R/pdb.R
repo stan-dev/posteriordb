@@ -285,6 +285,7 @@ pdb_cached_local_file_path <- function(pdb, path, unzip = FALSE){
     cp_zip <- paste0(cp, ".zip")
     pdb_file_copy(pdb, from = path_zip, to = cp_zip, overwrite = TRUE)
     utils::unzip(zipfile = cp_zip, exdir = dirname(cp_zip))
+    file.remove(cp_zip)
   } else {
     pdb_file_copy(pdb, from = path, to = cp, overwrite = TRUE)
   }
@@ -371,6 +372,15 @@ pdb_clear_cache <- function(pdb = pdb_default()){
   file.remove(cached_files)
 }
 
+#' @rdname pdb_clear_cache
+#' @keywords internal
+pdb_cache_clear <- pdb_clear_cache
+
+#' Remove object from cache
+#' @param x an object to remove from cache
+pdb_cache_rm <- function(x, pdb = pdb_default()){
+  UseMethod("pdb_cache_rm")
+}
 
 #' Cache a whole directory
 #'

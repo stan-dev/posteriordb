@@ -2,9 +2,12 @@
 % Please edit documentation in R/pdb.R
 \name{pdb_clear_cache}
 \alias{pdb_clear_cache}
+\alias{pdb_cache_clear}
 \title{Clear posterior database cache}
 \usage{
 pdb_clear_cache(pdb = pdb_default())
+
+pdb_cache_clear(pdb = pdb_default())
 }
 \arguments{
 \item{pdb}{a \code{pdb} to clear cache for}
