@@ -2,12 +2,22 @@
 % Please edit documentation in R/pdb.R
 \name{pdb_cache_rm}
 \alias{pdb_cache_rm}
+\alias{pdb_cache_rm.pdb_reference_posterior_draws}
+\alias{pdb_cache_rm.pdb_data}
 \title{Remove object from cache}
 \usage{
-pdb_cache_rm(x, pdb = pdb_default())
+pdb_cache_rm(x, pdb = pdb_default(), ...)
+
+\method{pdb_cache_rm}{pdb_reference_posterior_draws}(x, pdb, ...)
+
+\method{pdb_cache_rm}{pdb_data}(x, pdb, ...)
 }
 \arguments{
 \item{x}{an object to remove from cache}
+
+\item{pdb}{the pdb to remove the cache from}
+
+\item{...}{Currently not in use.}
 }
 \description{
 Remove object from cache
