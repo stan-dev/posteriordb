@@ -29,13 +29,15 @@ check_pdb <- function(pdb, posterior_idx = NULL) {
   message("- All stan_code can be read.")
   for (i in seq_along(pl)) {
     data_info(x = pl[[i]])
-    stan_data(x = pl[[i]])
+    sd <- stan_data(x = pl[[i]])
+    pdb_cache_rm(sd)
   }
   message("- All stan_data can be read.")
 
   for (i in seq_along(pl)) {
     if(is.null(pl[[i]]$reference_posterior_name)) next
-    reference_posterior_draws(x = pl[[i]])
+    rp <- reference_posterior_draws(x = pl[[i]])
+    pdb_cache_rm(rp)
     #reference_posterior_expectations(x = pl[[i]])
   }
   message("- All reference_posteriors_draws can be read.")
