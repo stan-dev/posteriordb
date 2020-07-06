@@ -2,6 +2,10 @@
 % Please edit documentation in R/check_pdb.R
 \name{check_pdb}
 \alias{check_pdb}
+\alias{check_pdb_read_posteriors}
+\alias{check_pdb_read_model_code}
+\alias{check_pdb_read_data}
+\alias{check_pdb_read_reference_posterior_draws}
 \alias{check_pdb_run_stan}
 \alias{check_pdb_stan_syntax}
 \alias{check_pdb_references}
@@ -9,6 +13,14 @@
 \title{Check the content a posterior database}
 \usage{
 check_pdb(pdb, posterior_idx = NULL)
+
+check_pdb_read_posteriors(pdb, posterior_idx = NULL)
+
+check_pdb_read_model_code(posterior_list)
+
+check_pdb_read_data(posterior_list)
+
+check_pdb_read_reference_posterior_draws(posterior_list)
 
 check_pdb_run_stan(pdb, posterior_idx = NULL)
 
@@ -26,6 +38,8 @@ check_pdb_posteriors(
 
 \item{posterior_idx}{an index vector indicating what posteriors to check.}
 
+\item{posterior_list}{a list of \code{pdb_posterior} objects.}
+
 \item{posteriors}{a character vector with posterior names.}
 }
 \value{
@@ -38,5 +52,7 @@ Check the content a posterior database
 [check_pdb()] checks that the content exists as specified
 [check_pdb_run_stan()] test to run all posteriors with stan models.
 [check_pdb_stan_syntax()] check that all stan model code files can be parsed.
+[check_pdb_read_posteriors()] check that posteriors can be read.
+[check_pdb_read_model_code()] check that posteriors can be read.
 [check_pdb_posteriors()] check a vector of posterior names.
 }
