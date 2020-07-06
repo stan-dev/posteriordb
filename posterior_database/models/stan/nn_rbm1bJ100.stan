@@ -9,7 +9,7 @@ data {
 transformed data{
   int<lower=1> J = 100; // number of hidden units (e.g. 100)
 
-  // prior parametrization in Lampainen and Vehtari (2001)
+  // prior parametrization in Lampinen and Vehtari (2001)
   real nu_alpha = 0.5;
   real s2_0_alpha = (0.05 / M^(1/nu_alpha))^2;
   real nu_beta = 0.5;
