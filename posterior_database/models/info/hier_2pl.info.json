@@ -1,0 +1,18 @@
+{
+  "name": "hier_2pl",
+  "keywords": ["item_response_theory", "hierarchical", "stan_examples"],
+  "title": "Hierarchical Two-Parameter Logistic Item Response Model",
+  "prior": {
+    "keywords": "stan_recommended_35dbfe6"
+  },
+  "description": "Hierachical item response theory model that includes\nparameters for both the difficulty and discrimination of items.\nItem parameter pairs are modeled as correlated draws from a bivariate normal distribution",
+  "urls": "https://mc-stan.org/users/documentation/case-studies/hierarchical_2pl.html",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/hier_2pl.stan"
+    }
+  },
+  "references": "furr2016hier",
+  "added_date": "2020-05-19",
+  "added_by": "Oliver Järnefelt"
+}

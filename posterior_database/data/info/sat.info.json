@@ -1,0 +1,11 @@
+{
+  "name": "sat",
+  "keywords": ["item_response_theory", "stan_examples"],
+  "title": "Data from Wood et al. (2003)",
+  "description": "Data are from a grade 12 science assessment.\nData Dimensions:\n- I: number of items\n- J: number of persons\n- N: number of observations\n- ii: item for n in [1, N]\n- jj: person for n in [1, N]\n- y: correctness for n in [1,N]\n",
+  "urls": "https://cran.r-project.org/web/packages/mirt/index.html",
+  "data_file": "data/data/sat.json",
+  "references": "glas2003computerized",
+  "added_date": "2020-05-19",
+  "added_by": "Oliver Järnefelt"
+}

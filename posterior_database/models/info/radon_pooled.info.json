@@ -1,0 +1,18 @@
+{
+  "name": "radon_pooled",
+  "keywords": "radon",
+  "title": "A pooled linear model for the Radon dataset",
+  "prior": {
+    "keywords": "stan_recommended_35dbfe6"
+  },
+  "description": "A simple pooled linear model.",
+  "urls": "https://mc-stan.org/users/documentation/case-studies/radon.html",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/radon_pooled.stan"
+    }
+  },
+  "references": "gelman2006data",
+  "added_date": "2020-05-20",
+  "added_by": "Mans Magnusson"
+}

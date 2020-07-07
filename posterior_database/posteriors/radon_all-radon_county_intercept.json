@@ -1,0 +1,16 @@
+{
+  "name": "radon_all-radon_county_intercept",
+  "keywords": "radon",
+  "urls": null,
+  "model_name": "radon_county_intercept",
+  "data_name": "radon_all",
+  "reference_posterior_name": null,
+  "references": "gelman2006data",
+  "dimensions": {
+    "alpha": 386,
+    "beta": 1,
+    "sigma_y": 1
+  },
+  "added_date": "2020-05-21",
+  "added_by": "Mans Magnusson"
+}

@@ -1,0 +1,18 @@
+{
+  "name": "radon_county_intercept",
+  "keywords": "radon",
+  "title": "A county intercept model (no pooling) for the Radon dataset",
+  "prior": {
+    "keywords": "stan_recommended_35dbfe6"
+  },
+  "description": "A linear model with different intercepts per county.",
+  "urls": "https://mc-stan.org/users/documentation/case-studies/radon.html",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/radon_county_intercept.stan"
+    }
+  },
+  "references": "gelman2006data",
+  "added_date": "2020-05-20",
+  "added_by": "Mans Magnusson"
+}

@@ -5,6 +5,7 @@ test_that("posteriordb:::check_pdb indicates that local PDB content is ok", {
   expect_silent(pdb_test <- pdb(posterior_db_path))
   posteriordb:::pdb_clear_cache(pdb_test)
 
+  skip_on_travis()
   expect_message(posteriordb:::check_pdb(pdb = pdb_test), "Posterior database is ok")
   expect_output(print(pdb_test), "Posterior Database")
   expect_output(print(pdb_test), "local")

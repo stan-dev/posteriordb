@@ -1,0 +1,18 @@
+{
+  "name": "radon_mn-radon_variable_slope_centered",
+  "keywords": ["radon", "stan_case_study"],
+  "urls": "https://mc-stan.org/users/documentation/case-studies/radon.html",
+  "model_name": "radon_variable_slope_centered",
+  "data_name": "radon_mn",
+  "reference_posterior_name": null,
+  "references": "gelman2006data",
+  "dimensions": {
+    "alpha": 1,
+    "beta": 85,
+    "mu_beta": 1,
+    "sigma_beta": 1,
+    "sigma_y": 1
+  },
+  "added_date": "2020-05-21",
+  "added_by": "Mans Magnusson"
+}

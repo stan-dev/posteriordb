@@ -46,9 +46,9 @@ read_model_info <- function(x, pdb, ...) {
 print.pdb_model_info <- function(x, ...) {
   cat0("Model: ", x$name, "\n")
   cat0(x$title, "\n")
+  cat0("Frameworks: '", paste(names(x$model_implementations), collapse = "', '"), "'\n")
   invisible(x)
 }
-
 
 assert_model_info <- function(x){
   checkmate::assert_names(names(x),

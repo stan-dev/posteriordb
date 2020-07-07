@@ -3,88 +3,109 @@
 #' @param pdb a \code{pdb} object
 #' @param posterior_idx an index vector indicating what posteriors to check.
 #' @param posteriors a character vector with posterior names.
+#' @param posterior_list a list of \code{pdb_posterior} objects.
 #'
 #' @details
 #' [check_pdb()] checks that the content exists as specified
 #' [check_pdb_run_stan()] test to run all posteriors with stan models.
 #' [check_pdb_stan_syntax()] check that all stan model code files can be parsed.
+#' [check_pdb_read_posteriors()] check that posteriors can be read.
+#' [check_pdb_aliases()] check that all alias are correct.
+#' [check_pdb_read_model_code()] check that posteriors can be read.
 #' [check_pdb_posteriors()] check a vector of posterior names.
+#' [check_pdb_references()] check that all references in posteriors also exist in bibtex.
+#' [check_pdb_all_models_have_posterior()] check that all models belong to a posterior
+#' [check_pdb_all_data_have_posterior()] check that all datasets belong to a posterior
+#' [check_pdb_all_reference_posteriors_have_posterior()] check that all reference posteriors belong to a posterior
 #'
 #' @return a boolean indicating if the pdb works as it should.
 #'
 check_pdb <- function(pdb, posterior_idx = NULL) {
   checkmate::assert_class(pdb, "pdb")
-  message("Checking posterior database...")
-  pns <- posterior_names(pdb)
-  if(!is.null(posterior_idx)) pns <- pns[posterior_idx]
-  pl <- list()
-  for (i in seq_along(pns)) {
-    pl[[i]] <- posterior(pns[i], pdb = pdb)
-  }
-  message("- All posteriors can be read.")
-  for (i in seq_along(pl)) {
-    model_info(pl[[i]])
-    stan_code(pl[[i]])
-  }
-  message("- All stan_code can be read.")
-  for (i in seq_along(pl)) {
-    data_info(x = pl[[i]])
-    stan_data(x = pl[[i]])
-  }
-  message("- All stan_data can be read.")
+  checkmate::assert_integerish(posterior_idx, null.ok = TRUE)
 
-  for (i in seq_along(pl)) {
-    if(is.null(pl[[i]]$reference_posterior_name)) next
-    reference_posterior_draws(x = pl[[i]])
-    #reference_posterior_expectations(x = pl[[i]])
-  }
+  message("Checking posterior database...")
+
+  pl <- check_pdb_read_posteriors(pdb, posterior_idx)
+  message("- All posteriors can be read.")
+
+  check_pdb_read_model_code(pl)
+  message("- All model_code can be read.")
+
+  check_pdb_read_data(pl)
+  message("- All data can be read.")
+
+  check_pdb_read_reference_posterior_draws(pl)
   message("- All reference_posteriors_draws can be read.")
 
-
-
-  a <- pdb_aliases("posteriors", pdb)
-  checkmate::assert_character(names(a), unique = TRUE)
-  pn <- unname(unlist(a))
-  checkmate::assert_subset(pn, posterior_names(pdb))
-  checkmate::assert_true(all(!names(a) %in% posterior_names(pdb)))
+  check_pdb_aliases(pdb)
   message("- Aliases are ok.")
 
   if(is.null(posterior_idx)){
     suppressMessages(check_pdb_references(pdb))
     message("- References and bibliography are ok.")
 
-    mnp <- dnp <- rpnp <- character(length(pns))
-    for (i in seq_along(pns)) {
-      pl[[i]] <- posterior(pns[i], pdb = pdb)
-      mnp[i] <- model_info(pl[[i]])$name
-      dnp[i] <- data_info(pl[[i]])$name
-      tc <- try(rp <- reference_posterior_draws_info(pl[[i]]), silent = TRUE)
-      if(!inherits(tc, "try-error")){
-        rpnp[i] <- rp$name
-      }
-    }
-    mns <- model_names(pdb)
-    dns <- data_names(pdb)
-    rpns <- reference_posterior_names(pdb, "draws")
-    model_bool <- mns %in% mnp
-    if(!all(model_bool)){
-      stop("Model(s) " , paste0(mns[!model_bool], collapse = ", "), " is missing in posteriors.", call. = FALSE)
-    }
-    data_bool <- dns %in% dnp
-    if(!all(data_bool)){
-      stop("Data " , paste0(dns[!data_bool], collapse = ", "), " is missing in posteriors.", call. = FALSE)
-    }
-    rp_bool <- rpns %in% rpnp
-    if(!all(rp_bool)){
-      stop("Reference posteriors " , paste0(rpns[!rp_bool], collapse = ", "), " is missing in posteriors.", call. = FALSE)
-    }
-    message("- All data, models and reference posteriors are part of a posteriors.")
+    check_pdb_all_models_have_posterior(pdb)
+    check_pdb_all_data_have_posterior(pdb)
+    check_pdb_all_reference_posteriors_have_posterior(pdb)
+    message("- All data, models and reference posteriors are part of a posterior.")
   }
-
-
 
   message("\nPosterior database is ok.\n")
   invisible(TRUE)
+}
+
+#' @rdname check_pdb
+check_pdb_read_posteriors <- function(pdb, posterior_idx = NULL){
+  checkmate::assert_class(pdb, "pdb")
+  checkmate::assert_integerish(posterior_idx, null.ok = TRUE)
+
+  pns <- posterior_names(pdb)
+  if(!is.null(posterior_idx)) pns <- pns[posterior_idx]
+  pl <- list()
+  for (i in seq_along(pns)) {
+    pl[[i]] <- posterior(pns[i], pdb = pdb)
+  }
+  return(invisible(pl))
+}
+
+#' @rdname check_pdb
+check_pdb_read_model_code <- function(posterior_list){
+  pl <- lapply(posterior_list, checkmate::assert_class, classes = "pdb_posterior")
+  for (i in seq_along(pl)) {
+    model_info(pl[[i]])
+    stan_code(pl[[i]])
+  }
+}
+
+#' @rdname check_pdb
+check_pdb_aliases <- function(pdb){
+  a <- pdb_aliases("posteriors", pdb)
+  checkmate::assert_character(names(a), unique = TRUE)
+  pn <- unname(unlist(a))
+  pdb_posterior_names <- posterior_names(pdb)
+  checkmate::assert_subset(pn, pdb_posterior_names)
+  checkmate::assert_true(all(!names(a) %in% pdb_posterior_names))
+}
+
+#' @rdname check_pdb
+check_pdb_read_data <- function(posterior_list){
+  pl <- lapply(posterior_list, checkmate::assert_class, classes = "pdb_posterior")
+  for (i in seq_along(pl)) {
+    data_info(x = pl[[i]])
+    sd <- stan_data(x = pl[[i]])
+    pdb_cache_rm(sd, pl$pdb[[i]])
+  }
+}
+
+#' @rdname check_pdb
+check_pdb_read_reference_posterior_draws <- function(posterior_list){
+  pl <- lapply(posterior_list, checkmate::assert_class, classes = "pdb_posterior")
+  for (i in seq_along(pl)) {
+    if(is.null(pl[[i]]$reference_posterior_name)) next
+    rp <- reference_posterior_draws(x = pl[[i]])
+    pdb_cache_rm(rp, pl$pdb[[i]])
+  }
 }
 
 #' @rdname check_pdb
@@ -173,4 +194,64 @@ check_pdb_posteriors <- function(pdb, posteriors = c("ecdc0401-covid19imperial_v
   check_pdb_stan_syntax(pdb, pidx)
   check_pdb_references(pdb)
   check_pdb_run_stan(pdb, pidx)
+}
+
+#' @rdname check_pdb
+check_pdb_all_models_have_posterior <- function(pdb){
+  checkmate::assert_class(pdb, "pdb")
+  pn <- posterior_names(pdb)
+  mnp <- character(length(pn))
+  pl <- list()
+  for (i in seq_along(pn)) {
+    pl[[i]] <- posterior(pn[i], pdb = pdb)
+    mnp[i] <- model_info(pl[[i]])$name
+  }
+
+  mns <- model_names(pdb)
+
+  model_bool <- mns %in% mnp
+  if(!all(model_bool)){
+    stop("Model(s) " , paste0(mns[!model_bool], collapse = ", "), " is missing in posteriors.", call. = FALSE)
+  }
+}
+
+#' @rdname check_pdb
+check_pdb_all_data_have_posterior <- function(pdb){
+  checkmate::assert_class(pdb, "pdb")
+  pn <- posterior_names(pdb)
+  dnp <- character(length(pn))
+  pl <- list()
+  for (i in seq_along(pn)) {
+    pl[[i]] <- posterior(pn[i], pdb = pdb)
+    dnp[i] <- data_info(pl[[i]])$name
+  }
+  dns <- data_names(pdb)
+
+  data_bool <- dns %in% dnp
+  if(!all(data_bool)){
+    stop("Data " , paste0(dns[!data_bool], collapse = ", "), " is missing in posteriors.", call. = FALSE)
+  }
+
+}
+
+#' @rdname check_pdb
+check_pdb_all_reference_posteriors_have_posterior <- function(pdb){
+  checkmate::assert_class(pdb, "pdb")
+  pn <- posterior_names(pdb)
+  rpnp <- character(length(pn))
+  pl <- list()
+  for (i in seq_along(pn)) {
+    pl[[i]] <- posterior(pn[i], pdb = pdb)
+    tc <- try(rp <- reference_posterior_draws_info(pl[[i]]), silent = TRUE)
+    if(!inherits(tc, "try-error")){
+      rpnp[i] <- rp$name
+    }
+  }
+
+  rpns <- reference_posterior_names(pdb, "draws")
+
+  rp_bool <- rpns %in% rpnp
+  if(!all(rp_bool)){
+    stop("Reference posteriors " , paste0(rpns[!rp_bool], collapse = ", "), " is missing in posteriors.", call. = FALSE)
+  }
 }
