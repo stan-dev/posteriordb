@@ -4,12 +4,16 @@
 \alias{check_pdb}
 \alias{check_pdb_read_posteriors}
 \alias{check_pdb_read_model_code}
+\alias{check_pdb_aliases}
 \alias{check_pdb_read_data}
 \alias{check_pdb_read_reference_posterior_draws}
 \alias{check_pdb_run_stan}
 \alias{check_pdb_stan_syntax}
 \alias{check_pdb_references}
 \alias{check_pdb_posteriors}
+\alias{check_pdb_all_models_have_posterior}
+\alias{check_pdb_all_data_have_posterior}
+\alias{check_pdb_all_reference_posteriors_have_posterior}
 \title{Check the content a posterior database}
 \usage{
 check_pdb(pdb, posterior_idx = NULL)
@@ -17,6 +21,8 @@ check_pdb(pdb, posterior_idx = NULL)
 check_pdb_read_posteriors(pdb, posterior_idx = NULL)
 
 check_pdb_read_model_code(posterior_list)
+
+check_pdb_aliases(pdb)
 
 check_pdb_read_data(posterior_list)
 
@@ -32,6 +38,12 @@ check_pdb_posteriors(
   pdb,
   posteriors = c("ecdc0401-covid19imperial_v2", "ecdc0401-covid19imperial_v3")
 )
+
+check_pdb_all_models_have_posterior(pdb)
+
+check_pdb_all_data_have_posterior(pdb)
+
+check_pdb_all_reference_posteriors_have_posterior(pdb)
 }
 \arguments{
 \item{pdb}{a \code{pdb} object}
@@ -53,6 +65,11 @@ Check the content a posterior database
 [check_pdb_run_stan()] test to run all posteriors with stan models.
 [check_pdb_stan_syntax()] check that all stan model code files can be parsed.
 [check_pdb_read_posteriors()] check that posteriors can be read.
+[check_pdb_aliases()] check that all alias are correct.
 [check_pdb_read_model_code()] check that posteriors can be read.
 [check_pdb_posteriors()] check a vector of posterior names.
+[check_pdb_references()] check that all references in posteriors also exist in bibtex.
+[check_pdb_all_models_have_posterior()] check that all models belong to a posterior
+[check_pdb_all_data_have_posterior()] check that all datasets belong to a posterior
+[check_pdb_all_reference_posteriors_have_posterior()] check that all reference posteriors belong to a posterior
 }
