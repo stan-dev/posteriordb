@@ -4,7 +4,7 @@
   "urls": "https://github.com/bbbales2/cmdstan-warmup/blob/develop/examples/diamonds",
   "model_name": "diamonds",
   "data_name": "diamonds",
-  "reference_posterior_name": null,
+  "reference_posterior_name": "diamonds-diamonds",
   "references": ["bales2019selecting", "wickham2016ggplot2"],
   "dimensions": {
     "b": 24,
