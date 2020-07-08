@@ -6,7 +6,7 @@ pdb_github <- function(repo = getOption("pdb_repo", "MansMeg/posteriordb/posteri
                        subdir = NULL,
                        auth_token = github_pat(),
                        host = "https://api.github.com"){
-  pdb(pdb_id = repo, pdb_type = "github", cache_path = cache_path, ref = ref, subdir = subdir, pat = auth_token, host = host)
+  pdb(x = repo, pdb_type = "github", cache_path = cache_path, ref = ref, subdir = subdir, pat = auth_token, host = host)
 }
 
 #' Setup a GitHub pdb

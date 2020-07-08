@@ -3,6 +3,8 @@
 \name{pdb_local}
 \alias{pdb_local}
 \alias{pdb}
+\alias{pdb.default}
+\alias{pdb.character}
 \alias{pdb_default}
 \alias{pdb_github}
 \title{Create a Posterior Database (pdb) connection}
@@ -12,7 +14,11 @@ pdb_local(
   cache_path = tempdir()
 )
 
-pdb(pdb_id, pdb_type = "local", cache_path = tempdir(), ...)
+pdb(x, ...)
+
+\method{pdb}{default}(x, ...)
+
+\method{pdb}{character}(x, pdb_type = "local", cache_path = tempdir(), ...)
 
 pdb_default(cache_path = tempdir())
 
@@ -31,11 +37,11 @@ pdb_github(
 \item{cache_path}{The path to the pdb cache. Default is R temporary directory.
 This is used to store files locally and without affecting the database.}
 
-\item{pdb_id}{how to identify the pdb (path for local pdb, repo for github pdb)}
-
-\item{pdb_type}{Type of posterior database connection. Either \code{local} or \code{github}.}
+\item{x}{an object to access a pdb for, if character this is the [pdb_id].}
 
 \item{...}{further arguments for specific methods to setup a pdb.}
+
+\item{pdb_type}{Type of posterior database connection. Either \code{local} or \code{github}.}
 
 \item{repo}{Repository address in the format
 `username/repo[/subdir][@ref|#pull]`. Alternatively, you can
@@ -56,6 +62,8 @@ the `GITHUB_PAT` environment variable.}
 
 \item{host}{GitHub API host to use. Override with your GitHub enterprise
 hostname, for example, `"github.hostname.com/api/v3"`.}
+
+\item{pdb_id}{how to identify the pdb (path for local pdb, repo for github pdb)}
 }
 \value{
 a \code{pdb} object

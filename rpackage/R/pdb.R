@@ -5,6 +5,7 @@
 #'
 #' @param cache_path The path to the pdb cache. Default is R temporary directory.
 #' This is used to store files locally and without affecting the database.
+#' @param x an object to access a pdb for, if character this is the [pdb_id].
 #' @param pdb_id how to identify the pdb (path for local pdb, repo for github pdb)
 #' @param pdb_type Type of posterior database connection. Either \code{local} or \code{github}.
 #' @param path a local path to a posterior database.
@@ -29,12 +30,24 @@
 #' @export
 pdb_local <- function(path = getOption("pdb_path", file.path(getwd(), "posterior_database")),
                       cache_path = tempdir()){
-  pdb(pdb_id = path, pdb_type = "local", cache_path = cache_path)
+  pdb(x = path, pdb_type = "local", cache_path = cache_path)
 }
 
 #' @rdname pdb_local
 #' @export
-pdb <- function(pdb_id, pdb_type = "local", cache_path = tempdir(), ...) {
+pdb <- function(x, ...){
+  UseMethod("pdb")
+}
+
+#' @rdname pdb_local
+#' @export
+pdb.default <- function(x, ...){
+  return(attr(x, "pdb"))
+}
+
+#' @rdname pdb_local
+#' @export
+pdb.character <- function(x, pdb_type = "local", cache_path = tempdir(), ...) {
   checkmate::assert_directory(cache_path, "w")
   checkmate::assert_choice(pdb_type, c("local", "github"))
   if(cache_path == tempdir()){
@@ -43,7 +56,7 @@ pdb <- function(pdb_id, pdb_type = "local", cache_path = tempdir(), ...) {
   }
   if(!dir.exists(cache_path)) dir.create(cache_path)
   pdb <- list(
-    pdb_id = pdb_id,
+    pdb_id = x,
     cache_path = cache_path
   )
   class(pdb) <- c(paste0("pdb_", pdb_type), "pdb")
