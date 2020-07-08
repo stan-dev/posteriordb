@@ -23,7 +23,6 @@ test_that("check_pdb_read_model_code", {
   expect_silent(pdb_test <- pdb(posterior_db_path))
 
   expect_silent(pl <- check_pdb_read_posteriors(pdb_test))
-  skip_on_travis()
   expect_silent(check_pdb_read_data(pl))
 })
 
