@@ -32,7 +32,6 @@ test_that("check_pdb_read_reference_posterior_draws", {
   expect_silent(pdb_test <- pdb(posterior_db_path))
 
   expect_silent(pl <- check_pdb_read_posteriors(pdb_test))
-  skip_on_travis()
   expect_silent(check_pdb_read_reference_posterior_draws(pl))
 })
 
