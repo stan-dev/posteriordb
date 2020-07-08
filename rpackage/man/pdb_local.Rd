@@ -40,7 +40,7 @@ pdb_github(
 \item{cache_path}{The path to the pdb cache. Default is R temporary directory.
 This is used to store files locally and without affecting the database.}
 
-\item{x}{an object to access a pdb for, if character this is the [pdb_id].}
+\item{x}{an object to access a pdb for, if character this is how to identify the pdb (path for local pdb, repo for github pdb)}
 
 \item{...}{further arguments for specific methods to setup a pdb.}
 
@@ -65,8 +65,6 @@ the `GITHUB_PAT` environment variable.}
 
 \item{host}{GitHub API host to use. Override with your GitHub enterprise
 hostname, for example, `"github.hostname.com/api/v3"`.}
-
-\item{pdb_id}{how to identify the pdb (path for local pdb, repo for github pdb)}
 }
 \value{
 a \code{pdb} object

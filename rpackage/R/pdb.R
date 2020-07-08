@@ -5,8 +5,7 @@
 #'
 #' @param cache_path The path to the pdb cache. Default is R temporary directory.
 #' This is used to store files locally and without affecting the database.
-#' @param x an object to access a pdb for, if character this is the [pdb_id].
-#' @param pdb_id how to identify the pdb (path for local pdb, repo for github pdb)
+#' @param x an object to access a pdb for, if character this is how to identify the pdb (path for local pdb, repo for github pdb)
 #' @param pdb_type Type of posterior database connection. Either \code{local} or \code{github}.
 #' @param path a local path to a posterior database.
 #' @param repo Repository address in the format
