@@ -16,8 +16,6 @@ pdb_cache_rm(x, ...)
 \item{x}{an object to remove from cache}
 
 \item{...}{Currently not in use.}
-
-\item{pdb}{the pdb to remove the cache from}
 }
 \description{
 Remove object from cache

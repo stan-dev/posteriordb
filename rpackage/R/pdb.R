@@ -409,7 +409,6 @@ pdb_cache_clear <- pdb_clear_cache
 
 #' Remove object from cache
 #' @param x an object to remove from cache
-#' @param pdb the pdb to remove the cache from
 #' @param ... Currently not in use.
 pdb_cache_rm <- function(x, ...){
   UseMethod(object = x, generic = "pdb_cache_rm")
