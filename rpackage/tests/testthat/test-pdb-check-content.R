@@ -23,7 +23,9 @@ test_that("check_pdb_read_model_code", {
   expect_silent(pdb_test <- pdb(posterior_db_path))
 
   expect_silent(pl <- check_pdb_read_posteriors(pdb_test))
-  expect_silent(check_pdb_read_data(pl))
+  for (i in seq_along(pl)){
+    expect_silent(check_pdb_read_data(list(pl[[i]])))
+  }
 })
 
 test_that("check_pdb_read_reference_posterior_draws", {
