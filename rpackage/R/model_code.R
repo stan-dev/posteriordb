@@ -16,7 +16,7 @@ model_code <- function(x, ...) {
 #' @rdname model_code
 #' @export
 model_code.pdb_posterior <- function(x, framework, ...) {
-  model_code(x$model_name, framework, pdb = x$pdb, ...)
+  model_code(x$model_name, framework, pdb = pdb(x), ...)
 }
 
 #' @rdname model_code
@@ -28,6 +28,7 @@ model_code.character <- function(x, framework, pdb = pdb_default(), ...) {
   class(out) <- c("pdb_model_code", "character")
   framework(out) <- framework
   info(out) <- model_info(x, pdb = pdb)
+  pdb(out) <- pdb
   assert_model_code(out)
   out
 }
@@ -65,7 +66,7 @@ model_code_file_path <- function(x, ...) {
 #' @export
 model_code_file_path.pdb_posterior <- function(x, framework, ...) {
   checkmate::assert_choice(framework, names(x$model_info$model_implementations))
-  mcfp <- pdb_cached_local_file_path(x$pdb, x$model_info$model_implementations[[framework]]$model_code)
+  mcfp <- pdb_cached_local_file_path(pdb(x), x$model_info$model_implementations[[framework]]$model_code)
   mcfp
 }
 

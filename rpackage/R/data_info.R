@@ -32,7 +32,7 @@ pdb_data_info <- data_info
 
 
 # read data info from the data base
-read_data_info <- function(x, pdb, ...) {
+read_data_info <- function(x, pdb = NULL, ...) {
   data_info <- read_info_json(x, path = "data/info", pdb = pdb, ...)
   class(data_info) <- "pdb_data_info"
   assert_data_info(data_info)

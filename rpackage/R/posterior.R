@@ -15,7 +15,7 @@ posterior.character <- function(x, pdb = pdb_default(), ...) {
   checkmate::assert_class(pdb, "pdb")
   x <- handle_aliases(x, type = "posteriors", pdb)
   po <- read_info_json(x, "posteriors", pdb)
-  po$pdb <- pdb
+  pdb(po) <- pdb
   class(po) <- "pdb_posterior"
   po$model_info <- read_model_info(po)
   po$data_info <- read_data_info(po)
@@ -50,7 +50,7 @@ assert_pdb_posterior <- function(x) {
   must.include <- c(
     "name", "model_name", "data_name", "reference_posterior_name", "dimensions",
     "model_info", "data_info",
-    "pdb", "added_by", "added_date"
+    "added_by", "added_date"
   )
   checkmate::assert_names(names(x), must.include = must.include)
   checkmate::assert_list(x$dimensions)
@@ -59,5 +59,7 @@ assert_pdb_posterior <- function(x) {
   checkmate::assert_class(x$data_info$added_date, "Date")
   checkmate::assert_class(x$model_info$added_date, "Date")
   checkmate::assert_list(x$model_info, min.len = 1)
+
+  checkmate::assert_class(pdb(x), "pdb")
   invisible(x)
 }

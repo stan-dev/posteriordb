@@ -114,3 +114,24 @@ test_that("Check access only with posterior name and default pdb", {
   expect_silent(gsdfp <- reference_posterior_draws_file_path(gsi))
 
 })
+
+
+
+test_that("Check that model_code, data and reference_posteriors contain a pdb attr", {
+
+  posterior_db_path <- posteriordb:::get_test_pdb_dir()
+  expect_silent(pdb_test <- pdb(posterior_db_path))
+
+  expect_silent(po <- posterior("eight_schools-eight_schools_noncentered", pdb = pdb_test))
+  expect_identical(pdb(po), pdb_test)
+
+  expect_silent(d <- get_data(po))
+  expect_identical(pdb(d), pdb_test)
+
+  expect_silent(mc <- stan_code(po))
+  expect_identical(pdb(mc), pdb_test)
+
+  expect_silent(rp <- reference_posterior_draws(po))
+  expect_identical(pdb(rp), pdb_test)
+
+})

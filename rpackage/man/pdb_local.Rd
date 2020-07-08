@@ -4,6 +4,7 @@
 \alias{pdb_local}
 \alias{pdb}
 \alias{pdb.default}
+\alias{pdb.pdb_model_code}
 \alias{pdb.character}
 \alias{pdb_default}
 \alias{pdb_github}
@@ -17,6 +18,8 @@ pdb_local(
 pdb(x, ...)
 
 \method{pdb}{default}(x, ...)
+
+\method{pdb}{pdb_model_code}(x, ...)
 
 \method{pdb}{character}(x, pdb_type = "local", cache_path = tempdir(), ...)
 

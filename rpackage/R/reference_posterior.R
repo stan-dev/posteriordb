@@ -39,7 +39,7 @@ reference_posterior_expectations_info <- function(x, pdb = pdb_default(), ...) {
 #' @rdname reference_posterior_info
 #' @export
 reference_posterior_info.pdb_posterior <- function(x, type, ...) {
-  read_reference_posterior_info(x = x$reference_posterior_name, type = type, pdb = x$pdb)
+  read_reference_posterior_info(x = x$reference_posterior_name, type = type, pdb = pdb(x))
 }
 
 #' @rdname reference_posterior_info
@@ -90,6 +90,7 @@ read_reference_posterior_draws <- function(x, pdb, ...) {
   rpd <- posterior::as_draws_list(rpd)
   names(rpd) <- NULL
   info(rpd) <- reference_posterior_draws_info(x, pdb)
+  pdb(rpd) <- pdb
   class(rpd) <- c("pdb_reference_posterior_draws", class(rpd))
   assert_reference_posterior_draws(rpd)
   rpd
@@ -107,7 +108,7 @@ reference_posterior_draws_file_path <- function(x, ...) {
 #' @export
 reference_posterior_draws_file_path.pdb_posterior <- function(x, ...) {
   if(is.null(x$reference_posterior_name)) stop2("There is currently no gold standard for this posterior.")
-  reference_posterior_draws_file_path(x$reference_posterior_name, pdb = x$pdb)
+  reference_posterior_draws_file_path(x$reference_posterior_name, pdb = pdb(x))
 }
 
 #' @rdname reference_posterior_draws_file_path
@@ -151,7 +152,7 @@ reference_posterior_draws.character <- function(x, pdb = pdb_default(), ...){
 #' @rdname reference_posterior_draws
 #' @export
 reference_posterior_draws.pdb_posterior <- function(x, ...){
-  read_reference_posterior_draws(x = x$reference_posterior_name, pdb = x$pdb)
+  read_reference_posterior_draws(x = x$reference_posterior_name, pdb = pdb(x))
 }
 
 #' @rdname reference_posterior_draws

@@ -72,7 +72,7 @@ write_pdb.pdb_model_info <- function(x, pdb,  overwrite = FALSE, ...){
 #' @export
 write_pdb.pdb_posterior <- function(x, pdb,  overwrite = FALSE, ...){
   assert_pdb_posterior(x)
-  x$pdb <- NULL
+  pdb(x) <- NULL
   x$model_info <- NULL
   x$data_info <- NULL
   class(x) <- c(class(x), "list")

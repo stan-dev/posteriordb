@@ -47,6 +47,12 @@ pdb.default <- function(x, ...){
 
 #' @rdname pdb_local
 #' @export
+pdb.pdb_model_code <- function(x, ...){
+  pdb.default(x, ...)
+}
+
+#' @rdname pdb_local
+#' @export
 pdb.character <- function(x, pdb_type = "local", cache_path = tempdir(), ...) {
   checkmate::assert_directory(cache_path, "w")
   checkmate::assert_choice(pdb_type, c("local", "github"))
@@ -64,6 +70,19 @@ pdb.character <- function(x, pdb_type = "local", cache_path = tempdir(), ...) {
   pdb$version <- pdb_version(pdb)
   pdb
 }
+
+#' Set pdb slot
+#'
+#' @inheritParams info
+#' @param value a pdb object
+#'
+`pdb<-` <- function(x, value){
+  checkmate::assert_class(value, "pdb", null.ok = TRUE)
+  attr(x, "pdb") <- value
+  x
+}
+
+
 
 # Note, pdb_local contain all information on pdbs.
 #' @rdname pdb_local
@@ -502,7 +521,7 @@ read_info_json.pdb_posterior <- function(x, path, pdb = NULL, ...){
   } else if(path == "data/info") {
     nm <- x$data_name
   }
-  po <- read_info_json(nm, path = path, pdb = x$pdb)
+  po <- read_info_json(nm, path = path, pdb = pdb(x))
   po
 }
 
