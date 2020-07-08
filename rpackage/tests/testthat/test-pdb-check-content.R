@@ -18,12 +18,20 @@ test_that("check_pdb_read_model_code", {
 })
 
 
-test_that("check_pdb_read_model_code", {
+test_that("check_pdb_read_data", {
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
   expect_silent(pdb_test <- pdb(posterior_db_path))
 
-  expect_silent(pl <- check_pdb_read_posteriors(pdb_test))
+  # Ignore large data on Travis
+  if(identical(Sys.getenv("TRAVIS"), "true")){
+    ignore_posterior <- "mnist-nn_rbm1bJ100"
+  } else {
+    ignore_posterior <- character(0)
+  }
+  expect_silent(pl <- posteriordb:::check_pdb_read_posteriors(pdb_test))
+
   for (i in seq_along(pl)){
+    if(posterior_names(pl[[i]]) %in% ignore_posterior) next
     expect_silent(check_pdb_read_data(list(pl[[i]])))
   }
 })

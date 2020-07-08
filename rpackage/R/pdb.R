@@ -125,22 +125,38 @@ pdb_version.pdb_local <- function(pdb, ...){
   list("sha" = git2r::sha(r))
 }
 
-#' Get all existing posterior names from a posterior database.
+#' Get all existing posterior names from a posterior database or posterior objects.
 #'
-#' @param pdb a \code{pdb} object.
+#' @param x a \code{pdb}, \code{posterior} object or a list of \code{posterior} objects.
 #' @param ... further arguments supplied to specific methods (not in use)
 #' @export
-posterior_names <- function(pdb = pdb_default(), ...) {
-  pn(pdb, ...)
+posterior_names <- function(x = pdb_default(), ...) {
+  pn(x, ...)
 }
 
-pn <- function(pdb, ...) {
+#' @rdname posterior_names
+#' @export
+posterior_name <- posterior_names
+
+pn <- function(x, ...) {
   UseMethod("pn")
 }
 
-pn.pdb_local <- function(pdb, ...) {
-  pns <- dir(pdb_file_path(pdb, "posteriors"))
+pn.pdb_local <- function(x, ...) {
+  pns <- dir(pdb_file_path(x, "posteriors"))
   remove_file_extension(pns)
+}
+
+pn.list <- function(x, ...) {
+  res <- list()
+  for(i in seq_along(x)){
+    res[i] <- pn(x[[i]], ...)
+  }
+  unlist(res)
+}
+
+pn.pdb_posterior <- function(x, ...){
+  x$name
 }
 
 pdb_file_path <- function(pdb, ...){

@@ -2,15 +2,18 @@
 % Please edit documentation in R/pdb.R
 \name{posterior_names}
 \alias{posterior_names}
-\title{Get all existing posterior names from a posterior database.}
+\alias{posterior_name}
+\title{Get all existing posterior names from a posterior database or posterior objects.}
 \usage{
-posterior_names(pdb = pdb_default(), ...)
+posterior_names(x = pdb_default(), ...)
+
+posterior_name(x = pdb_default(), ...)
 }
 \arguments{
-\item{pdb}{a \code{pdb} object.}
+\item{x}{a \code{pdb}, \code{posterior} object or a list of \code{posterior} objects.}
 
 \item{...}{further arguments supplied to specific methods (not in use)}
 }
 \description{
-Get all existing posterior names from a posterior database.
+Get all existing posterior names from a posterior database or posterior objects.
 }
