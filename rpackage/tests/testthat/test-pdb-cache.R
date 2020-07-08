@@ -13,9 +13,10 @@ test_that("remove reference posterior cache", {
   rp <- reference_posterior_draws(po)
   expect_true(any(grepl(dir(pdb_test$cache_path, recursive = TRUE),
                     pattern = "draws/draws/eight_schools-eight_schools_noncentered\\.json")))
-  pdb_cache_rm(x = rp, pdb = pdb_test)
+  pdb_cache_rm(x = rp)
   expect_false(any(grepl(dir(pdb_test$cache_path, recursive = TRUE),
                          pattern = "draws/draws/eight_schools-eight_schools_noncentered\\.json")))
+
 })
 
 
@@ -32,7 +33,7 @@ test_that("remove data cache", {
   sd <- get_data(po)
   expect_true(any(grepl(dir(pdb_test$cache_path, recursive = TRUE),
                         pattern = "data/data/eight_schools\\.json")))
-  pdb_cache_rm(x = sd, pdb = pdb_test)
+  pdb_cache_rm(x = sd)
   expect_false(any(grepl(dir(pdb_test$cache_path, recursive = TRUE),
                          pattern = "data/data/eight_schools\\.json")))
 })

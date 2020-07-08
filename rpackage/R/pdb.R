@@ -411,23 +411,23 @@ pdb_cache_clear <- pdb_clear_cache
 #' @param x an object to remove from cache
 #' @param pdb the pdb to remove the cache from
 #' @param ... Currently not in use.
-pdb_cache_rm <- function(x, pdb = pdb_default(), ...){
+pdb_cache_rm <- function(x, ...){
   UseMethod(object = x, generic = "pdb_cache_rm")
 }
 
 #' @export
 #' @rdname pdb_cache_rm
-pdb_cache_rm.pdb_reference_posterior_draws <- function(x, pdb, ...){
+pdb_cache_rm.pdb_reference_posterior_draws <- function(x, ...){
   fp <- file.path("reference_posteriors", "draws", "draws", paste0(info(x)$name, ".json"))
   fpi <- file.path("reference_posteriors", "draws", "info", paste0(info(x)$name, ".info.json"))
-  file.remove(pdb_cache_path(pdb, c(fp,fpi)))
+  file.remove(pdb_cache_path(pdb(x), c(fp,fpi)))
 }
 
 #' @export
 #' @rdname pdb_cache_rm
-pdb_cache_rm.pdb_data <- function(x, pdb, ...){
+pdb_cache_rm.pdb_data <- function(x, ...){
   fp <- file.path("data", "data", paste0(info(x)$name, ".json"))
-  file.remove(pdb_cache_path(pdb, fp))
+  file.remove(pdb_cache_path(pdb(x), fp))
 }
 
 #' Cache a whole directory

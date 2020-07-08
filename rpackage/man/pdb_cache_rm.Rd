@@ -6,18 +6,18 @@
 \alias{pdb_cache_rm.pdb_data}
 \title{Remove object from cache}
 \usage{
-pdb_cache_rm(x, pdb = pdb_default(), ...)
+pdb_cache_rm(x, ...)
 
-\method{pdb_cache_rm}{pdb_reference_posterior_draws}(x, pdb, ...)
+\method{pdb_cache_rm}{pdb_reference_posterior_draws}(x, ...)
 
-\method{pdb_cache_rm}{pdb_data}(x, pdb, ...)
+\method{pdb_cache_rm}{pdb_data}(x, ...)
 }
 \arguments{
 \item{x}{an object to remove from cache}
 
-\item{pdb}{the pdb to remove the cache from}
-
 \item{...}{Currently not in use.}
+
+\item{pdb}{the pdb to remove the cache from}
 }
 \description{
 Remove object from cache
