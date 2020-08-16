@@ -33,7 +33,7 @@ class PyMC3ModelImplementation(ModelImplementationBase):
         model_code_file = self.posterior_db.full_path(self.model_code)
         model_code_directory = os.path.dirname(model_code_file)
         with add_path(model_code_directory):
-            model_code_module_name = os.path.basename(model_code_file).strip(".py")
+            model_code_module_name, _ = os.path.splitext(os.path.basename(model_code_file))
             module = importlib.import_module(model_code_module_name)
 
         return module.model
