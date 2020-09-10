@@ -11,7 +11,7 @@ posterior(x, pdb = pdb_default(), ...)
 
 \method{posterior}{character}(x, pdb = pdb_default(), ...)
 
-\method{posterior}{list}(x, pdb = NULL, ...)
+\method{posterior}{list}(x, pdb = pdb_default(), ...)
 
 pdb_posterior(x, pdb = pdb_default(), ...)
 }

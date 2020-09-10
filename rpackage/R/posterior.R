@@ -25,8 +25,21 @@ posterior.character <- function(x, pdb = pdb_default(), ...) {
 
 #' @rdname posterior
 #' @export
-posterior.list <- function(x, pdb = NULL, ...) {
+posterior.list <- function(x, pdb = pdb_default(), ...) {
   class(x) <- "pdb_posterior"
+  if(!is.null(x$pdb_model_code) & !is.null(x$pdb_data)){
+    # We setup the posterior object from a data and model object
+    mci <- info(x$pdb_model_code)
+    di <- info(x$pdb_data)
+    x$name <- paste0(di$name, "-", mci$name)
+    x$model_name <- mci$name
+    x$data_name <- di$name
+    x$model_info <- mci
+    x$data_info <- di
+    x$pdb_model_code <- NULL
+    x$pdb_data <- NULL
+  }
+  pdb(x) <- pdb
   assert_pdb_posterior(x)
   x
 }

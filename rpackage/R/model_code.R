@@ -154,3 +154,9 @@ framework.pdb_model_code <- function(x){
 }
 
 supported_frameworks <- function() c("stan", "pymc3", "tfp", "pyro")
+
+supported_frameworks_file_extension <- function(x){
+  checkmate::assert_choice(x, choices = supported_frameworks())
+  sffe <- c("stan"="stan", "pymc3"="py", "tfp"="py", "pyro"="py")
+  sffe[x]
+}

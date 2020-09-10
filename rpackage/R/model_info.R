@@ -30,9 +30,18 @@ model_info.character <- function(x, pdb = pdb_default(), ...) {
 #' @export
 model_info.list <- function(x, pdb = NULL, ...) {
   class(x) <- "pdb_model_info"
+  if(!is.null(x$framework)){
+    checkmate::assert_null(x$model_implementations)
+    mi <- list(list("model_code" = paste0("models/", x$framework,"/", x$name, ".",
+                supported_frameworks_file_extension(x$framework))))
+    x$model_implementations <- mi
+    names(x$model_implementations) <- x$framework
+    x$framework <- NULL
+  }
   assert_model_info(x)
   x
 }
+
 
 # read model info from the data base
 read_model_info <- function(x, pdb = NULL, ...) {
