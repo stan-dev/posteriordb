@@ -25,15 +25,15 @@ class Posterior:
             ["name", "model_name", "data_name", "reference_posterior_name"],
         )
 
-    def gold_standard_info(self):
-        return self.posterior_db.get_gold_standard_info(self.name)
+    def reference_draws_info(self):
+        return self.posterior_db.get_reference_draws_info(self.name)
     
-    def gold_standard_file_path(self):
-        return self.posterior_db.get_gold_standard_path(self.name)
+    def reference_draws_file_path(self):
+        return self.posterior_db.get_reference_draws_path(self.name)
         
-    def gold_standard(self):
-        gold_standard_name = self.gold_standard_info()["name"]
-        with ZipFile(self.gold_standard_file_path() + '.zip', 'r') as z:
-            with z.open(gold_standard_name + '.json', 'r') as f:
+    def reference_draws(self):
+        reference_name = self.reference_draws_info()["name"]
+        with ZipFile(self.reference_draws_file_path() + '.zip', 'r') as z:
+            with z.open(reference_name + '.json', 'r') as f:
                 return json.load(f)
         

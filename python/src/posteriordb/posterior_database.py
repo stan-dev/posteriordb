@@ -78,13 +78,13 @@ class PosteriorDatabase:
 
         return load_info(file_path, temporary_no_assertions)
 
-    def get_gold_standard_path(self, name: str):
+    def get_reference_draws_path(self, name: str):
         reference_root = os.path.join(self.path, "reference_posteriors/draws/draws")
         reference_name = self.get_posterior_info(name)["reference_posterior_name"]
         file_path = os.path.join(reference_root, reference_name + ".json")
         return file_path
 
-    def get_gold_standard_info(self, name: str):
+    def get_reference_draws_info(self, name: str):
         reference_root = os.path.join(self.path, "reference_posteriors/draws/info")
         reference_name = self.get_posterior_info(name)["reference_posterior_name"]
         file_path = os.path.join(reference_root, reference_name + ".info.json")
