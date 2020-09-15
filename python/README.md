@@ -155,10 +155,31 @@ From the dataset we can access the data values and information about it
  'added_date': '2019-08-12'}
 ```
 
-To access gold standard posterior draws we can use `gold_standard` as follows (NOTE not implemented yet).
+To access gold standard posterior draws we can use `reference_draws` as follows.
 
 ```python
-> gs = posterior.gold_standard()
+>>> posterior.reference_draws_info()
+{'name': 'eight_schools-eight_schools_noncentered',
+ 'inference': {'method': 'stan_sampling',
+  'method_arguments': {'chains': 10,
+   'iter': 20000,
+   'warmup': 10000,
+   'thin': 10,
+   'seed': 4711,
+   'control': {'adapt_delta': 0.95}}},
+ 'diagnostics': {'diagnostic_information': {'names': ['mu',
+    'tau',
+    'theta[1]',
+    ...
 
-NOT_IMPLEMENTED_YET
+>>> gs = posterior.reference_draws()
+>>> import pandas as pd
+>>> pd.DataFrame(gs)
+
+	theta[1]	                                        theta[2]	                                        
+0	[10.6802773011458, 6.45383910854259, -2.241629...	[9.71770681295263, 4.41030824418493, 0.7617047...	
+1	[5.70891361633589, 10.3012059848039, 4.2439533...	[-2.32310565394337, 14.8121789773659, 6.517256...	
+2	[7.23747096507585, -0.427831558524343, 9.14782...	[7.35425759420389, 8.69579738064637, 8.9058764...	
+3	[4.44915522912766, 2.34711393762556, 17.680378...	[2.4368039319606, 5.89809320808632, 8.63031558...	
+...
 ```
