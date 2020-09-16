@@ -71,7 +71,7 @@ remove_pdb.pdb_reference_posterior_draws <- function(x, pdb, remove_info = TRUE,
   fn <- paste0(info(x)$name, ".json.zip")
   fp <- pdb_file_path(pdb, "reference_posteriors", "draws", "draws", fn)
   remove_pdb(fp, pdb)
-  if(remove_info) remove_pdb(info(x), pdb)
+  if(remove_info) remove_pdb(info(x), type = "draws", pdb)
 }
 
 #' @rdname remove_pdb
