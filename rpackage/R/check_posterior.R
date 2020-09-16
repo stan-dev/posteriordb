@@ -6,7 +6,7 @@
 #' @param po a [pdb_posterior] to check.
 #'
 #' @export
-test_posterior <- function(po) {
+check_posterior <- function(po) {
   checkmate::assert_class(po, "pdb_posterior")
 
   message("Checking posterior '", po$name,"' ...")
