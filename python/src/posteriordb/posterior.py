@@ -1,9 +1,11 @@
+import json
+from zipfile import ZipFile
+
 from .dataset import Dataset
 from .model import Model
-from .posterior_database import PosteriorDatabase, load_json_file
+from .posterior_database import load_json_file
+from .posterior_database import PosteriorDatabase
 from .util import drop_keys
-from zipfile import ZipFile
-import json
 
 
 class Posterior:
@@ -27,13 +29,12 @@ class Posterior:
 
     def reference_draws_info(self):
         return self.posterior_db.get_reference_draws_info(self.name)
-    
+
     def reference_draws_file_path(self):
         return self.posterior_db.get_reference_draws_path(self.name)
-        
+
     def reference_draws(self):
         reference_name = self.reference_draws_info()["name"]
-        with ZipFile(self.reference_draws_file_path() + '.zip', 'r') as z:
-            with z.open(reference_name + '.json', 'r') as f:
+        with ZipFile(self.reference_draws_file_path() + ".zip", "r") as z:
+            with z.open(reference_name + ".json", "r") as f:
                 return json.load(f)
-        
