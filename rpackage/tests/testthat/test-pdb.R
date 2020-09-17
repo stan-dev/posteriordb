@@ -29,7 +29,7 @@ test_that("pdb_local", {
   expect_silent(pdbl1 <- pdb_local(posterior_db_path))
   expect_silent(pdbl2 <- pdb_local())
   expect_silent(pdbl3 <- pdb_local("../"))
-  expect_error(pdbl4 <- pdb_local("../../../"))
+  expect_error(pdbl4 <- pdb_local("../../../../"))
   expect_equal(pdbl1, pdbl2)
   expect_equal(pdbl1, pdbl3)
 })
