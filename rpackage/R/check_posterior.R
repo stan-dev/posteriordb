@@ -6,7 +6,7 @@
 #' @param po a [pdb_posterior] to check.
 #'
 #' @export
-check_posterior <- function(po) {
+check_posterior <- function(po, run_stan_code_checks = TRUE) {
   checkmate::assert_class(po, "pdb_posterior")
 
   message("Checking posterior '", po$name,"' ...")
@@ -26,11 +26,13 @@ check_posterior <- function(po) {
   check_pdb_aliases(pdb(po))
   message("- Aliases are ok.")
 
-  check_posterior_stan_syntax(po)
-  message("- Stan syntax is ok.")
+  if(run_stan_code_checks){
+    check_posterior_stan_syntax(po)
+    message("- Stan syntax is ok.")
 
-  check_pdb_run_stan(po)
-  message("- Stan can be run for the posterior.")
+    check_pdb_run_stan(po)
+    message("- Stan can be run for the posterior.")
+  }
 
   suppressMessages(check_pdb_references(pdb(po)))
   message("- References and bibliography are ok.")

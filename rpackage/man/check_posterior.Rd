@@ -4,7 +4,7 @@
 \alias{check_posterior}
 \title{Test a posterior}
 \usage{
-check_posterior(po)
+check_posterior(po, run_stan_code_checks = TRUE)
 }
 \arguments{
 \item{po}{a [pdb_posterior] to check.}
