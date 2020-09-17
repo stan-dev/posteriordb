@@ -19,16 +19,16 @@ There are many purposes with the PDB
 
 1.  A simple repository to access many models and datasets in a
     structured way from R and Python
-2.  Store models and data in a structure that lends itself for testing
+2.  Store models and data in a structure that lends itself to testing
     inference algorithms on a large number of posteriors.
-3.  A structure that makes it easy for students to access models and
+3.  An interface that makes it easy for students to access models and
     data for courses in Bayesian data analysis.
-4.  A structure that is framework agnostic (although now Stan is in
-    focus) and can be used with many different probabilistic programming
-    frameworks.
+4.  Model contents that are framework agnostic (although now Stan is in
+    focus), and can be used with many different probabilistic
+    programming frameworks.
 5.  A structure that simplifies regression testing of probabilistic
     programming frameworks.
-6.  Providing reliable gold standards for use in inference method
+6.  Providing reliable reference posteriors for use in inference method
     development.
 
 The long term goal is to move the posterior database to an open RESTful
@@ -44,7 +44,7 @@ for the details content of the posterior database.
 Contributing
 ------------
 
-We are happy with any help in adding posteriors, data and models to the
+We are happy with any help in adding posteriors, data, and models to the
 database! See
 [CONTRIBUTING.md](https://github.com/MansMeg/posteriordb/blob/master/doc/CONTRIBUTING.md)
 for the details on how to contribute.
@@ -52,7 +52,7 @@ for the details on how to contribute.
 Quick usage of the posterior database from R
 --------------------------------------------
 
-Install the package from github
+Install the package from GitHub
 
 ``` r
 remotes::install_github("MansMeg/posteriordb", subdir = "rpackage")
@@ -85,7 +85,7 @@ po
     ## A centered hiearchical model for 8 schools
     ## Frameworks: 'stan', 'pymc3'
 
-From the posterior we can easily access data and models as
+From the posterior, we can easily access data and models as
 
 ``` r
 sc <- pdb_stan_code(x = po)
@@ -119,7 +119,7 @@ info(sc)
     ## A centered hiearchical model for 8 schools
     ## Frameworks: 'stan', 'pymc3'
 
-To access data for a specific posterior we can use `pdb_data()`
+To access data for a specific posterior, we can use `pdb_data()`
 
 ``` r
 dat <- pdb_data(po)
@@ -145,7 +145,8 @@ info(dat)
     ## Data: eight_schools
     ## The 8 schools dataset of Rubin (1981)
 
-Finally we can access reference posterior draws for the given posterior.
+Finally, we can access reference posterior draws for the given
+posterior.
 
 ``` r
 rpd <- reference_posterior_draws(po)
@@ -180,7 +181,7 @@ summarize_draws(rpd)
     ##  9 mu        4.41   4.36  3.31  3.30 -0.936  9.83  1.00   10041.    9973.
     ## 10 tau       3.60   2.75  3.20  2.55  0.257  9.73  1.00    9989.    9992.
 
-Using `info()` we can access more details information on the reference
+Using `info()`, we can access more detailed information on the reference
 posterior draws.
 
 ``` r
@@ -242,8 +243,8 @@ See [R README](./rpackage/README.md)
 Design choices (so far)
 -----------------------
 
-The main focus of the database is simplicity in data and model, both in
-understanding and in use.
+The main focus of the database is simplicity, both in understanding and
+in use.
 
 The following are the current design choices in designing the posterior
 database.
@@ -252,15 +253,15 @@ database.
     the posterior. Create a new model to test different priors.
 2.  Data transformations are stored as different datasets. Create new
     data to test different data transformations, subsets, and variable
-    settings. This makes the database larger/less memory efficient but
-    simplifies the analysis of individual posteriors.
+    settings. This design choice makes the database larger/less memory
+    efficient but simplifies the analysis of individual posteriors.
 3.  Models and data has (model/data).info.json files with model and data
     specific information.
-4.  Templates for different jsons can be found in content/templates and
+4.  Templates for different JSONs can be found in content/templates and
     schemas in schemas (Note: these don’t exist right now and will be
     added later)
 5.  Prefix ‘syn\_’ stands for synthetic data where the generative
-    process is known and can be found in content/data-raw.
+    process is known and found in content/data-raw.
 6.  All data preprocessing is included in content/data-raw.
 7.  Specific information for different PPL representations of models is
     included in the PPL syntax files as comments, not in the
