@@ -54,7 +54,7 @@ pdb.pdb_model_code <- function(x, ...){
 #' @export
 pdb.character <- function(x, pdb_type = "local", cache_path = tempdir(), ...) {
   checkmate::assert_directory(cache_path, "w")
-  checkmate::assert_choice(pdb_type, c("local", "github"))
+  checkmate::assert_choice(pdb_type, supported_pdb_types())
   if(cache_path == tempdir()){
     # To ensure no duplicate temp file names from R session.
     cache_path <- file.path(cache_path, "posteriordb_cache")
@@ -69,6 +69,8 @@ pdb.character <- function(x, pdb_type = "local", cache_path = tempdir(), ...) {
   pdb$version <- pdb_version(pdb)
   pdb
 }
+
+supported_pdb_types <- function() c("local", "github")
 
 #' Set pdb slot
 #'
@@ -274,7 +276,7 @@ pdb_endpoint.pdb_local <- function(pdb, ...) {
   checkmate::assert_directory(pdb$pdb_id)
   pdb$pdb_local_endpoint <- normalizePath(pdb$pdb_id)
   while (!is_pdb_endpoint(pdb) & basename(pdb$pdb_local_endpoint) != "") {
-    pdb$pdb_endpoint <- dirname(pdb$pdb_local_endpoint)
+    pdb$pdb_local_endpoint <- dirname(pdb$pdb_local_endpoint)
   }
   if (basename(pdb$pdb_local_endpoint) == "") {
     stop2("No posterior database in path '", pdb$pdb_id, "'.")

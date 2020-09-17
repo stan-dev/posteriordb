@@ -22,3 +22,10 @@ test_that("pdb_version", {
   checkmate::expect_list(pdb_version(pdb_test))
   checkmate::expect_names(names(pdb_version(pdb_test)), must.include = "sha")
 })
+
+
+test_that("pdb_local", {
+  posterior_db_path <- posteriordb:::get_test_pdb_dir()
+  expect_silent(pdbl <- pdb_local(posterior_db_path))
+  expect_error(pdbl <- pdb_local("../../"))
+})
