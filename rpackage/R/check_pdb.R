@@ -134,7 +134,7 @@ check_pdb_run_stan <- function(pdb, posterior_idx = NULL) {
 }
 
 #' @rdname check_pdb
-check_pdb_run_stan <- function(po) {
+check_pdb_posterior_run_stan <- function(po) {
   checkmate::assert_class(po, "pdb_posterior")
   suppressWarnings(so <- utils::capture.output(run_stan(po, stan_args = list(iter = 2, warmup = 1, chains = 1))))
   so
@@ -208,7 +208,7 @@ check_pdb_posteriors <- function(pdb, posteriors = c("ecdc0401-covid19imperial_v
   check_pdb(pdb, pidx)
   check_pdb_stan_syntax(pdb, pidx)
   check_pdb_references(pdb)
-  check_pdb_run_stan(pdb, pidx)
+  check_pdb_run_stan(pdb, posterior_idx = pidx)
 }
 
 #' @rdname check_pdb
