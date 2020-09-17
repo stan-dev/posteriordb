@@ -1,12 +1,27 @@
+#' Compute a Reference Posteriors for a reference posterior info object
+#'
+#' @param rpi a [reference_posterior_info] object.
+#' @param pdb a [pdb] object.
+#'
+#' @export
+compute_reference_posterior_draws <- function(rpi, pdb = pdb_default()){
+  checkmate::assert_class(pdb, "pdb")
+  assert_reference_posterior_info(x = rpi)
+  if(rpi$inference$method == "stan_sampling"){
+    rp <- compute_reference_posterior_draws_stan_sampling(rpi, pdb)
+  } else {
+    stop("Currently not implemented")
+  }
+  rp
+}
+
 #' Compute a Reference Posteriors using Rstan
 #'
 #' @param rpi a [reference_posterior_info] object.
 #' @param pdb a [pdb] object.
 #'
-#' @keywords internal
-#' @noRd
 compute_reference_posterior_draws_stan_sampling <- function(rpi, pdb){
-  checkmate::assert_class(pdb, "pdb_local")
+  checkmate::assert_class(pdb, "pdb")
   assert_reference_posterior_info(x = rpi)
   po <- posterior(rpi$name, pdb = pdb)
   pdn <- posterior_dimension_names(x = po$dimensions)

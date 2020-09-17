@@ -16,17 +16,17 @@ remove_pdb(x, pdb, ...)
 
 \method{remove_pdb}{character}(x, pdb, ...)
 
-\method{remove_pdb}{pdb_data}(x, pdb, ...)
+\method{remove_pdb}{pdb_data}(x, pdb, remove_info = TRUE, ...)
 
 \method{remove_pdb}{pdb_data_info}(x, pdb, ...)
 
-\method{remove_pdb}{pdb_model_code}(x, pdb, ...)
+\method{remove_pdb}{pdb_model_code}(x, pdb, remove_info = TRUE, ...)
 
 \method{remove_pdb}{pdb_model_info}(x, pdb, ...)
 
 \method{remove_pdb}{pdb_posterior}(x, pdb, ...)
 
-\method{remove_pdb}{pdb_reference_posterior_draws}(x, pdb, ...)
+\method{remove_pdb}{pdb_reference_posterior_draws}(x, pdb, remove_info = TRUE, ...)
 
 \method{remove_pdb}{pdb_reference_posterior_info}(x, pdb, type, ...)
 }
@@ -36,6 +36,8 @@ remove_pdb(x, pdb, ...)
 \item{pdb}{the pdb to remove from. Currently only a local pdb.}
 
 \item{...}{further arguments supplied to methods.}
+
+\item{remove_info}{should the information JSON be removed as well?}
 
 \item{type}{supported reference posterior types.}
 }

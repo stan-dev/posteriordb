@@ -10,10 +10,7 @@
 \alias{pdb_github}
 \title{Create a Posterior Database (pdb) connection}
 \usage{
-pdb_local(
-  path = getOption("pdb_path", file.path(getwd(), "posterior_database")),
-  cache_path = tempdir()
-)
+pdb_local(path = getOption("pdb_path", getwd()), cache_path = tempdir())
 
 pdb(x, ...)
 

@@ -8,6 +8,7 @@
 \alias{check_pdb_read_data}
 \alias{check_pdb_read_reference_posterior_draws}
 \alias{check_pdb_run_stan}
+\alias{check_pdb_posterior_run_stan}
 \alias{check_pdb_stan_syntax}
 \alias{check_pdb_references}
 \alias{check_pdb_posteriors}
@@ -30,6 +31,8 @@ check_pdb_read_reference_posterior_draws(posterior_list)
 
 check_pdb_run_stan(pdb, posterior_idx = NULL)
 
+check_pdb_posterior_run_stan(po)
+
 check_pdb_stan_syntax(pdb, posterior_idx = NULL)
 
 check_pdb_references(pdb, posterior_idx = NULL)
@@ -51,6 +54,8 @@ check_pdb_all_reference_posteriors_have_posterior(pdb)
 \item{posterior_idx}{an index vector indicating what posteriors to check.}
 
 \item{posterior_list}{a list of \code{pdb_posterior} objects.}
+
+\item{po}{a \code{pdb_posterior} object.}
 
 \item{posteriors}{a character vector with posterior names.}
 }

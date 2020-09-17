@@ -4,6 +4,7 @@
 #' @param posterior_idx an index vector indicating what posteriors to check.
 #' @param posteriors a character vector with posterior names.
 #' @param posterior_list a list of \code{pdb_posterior} objects.
+#' @param po a \code{pdb_posterior} object.
 #'
 #' @details
 #' [check_pdb()] checks that the content exists as specified
@@ -134,6 +135,14 @@ check_pdb_run_stan <- function(pdb, posterior_idx = NULL) {
 }
 
 #' @rdname check_pdb
+check_pdb_posterior_run_stan <- function(po) {
+  checkmate::assert_class(po, "pdb_posterior")
+  suppressWarnings(so <- utils::capture.output(run_stan(po, stan_args = list(iter = 2, warmup = 1, chains = 1))))
+  so
+}
+
+
+#' @rdname check_pdb
 check_pdb_stan_syntax <- function(pdb, posterior_idx = NULL) {
   checkmate::assert_class(pdb, "pdb")
 
@@ -146,10 +155,17 @@ check_pdb_stan_syntax <- function(pdb, posterior_idx = NULL) {
   }
 
   for(i in seq_along(pl)){
-    suppressWarnings(sp <- rstan::stanc(model_code = stan_code(pl[[i]]), model_name = pl[[i]]$name))
+    check_posterior_stan_syntax(pl[[i]])
   }
   message("All posteriors with stan code has correct stan syntax.")
 }
+
+check_posterior_stan_syntax <- function(po) {
+  checkmate::assert_class(po, "pdb_posterior")
+  suppressWarnings(sp <- rstan::stanc(model_code = stan_code(po), model_name = po$model_name))
+  sp
+}
+
 
 #' @rdname check_pdb
 check_pdb_references <- function(pdb, posterior_idx = NULL) {
@@ -173,7 +189,7 @@ check_pdb_references <- function(pdb, posterior_idx = NULL) {
 
   ref_in_bib <- refs %in% bibnms
   if(any(!ref_in_bib)){
-    stop("Reference '", refs[!ref_in_bib], "' in database but not in th bibliography.", call. = FALSE)
+    stop("Reference '", refs[!ref_in_bib], "' exist in database but not in the bibliography.", call. = FALSE)
   }
 
   bib_in_ref <- bibnms %in% refs
@@ -193,7 +209,7 @@ check_pdb_posteriors <- function(pdb, posteriors = c("ecdc0401-covid19imperial_v
   check_pdb(pdb, pidx)
   check_pdb_stan_syntax(pdb, pidx)
   check_pdb_references(pdb)
-  check_pdb_run_stan(pdb, pidx)
+  check_pdb_run_stan(pdb, posterior_idx = pidx)
 }
 
 #' @rdname check_pdb

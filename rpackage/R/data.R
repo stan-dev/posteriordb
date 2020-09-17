@@ -106,6 +106,7 @@ assert_data <- function(x){
 #' @export
 print.pdb_data <- function(x, ...) {
   attr(x, "info") <- NULL
+  attr(x, "pdb") <- NULL
   x <- unclass(x)
   NextMethod("print")
 }

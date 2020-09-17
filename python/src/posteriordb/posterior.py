@@ -1,5 +1,9 @@
+import json
+from zipfile import ZipFile
+
 from .dataset import Dataset
 from .model import Model
+from .posterior_database import load_json_file
 from .posterior_database import PosteriorDatabase
 from .util import drop_keys
 
@@ -9,6 +13,8 @@ class Posterior:
         self.name = name
 
         assert name in posterior_db.posterior_names()
+
+        self.posterior_db = posterior_db
 
         self.posterior_info = posterior_db.get_posterior_info(name)
 
@@ -21,12 +27,14 @@ class Posterior:
             ["name", "model_name", "data_name", "reference_posterior_name"],
         )
 
-    def gold_standard(self):
-        # gold_standard_file = self.posterior_info["gold_standard"]
-        raise NotImplementedError()
-        # need to unzip gold standard
+    def reference_draws_info(self):
+        return self.posterior_db.get_reference_draws_info(self.name)
 
-    def gold_standard_file_path(self):
-        # gold_standard = self.gold_standard()
-        # make tempfile and put gold standard there
-        raise NotImplementedError()
+    def reference_draws_file_path(self):
+        return self.posterior_db.get_reference_draws_path(self.name)
+
+    def reference_draws(self):
+        reference_name = self.reference_draws_info()["name"]
+        with ZipFile(self.reference_draws_file_path() + ".zip", "r") as z:
+            with z.open(reference_name + ".json", "r") as f:
+                return json.load(f)
