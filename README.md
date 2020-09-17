@@ -134,12 +134,6 @@ dat
     ## 
     ## $sigma
     ## [1] 15 10 16 11  9 11 10 18
-    ## 
-    ## attr(,"pdb")
-    ## Posterior Database (github)
-    ## Path: MansMeg/posteriordb/posterior_database @ master
-    ## Version:
-    ##   sha: 261d1a608d99f7e2e285fa221813d5b7bf804d4b
 
 Again, we can get additional information about the data by using
 `info()`.
