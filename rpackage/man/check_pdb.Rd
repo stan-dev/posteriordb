@@ -8,6 +8,7 @@
 \alias{check_pdb_read_data}
 \alias{check_pdb_read_reference_posterior_draws}
 \alias{check_pdb_run_stan}
+\alias{check_pdb_posterior_run_stan}
 \alias{check_pdb_stan_syntax}
 \alias{check_pdb_references}
 \alias{check_pdb_posteriors}
@@ -28,9 +29,9 @@ check_pdb_read_data(posterior_list)
 
 check_pdb_read_reference_posterior_draws(posterior_list)
 
-check_pdb_run_stan(po)
+check_pdb_run_stan(pdb, posterior_idx = NULL)
 
-check_pdb_run_stan(po)
+check_pdb_posterior_run_stan(po)
 
 check_pdb_stan_syntax(pdb, posterior_idx = NULL)
 
