@@ -88,7 +88,7 @@ sm <- rstan::stan_model(model_code = smc)
 mc <- model_code(sm, info = mi)
 
 # Write the model to the database
-write_pdb(mc, pdbl, overwrite = TRUE)
+write_pdb(mc, pdbl)
 
 # We can then remove the data from the database with:
 # remove_pdb(mc, pdbl)
