@@ -83,10 +83,11 @@ test_that("CONTRIBUTION.md works as usual (not testing rstan)", {
   pdbl <- pdb_local()
   po <- posterior("test_eight_schools_data-test_eight_schools_model", pdbl)
 
-  # Setup reference posterior info ----
+  # Access Makevar
   expect_silent(M <- file.path(Sys.getenv("HOME"), ".R", ifelse(.Platform$OS.type == "windows", "Makevars.win", "Makevars")))
   expect_silent(Mfile <- if(file.exists(M)) paste(readLines(M), collapse = "\n") else "")
 
+  # Setup reference posterior info ----
   expect_silent(
     x <- list(name = posterior_name(po),
               inference = list(method = "stan_sampling",
