@@ -141,6 +141,16 @@ dat
     ## Version:
     ##   sha: 261d1a608d99f7e2e285fa221813d5b7bf804d4b
 
+Again, we can get additional information about the data by using
+`info()`.
+
+``` r
+info(dat)
+```
+
+    ## Data: eight_schools
+    ## The 8 schools dataset of Rubin (1981)
+
 Finally we can access reference posterior draws for the given posterior.
 
 ``` r
@@ -177,7 +187,7 @@ summarize_draws(rpd)
     ## 10 tau       3.60   2.75  3.20  2.55  0.257  9.73  1.00    9989.    9992.
 
 Using `info()` we can access more details information on the reference
-posterior.
+posterior draws.
 
 ``` r
 info(rpd)

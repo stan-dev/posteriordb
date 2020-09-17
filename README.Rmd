@@ -76,6 +76,12 @@ dat <- pdb_data(po)
 dat
 ```
 
+Again, we can get additional information about the data by using `info()`.
+
+```{r}
+info(dat)
+```
+
 Finally we can access reference posterior draws for the given posterior.
 
 ```{r}
@@ -89,7 +95,7 @@ library(posterior)
 summarize_draws(rpd)
 ```
 
-Using `info()` we can access more details information on the reference posterior.
+Using `info()` we can access more details information on the reference posterior draws.
 
 ```{r}
 info(rpd)
