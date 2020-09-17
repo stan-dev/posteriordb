@@ -11,9 +11,9 @@ A reference posterior should have:
 1. Efficient sample size (ESS) / iteration > 0.0001
 
 
-Computing Reference Posteriors
+Computing Reference Posteriors Draws
 ------
-Currently we use two types of gold standard computations, Stan HMC/NUTS and analytical solution/simulations. Although other approaches can also be used in special circumstances (e.g., for discrete parameter models) if a clear point can be made that this is necessary.
+Currently we use two types of gold standard computations, Stan HMC/NUTS and analytical solution/simulations. Although other approaches can also be used in special circumstances (e.g., for discrete parameter models) if a clear argument can be made that this is necessary.
 
 ### Stan HMC/NUTS sampling
 
