@@ -9,7 +9,7 @@ test_that("CONTRIBUTION.md works as usual (not testing rstan)", {
   # Please check that no code has been changed or update this test suite accordingly
   # Then change the hash to the md5 of the new updated file.
   md5_hash <- digest::digest(readLines(fp_to_CONTRIBUTING_md), algo = "md5")
-  expect_equal(md5_hash, "c602ccc720e9e75668e45281c1155cc1")
+  expect_equal(md5_hash, "0bd2d4ce22443efa9de27d2174d89996")
 
   # Init
   expect_silent(pdbl <- pdb_local())

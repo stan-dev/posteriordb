@@ -1,9 +1,9 @@
 Contributing
 ============
 
-We are happy for you to contribute with code or new posteriors to the database. Just create a Pull Request with you new content to the posteriordb, the tests on the new content will be checked.
+We are happy for you to contribute with code or new posteriors to the database. Just create a Pull Request with your new content to the posteriordb; the content will be checked using Travis CI.
 
-Don't hesitate to do a Pull Request (PR) with a new model, data, or posterior to the repository. We use the PR for discussion on new material!
+Don't hesitate to make a Pull Request (PR) with a new model, data, or posterior to the repository. We use the PR for discussion on new material!
 
 Pull request workflow
 -------------
@@ -16,8 +16,7 @@ Pull request workflow
 CONTRIBUTING CONTENT
 -------------
 
-Currently it is much simpler to add new content through R, but hopefully this will be simplified further on.
-
+It is currently much simpler to add new content through R, but hopefully, this will be simplified further on.
 
 ## Add content through R
 
@@ -34,7 +33,7 @@ pdbl <- pdb_local()
 
 ### Add Data
 
-The next step is to add and write down information about the data. Below is a test example using an data for an ARMA model.
+The next step is to add and write down information about the data. Below is a test example using data from the eight schools example.
 
 ```
 x <- list(name = "test_eight_schools_data",
@@ -67,7 +66,7 @@ write_pdb(dat, pdbl)
 
 ### Add Model
 
-Similarly we can add stan-files and model information as follows, again a test case using the ARMA model.
+Similarly, we can add stan-files and model information as follows: a test case using the eight school model.
 
 ```
 x <- list(name = "test_eight_schools_model",
@@ -109,18 +108,18 @@ po <- pdb_posterior(x, pdbl)
 
 # We write to the database as done previously
 write_pdb(po, pdbl)
-# To remove the posterior we use:
+# To remove the posterior, we use:
 # remove_pdb(po, pdbl)
 ```
 
-Finally we want to check that everything is in order with the posterior. We do this as follows:
+Finally, we want to check that everything is in order with the posterior. We do this as follows:
 
 ```
 check_posterior(po)
 ```
-We have not added `testBiBTeX2020` to the bibliography, and hence the function throw an error.
+We have not added `testBiBTeX2020` to the bibliography, and hence the function throws an error.
 
-If the posterior passed all checks, it can be added to the posteriordb, so it is just to open a Pull Request with the proposed posterior.
+If the posterior passes all checks, it can be added to the posteriordb, so it is just to open a Pull Request with the proposed posterior.
 
 
 ### Add Posterior Reference Draws
@@ -154,7 +153,7 @@ x <- list(name = posterior_name(po),
 rpi <- pdb_reference_posterior_draws_info(x)
 ```
 
-The reference posterior draws info contain all information to compute the posterior using rstan. We then check that the criterias for the reference posterior is fulfilled and add thos checked diagnostics to the object.
+The reference posterior draws info contain all information to compute the posterior using rstan. We then check that the reference posterior criteria are fulfilled and add checked diagnostics to the object.
 
 ```
 # Compute the reference posterior
@@ -173,7 +172,7 @@ write_pdb(rp, pdbl, overwrite = TRUE)
 
 ## Add content directly
 
-It is possible to just add content directly to the database by manually specifying the JSON objects. A simple approach is to use eight_schools posterior as a template.
+It is possible to add content directly to the database by manually specifying the JSON objects. A simple approach is to use eight_schools posterior as a template.
 
 
 
@@ -195,7 +194,7 @@ python3 -m pip install --user pre-commit
 ```
 Your system needs to have Python 3.6 or higher.
 
-Check that it works correctly
+Check that it works correctly.
 
 ```
 pre-commit run --all-files
@@ -207,20 +206,20 @@ Install pre-commit hooks
 pre-commit install
 ```
 
-Now pre-commit hooks get run when you `git commit`. For example if a file
+Now, pre-commit hooks get run when you `git commit`. For example, if a file
 that you are committing has trailing whitespace `pre-commit` will remove
 the trailing whitespace, abort the commit and let you stage the modifications.
 Then you can run `git commit` again.
 
 All the checks are also run by continuous integration when you make a pull request.
-This means that you don't necessarily have to use `pre-commit` locally.
-However we suggest using it locally as that gives more immediate feedback.
+These checks mean that you don't necessarily have to use `pre-commit` locally.
+However, we suggest using it locally as that gives more immediate feedback.
 
 
 Tests
 -----------
 
-See python and R test sections
+See python and R test sections.
 
 ### Python tests
 
@@ -230,16 +229,17 @@ See python and R test sections
    ```bash
    tox
    ```
-   This automatically configures several python versions and runs the tests on each of them.
+   Tox automatically configures several python versions and runs the tests on each of them.
    **NOTE**: python 3.6 and python 3.7 need to be installed.
 
-   It is also fine to run on just one python version if for example you don't have
+   It is also fine to run on just one python version if, for example, you don't have
    all the versions installed locally. (as continuous integration will cover
    running on all versions)
    ```bash
    tox -e py36, linting
    ```
-   This runs the tests on python3.6 and also runs the linting step.
+   This bash script runs the tests on python3.6 and also runs the linting step.
 
 ### R tests
-TODO
+
+See ```rpackage/tests```.
