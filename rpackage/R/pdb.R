@@ -27,7 +27,7 @@
 #' @return a \code{pdb} object
 #'
 #' @export
-pdb_local <- function(path = getOption("pdb_path", file.path(getwd(), "posterior_database")),
+pdb_local <- function(path = getOption("pdb_path", getwd()),
                       cache_path = tempdir()){
   pdb(x = path, pdb_type = "local", cache_path = cache_path)
 }
@@ -67,7 +67,16 @@ pdb.character <- function(x, pdb_type = "local", cache_path = tempdir(), ...) {
   class(pdb) <- c(paste0("pdb_", pdb_type), "pdb")
   pdb <- setup_pdb(pdb, ...)
   pdb$version <- pdb_version(pdb)
+  assert_pdb(pdb)
   pdb
+}
+
+assert_pdb <- function(x){
+  checkmate::assert_class(x, classes = "pdb")
+  checkmate::assert_names(names(x), must.include = c("pdb_id", "cache_path", "version"))
+  checkmate::assert_string(x$pdb_id)
+  checkmate::assert_directory_exists(x$cache_path)
+  checkmate::assert_list(x$version)
 }
 
 supported_pdb_types <- function() c("local", "github")
@@ -104,6 +113,7 @@ setup_pdb <- function(pdb, ...){
 setup_pdb.pdb_local <- function(pdb, ...){
   pdb <- pdb_endpoint(pdb)
   checkmate::assert_directory(pdb$pdb_local_endpoint, "r")
+  pdb$pdb_id <- pdb$pdb_local_endpoint
   pdb
 }
 
@@ -256,7 +266,7 @@ pdb_type <- function(pdb){
 
 #' Set and check posterior database endpoint
 #' i.e. after this has run, the pdb points to the
-#' posterior db root. Local pdb search all folders below
+#' posteriordb root. Local pdb search all folders below
 #' Github pdb just checks that the supplied github repo
 #' (with subdir) points to the pdb
 #' @noRd
@@ -273,14 +283,20 @@ pdb_endpoint <- function(pdb, ...) {
 #' @keywords internal
 pdb_endpoint.pdb_local <- function(pdb, ...) {
   if(!is.null(pdb$pdb_local_endpoint)) return(pdb$pdb_local_endpoint)
-  checkmate::assert_directory(pdb$pdb_id)
+
   pdb$pdb_local_endpoint <- normalizePath(pdb$pdb_id)
   while (!is_pdb_endpoint(pdb) & basename(pdb$pdb_local_endpoint) != "") {
     pdb$pdb_local_endpoint <- dirname(pdb$pdb_local_endpoint)
+    # Check if the folder has a posterior_database folder
+    pdbfp <- file.path(pdb$pdb_local_endpoint, "posterior_database")
+    if(is_pdb_endpoint_local_path(pdbfp)){
+      pdb$pdb_local_endpoint <- pdbfp
+    }
   }
   if (basename(pdb$pdb_local_endpoint) == "") {
     stop2("No posterior database in path '", pdb$pdb_id, "'.")
   }
+  checkmate::assert_directory(pdb$pdb_local_endpoint)
   pdb
 }
 
@@ -301,8 +317,15 @@ pdb_minimum_contents <- function() c("data", "models", "posteriors")
 #' @rdname is_pdb_endpoint
 #' @keywords internal
 is_pdb_endpoint.pdb_local <- function(pdb, ...) {
-  checkmate::assert_directory_exists(pdb$pdb_local_endpoint)
-  all(pdb_minimum_contents() %in% dir(pdb$pdb_local_endpoint))
+  is_pdb_endpoint_local_path(pdb$pdb_local_endpoint)
+
+}
+
+#' @noRd
+#' @rdname is_pdb_endpoint
+#' @keywords internal
+is_pdb_endpoint_local_path <- function(x) {
+  checkmate::test_directory_exists(x) && all(pdb_minimum_contents() %in% dir(x))
 }
 
 
