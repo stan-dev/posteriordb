@@ -16,7 +16,7 @@ test_that("CONTRIBUTION.md works as usual (not testing rstan)", {
   # Please check that no code has been changed or update this test suite accordingly
   # Then change the hash to the md5 of the new updated file.
   md5_hash <- digest::digest(readLines(fp_to_CONTRIBUTING_md), algo = "md5")
-  expect_equal(md5_hash, "0bd2d4ce22443efa9de27d2174d89996")
+  expect_equal(md5_hash, "5bf9fce357af8f8c844caaf3eddbd008")
 
   # Init
   expect_silent(pdbl <- pdb_local())
@@ -84,6 +84,9 @@ test_that("CONTRIBUTION.md works as usual (not testing rstan)", {
   po <- posterior("test_eight_schools_data-test_eight_schools_model", pdbl)
 
   # Setup reference posterior info ----
+  expect_silent(M <- file.path(Sys.getenv("HOME"), ".R", ifelse(.Platform$OS.type == "windows", "Makevars.win", "Makevars")))
+  expect_silent(Mfile <- if(file.exists(M)) paste(readLines(M), collapse = "\n") else "")
+
   expect_silent(
     x <- list(name = posterior_name(po),
               inference = list(method = "stan_sampling",
@@ -99,7 +102,7 @@ test_that("CONTRIBUTION.md works as usual (not testing rstan)", {
               added_by = "Stanislaw Ulam",
               added_date = Sys.Date(),
               versions = list(rstan_version = paste("rstan", utils::packageVersion("rstan")),
-                              r_Makevars = paste(readLines("~/.R/Makevars"), collapse = "\n"), # This works for macosx
+                              r_Makevars = Mfile, # This works for macosx
                               r_version = R.version$version.string,
                               r_session = paste(capture.output(print(sessionInfo())), collapse = "\n")))
   )

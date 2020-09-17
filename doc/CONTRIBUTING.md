@@ -130,6 +130,10 @@ If possible, we would like to supply posterior reference draws, i.e., draws of e
 pdbl <- pdb_local()
 po <- posterior("test_eight_schools_data-test_eight_schools_model", pdbl)
 
+# Access the Makevar for reproducibility
+M <- file.path(Sys.getenv("HOME"), ".R", ifelse(.Platform$OS.type == "windows", "Makevars.win", "Makevars"))
+Mfile <- if(file.exists(M)) paste(readLines(M), collapse = "\n") else ""
+
 # Setup reference posterior info ----
 x <- list(name = posterior_name(po),
           inference = list(method = "stan_sampling",
