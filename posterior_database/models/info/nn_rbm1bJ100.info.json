@@ -7,6 +7,11 @@
   },
   "description": "A One Layer Restricted Boltzman Machine Neural Network with added bias and 100 hidden units. The implementation follows that of Lampainen and Vehtari (2001).",
   "urls": "https://github.com/stan-dev/example-models/tree/master/knitr/neural-nets",
+  "inputs": { "N": { "type": "int", "dimensions": 0},
+              "M": { "type": "int", "dimensions": 0},
+              "x": { "type": "real", "dimensions": 2},
+              "K": { "type": "int", "dimensions": 0},
+              "y": { "type": "int", "dimensions": 1} },
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/nn_rbm1bJ100.stan"

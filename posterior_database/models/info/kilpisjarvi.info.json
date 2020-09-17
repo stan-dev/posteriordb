@@ -7,6 +7,14 @@
   },
   "description": "y ~ x",
   "urls": "https://raw.githubusercontent.com/bbbales2/cmdstan-warmup/develop/examples/kilpisjarvi/kilpisjarvi.stan",
+  "inputs": { "N": { "type": "int", "dimensions": 0},
+              "x": { "type": "real", "dimensions": 1},
+              "y": { "type": "real", "dimensions": 1},
+              "xpred": { "type": "real", "dimensions": 0},
+              "pmualpha": { "type": "real", "dimensions": 0},
+              "psalpha": { "type": "real", "dimensions": 0},
+              "pmubeta": { "type": "real", "dimensions": 0},
+              "psbeta": { "type": "real", "dimensions": 0} },
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/kilpisjarvi.stan"

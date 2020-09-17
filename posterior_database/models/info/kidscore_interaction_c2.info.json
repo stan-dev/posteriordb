@@ -7,6 +7,10 @@
   },
   "description": "kid_score ~ c2_mom_hs + c2_mom_iq + c2_mom_hs:c2_mom_iq, c2_mom_hs <- mom_hs - 0.5, c2_mom_iq <- mom_iq - 100",
   "urls": "https://raw.githubusercontent.com/stan-dev/example-models/master/ARM/Ch.4/kidiq_interaction_c2.stan",
+  "inputs": { "N": { "type": "int", "dimensions": 0},
+              "kid_score": { "type": "real", "dimensions": 1},
+              "mom_hs": { "type": "real", "dimensions": 1},
+              "mom_iq": { "type": "real", "dimensions": 1} },
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/kidscore_interaction_c2.stan"

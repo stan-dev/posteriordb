@@ -7,6 +7,9 @@
   },
   "description": "A Hidden Markov Model",
   "urls": "https://github.com/imadmali/bball-hmm/blob/master/models/hmm_example.stan",
+  "inputs": { "N": { "type": "int", "dimensions": 0},
+              "K": { "type": "int", "dimensions": 0},
+              "y": { "type": "real", "dimensions": 1} },
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/hmm_example.stan"

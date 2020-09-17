@@ -7,6 +7,11 @@
   },
   "description": "log(price) ~ carat * (log(x) + log(y) + log(z)) + cut + color + clarity",
   "urls": "https://github.com/bbbales2/cmdstan-warmup/blob/develop/examples/diamonds",
+  "inputs": { "N": { "type": "int", "dimensions": 0},
+              "Y": { "type": "real", "dimensions": 1},
+              "K": { "type": "int", "dimensions": 0},
+              "X": { "type": "real", "dimensions": 2},
+              "prior_only": { "type": "int", "dimensions": 0} },
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/diamonds.stan"

@@ -7,6 +7,17 @@
   },
   "description": "accel ~ s(times, k=40),\nsigma ~ s(times, k=40)",
   "urls": "https://github.com/bbbales2/cmdstan-warmup/blob/develop/examples/accel_splines/",
+  "inputs": { "N": { "type": "int", "dimensions": 0},
+              "Y": { "type": "real", "dimensions": 1},
+              "Ks": { "type": "int", "dimensions": 0},
+              "Xs": { "type": "real", "dimensions": 2},
+              "knots_1": { "type": "int", "dimensions": 0},
+              "Zs_1_1": { "type": "real", "dimensions": 2},
+              "Ks_sigma": { "type": "int", "dimensions": 0},
+              "Xs_sigma": { "type": "real", "dimensions": 2},
+              "knots_sigma_1": { "type": "int", "dimensions": 0},
+              "Zs_sigma_1_1": { "type": "real", "dimensions": 2},
+              "prior_only": { "type": "int", "dimensions": 0} },
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/accel_splines.stan"

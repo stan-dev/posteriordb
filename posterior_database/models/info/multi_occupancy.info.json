@@ -7,6 +7,11 @@
   },
   "description": "a hierarchical occupancy model for estimating\nspecies richness and accumulation by forming these community-level\nattributes as functions of model-based estimators of species occurence\nwhile accounting for imperfect detection of individual species.",
   "urls": "",
+  "inputs": { "J": { "type": "int", "dimensions": 0},
+              "K": { "type": "int", "dimensions": 0},
+              "n": { "type": "int", "dimensions": 0},
+              "X": { "type": "int", "dimensions": 2},
+              "S": { "type": "int", "dimensions": 0} },
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/multi_occupancy.stan"

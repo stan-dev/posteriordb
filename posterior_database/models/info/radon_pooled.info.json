@@ -7,6 +7,9 @@
   },
   "description": "A simple pooled linear model.",
   "urls": "https://mc-stan.org/users/documentation/case-studies/radon.html",
+  "inputs": { "N": { "type": "int", "dimensions": 0},
+              "floor_measure": { "type": "real", "dimensions": 1},
+              "log_radon": { "type": "real", "dimensions": 1} },
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/radon_pooled.stan"

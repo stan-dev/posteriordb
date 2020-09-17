@@ -16,6 +16,9 @@
   "prior": {
     "keywords": []
   },
+  "inputs": { "J": { "type": "int", "dimensions": 0},
+              "y": { "type": "real", "dimensions": 1},
+              "sigma": { "type": "real", "dimensions": 1} },
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/eight_schools_centered.stan"

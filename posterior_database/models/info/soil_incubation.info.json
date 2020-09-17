@@ -7,6 +7,11 @@
   },
   "description": "A statistical two-pool model with decomposition rates for each pool\nas well as transfer rates from one pool to another.",
   "urls": "https://github.com/stan-dev/example-models/blob/master/knitr/soil-carbon/soil_incubation.stan",
+  "inputs": { "totalC_t0": { "type": "real", "dimensions": 0},
+              "t0": { "type": "real", "dimensions": 0},
+              "N_t": { "type": "int", "dimensions": 0},
+              "ts": { "type": "real", "dimensions": 1},
+              "eCO2mean": { "type": "real", "dimensions": 1} },
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/soil_incubation.stan"

@@ -7,6 +7,19 @@
   },
   "description": "Structural Time Series Model",
   "urls": "https://raw.githubusercontent.com/facebook/prophet/master/R/inst/stan/prophet.stan",
+  "inputs": { "T": { "type": "int", "dimensions": 0},
+              "K": { "type": "int", "dimensions": 0},
+              "t": { "type": "real", "dimensions": 1},
+              "cap": { "type": "real", "dimensions": 1},
+              "y": { "type": "real", "dimensions": 1},
+              "S": { "type": "int", "dimensions": 0},
+              "t_change": { "type": "real", "dimensions": 1},
+              "X": { "type": "real", "dimensions": 2},
+              "sigmas": { "type": "real", "dimensions": 1},
+              "tau": { "type": "real", "dimensions": 0},
+              "trend_indicator": { "type": "int", "dimensions": 0},
+              "s_a": { "type": "real", "dimensions": 1},
+              "s_m": { "type": "real", "dimensions": 1} },
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/prophet.stan"

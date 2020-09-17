@@ -7,6 +7,12 @@
   },
   "description": "Hierachical item response theory model that includes\nparameters for both the difficulty and discrimination of items.\nItem parameter pairs are modeled as correlated draws from a bivariate normal distribution",
   "urls": "https://mc-stan.org/users/documentation/case-studies/hierarchical_2pl.html",
+  "inputs": { "I": { "type": "int", "dimensions": 0},
+              "J": { "type": "int", "dimensions": 0},
+              "N": { "type": "int", "dimensions": 0},
+              "ii": { "type": "int", "dimensions": 1},
+              "jj": { "type": "int", "dimensions": 1},
+              "y": { "type": "int", "dimensions": 1} },
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/hier_2pl.stan"

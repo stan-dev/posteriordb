@@ -7,6 +7,14 @@
   },
   "description": "partyid7 ~ real_ideo + race_adj + age30_44 + age45_64 + age65up + educ1 + gender + income",
   "urls": "https://raw.githubusercontent.com/stan-dev/example-models/master/ARM/Ch.4/nes.stan",
+  "inputs": { "N": { "type": "int", "dimensions": 0},
+              "partyid7": { "type": "real", "dimensions": 1},
+              "real_ideo": { "type": "real", "dimensions": 1},
+              "race_adj": { "type": "real", "dimensions": 1},
+              "educ1": { "type": "real", "dimensions": 1},
+              "gender": { "type": "real", "dimensions": 1},
+              "income": { "type": "real", "dimensions": 1},
+              "age_discrete": { "type": "int", "dimensions": 1} },
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/nes.stan"

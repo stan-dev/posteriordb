@@ -13,6 +13,9 @@
   "prior": {
     "keywords": []
   },
+  "inputs": { "T": { "type": "int", "dimensions": 0},
+              "y": { "type": "real", "dimensions": 1},
+              "sigma1": { "type": "real", "dimensions": 0} },
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/garch11.stan"

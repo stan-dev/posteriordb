@@ -12,6 +12,12 @@
   "prior": {
     "keywords": []
   },
+  "inputs": { "t0": { "type": "real", "dimensions": 0},
+              "D": { "type": "real", "dimensions": 0},
+              "V": { "type": "real", "dimensions": 0},
+              "N_t": { "type": "int", "dimensions": 0},
+              "times": { "type": "real", "dimensions": 1},
+              "C_hat": { "type": "real", "dimensions": 1} },
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/one_comp_mm_elim_abs.stan"

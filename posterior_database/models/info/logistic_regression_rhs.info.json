@@ -7,6 +7,16 @@
   },
   "description": "y ~ Ber(x)",
   "urls": "",
+  "inputs": { "n": { "type": "int", "dimensions": 0},
+              "d": { "type": "int", "dimensions": 0},
+              "y": { "type": "int", "dimensions": 1},
+              "x": { "type": "real", "dimensions": 2},
+              "scale_icept": { "type": "real", "dimensions": 0},
+              "scale_global": { "type": "real", "dimensions": 0},
+              "nu_global": { "type": "real", "dimensions": 0},
+              "nu_local": { "type": "real", "dimensions": 0},
+              "slab_scale": { "type": "real", "dimensions": 0},
+              "slab_df": { "type": "real", "dimensions": 0} },
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/logistic_regression_rhs.stan"

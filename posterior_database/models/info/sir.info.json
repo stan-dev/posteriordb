@@ -14,6 +14,11 @@
   "prior": {
     "keywords": []
   },
+  "inputs": { "N_t": { "type": "int", "dimensions": 0},
+              "t": { "type": "real", "dimensions": 1},
+              "y0": { "type": "real", "dimensions": 1},
+              "stoi_hat": { "type": "int", "dimensions": 1},
+              "B_hat": { "type": "real", "dimensions": 1} },
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/sir.stan"

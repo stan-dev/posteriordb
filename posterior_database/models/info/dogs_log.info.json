@@ -7,6 +7,9 @@
   },
   "description": "y ~ exp(n_avoid + n_shock)",
   "urls": "https://raw.githubusercontent.com/stan-dev/example-models/master/ARM/Ch.24/dogs_log.stan",
+  "inputs": { "n_trials": { "type": "int", "dimensions": 0},
+              "n_dogs": { "type": "int", "dimensions": 0},
+              "y": { "type": "int", "dimensions": 2} },
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/dogs_log.stan"

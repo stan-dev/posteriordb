@@ -7,6 +7,8 @@
   },
   "description": "a gaussian mixture with unknown proportion and means, known variance\np(y|mu,theta) = theta * Normal(y|mu[1],1) + (1-theta) * Normal(y|mu[2],1)",
   "urls": "https://raw.githubusercontent.com/stan-dev/example-models/master/basic_estimators/normal_mixture.stan",
+  "inputs": { "N": { "type": "int", "dimensions": 0},
+              "y": { "type": "real", "dimensions": 1} },
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/normal_mixture.stan"

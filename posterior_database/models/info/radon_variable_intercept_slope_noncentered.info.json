@@ -7,6 +7,11 @@
   },
   "description": "A linear model with hiearchical intercept and slope coefficients using an hiearchical prior. This model uses a non-centered parametrization.",
   "urls": "https://mc-stan.org/users/documentation/case-studies/radon.html",
+  "inputs": { "N": { "type": "int", "dimensions": 0},
+              "J": { "type": "int", "dimensions": 0},
+              "county_idx": { "type": "int", "dimensions": 1},
+              "floor_measure": { "type": "real", "dimensions": 1},
+              "log_radon": { "type": "real", "dimensions": 1} },
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/radon_variable_intercept_slope_noncentered.stan"

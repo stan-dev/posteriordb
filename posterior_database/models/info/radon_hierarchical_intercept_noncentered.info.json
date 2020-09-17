@@ -7,6 +7,12 @@
   },
   "description": "A linear model with different intercepts per county and county level log_uppm covariate. This model is a non-centered parametrization.",
   "urls": "https://mc-stan.org/users/documentation/case-studies/radon.html",
+  "inputs": { "J": { "type": "int", "dimensions": 0},
+              "N": { "type": "int", "dimensions": 0},
+              "county_idx": { "type": "int", "dimensions": 1},
+              "log_uppm": { "type": "real", "dimensions": 1},
+              "floor_measure": { "type": "real", "dimensions": 1},
+              "log_radon": { "type": "real", "dimensions": 1} },
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/radon_hierarchical_intercept_noncentered.stan"

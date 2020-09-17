@@ -13,6 +13,9 @@
   "prior": {
     "keywords": []
   },
+  "inputs": { "N": { "type": "int", "dimensions": 0},
+              "x": { "type": "real", "dimensions": 1},
+              "y": { "type": "real", "dimensions": 1} },
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/gp_regr.stan"

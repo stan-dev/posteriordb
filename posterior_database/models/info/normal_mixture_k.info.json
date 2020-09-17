@@ -7,6 +7,9 @@
   },
   "description": "a Gaussian mixture with unknown proportions, means and variances",
   "urls": "https://raw.githubusercontent.com/stan-dev/example-models/master/basic_estimators/normal_mixture_k.stan",
+  "inputs": { "K": { "type": "int", "dimensions": 0},
+              "N": { "type": "int", "dimensions": 0},
+              "y": { "type": "real", "dimensions": 1} },
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/normal_mixture_k.stan"

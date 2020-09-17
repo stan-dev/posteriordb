@@ -7,6 +7,13 @@
   },
   "description": "A Hidden Markov Model with normal distribution for emission probabilities",
   "urls": "https://github.com/imadmali/bball-hmm/blob/master/models/drive_1.stan",
+  "inputs": { "K": { "type": "int", "dimensions": 0},
+              "N": { "type": "int", "dimensions": 0},
+              "u": { "type": "real", "dimensions": 1},
+              "v": { "type": "real", "dimensions": 1},
+              "alpha": { "type": "real", "dimensions": 2},
+              "tau": { "type": "real", "dimensions": 0},
+              "rho": { "type": "real", "dimensions": 0} },
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/hmm_drive_1.stan"

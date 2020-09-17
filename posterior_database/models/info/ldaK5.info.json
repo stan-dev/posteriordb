@@ -12,6 +12,13 @@
   "prior": {
     "keywords": []
   },
+  "inputs": { "V": { "type": "int", "dimensions": 0},
+              "M": { "type": "int", "dimensions": 0},
+              "N": { "type": "int", "dimensions": 0},
+              "w": { "type": "int", "dimensions": 1},
+              "doc": { "type": "int", "dimensions": 1},
+              "alpha": { "type": "real", "dimensions": 1},
+              "beta": { "type": "real", "dimensions": 1} },
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/ldaK5.stan"

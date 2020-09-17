@@ -7,6 +7,11 @@
   },
   "description": "log(weight) ~ log(canopy_volume)\ncanopy_volume <- diam1 * diam2 * canopy_height",
   "urls": "https://raw.githubusercontent.com/stan-dev/example-models/master/ARM/Ch.4/mesquite_volume.stan",
+  "inputs": { "N": { "type": "int", "dimensions": 0},
+              "weight": { "type": "real", "dimensions": 1},
+              "diam1": { "type": "real", "dimensions": 1},
+              "diam2": { "type": "real", "dimensions": 1},
+              "canopy_height": { "type": "real", "dimensions": 1} },
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/logmesquite_logvolume.stan"

@@ -7,6 +7,10 @@
   },
   "description": "kid_score ~ mom_hs + mom_iq",
   "urls": "https://raw.githubusercontent.com/stan-dev/example-models/master/ARM/Ch.3/kidiq_multi_preds.stan",
+  "inputs": { "N": { "type": "int", "dimensions": 0},
+              "kid_score": { "type": "real", "dimensions": 1},
+              "mom_iq": { "type": "real", "dimensions": 1},
+              "mom_hs": { "type": "real", "dimensions": 1} },
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/kidscore_momhsiq.stan"

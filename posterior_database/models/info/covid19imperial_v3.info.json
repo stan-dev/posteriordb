@@ -7,6 +7,18 @@
   },
   "description": "A Bayesian model for estimating intervetion effects in the 2020 covid-19 pandemic.",
   "urls": "https://github.com/ImperialCollegeLondon/covid19model",
+  "inputs": { "M": { "type": "int", "dimensions": 0},
+              "P": { "type": "int", "dimensions": 0},
+              "N0": { "type": "int", "dimensions": 0},
+              "N": { "type": "int", "dimensions": 1},
+              "N2": { "type": "int", "dimensions": 0},
+              "cases": { "type": "int", "dimensions": 2},
+              "deaths": { "type": "int", "dimensions": 2},
+              "f": { "type": "real", "dimensions": 2},
+              "X": { "type": "real", "dimensions": 3},
+              "EpidemicStart": { "type": "int", "dimensions": 1},
+              "pop": { "type": "real", "dimensions": 1},
+              "SI": { "type": "real", "dimensions": 1} },
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/covid19imperial_v3.stan"

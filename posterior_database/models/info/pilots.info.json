@@ -7,6 +7,12 @@
   },
   "description": "y ~ 1 + (1 | group) + (1 | scenario))",
   "urls": "https://raw.githubusercontent.com/stan-dev/example-models/master/ARM/Ch.14/pilots.stan",
+  "inputs": { "N": { "type": "int", "dimensions": 0},
+              "n_groups": { "type": "int", "dimensions": 0},
+              "n_scenarios": { "type": "int", "dimensions": 0},
+              "group_id": { "type": "int", "dimensions": 1},
+              "scenario_id": { "type": "int", "dimensions": 1},
+              "y": { "type": "real", "dimensions": 1} },
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/pilots.stan"

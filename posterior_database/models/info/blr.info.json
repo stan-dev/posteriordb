@@ -8,6 +8,10 @@
   "prior": {
     "keywords": []
   },
+  "inputs": { "N": { "type": "int", "dimensions": 0},
+              "D": { "type": "int", "dimensions": 0},
+              "X": { "type": "real", "dimensions": 2},
+              "y": { "type": "real", "dimensions": 1} },
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/blr.stan"

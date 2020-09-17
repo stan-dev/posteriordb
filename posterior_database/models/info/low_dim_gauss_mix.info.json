@@ -13,6 +13,8 @@
   "prior": {
     "keywords": []
   },
+  "inputs": { "N": { "type": "int", "dimensions": 0},
+              "y": { "type": "real", "dimensions": 1} },
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/low_dim_gauss_mix.stan"

@@ -13,6 +13,9 @@
   "prior": {
     "keywords": []
   },
+  "inputs": { "I": { "type": "int", "dimensions": 0},
+              "J": { "type": "int", "dimensions": 0},
+              "y": { "type": "int", "dimensions": 2} },
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/irt_2pl.stan"

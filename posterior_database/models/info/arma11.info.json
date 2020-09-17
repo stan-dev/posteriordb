@@ -12,6 +12,8 @@
   "prior": {
     "keywords": []
   },
+  "inputs": { "T": { "type": "int", "dimensions": 0},
+              "y": { "type": "real", "dimensions": 1} },
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/arma11.stan"

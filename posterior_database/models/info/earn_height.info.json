@@ -7,6 +7,9 @@
   },
   "description": "earn ~ height",
   "urls": "https://raw.githubusercontent.com/stan-dev/example-models/master/ARM/Ch.4/earn_height.stan",
+  "inputs": { "N": { "type": "int", "dimensions": 0},
+              "earn": { "type": "real", "dimensions": 1},
+              "height": { "type": "real", "dimensions": 1} },
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/earn_height.stan"

@@ -7,6 +7,21 @@
   },
   "description": "y ~ logistic(black + female + v_prev_full + (1 | age) + (1 | age_edu) \n+ (1 | state) + (1 | region_full))",
   "urls": "https://raw.githubusercontent.com/stan-dev/example-models/master/ARM/Ch.14/election88_full.stan",
+  "inputs": { "N": { "type": "int", "dimensions": 0},
+              "n_age": { "type": "int", "dimensions": 0},
+              "n_age_edu": { "type": "int", "dimensions": 0},
+              "n_edu": { "type": "int", "dimensions": 0},
+              "n_region_full": { "type": "int", "dimensions": 0},
+              "n_state": { "type": "int", "dimensions": 0},
+              "age": { "type": "int", "dimensions": 1},
+              "age_edu": { "type": "int", "dimensions": 1},
+              "black": { "type": "real", "dimensions": 1},
+              "edu": { "type": "int", "dimensions": 1},
+              "female": { "type": "real", "dimensions": 1},
+              "region_full": { "type": "int", "dimensions": 1},
+              "state": { "type": "int", "dimensions": 1},
+              "v_prev_full": { "type": "real", "dimensions": 1},
+              "y": { "type": "int", "dimensions": 1} },
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/election88_full.stan"

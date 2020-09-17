@@ -7,6 +7,14 @@
   },
   "description": "weight ~ diam1 + diam2 + canopy.height + total.height + density + group",
   "urls": "https://raw.githubusercontent.com/stan-dev/example-models/master/ARM/Ch.4/mesquite.stan",
+  "inputs": { "N": { "type": "int", "dimensions": 0},
+              "weight": { "type": "real", "dimensions": 1},
+              "diam1": { "type": "real", "dimensions": 1},
+              "diam2": { "type": "real", "dimensions": 1},
+              "canopy_height": { "type": "real", "dimensions": 1},
+              "total_height": { "type": "real", "dimensions": 1},
+              "density": { "type": "real", "dimensions": 1},
+              "group": { "type": "real", "dimensions": 1} },
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/mesquite.stan"

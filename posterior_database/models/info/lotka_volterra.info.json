@@ -7,6 +7,10 @@
   },
   "description": "A statistical model to account for measurement error and unexplained variation\nthat uses the deterministic solutions to the Lotka-Volterra equations as expected population sizes",
   "urls": "https://raw.githubusercontent.com/stan-dev/example-models/master/knitr/lotka-volterra/lotka-volterra.stan",
+  "inputs": { "N": { "type": "int", "dimensions": 0},
+              "ts": { "type": "real", "dimensions": 1},
+              "y_init": { "type": "real", "dimensions": 1},
+              "y": { "type": "real", "dimensions": 2} },
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/lotka_volterra.stan"

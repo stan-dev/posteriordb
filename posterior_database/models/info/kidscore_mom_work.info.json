@@ -7,6 +7,9 @@
   },
   "description": "kid_score ~ as.factor(mom_work)",
   "urls": "https://raw.githubusercontent.com/stan-dev/example-models/master/ARM/Ch.4/kidscore_momwork.stan",
+  "inputs": { "N": { "type": "int", "dimensions": 0},
+              "kid_score": { "type": "real", "dimensions": 1},
+              "mom_work": { "type": "int", "dimensions": 1} },
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/kidscore_mom_work.stan"

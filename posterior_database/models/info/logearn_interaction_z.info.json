@@ -7,6 +7,10 @@
   },
   "description": "log(earn) ~ z_height + male + z_height:male",
   "urls": "https://raw.githubusercontent.com/stan-dev/example-models/master/ARM/Ch.4/logearn_interaction_z.stan",
+  "inputs": { "N": { "type": "int", "dimensions": 0},
+              "earn": { "type": "real", "dimensions": 1},
+              "height": { "type": "real", "dimensions": 1},
+              "male": { "type": "real", "dimensions": 1} },
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/logearn_interaction_z.stan"

@@ -7,6 +7,10 @@
   },
   "description": "A linear model with different intercepts per county and a hiearchical prior. This model is a non-centered parametrization.",
   "urls": "https://mc-stan.org/users/documentation/case-studies/radon.html",
+  "inputs": { "N": { "type": "int", "dimensions": 0},
+              "J": { "type": "int", "dimensions": 0},
+              "county_idx": { "type": "int", "dimensions": 1},
+              "log_radon": { "type": "real", "dimensions": 1} },
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/radon_partially_pooled_noncentered.stan"
