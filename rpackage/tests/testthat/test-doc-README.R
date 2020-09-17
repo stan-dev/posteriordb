@@ -2,7 +2,14 @@ context("test-README.md")
 
 test_that("README.md works as stated", {
   skip_on_cran()
-  fp_to_README_md <- "../../../README.md"
+  on_travis <- identical(Sys.getenv("TRAVIS"), "true")
+  if(on_travis){
+    # On Travis the package are checked in rpackage/
+    fp_to_README_md <- "../../../../README.md"
+  } else {
+    fp_to_README_md <- "../../../README.md"
+  }
+
   skip_if(!file.exists(fp_to_README_md))
   # check hash
   # If this fails, the CONTRIBUTING.md has been changed.
