@@ -8,6 +8,8 @@ check_posterior(po, run_stan_code_checks = TRUE)
 }
 \arguments{
 \item{po}{a [pdb_posterior] to check.}
+
+\item{run_stan_code_checks}{should checks using Rstan be run?}
 }
 \description{
 Test a posterior

@@ -4,6 +4,7 @@
 #' The function checks a posterior is consistent.
 #'
 #' @param po a [pdb_posterior] to check.
+#' @param run_stan_code_checks should checks using Rstan be run?
 #'
 #' @export
 check_posterior <- function(po, run_stan_code_checks = TRUE) {
