@@ -29,7 +29,6 @@ test_that("write data", {
 
   # Remove test_data
   expect_silent(remove_pdb(x = dt, pdb = pdb_test))
-  expect_silent(remove_pdb(x = dti, pdb = pdb_test))
   pdb_clear_cache(pdb_test)
   expect_error(pdb_data("test_data", pdb_test))
   expect_error(pdb_data_info("test_data", pdb_test))
@@ -60,7 +59,6 @@ test_that("write model", {
 
   # Remove model
   expect_silent(remove_pdb(sc, pdb = pdb_test))
-  expect_silent(remove_pdb(mi, pdb = pdb_test))
   pdb_clear_cache(pdb_test)
   expect_error(pdb_model_code("test_model", pdb_test, "stan"))
   expect_error(pdb_model_info("test_model", pdb_test))
@@ -118,9 +116,7 @@ test_that("write posterior", {
   expect_error(posterior("test_data-test_model", pdb_test))
 
   remove_pdb(sc, pdb = pdb_test)
-  remove_pdb(info(sc), pdb = pdb_test)
   remove_pdb(d, pdb = pdb_test)
-  remove_pdb(info(d), pdb = pdb_test)
 
 })
 
@@ -151,7 +147,6 @@ test_that("write reference_posterior", {
 
   # Remove rpd
   expect_silent(remove_pdb(rpt, pdb = pdb_test))
-  expect_silent(remove_pdb(info(rpt), pdb = pdb_test, type = "draws"))
   pdb_clear_cache(pdb_test)
   expect_error(pdb_reference_posterior_draws("test_data-test_model", pdb_test))
 
