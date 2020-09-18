@@ -8,6 +8,8 @@ test_that("CONTRIBUTION.md works as usual (not testing rstan)", {
   if(on_travis){
     # On Travis the package are checked in rpackage/
     fp_to_CONTRIBUTING_md <- "../../../../doc/CONTRIBUTING.md"
+  } else if(in_covr){
+    fp_to_CONTRIBUTING_md <- "../doc/CONTRIBUTING.md"
   } else {
     fp_to_CONTRIBUTING_md <- "../../../doc/CONTRIBUTING.md"
   }
