@@ -2,6 +2,7 @@ context("test-README.md")
 
 test_that("README.md works as stated", {
   skip_on_cran()
+  skip_on_appveyor()
   on_travis <- identical(Sys.getenv("TRAVIS"), "true")
   if(on_travis){
     # On Travis the package are checked in rpackage/

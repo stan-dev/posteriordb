@@ -2,14 +2,16 @@ context("test-CONTRIBUTING.md")
 
 test_that("CONTRIBUTION.md works as usual (not testing rstan)", {
   skip_on_cran()
+  skip_on_appveyor()
   on_travis <- identical(Sys.getenv("TRAVIS"), "true")
+  in_covr <- identical(Sys.getenv("R_COVR"), "true")
   if(on_travis){
     # On Travis the package are checked in rpackage/
     fp_to_CONTRIBUTING_md <- "../../../../doc/CONTRIBUTING.md"
   } else {
     fp_to_CONTRIBUTING_md <- "../../../doc/CONTRIBUTING.md"
   }
-
+skip_on_covr
   skip_if(!file.exists(fp_to_CONTRIBUTING_md))
   # check hash
   # If this fails, the CONTRIBUTING.md has been changed.
