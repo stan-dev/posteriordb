@@ -1,10 +1,12 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+[![CRAN
+status](https://www.r-pkg.org/badges/version/posterior)](https://CRAN.R-project.org/package=posterior)
 [![Build
 Status](https://travis-ci.org/MansMeg/posteriordb.svg?branch=master)](https://travis-ci.org/MansMeg/posteriordb)
-[![codecov](https://codecov.io/gh/MansMeg/posteriordb/branch/master/graph/badge.svg)](https://codecov.io/gh/MansMeg/posteriordb)[![AppVeyor
-build
+[![AppVeyor build
 status](https://ci.appveyor.com/api/projects/status/github/MansMeg/posterior_database?branch=master&svg=true)](https://ci.appveyor.com/project/MansMeg/posterior_database)
+[![codecov](https://codecov.io/gh/MansMeg/posteriordb/branch/master/graph/badge.svg)](https://codecov.io/gh/MansMeg/posteriordb)
 
 A Posterior Database (PDB) for Bayesian Inference
 =================================================
