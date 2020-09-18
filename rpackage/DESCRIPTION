@@ -18,14 +18,15 @@ Imports:
   checkmate,
   jsonlite
 Suggests:
-  dplyr,
-  posterior,
-  httr,
-  gh,
-  git2r,
-  remotes,
-  rstan,
-  testthat,
-  bibtex,
-  digest,
-  yaml
+    dplyr,
+    posterior,
+    httr,
+    gh,
+    git2r,
+    remotes,
+    rstan,
+    testthat,
+    bibtex,
+    digest,
+    yaml,
+    covr

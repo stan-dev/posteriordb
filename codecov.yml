@@ -1,2 +1,17 @@
+comment: false
+
+coverage:
+  status:
+    project:
+      default:
+        target: auto
+        threshold: 1%
+        informational: true
+    patch:
+      default:
+        target: auto
+        threshold: 1%
+        informational: true
+
 fixes:
   - "R/::rpackage/R/"         # move root   e.g., "path/" => "after/path/"
