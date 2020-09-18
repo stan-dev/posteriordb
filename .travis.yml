@@ -11,7 +11,7 @@ matrix:
       addons:
         apt:
           packages: libnode-dev
-      after_success: Rscript -e 'covr::codecov(line_exclusions = list("R/compute_gold_standard_draws_stan_sampling.R"))'
+      after_success: Rscript -e 'covr::codecov()'
     - language: r
       r: oldrel
       cache: packages
