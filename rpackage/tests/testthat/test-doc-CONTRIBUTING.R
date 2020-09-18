@@ -87,7 +87,11 @@ test_that("CONTRIBUTION.md works as usual (not testing rstan)", {
   expect_error(suppressMessages(check_posterior(po, run_stan_code_checks = FALSE)))
 
   # Posterior draws
-  pdbl <- pdb_local()
+  if(in_covr){
+    expect_silent(pdbl <- pdb_local(path = file.path(TRAVIS_BUILD_DIR, "posterior_database")))
+  } else {
+    expect_silent(pdbl <- pdb_local())
+  }
   po <- posterior("test_eight_schools_data-test_eight_schools_model", pdbl)
 
   # Access Makevar
