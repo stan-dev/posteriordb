@@ -23,7 +23,7 @@ test_that("CONTRIBUTION.md works as usual (not testing rstan)", {
 
   # Init
   if(in_covr){
-    expect_silent(pdbl <- pdb_local(TRAVIS_BUILD_DIR))
+    expect_silent(pdbl <- pdb_local(path = file.path(TRAVIS_BUILD_DIR, "posterior_database")))
   } else {
     expect_silent(pdbl <- pdb_local())
   }
