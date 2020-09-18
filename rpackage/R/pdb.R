@@ -3,6 +3,14 @@
 #' @details
 #' Connect to a posterior database locally or in a github repo.
 #'
+#' [pdb_config()] read  [.pdb_config.yml] in [directory] and use that to setup a
+#' pdb connection.
+#'
+#' The connection [pdb_default()] first checks if there exists a [.pdb_config.yml]
+#' file in the working directory. If it exist, [pdb_config()] is used to setup,
+#' the connection, otherwise [pdb_github()] is used.
+#'
+#'
 #' @param cache_path The path to the pdb cache. Default is R temporary directory.
 #' This is used to store files locally and without affecting the database.
 #' @param x an object to access a pdb for, if character this is how to identify the pdb (path for local pdb, repo for github pdb)
@@ -23,6 +31,7 @@
 #'   the `GITHUB_PAT` environment variable.
 #' @param host GitHub API host to use. Override with your GitHub enterprise
 #'   hostname, for example, `"github.hostname.com/api/v3"`.
+#' @param directory the directory to look for the [.pdb_config.yml] file
 #' @param ... further arguments for specific methods to setup a pdb.
 #' @return a \code{pdb} object
 #'
@@ -98,7 +107,20 @@ supported_pdb_types <- function() c("local", "github")
 #' @rdname pdb_local
 #' @export
 pdb_default <- function(cache_path = tempdir()){
+  pdbc <- try(pdb_config())
+  if(inherits(x, "pdb")) return(pdbc)
   pdb_github("MansMeg/posteriordb/posterior_database", cache_path = cache_path)
+}
+
+#' @rdname pdb_local
+#' @export
+pdb_config <- function(directory = getwd()){
+  obj <- yaml::read_yaml(file.path(directory, ".pdb_config.yml"))
+  eval(parse(text = paste0("pdb_fun <- pdb_", obj$type)))
+  args <- obj;args$type <- NULL
+  pdbo <- do.call(pdb_fun, args = args)
+  pdbo$.pdb_config.yml <- obj
+  pdbo
 }
 
 #' Setup object specific part of pdb object
@@ -245,6 +267,11 @@ print.pdb <- function(x, ...) {
   cat0("Version:\n")
   for (vn in names(x$version)) {
     cat0("  ", vn, ": ", x$version[[vn]], "\n")
+  }
+  if(!is.null(x$.pdb_config.yml)){
+    cat0("\n.pdb_config.yml:\n")
+    prt <- paste0("  ", yaml::as.yaml(x$.pdb_config.yml))
+    cat0(gsub(prt, pattern = "\n", replacement = "\\\n  "))
   }
   invisible(x)
 }

@@ -7,6 +7,7 @@
 \alias{pdb.pdb_model_code}
 \alias{pdb.character}
 \alias{pdb_default}
+\alias{pdb_config}
 \alias{pdb_github}
 \title{Create a Posterior Database (pdb) connection}
 \usage{
@@ -21,6 +22,8 @@ pdb(x, ...)
 \method{pdb}{character}(x, pdb_type = "local", cache_path = tempdir(), ...)
 
 pdb_default(cache_path = tempdir())
+
+pdb_config(directory = getwd())
 
 pdb_github(
   repo = getOption("pdb_repo", "MansMeg/posteriordb/posterior_database"),
@@ -42,6 +45,8 @@ This is used to store files locally and without affecting the database.}
 \item{...}{further arguments for specific methods to setup a pdb.}
 
 \item{pdb_type}{Type of posterior database connection. Either \code{local} or \code{github}.}
+
+\item{directory}{the directory to look for the [.pdb_config.yml] file}
 
 \item{repo}{Repository address in the format
 `username/repo[/subdir][@ref|#pull]`. Alternatively, you can
@@ -71,4 +76,11 @@ Create a Posterior Database (pdb) connection
 }
 \details{
 Connect to a posterior database locally or in a github repo.
+
+[pdb_config()] read  [.pdb_config.yml] in [directory] and use that to setup a
+pdb connection.
+
+The connection [pdb_default()] first checks if there exists a [.pdb_config.yml]
+file in the working directory. If it exist, [pdb_config()] is used to setup,
+the connection, otherwise [pdb_github()] is used.
 }
