@@ -16,7 +16,7 @@ test_that("CONTRIBUTION.md works as usual (not testing rstan)", {
   # Please check that no code has been changed or update this test suite accordingly
   # Then change the hash to the md5 of the new updated file.
   md5_hash <- digest::digest(readLines(fp_to_CONTRIBUTING_md), algo = "md5")
-  expect_equal(md5_hash, "5bf9fce357af8f8c844caaf3eddbd008")
+  expect_equal(md5_hash, "34639de0a2a3cad997384afbca80c184")
 
   # Init
   expect_silent(pdbl <- pdb_local())
@@ -83,10 +83,11 @@ test_that("CONTRIBUTION.md works as usual (not testing rstan)", {
   pdbl <- pdb_local()
   po <- posterior("test_eight_schools_data-test_eight_schools_model", pdbl)
 
-  # Setup reference posterior info ----
+  # Access Makevar
   expect_silent(M <- file.path(Sys.getenv("HOME"), ".R", ifelse(.Platform$OS.type == "windows", "Makevars.win", "Makevars")))
   expect_silent(Mfile <- if(file.exists(M)) paste(readLines(M), collapse = "\n") else "")
 
+  # Setup reference posterior info ----
   expect_silent(
     x <- list(name = posterior_name(po),
               inference = list(method = "stan_sampling",

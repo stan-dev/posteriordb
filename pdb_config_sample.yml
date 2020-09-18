@@ -1,0 +1,18 @@
+# The pdb config is read in automatically
+# Store this file as .pdb_config.yml in your working
+# directory to use as default.
+
+# The type indicate type of pdb
+# Currently "github" or "local"
+type: "github"
+
+# Below are arguments that are supplied
+# to the specific pdb function.
+
+# Example of type "local"
+# path: "path_to_my_custom_pdb"
+# cache_path: "path_to_cache_content"
+
+# Example with "github" pdb (see pdb_github)
+repo: "MansMeg/posteriordb/posterior_database"
+ref: "master"

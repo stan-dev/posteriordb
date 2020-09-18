@@ -35,4 +35,8 @@ If it is possible to compute the true posterior analytically, we can make draws 
 Computing parameter ESS bounds
 ------
 
-The variability of ESS estimate is relatively high, so to assert that we have a reasonable bound on the ESS values, we have simulated the distribution for ESS bulk and ESS tail (see [arXiv](https://arxiv.org/abs/1903.08008)) based on 10 000 normal draws. See `ess_bounds()` for how bounds are chosen.
+The variability of ESS estimate is relatively high, so to assert that we have a reasonable bound on the ESS values, we have simulated the distribution for ESS bulk and ESS tail (see [arXiv](https://arxiv.org/abs/1903.08008)) based on 10 000 normal draws.
+
+We now check that the ESS bulk and tail is roughly within 4 SD from a NULL distribution (that is roughly ```sqrt(7 * S)``` where ```S``` is the total number of draws. This is a rough check for the ESS values, but far from perfect. In the long run, we want to check this with a hierarchical model instead.
+
+See `ess_bounds()` in ```rpackage/R/utils_reference_posterior.R``` to see details for how bounds are chosen.

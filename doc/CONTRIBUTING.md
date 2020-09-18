@@ -5,6 +5,10 @@ We are happy for you to contribute with code or new posteriors to the database. 
 
 Don't hesitate to make a Pull Request (PR) with a new model, data, or posterior to the repository. We use the PR for discussion on new material!
 
+Copyright
+-------------
+All models supplied will use the BD3 license by default (see R package). It is possible to manually specify a license in data, model or reference posterior info object.
+
 Pull request workflow
 -------------
 

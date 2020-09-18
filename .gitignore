@@ -8,3 +8,7 @@ README.html
 *.Rproj
 posterior_database/add_scripts
 posterior_database/notes
+python/build*
+sandbox/*
+TODO.tdl
+.Rhistory
