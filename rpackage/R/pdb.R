@@ -116,7 +116,7 @@ pdb_default <- function(cache_path = tempdir()){
 #' @export
 pdb_config <- function(directory = getwd()){
   obj <- yaml::read_yaml(file.path(directory, ".pdb_config.yml"))
-  eval(parse(text = paste0("pdb_fun <- pdb_", obj$type)))
+  pdb_fun <- eval(parse(text = paste0("pdb_", obj$type)))
   args <- obj;args$type <- NULL
   pdbo <- do.call(pdb_fun, args = args)
   pdbo$.pdb_config.yml <- obj

@@ -27,4 +27,5 @@ Suggests:
   rstan,
   testthat,
   bibtex,
-  digest
+  digest,
+  yaml
