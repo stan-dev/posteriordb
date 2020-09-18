@@ -108,7 +108,7 @@ supported_pdb_types <- function() c("local", "github")
 #' @export
 pdb_default <- function(cache_path = tempdir()){
   pdbc <- try(pdb_config())
-  if(inherits(x, "pdb")) return(pdbc)
+  if(inherits(pdbc, "pdb")) return(pdbc)
   pdb_github("MansMeg/posteriordb/posterior_database", cache_path = cache_path)
 }
 
