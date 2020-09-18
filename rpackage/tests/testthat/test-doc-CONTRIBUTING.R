@@ -6,7 +6,7 @@ test_that("CONTRIBUTION.md works as usual (not testing rstan)", {
   on_travis <- identical(Sys.getenv("TRAVIS"), "true")
   in_covr <- identical(Sys.getenv("R_COVR"), "true")
   if(in_covr){
-    stop(paste0(dir(path = "../../../"), collapse = ", "))
+    stop(paste0(dir(path = "../../"), collapse = ", "))
     fp_to_CONTRIBUTING_md <- "../doc/CONTRIBUTING.md"
   } else if(on_travis){
     # On Travis the package are checked in rpackage/
