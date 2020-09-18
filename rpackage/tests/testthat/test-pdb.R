@@ -1,6 +1,8 @@
 context("test-pdb")
 
 test_that("model_names and data_names works as expected", {
+  skip_on_appveyor()
+
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
   expect_silent(pdb_test <- pdb(posterior_db_path))
   expect_silent(posteriors <- posterior_names(pdb_test))
@@ -17,6 +19,7 @@ test_that("model_names and data_names works as expected", {
 
 
 test_that("pdb_version", {
+  skip_on_appveyor()
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
   expect_silent(pdb_test <- pdb(posterior_db_path))
   checkmate::expect_list(pdb_version(pdb_test))
@@ -38,6 +41,7 @@ test_that("pdb_local", {
 
 
 test_that("pdb_config", {
+  skip_on_appveyor()
   skip_on_covr()
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
   expect_silent(pdbl1 <- pdb_local())

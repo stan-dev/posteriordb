@@ -1,7 +1,9 @@
 context("test-pdb_github")
 
 test_that("posteriordb:::check_pdb indicates that github PDB is ok", {
+  skip_on_appveyor()
   skip_if(is.null(github_pat()))
+
   expect_silent(pdb_github_test <- pdb_github("MansMeg/posteriordb/posterior_database"))
   expect_output(print(pdb_github_test), "Posterior Database")
   expect_output(print(pdb_github_test), "github")
@@ -11,6 +13,7 @@ test_that("posteriordb:::check_pdb indicates that github PDB is ok", {
 })
 
 test_that("model_names, data_names and posterior_names work", {
+  skip_on_appveyor()
   skip_if(is.null(github_pat()))
 
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
@@ -41,7 +44,9 @@ test_that("model_names, data_names and posterior_names work", {
 
 
 test_that("pdb_default is github", {
+  skip_on_appveyor()
   skip_if(is.null(github_pat()))
+
   expect_silent(pdb_default_test <- pdb_default())
   expect_silent(pdb_github_test <- pdb_github("MansMeg/posteriordb/posterior_database"))
   expect_equal(pdb_default_test, pdb_github_test)

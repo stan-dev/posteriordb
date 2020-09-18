@@ -11,7 +11,7 @@ matrix:
       addons:
         apt:
           packages: libnode-dev
-      after_success: Rscript -e 'covr::codecov()'
+      after_success: Rscript -e 'covr::codecov(quiet = FALSE)'
     - language: r
       r: oldrel
       cache: packages

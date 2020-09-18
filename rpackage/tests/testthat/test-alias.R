@@ -1,6 +1,7 @@
 context("test-alias")
 
 test_that("posteriordb:::check_pdb indicates that github PDB is ok", {
+  skip_on_appveyor()
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
   expect_silent(pdb_test <- pdb(posterior_db_path))
   expect_silent(po1 <- posterior(x = "8schools", pdb_test))

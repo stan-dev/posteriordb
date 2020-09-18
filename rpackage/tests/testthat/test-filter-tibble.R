@@ -1,6 +1,7 @@
 context("test-filter-tibble")
 
 test_that("Filter posteriors locally and on github", {
+  skip_on_appveyor()
 
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
   expect_silent(pdb_test <- pdb(posterior_db_path))
