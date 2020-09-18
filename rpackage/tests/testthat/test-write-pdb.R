@@ -1,6 +1,7 @@
 context("test-write-pdb")
 
 test_that("write data", {
+  skip_on_appveyor()
 
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
   expect_silent(pdb_test <- pdb(posterior_db_path))
@@ -36,6 +37,7 @@ test_that("write data", {
 
 
 test_that("write model", {
+  skip_on_appveyor()
 
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
   expect_silent(pdb_test <- pdb(posterior_db_path))
@@ -82,6 +84,8 @@ test_that("write model", {
 
 
 test_that("write posterior", {
+  skip_on_appveyor()
+
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
   expect_silent(pdb_test <- pdb(posterior_db_path))
   expect_silent(po <- posterior("eight_schools-eight_schools_centered", pdb_test))
@@ -123,6 +127,8 @@ test_that("write posterior", {
 
 
 test_that("write reference_posterior", {
+  skip_on_appveyor()
+
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
   expect_silent(pdb_test <- pdb(posterior_db_path))
   expect_silent(po <- posterior("eight_schools-eight_schools_centered", pdb_test))

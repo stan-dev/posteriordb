@@ -2,10 +2,13 @@ context("test-CONTRIBUTING.md")
 
 test_that("CONTRIBUTION.md works as usual (not testing rstan)", {
   skip_on_cran()
+  skip_on_appveyor()
   on_travis <- identical(Sys.getenv("TRAVIS"), "true")
+  TRAVIS_BUILD_DIR <- Sys.getenv("TRAVIS_BUILD_DIR")
+  in_covr <- identical(Sys.getenv("R_COVR"), "true")
   if(on_travis){
     # On Travis the package are checked in rpackage/
-    fp_to_CONTRIBUTING_md <- "../../../../doc/CONTRIBUTING.md"
+    fp_to_CONTRIBUTING_md <- file.path(TRAVIS_BUILD_DIR, "doc", "CONTRIBUTING.md")
   } else {
     fp_to_CONTRIBUTING_md <- "../../../doc/CONTRIBUTING.md"
   }
@@ -19,7 +22,11 @@ test_that("CONTRIBUTION.md works as usual (not testing rstan)", {
   expect_equal(md5_hash, "34639de0a2a3cad997384afbca80c184")
 
   # Init
-  expect_silent(pdbl <- pdb_local())
+  if(in_covr){
+    expect_silent(pdbl <- pdb_local(path = file.path(TRAVIS_BUILD_DIR, "posterior_database")))
+  } else {
+    expect_silent(pdbl <- pdb_local())
+  }
 
   # Data
   expect_silent(
@@ -80,7 +87,11 @@ test_that("CONTRIBUTION.md works as usual (not testing rstan)", {
   expect_error(suppressMessages(check_posterior(po, run_stan_code_checks = FALSE)))
 
   # Posterior draws
-  pdbl <- pdb_local()
+  if(in_covr){
+    expect_silent(pdbl <- pdb_local(path = file.path(TRAVIS_BUILD_DIR, "posterior_database")))
+  } else {
+    expect_silent(pdbl <- pdb_local())
+  }
   po <- posterior("test_eight_schools_data-test_eight_schools_model", pdbl)
 
   # Access Makevar
