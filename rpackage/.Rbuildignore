@@ -3,3 +3,4 @@
 ^data-raw$
 README.Rmd
 README.md
+^appveyor\.yml$

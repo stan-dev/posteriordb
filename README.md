@@ -2,7 +2,9 @@
 
 [![Build
 Status](https://travis-ci.org/MansMeg/posteriordb.svg?branch=master)](https://travis-ci.org/MansMeg/posteriordb)
-[![codecov](https://codecov.io/gh/MansMeg/posteriordb/branch/master/graph/badge.svg)](https://codecov.io/gh/MansMeg/posteriordb)
+[![codecov](https://codecov.io/gh/MansMeg/posteriordb/branch/master/graph/badge.svg)](https://codecov.io/gh/MansMeg/posteriordb)[![AppVeyor
+build
+status](https://ci.appveyor.com/api/projects/status/github/MansMeg/posterior_database?branch=master&svg=true)](https://ci.appveyor.com/project/MansMeg/posterior_database)
 
 A Posterior Database (PDB) for Bayesian Inference
 =================================================
@@ -63,6 +65,16 @@ Load the R package and load a posterior from the default posteriordb.
 ``` r
 library(posteriordb)
 pd <- pdb_default() # Posterior database connection
+```
+
+    ## Warning in file(file, "rt", encoding = fileEncoding): cannot open file '/Users/
+    ## mansmagnusson/Dropbox/Projekt/posteriordb/.pdb_config.yml': No such file or
+    ## directory
+
+    ## Error in file(file, "rt", encoding = fileEncoding) : 
+    ##   cannot open the connection
+
+``` r
 pn <- posterior_names(pd)
 head(pn)
 ```
