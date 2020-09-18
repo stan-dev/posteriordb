@@ -5,7 +5,6 @@ test_that("README.md works as stated", {
   skip_on_appveyor()
   on_travis <- identical(Sys.getenv("TRAVIS"), "true")
   TRAVIS_BUILD_DIR <- Sys.getenv("TRAVIS_BUILD_DIR")
-  in_covr <- identical(Sys.getenv("R_COVR"), "true")
   if(on_travis){
     # On Travis the package are checked in rpackage/
     fp_to_README_md <- file.path(TRAVIS_BUILD_DIR, "README.md")
