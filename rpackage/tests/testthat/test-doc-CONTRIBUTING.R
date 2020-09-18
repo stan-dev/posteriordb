@@ -13,7 +13,7 @@ test_that("CONTRIBUTION.md works as usual (not testing rstan)", {
   } else {
     fp_to_CONTRIBUTING_md <- "../../../doc/CONTRIBUTING.md"
   }
-skip_on_covr
+
   skip_if(!file.exists(fp_to_CONTRIBUTING_md))
   # check hash
   # If this fails, the CONTRIBUTING.md has been changed.
