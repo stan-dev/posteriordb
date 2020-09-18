@@ -5,11 +5,12 @@ test_that("CONTRIBUTION.md works as usual (not testing rstan)", {
   skip_on_appveyor()
   on_travis <- identical(Sys.getenv("TRAVIS"), "true")
   in_covr <- identical(Sys.getenv("R_COVR"), "true")
-  if(on_travis){
+  if(in_covr){
+    stop(getwd())
+    fp_to_CONTRIBUTING_md <- "../doc/CONTRIBUTING.md"
+  } else if(on_travis){
     # On Travis the package are checked in rpackage/
     fp_to_CONTRIBUTING_md <- "../../../../doc/CONTRIBUTING.md"
-  } else if(in_covr){
-    fp_to_CONTRIBUTING_md <- "../doc/CONTRIBUTING.md"
   } else {
     fp_to_CONTRIBUTING_md <- "../../../doc/CONTRIBUTING.md"
   }
