@@ -72,3 +72,18 @@ test_that("pdb_config", {
 
   file.remove(".pdb_config.yml")
 })
+
+
+test_that("pdb_config", {
+  skip_on_appveyor()
+  posterior_db_path <- posteriordb:::get_test_pdb_dir()
+  expect_silent(pdbl <- pdb_local(posterior_db_path))
+
+  writeLines(text = c("type: \"local\"",
+                      paste0("path: \"", posterior_db_path, "\"")), con = ".pdb_config.yml")
+  expect_silent(pdbc <- pdb_config())
+  pdbcb <- pdbc; pdbcb$.pdb_config.yml <- NULL
+
+  expect_equal(pdbl, pdbcb)
+  file.remove(".pdb_config.yml")
+})
