@@ -1,7 +1,6 @@
 context("test-check_posterior_draws")
 
 test_that("test-check_posterior_draws", {
-  skip_on_appveyor()
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
   expect_silent(pdb_test <- pdb(posterior_db_path))
 
