@@ -4,10 +4,10 @@ test_that("CONTRIBUTION.md works as usual (not testing rstan)", {
   skip_on_cran()
   skip_on_appveyor()
   on_travis <- identical(Sys.getenv("TRAVIS"), "true")
-  TRAVIS_BUILD_DIR <- Sys.getenv("TRAVIS_BUILD_DIR")
   in_covr <- identical(Sys.getenv("R_COVR"), "true")
   if(on_travis){
     # On Travis the package are checked in rpackage/
+    TRAVIS_BUILD_DIR <- Sys.getenv("TRAVIS_BUILD_DIR")
     fp_to_CONTRIBUTING_md <- file.path(TRAVIS_BUILD_DIR, "doc", "CONTRIBUTING.md")
   } else {
     fp_to_CONTRIBUTING_md <- "../../../doc/CONTRIBUTING.md"
@@ -19,7 +19,7 @@ test_that("CONTRIBUTION.md works as usual (not testing rstan)", {
   # Please check that no code has been changed or update this test suite accordingly
   # Then change the hash to the md5 of the new updated file.
   md5_hash <- digest::digest(readLines(fp_to_CONTRIBUTING_md), algo = "md5")
-  expect_equal(md5_hash, "34639de0a2a3cad997384afbca80c184")
+  expect_equal(md5_hash, "2cd6a73c7c902fc5388b29d595330ec0")
 
   # Init
   if(in_covr & on_travis){
