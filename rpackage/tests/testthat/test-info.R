@@ -1,7 +1,6 @@
 context("test-info")
 
 test_that("info() should extract the object information", {
-  skip_on_appveyor()
 
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
   expect_silent(pdb_test <- pdb_local(posterior_db_path))

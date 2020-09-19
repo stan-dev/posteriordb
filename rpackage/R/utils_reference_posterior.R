@@ -12,7 +12,7 @@ check_reference_posterior_draws <- function(x, ...){
 #' @rdname check_reference_posterior_draws
 #' @export
 check_reference_posterior_draws.character <- function(x, ...){
-  x <- reference_posterior_draws(x)
+  x <- pdb_posterior(x, ...)
   check_reference_posterior_draws(x)
 }
 
@@ -93,22 +93,4 @@ ess_bounds <- function(x){
   list(ess_bulk = bnds,
        ess_tail = bnds)
 
-}
-
-#' Thin draws to reduce their size and autocorrelation of the chains.
-#'
-#' @description Thin [pdb_reference_posterior_draws] objects to reduce their size and autocorrelation of the chains.
-#'
-#' @param x An R object for which the methods are defined.
-#' @param thin A positive integer specifying the period for selecting draws.
-#' @param ... Arguments passed to individual methods (if applicable).
-#'
-#' @return
-#' A thinned [pdb_reference_posterior_draws] object.
-#'
-#' @export
-thin_draws.pdb_reference_posterior_draws <- function(x, thin, ...){
-  x$draws <- posterior::thin_draws(x$draws, thin, ...)
-  checkmate::assert_class(x, "pdb_reference_posterior_draws")
-  x
 }

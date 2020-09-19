@@ -16,6 +16,8 @@ cache:
   - C:\RLibrary
 
 environment:
+  GITHUB_PAT:
+    secure: thuY4Keljgv84ugvGUNN1ff5HIbPjhIQf9mwdLpFbm63R+AoilO8RLwumH93zdoJ
   NOT_CRAN: true
   # env vars that may need to be set, at least temporarily, from time to time
   # see https://github.com/krlmlr/r-appveyor#readme for details

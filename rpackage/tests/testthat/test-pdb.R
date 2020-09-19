@@ -1,7 +1,6 @@
 context("test-pdb")
 
 test_that("model_names and data_names works as expected", {
-  skip_on_appveyor()
 
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
   expect_silent(pdb_test <- pdb(posterior_db_path))
@@ -19,7 +18,6 @@ test_that("model_names and data_names works as expected", {
 
 
 test_that("pdb_version", {
-  skip_on_appveyor()
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
   expect_silent(pdb_test <- pdb(posterior_db_path))
   checkmate::expect_list(pdb_version(pdb_test))
@@ -29,14 +27,15 @@ test_that("pdb_version", {
 
 test_that("pdb_local", {
   skip_on_appveyor()
-  skip_on_covr()
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
   expect_silent(pdbl1 <- pdb_local(posterior_db_path))
-  expect_silent(pdbl2 <- pdb_local())
-  expect_silent(pdbl3 <- pdb_local("../"))
-  expect_error(pdbl4 <- pdb_local("../../../../"))
-  expect_equal(pdbl1, pdbl2)
+  if(!on_covr()) expect_silent(pdbl2 <- pdb_local())
+  expect_silent(pdbl3 <- pdb_local(path = dirname(posterior_db_path)))
+  expect_silent(pdbl4 <- pdb_local(file.path(posterior_db_path, "data", "data")))
+  expect_error(pdbl5 <- pdb_local(dirname(dirname(dirname(dirname(posterior_db_path))))))
+  if(!on_covr())expect_equal(pdbl1, pdbl2)
   expect_equal(pdbl1, pdbl3)
+  expect_equal(pdbl1, pdbl4)
 })
 
 
@@ -70,5 +69,23 @@ test_that("pdb_config", {
 
   expect_equal(pdbc2, pdbd)
 
+  file.remove(".pdb_config.yml")
+})
+
+
+test_that("pdb_config", {
+  skip_on_appveyor()
+  posterior_db_path <- posteriordb:::get_test_pdb_dir()
+  expect_silent(pdbl <- pdb_local(posterior_db_path))
+
+  writeLines(text = c("type: \"local\"",
+                      paste0("path: \"", posterior_db_path, "\"")), con = ".pdb_config.yml")
+  expect_silent(pdbc <- pdb_config())
+  pdbcb <- pdbc; pdbcb$.pdb_config.yml <- NULL
+
+
+  expect_output(print(pdbc), ".pdb_config.yml")
+
+  expect_equal(pdbl, pdbcb)
   file.remove(".pdb_config.yml")
 })

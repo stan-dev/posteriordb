@@ -119,7 +119,7 @@ write_pdb(po, pdbl)
 Finally, we want to check that everything is in order with the posterior. We do this as follows:
 
 ```
-check_posterior(po)
+check_pdb_posterior(po)
 ```
 We have not added `testBiBTeX2020` to the bibliography, and hence the function throws an error.
 

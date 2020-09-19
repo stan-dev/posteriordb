@@ -49,16 +49,9 @@ compute_reference_posterior_draws_stan_sampling <- function(rpi, pdb){
 reference_posterior_draws.stanfit <- function(x, info, pdb = pdb_default(), ...){
   checkmate::assert_class(info, "pdb_reference_posterior_info")
   draws <- posterior::as_draws_list(posterior::as_draws(x))
-  names(draws) <- NULL
-  for(i in seq_along(draws)){
-    draws[[i]]$lp__ <- NULL
-  }
-
-  attr(draws, "info") <- info
-  class(draws) <- c("pdb_reference_posterior_draws", class(draws))
-  assert_reference_posterior_draws(draws)
-  draws
+  reference_posterior_draws(draws)
 }
+
 
 #' Extract diagnostics
 #'
@@ -107,4 +100,24 @@ compute_stan_sampling_diagnostics <- function(x, keep_dimensions ){
   d$expected_fraction_of_missing_information <- rstan::get_bfmi(x)
 
   d
+}
+
+
+#' Construct dimension names from a posterior dimension list
+#'
+#' @param x a dimensions slot from a [pdb_posterior]
+posterior_dimension_names <- function(x){
+  checkmate::assert_list(x)
+  checkmate::assert_named(x)
+  for(i in seq_along(x)) checkmate::assert_int(x[[i]])
+
+  dn <- list()
+  for(i in seq_along(x)){
+    if(x[[i]] > 1L){
+      dn[[i]] <- paste0(names(x)[i], "[", 1:x[[i]], "]")
+    } else {
+      dn[[i]] <- names(x)[i]
+    }
+  }
+  return(unlist(dn))
 }

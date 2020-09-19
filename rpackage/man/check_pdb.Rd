@@ -11,7 +11,6 @@
 \alias{check_pdb_posterior_run_stan}
 \alias{check_pdb_stan_syntax}
 \alias{check_pdb_references}
-\alias{check_pdb_posteriors}
 \alias{check_pdb_all_models_have_posterior}
 \alias{check_pdb_all_data_have_posterior}
 \alias{check_pdb_all_reference_posteriors_have_posterior}
@@ -37,11 +36,6 @@ check_pdb_stan_syntax(pdb, posterior_idx = NULL)
 
 check_pdb_references(pdb, posterior_idx = NULL)
 
-check_pdb_posteriors(
-  pdb,
-  posteriors = c("ecdc0401-covid19imperial_v2", "ecdc0401-covid19imperial_v3")
-)
-
 check_pdb_all_models_have_posterior(pdb)
 
 check_pdb_all_data_have_posterior(pdb)
@@ -56,8 +50,6 @@ check_pdb_all_reference_posteriors_have_posterior(pdb)
 \item{posterior_list}{a list of \code{pdb_posterior} objects.}
 
 \item{po}{a \code{pdb_posterior} object.}
-
-\item{posteriors}{a character vector with posterior names.}
 }
 \value{
 a boolean indicating if the pdb works as it should.

@@ -2,7 +2,6 @@
 #'
 #' @param pdb a \code{pdb} object
 #' @param posterior_idx an index vector indicating what posteriors to check.
-#' @param posteriors a character vector with posterior names.
 #' @param posterior_list a list of \code{pdb_posterior} objects.
 #' @param po a \code{pdb_posterior} object.
 #'
@@ -198,18 +197,6 @@ check_pdb_references <- function(pdb, posterior_idx = NULL) {
   }
 
   message("All references are correct...")
-}
-
-#' @rdname check_pdb
-check_pdb_posteriors <- function(pdb, posteriors = c("ecdc0401-covid19imperial_v2", "ecdc0401-covid19imperial_v3")){
-  checkmate::assert_class(pdb, "pdb")
-  pns <- posterior_names(pdb)
-  checkmate::assert_subset(posteriors, choices = pns)
-  pidx <- which(pns %in% posteriors)
-  check_pdb(pdb, pidx)
-  check_pdb_stan_syntax(pdb, pidx)
-  check_pdb_references(pdb)
-  check_pdb_run_stan(pdb, posterior_idx = pidx)
 }
 
 #' @rdname check_pdb

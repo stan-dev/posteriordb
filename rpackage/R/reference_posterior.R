@@ -163,6 +163,23 @@ reference_posterior_draws.pdb_reference_posterior_info <- function(x, pdb = pdb_
 
 #' @rdname reference_posterior_draws
 #' @export
+reference_posterior_draws.draws_list <- function(x, info, ...){
+  checkmate::assert_class(info, "pdb_reference_posterior_info")
+  x <- posterior::as_draws_list(posterior::as_draws(x))
+  names(x) <- NULL
+  for(i in seq_along(x)){
+    x[[i]]$lp__ <- NULL
+  }
+
+  attr(x, "info") <- info
+  class(x) <- c("pdb_reference_posterior_draws", class(x))
+  assert_reference_posterior_draws(x)
+  x
+}
+
+
+#' @rdname reference_posterior_draws
+#' @export
 assert_reference_posterior_draws <- function(x){
   checkmate::assert_class(x, c("pdb_reference_posterior_draws", "draws_list"))
 
@@ -264,3 +281,25 @@ reference_posterior_expectations <- function(x, ...){
 }
 
 supported_reference_posterior_types <- function() c("draws", "expectations")
+
+
+#' Thin draws to reduce their size and autocorrelation of the chains.
+#'
+#' @description Thin [pdb_reference_posterior_draws] objects to reduce their size and autocorrelation of the chains.
+#'
+#' @param x An R object for which the methods are defined.
+#' @param thin A positive integer specifying the period for selecting draws.
+#' @param ... Arguments passed to individual methods (if applicable).
+#'
+#' @return
+#' A thinned [pdb_reference_posterior_draws] object.
+#'
+#' @export
+thin_draws.pdb_reference_posterior_draws <- function(x, thin, ...){
+  rpdi <- info(x)
+  class(x) <- class(x)[-1]
+  x <- posterior::thin_draws(x, thin, ...)
+  x <- pdb_reference_posterior_draws(x, rpdi)
+  checkmate::assert_class(x, "pdb_reference_posterior_draws")
+  x
+}

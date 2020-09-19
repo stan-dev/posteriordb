@@ -1,7 +1,6 @@
 context("test-posterior-getters")
 
 test_that("Check that all posteriors can access stan_data and stan_code", {
-  skip_on_appveyor()
 
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
 
@@ -12,7 +11,7 @@ test_that("Check that all posteriors can access stan_data and stan_code", {
   # Test stan_data_file_path
   expect_silent(sdfp <- stan_data_file_path(po))
   expect_true(file.exists(sdfp))
-  expect_true(grepl(pattern = tempdir(), x = sdfp))
+  if(!on_appveyor()) expect_true(grepl(pattern = tempdir(), x = sdfp))
   expect_equal(posteriordb:::get_file_extension(sdfp), "json")
   expect_silent(jsonlite::read_json(sdfp))
 
@@ -24,7 +23,7 @@ test_that("Check that all posteriors can access stan_data and stan_code", {
   # Test model_code
   expect_silent(mcfp <- model_code_file_path(po, "stan"))
   expect_true(file.exists(mcfp))
-  expect_true(grepl(pattern = tempdir(), x = mcfp))
+  if(!on_appveyor()) expect_true(grepl(pattern = tempdir(), x = mcfp))
   expect_equal(posteriordb:::get_file_extension(mcfp), "stan")
   expect_silent(scfp <- stan_code_file_path(po))
   expect_equal(scfp, mcfp)
@@ -57,7 +56,6 @@ test_that("Check that all posteriors can access stan_data and stan_code", {
 
 
 test_that("Check access only with posterior name", {
-  skip_on_appveyor()
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
 
   expect_silent(pdb_test <- pdb(posterior_db_path))
@@ -92,7 +90,7 @@ test_that("Check access only with posterior name", {
 
 
 test_that("Check access only with posterior name and default pdb", {
-  skip_on_appveyor()
+
   skip_if(is.null(github_pat()))
 
   # Test stan_data_file_path
@@ -121,7 +119,6 @@ test_that("Check access only with posterior name and default pdb", {
 
 
 test_that("Check that model_code, data and reference_posteriors contain a pdb attr", {
-  skip_on_appveyor()
 
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
   expect_silent(pdb_test <- pdb(posterior_db_path))
