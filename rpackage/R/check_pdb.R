@@ -201,18 +201,6 @@ check_pdb_references <- function(pdb, posterior_idx = NULL) {
 }
 
 #' @rdname check_pdb
-check_pdb_posteriors <- function(pdb, posteriors = c("ecdc0401-covid19imperial_v2", "ecdc0401-covid19imperial_v3")){
-  checkmate::assert_class(pdb, "pdb")
-  pns <- posterior_names(pdb)
-  checkmate::assert_subset(posteriors, choices = pns)
-  pidx <- which(pns %in% posteriors)
-  check_pdb(pdb, pidx)
-  check_pdb_stan_syntax(pdb, pidx)
-  check_pdb_references(pdb)
-  check_pdb_run_stan(pdb, posterior_idx = pidx)
-}
-
-#' @rdname check_pdb
 check_pdb_all_models_have_posterior <- function(pdb){
   checkmate::assert_class(pdb, "pdb")
   pn <- posterior_names(pdb)
