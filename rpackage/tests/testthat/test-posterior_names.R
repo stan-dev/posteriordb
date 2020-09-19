@@ -1,7 +1,6 @@
 context("test-posterior_names")
 
 test_that("posterior_names handels list of objects", {
-  skip_on_appveyor()
 
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
   expect_silent(pdb_test <- pdb(posterior_db_path))
