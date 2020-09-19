@@ -1,5 +1,7 @@
 context("test-pdb-check-content")
 
+# The PDB content is only checked on Travis
+
 test_that("check_pdb_read_posteriors", {
   skip_on_appveyor()
   posterior_db_path <- posteriordb:::get_test_pdb_dir()

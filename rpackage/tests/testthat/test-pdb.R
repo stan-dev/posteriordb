@@ -1,7 +1,6 @@
 context("test-pdb")
 
 test_that("model_names and data_names works as expected", {
-  skip_on_appveyor()
 
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
   expect_silent(pdb_test <- pdb(posterior_db_path))
