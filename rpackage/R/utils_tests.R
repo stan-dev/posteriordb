@@ -7,8 +7,12 @@ get_test_pdb_dir <- function(x) {
   # If on Travis - use Travis build path
   # To handle covr::codecov, that test package in temp folder
   on_travis <- identical(Sys.getenv("TRAVIS"), "true")
+  # If on Appveyor - use Appveyor build path
+  on_appveyor <- identical(Sys.getenv("APPVEYOR"), "true")
+
   x <- getwd()
   if (on_travis) x <- Sys.getenv("TRAVIS_BUILD_DIR")
+  if (on_appveyor) x <- Sys.getenv("APPVEYOR_BUILD_FOLDER")
   find_local_posterior_database(x)
 }
 

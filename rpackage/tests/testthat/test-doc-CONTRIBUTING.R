@@ -22,7 +22,7 @@ test_that("CONTRIBUTION.md works as usual (not testing rstan)", {
   expect_equal(md5_hash, "34639de0a2a3cad997384afbca80c184")
 
   # Init
-  if(in_covr){
+  if(in_covr & on_travis){
     expect_silent(pdbl <- pdb_local(path = file.path(TRAVIS_BUILD_DIR, "posterior_database")))
   } else {
     expect_silent(pdbl <- pdb_local())
@@ -87,7 +87,7 @@ test_that("CONTRIBUTION.md works as usual (not testing rstan)", {
   expect_error(suppressMessages(check_posterior(po, run_stan_code_checks = FALSE)))
 
   # Posterior draws
-  if(in_covr){
+  if(in_covr & on_travis){
     expect_silent(pdbl <- pdb_local(path = file.path(TRAVIS_BUILD_DIR, "posterior_database")))
   } else {
     expect_silent(pdbl <- pdb_local())
