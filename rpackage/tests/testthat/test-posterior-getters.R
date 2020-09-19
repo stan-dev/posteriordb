@@ -1,7 +1,6 @@
 context("test-posterior-getters")
 
 test_that("Check that all posteriors can access stan_data and stan_code", {
-  skip_on_appveyor()
 
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
 
@@ -57,7 +56,6 @@ test_that("Check that all posteriors can access stan_data and stan_code", {
 
 
 test_that("Check access only with posterior name", {
-  skip_on_appveyor()
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
 
   expect_silent(pdb_test <- pdb(posterior_db_path))
@@ -92,7 +90,7 @@ test_that("Check access only with posterior name", {
 
 
 test_that("Check access only with posterior name and default pdb", {
-  skip_on_appveyor()
+
   skip_if(is.null(github_pat()))
 
   # Test stan_data_file_path
@@ -121,7 +119,6 @@ test_that("Check access only with posterior name and default pdb", {
 
 
 test_that("Check that model_code, data and reference_posteriors contain a pdb attr", {
-  skip_on_appveyor()
 
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
   expect_silent(pdb_test <- pdb(posterior_db_path))
