@@ -184,9 +184,9 @@ pn.pdb_local <- function(x, ...) {
 pn.list <- function(x, ...) {
   res <- list()
   for(i in seq_along(x)){
-    res[i] <- pn(x[[i]], ...)
+    res[[i]] <- pn(x[[i]], ...)
   }
-  unlist(res)
+  res
 }
 
 pn.pdb_posterior <- function(x, ...){
