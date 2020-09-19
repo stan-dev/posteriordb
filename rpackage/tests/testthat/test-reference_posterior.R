@@ -41,6 +41,9 @@ test_that("Check that reference_posterior works as expected", {
   expect_output(st1 <- summary(subset(pd1, "theta[1]")), "Posterior: eight_schools-eight_schools_noncentered")
   expect_failure(expect_equal(sf, st1))
 
+  expect_silent(pd1thin <- thin_draws.pdb_reference_posterior_draws(x = pd1, thin = 2))
+  expect_equal(posterior::ndraws(pd1thin), posterior::ndraws(pd1)/2)
+
   expect_silent(po <- posterior("prideprejustice_chapter-ldaK5", pdb_test))
   expect_error(gs <- reference_posterior_draws(po),
                regexp = "There is currently no reference posterior for this posterior.")

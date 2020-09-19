@@ -49,16 +49,9 @@ compute_reference_posterior_draws_stan_sampling <- function(rpi, pdb){
 reference_posterior_draws.stanfit <- function(x, info, pdb = pdb_default(), ...){
   checkmate::assert_class(info, "pdb_reference_posterior_info")
   draws <- posterior::as_draws_list(posterior::as_draws(x))
-  names(draws) <- NULL
-  for(i in seq_along(draws)){
-    draws[[i]]$lp__ <- NULL
-  }
-
-  attr(draws, "info") <- info
-  class(draws) <- c("pdb_reference_posterior_draws", class(draws))
-  assert_reference_posterior_draws(draws)
-  draws
+  reference_posterior_draws(draws)
 }
+
 
 #' Extract diagnostics
 #'

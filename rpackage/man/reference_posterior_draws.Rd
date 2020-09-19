@@ -8,6 +8,7 @@
 \alias{reference_posterior_draws.character}
 \alias{reference_posterior_draws.pdb_posterior}
 \alias{reference_posterior_draws.pdb_reference_posterior_info}
+\alias{reference_posterior_draws.draws_list}
 \alias{assert_reference_posterior_draws}
 \alias{reference_posterior_expectations}
 \title{Reference Posterior posterior Draws and Expectations}
@@ -23,6 +24,8 @@ pdb_reference_posterior_draws(x, ...)
 \method{reference_posterior_draws}{pdb_posterior}(x, ...)
 
 \method{reference_posterior_draws}{pdb_reference_posterior_info}(x, pdb = pdb_default(), ...)
+
+\method{reference_posterior_draws}{draws_list}(x, info, ...)
 
 assert_reference_posterior_draws(x)
 
