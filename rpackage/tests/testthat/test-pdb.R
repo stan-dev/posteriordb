@@ -35,7 +35,7 @@ test_that("pdb_local", {
   expect_silent(pdbl3 <- pdb_local(path = dirname(posterior_db_path)))
   expect_silent(pdbl4 <- pdb_local(file.path(posterior_db_path, "data", "data")))
   expect_error(pdbl5 <- pdb_local(dirname(dirname(dirname(dirname(posterior_db_path))))))
-  expect_equal(pdbl1, pdbl2)
+  if(!on_covr())expect_equal(pdbl1, pdbl2)
   expect_equal(pdbl1, pdbl3)
   expect_equal(pdbl1, pdbl4)
 })
