@@ -2,7 +2,6 @@
 #'
 #' @param pdb a \code{pdb} object
 #' @param posterior_idx an index vector indicating what posteriors to check.
-#' @param posteriors a character vector with posterior names.
 #' @param posterior_list a list of \code{pdb_posterior} objects.
 #' @param po a \code{pdb_posterior} object.
 #'

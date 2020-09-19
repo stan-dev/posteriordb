@@ -50,8 +50,6 @@ check_pdb_all_reference_posteriors_have_posterior(pdb)
 \item{posterior_list}{a list of \code{pdb_posterior} objects.}
 
 \item{po}{a \code{pdb_posterior} object.}
-
-\item{posteriors}{a character vector with posterior names.}
 }
 \value{
 a boolean indicating if the pdb works as it should.
