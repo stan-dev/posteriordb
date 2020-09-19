@@ -84,6 +84,9 @@ test_that("pdb_config", {
   expect_silent(pdbc <- pdb_config())
   pdbcb <- pdbc; pdbcb$.pdb_config.yml <- NULL
 
+
+  expect_output(print(pdbc), ".pdb_config.yml")
+
   expect_equal(pdbl, pdbcb)
   file.remove(".pdb_config.yml")
 })
