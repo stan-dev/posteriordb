@@ -18,7 +18,6 @@ test_that("model_names and data_names works as expected", {
 
 
 test_that("pdb_version", {
-  skip_on_appveyor()
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
   expect_silent(pdb_test <- pdb(posterior_db_path))
   checkmate::expect_list(pdb_version(pdb_test))
