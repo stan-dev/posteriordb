@@ -28,7 +28,6 @@ test_that("pdb_version", {
 
 
 test_that("pdb_local", {
-  skip_on_appveyor()
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
   expect_silent(pdbl1 <- pdb_local(posterior_db_path))
   if(!on_covr()) expect_silent(pdbl2 <- pdb_local())
@@ -76,6 +75,7 @@ test_that("pdb_config", {
 
 
 test_that("pdb_config", {
+  skip_on_appveyor()
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
   expect_silent(pdbl <- pdb_local(posterior_db_path))
 
