@@ -12,7 +12,7 @@ check_reference_posterior_draws <- function(x, ...){
 #' @rdname check_reference_posterior_draws
 #' @export
 check_reference_posterior_draws.character <- function(x, ...){
-  x <- reference_posterior_draws(x)
+  x <- pdb_posterior(x, ...)
   check_reference_posterior_draws(x)
 }
 
