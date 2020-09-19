@@ -108,3 +108,23 @@ compute_stan_sampling_diagnostics <- function(x, keep_dimensions ){
 
   d
 }
+
+
+#' Construct dimension names from a posterior dimension list
+#'
+#' @param x a dimensions slot from a [pdb_posterior]
+posterior_dimension_names <- function(x){
+  checkmate::assert_list(x)
+  checkmate::assert_named(x)
+  for(i in seq_along(x)) checkmate::assert_int(x[[i]])
+
+  dn <- list()
+  for(i in seq_along(x)){
+    if(x[[i]] > 1L){
+      dn[[i]] <- paste0(names(x)[i], "[", 1:x[[i]], "]")
+    } else {
+      dn[[i]] <- names(x)[i]
+    }
+  }
+  return(unlist(dn))
+}
