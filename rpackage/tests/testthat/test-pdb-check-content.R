@@ -1,9 +1,6 @@
 context("test-pdb-check-content")
 
-# The PDB content is only checked on Travis
-
 test_that("check_pdb_read_posteriors", {
-  skip_on_appveyor()
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
   expect_silent(pdb_test <- pdb(posterior_db_path))
   expect_silent(pdb_clear_cache(pdb_test))
@@ -13,7 +10,6 @@ test_that("check_pdb_read_posteriors", {
 
 
 test_that("check_pdb_read_model_code", {
-  skip_on_appveyor()
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
   expect_silent(pdb_test <- pdb(posterior_db_path))
 
@@ -23,12 +19,11 @@ test_that("check_pdb_read_model_code", {
 
 
 test_that("check_pdb_read_data", {
-  skip_on_appveyor()
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
   expect_silent(pdb_test <- pdb(posterior_db_path))
 
-  # Ignore large data on Travis
-  if(identical(Sys.getenv("TRAVIS"), "true")){
+  # Ignore large data on Travis or Appveyor
+  if(on_travis() | on_appveyor()){
     ignore_posterior <- "mnist-nn_rbm1bJ100"
   } else {
     ignore_posterior <- character(0)
@@ -42,7 +37,6 @@ test_that("check_pdb_read_data", {
 })
 
 test_that("check_pdb_read_reference_posterior_draws", {
-  skip_on_appveyor()
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
   expect_silent(pdb_test <- pdb(posterior_db_path))
 
@@ -52,7 +46,6 @@ test_that("check_pdb_read_reference_posterior_draws", {
 
 
 test_that("check_pdb_aliases", {
-  skip_on_appveyor()
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
   expect_silent(pdb_test <- pdb(posterior_db_path))
 
@@ -60,7 +53,6 @@ test_that("check_pdb_aliases", {
 })
 
 test_that("check_pdb_references", {
-  skip_on_appveyor()
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
   expect_silent(pdb_test <- pdb(posterior_db_path))
 
@@ -68,7 +60,6 @@ test_that("check_pdb_references", {
 })
 
 test_that("check_pdb_model_data_ref_in_posteriors", {
-  skip_on_appveyor()
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
   expect_silent(pdb_test <- pdb(posterior_db_path))
 
