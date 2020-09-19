@@ -33,4 +33,4 @@ find_local_posterior_database <- function(x){
 }
 
 on_travis <- function() identical(Sys.getenv("TRAVIS"), "true")
-on_appveyor <- function() identical(Sys.getenv("APPVEYOR"), "true")
+on_appveyor <- function() identical(tolower(Sys.getenv("APPVEYOR")), "true")
