@@ -313,11 +313,12 @@ pdb_endpoint.pdb_local <- function(pdb, ...) {
 
   pdb$pdb_local_endpoint <- normalizePath(pdb$pdb_id)
   while (!is_pdb_endpoint(pdb) & basename(pdb$pdb_local_endpoint) != "") {
-    pdb$pdb_local_endpoint <- dirname(pdb$pdb_local_endpoint)
     # Check if the folder has a posterior_database folder
     pdbfp <- file.path(pdb$pdb_local_endpoint, "posterior_database")
     if(is_pdb_endpoint_local_path(pdbfp)){
       pdb$pdb_local_endpoint <- pdbfp
+    } else {
+      pdb$pdb_local_endpoint <- dirname(pdb$pdb_local_endpoint)
     }
   }
   if (basename(pdb$pdb_local_endpoint) == "") {

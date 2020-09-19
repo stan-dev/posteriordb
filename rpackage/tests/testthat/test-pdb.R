@@ -29,14 +29,15 @@ test_that("pdb_version", {
 
 test_that("pdb_local", {
   skip_on_appveyor()
-  skip_on_covr()
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
   expect_silent(pdbl1 <- pdb_local(posterior_db_path))
-  expect_silent(pdbl2 <- pdb_local())
-  expect_silent(pdbl3 <- pdb_local("../"))
-  expect_error(pdbl4 <- pdb_local("../../../../"))
+  if(!on_covr()) expect_silent(pdbl2 <- pdb_local())
+  expect_silent(pdbl3 <- pdb_local(path = dirname(posterior_db_path)))
+  expect_silent(pdbl4 <- pdb_local(file.path(posterior_db_path, "data", "data")))
+  expect_error(pdbl5 <- pdb_local(dirname(dirname(dirname(dirname(posterior_db_path))))))
   expect_equal(pdbl1, pdbl2)
   expect_equal(pdbl1, pdbl3)
+  expect_equal(pdbl1, pdbl4)
 })
 
 
@@ -75,7 +76,6 @@ test_that("pdb_config", {
 
 
 test_that("pdb_config", {
-  skip_on_appveyor()
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
   expect_silent(pdbl <- pdb_local(posterior_db_path))
 
