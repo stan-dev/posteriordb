@@ -32,3 +32,22 @@ test_that("info() should extract the object information", {
   expect_s3_class(rp, "draws_list")
 
 })
+
+
+test_that("data info constructor ", {
+  x <- list(name = "wells_data2",
+            keywords = c("wells","arsenic","Bangladesh"),
+            title = "Factors affecting the decision to switch wells",
+            description = "Decisions of households in Bangladesh about whether to change their source of
+                     drinking water.",
+            urls = "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.5",
+            references = "gelman2006data",
+            added_date = Sys.Date(),
+            data_file = "data/data/.json",
+            added_by = "Phil Clemson")
+  expect_error(di <- pdb_data_info(x))
+  x$data_file <- NULL
+  expect_silent(di <- pdb_data_info(x))
+  x$data_file <- "data/data/wells_data2.json"
+  expect_silent(di <- pdb_data_info(x))
+})
