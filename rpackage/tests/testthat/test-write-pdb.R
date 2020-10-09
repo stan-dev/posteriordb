@@ -9,6 +9,8 @@ test_that("write data", {
 
   # Test write data
   di <- info(d); di$name <- "test_data"; info(d) <- di
+  expect_error(write_pdb(d, pdb_test))
+  di$data_file <- "data/data/test_data.json"; info(d) <- di
   expect_silent(write_pdb(d, pdb_test))
   expect_error(write_pdb(d, pdb_test))
   expect_silent(write_pdb(d, pdb_test, overwrite = TRUE))
@@ -92,6 +94,7 @@ test_that("write posterior", {
   # Test write model info
   info(sc)$name <- "test_model"
   info(d)$name <- "test_data"
+  info(d)$data_file <- "data/data/test_data.json"
 
   # Test write gsd
   po$name <- "test_data-test_model"
