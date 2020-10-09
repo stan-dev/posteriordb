@@ -22,7 +22,7 @@ data_info.character <- function(x, pdb = pdb_default(), ...) {
 data_info.list <- function(x, pdb = NULL, ...) {
   class(x) <- "pdb_data_info"
   checkmate::assert_string(x$name)
-  if(is.null(x$data_file)) x$data_file <- paste0("data/data/", x$data_name, ".json")
+  if(is.null(x$data_file)) x$data_file <- paste0("data/data/", x$name, ".json")
   assert_data_info(x)
   x
 }
@@ -53,7 +53,7 @@ assert_data_info <- function(x){
                           subset.of = c("name", "data_file", "title", "added_by", "added_date", "references", "description", "urls", "keywords"),
                           must.include = c("name", "data_file", "title", "added_by", "added_date"))
   checkmate::assert_string(x$name)
-  checkmate::assert_string(x$data_file)
+  checkmate::assert_set_equal(x$data_file, y = paste0("data/data/", x$name, ".json"))
   checkmate::assert_string(x$title)
   checkmate::assert_string(x$added_by)
   checkmate::assert_date(x$added_date)
