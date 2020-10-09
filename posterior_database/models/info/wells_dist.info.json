@@ -1,0 +1,15 @@
+{
+  "name": "wells_dist",
+  "keywords": ["wells", "ARM", "Ch.5", "logistic", "regression"],
+  "title": "Logistic regression model for decision to switch wells",
+  "description": "Performs logistic regression using one predictor (distance from nearest safe well).",
+  "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.5",
+  "references": "gelman2006data",
+  "added_by": "Phil Clemson",
+  "added_date": "2020-10-02",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/wells_dist.stan"
+    }
+  }
+}

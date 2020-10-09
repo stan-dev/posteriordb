@@ -1,0 +1,14 @@
+{
+  "keywords": ["wells", "logistic", "regression"],
+  "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.5",
+  "references": "gelman2006data",
+  "dimensions": {
+    "beta": 2
+  },
+  "reference_posterior_name": null,
+  "added_date": "2020-10-02",
+  "added_by": "Phil Clemson",
+  "name": "wells_data-wells_dist",
+  "model_name": "wells_dist",
+  "data_name": "wells_data"
+}

@@ -1,0 +1,11 @@
+{
+  "name": "wells_data",
+  "keywords": ["wells", "arsenic", "Bangladesh"],
+  "title": "Factors affecting the decision to switch wells",
+  "description": "Decisions of households in Bangladesh about whether to change their source of\n          drinking water.",
+  "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.5",
+  "references": "gelman2006data",
+  "added_date": "2020-10-02",
+  "added_by": "Phil Clemson",
+  "data_file": "data/data/wells_data.json"
+}
