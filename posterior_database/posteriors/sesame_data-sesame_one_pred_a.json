@@ -1,0 +1,15 @@
+{
+  "keywords": ["sesame", "linear model"],
+  "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.10",
+  "references": "gelman2006data",
+  "dimensions": {
+    "beta": 2,
+    "sigma": 1
+  },
+  "reference_posterior_name": null,
+  "added_date": "2020-10-23",
+  "added_by": "Phil Clemson",
+  "name": "sesame_data-sesame_one_pred_a",
+  "model_name": "sesame_one_pred_a",
+  "data_name": "sesame_data"
+}
