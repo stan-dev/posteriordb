@@ -1,0 +1,15 @@
+{
+  "name": "sesame_one_pred_a",
+  "keywords": ["sesame", "ARM", "Ch.10", "linear model"],
+  "title": "Linear model for the effect of encouragement to watch on actually watching Sesame Street",
+  "description": "A linear model with one predictor.",
+  "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.10",
+  "references": "gelman2006data",
+  "added_by": "Phil Clemson",
+  "added_date": "2020-10-23",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/sesame_one_pred_a.stan"
+    }
+  }
+}
