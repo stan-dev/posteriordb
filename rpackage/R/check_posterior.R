@@ -32,7 +32,7 @@ check_pdb_posterior <- function(po, run_stan_code_checks = TRUE, verbose = TRUE)
     check_posterior_stan_syntax(po)
     if(verbose) message("- Stan syntax is ok.")
 
-    check_pdb_run_stan(po)
+    check_pdb_posterior_run_stan(po)
     if(verbose) message("- Stan can be run for the posterior.")
   }
 
