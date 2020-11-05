@@ -1,0 +1,108 @@
+name: R Workflow
+
+on:
+  push:
+    branches:
+      - '*'
+    tags:
+      - '*'
+
+jobs:
+  models:
+    name: R Tests
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+          os: [ubuntu-latest, macos-latest, windows-latest]
+          r-version: ['release', 'oldrel']
+      fail-fast: false
+    steps:
+      - name: Checkout github
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Set up R ${{ matrix.r-version }}
+        uses: r-lib/actions/setup-r@v1
+        with:
+          r-version: ${{ matrix.r-version }}
+
+      - name: install miniconda
+        if: matrix.os == 'windows-latest'
+        uses: conda-incubator/setup-miniconda@v1.7.0
+        with:
+          auto-update-conda: true
+          python-version: 3.8
+
+      - uses: r-lib/actions/setup-pandoc@master
+
+      - name: Install dependencies (Ubuntu)
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          sudo apt-get update
+          sudo apt-get install libcurl4-openssl-dev libv8-dev texlive-latex-base texlive-fonts-recommended texlive-fonts-extra texlive-latex-extra
+
+      - name: Install dependencies (macOS)
+        if: matrix.os == 'macos-latest'
+        run: |
+          brew install gnu-which
+          PATH="/usr/local/opt/gnu-which/libexec/gnubin:$PATH"
+          brew cask install basictex
+          export PATH=“/Library/TeX/texbin/:$PATH”
+          eval "$(/usr/libexec/path_helper)"
+          which pdflatex
+
+      - name: Install dependencies (Windows)
+        if: matrix.os == 'windows-latest'
+        run: |
+          conda install -c conda-forge miktex
+
+      - name: Install R dependencies (release)
+        run: |
+          options(install.packages.check.source = "no")
+          install.packages('posterior', repos = c('https://mc-stan.org/r-packages/', getOption('repos')))
+          options(pkgType = ifelse(grepl("linux", R.version$os), "source", "binary"))
+          install.packages('remotes')
+          install.packages('jsonlite')
+          install.packages('V8')
+          install.packages('covr')
+          install.packages('testthat')
+          install.packages('git2r')
+          install.packages('gh')
+          install.packages('bibtex')
+          install.packages('rstan', repos = 'https://cloud.r-project.org/', dependencies = TRUE)
+          writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
+        shell: Rscript {0}
+
+      - name: Cache R packages
+        if: matrix.os != 'windows-latest'
+        uses: actions/cache@v1
+        with:
+          path: ${{ env.R_LIBS_USER }}
+          key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
+          restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
+
+      - name: Run R tests (Ubuntu)
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          R CMD build rpackage
+          R CMD check posteriordb_*.tar.gz
+
+      - name: Run R tests (macOS)
+        if: matrix.os == 'macos-latest'
+        run: |
+          export PATH=“/Library/TeX/texbin/:$PATH”
+          eval "$(/usr/libexec/path_helper)"
+          R CMD build rpackage
+          R CMD check posteriordb_*.tar.gz
+
+      - name: Run R tests (Windows)
+        if: matrix.os == 'windows-latest'
+        run: |
+          RCMD build rpackage
+          RCMD check posteriordb_*.tar.gz
+
+      - name: Codecov
+        run: |
+          cd rpackage
+          Rscript -e 'covr::codecov(quiet = FALSE)'

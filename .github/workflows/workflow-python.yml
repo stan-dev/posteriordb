@@ -1,4 +1,4 @@
-name: Release
+name: Python Workflow
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
 
 jobs:
   models:
-    name: PythonWheel
+    name: Python Tests
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
