@@ -102,6 +102,14 @@ jobs:
           RCMD build rpackage
           RCMD check posteriordb_*.tar.gz
 
+      - name: debug logs
+        if: failure()
+        uses: actions/upload-artifact@v2
+        with:
+          name: exception_results_${{ matrix.os}}_${{ matrix.r-version}}
+          path: /home/runner/work/posteriordb/posteriordb/posteriordb.Rcheck/*.log
+
+
       - name: Codecov
         run: |
           cd rpackage
