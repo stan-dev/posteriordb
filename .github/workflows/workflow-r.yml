@@ -103,14 +103,14 @@ jobs:
           RCMD check posteriordb_*.tar.gz
 
       - name: debug logs
-        if: and(failure(), matrix.os == 'ubuntu-latest')
+        if: failure() && (matrix.os == 'ubuntu-latest')
         uses: actions/upload-artifact@v2
         with:
           name: exception_results_${{ matrix.os}}_${{ matrix.r-version}}
           path: /home/runner/work/posteriordb/posteriordb/posteriordb.Rcheck/*.log
         
       - name: debug logs
-        if: and(failure(), matrix.os == 'macos-latest')
+        if: failure() && (matrix.os == 'macos-latest')
         uses: actions/upload-artifact@v2
         with:
           name: exception_results_${{ matrix.os}}_${{ matrix.r-version}}
