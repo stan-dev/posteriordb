@@ -81,12 +81,14 @@ class PosteriorDatabase:
     def get_reference_draws_path(self, name: str):
         reference_root = os.path.join(self.path, "reference_posteriors/draws/draws")
         reference_name = self.get_posterior_info(name)["reference_posterior_name"]
+        assert reference_name is not None
         file_path = os.path.join(reference_root, reference_name + ".json")
         return file_path
 
     def get_reference_draws_info(self, name: str):
         reference_root = os.path.join(self.path, "reference_posteriors/draws/info")
         reference_name = self.get_posterior_info(name)["reference_posterior_name"]
+        assert reference_name is not None
         file_path = os.path.join(reference_root, reference_name + ".info.json")
         return load_info(file_path, temporary_no_assertions)
 
