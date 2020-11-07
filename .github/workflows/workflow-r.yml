@@ -95,6 +95,8 @@ jobs:
         env:
            GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          export LC_ALL=en_US.UTF-8  
+          export LANG=en_US.UTF-8
           export PATH=“/Library/TeX/texbin/:$PATH”
           eval "$(/usr/libexec/path_helper)"
           R CMD build rpackage
