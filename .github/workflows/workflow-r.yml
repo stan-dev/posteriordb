@@ -84,12 +84,16 @@ jobs:
 
       - name: Run R tests (Ubuntu)
         if: matrix.os == 'ubuntu-latest'
+        env:
+           GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
         run: |
           R CMD build rpackage
           R CMD check posteriordb_*.tar.gz
 
       - name: Run R tests (macOS)
         if: matrix.os == 'macos-latest'
+        env:
+           GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
         run: |
           export PATH=“/Library/TeX/texbin/:$PATH”
           eval "$(/usr/libexec/path_helper)"
@@ -98,6 +102,8 @@ jobs:
 
       - name: Run R tests (Windows)
         if: matrix.os == 'windows-latest'
+        env:
+           GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
         run: |
           RCMD build rpackage
           RCMD check posteriordb_*.tar.gz
