@@ -50,7 +50,7 @@ jobs:
           brew cask install basictex
           export PATH=“/Library/TeX/texbin/:$PATH”
           eval "$(/usr/libexec/path_helper)"
-          sudo fmutil-sys --all
+          sudo fmtutil-sys --all
           sudo tlmgr update --self
           sudo tlmgr update --all
           sudo tlmgr install titling framed inconsolata
