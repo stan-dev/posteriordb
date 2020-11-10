@@ -47,9 +47,13 @@ jobs:
         run: |
           brew install gnu-which
           PATH="/usr/local/opt/gnu-which/libexec/gnubin:$PATH"
-          brew cask install basictex
+          brew cask install basictex 
           export PATH=“/Library/TeX/texbin/:$PATH”
           eval "$(/usr/libexec/path_helper)"
+          sudo tlmgr update --self
+          sudo tlmgr update --all
+          sudo tlmgr install titling framed inconsolata
+          sudo tlmgr install collection-fontsrecommended
           which pdflatex
 
       - name: Install dependencies (Windows)
@@ -95,8 +99,6 @@ jobs:
         env:
            GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          export LC_ALL=C
-          export LANG=C
           export PATH=“/Library/TeX/texbin/:$PATH”
           eval "$(/usr/libexec/path_helper)"
           R CMD build rpackage
