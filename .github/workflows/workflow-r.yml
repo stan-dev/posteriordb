@@ -14,11 +14,11 @@ jobs:
     strategy:
       matrix:
         config:
-          - {os: ubuntu-20.04,     r-version: 'release'}
-          - {os: ubuntu-20.04,     r-version: 'oldrel'}
-          - {os: macos-11.0,       r-version: 'release'}
-          - {os: macos-11.0,       r-version: 'oldrel'}
-          - {os: windows-latest,   r-version: 'release'}
+          - {os: ubuntu-latest,     r: 'release'}
+          - {os: ubuntu-latest,     r: 'oldrel'}
+          - {os: macos-latest,       r: 'release'}
+          - {os: macos-latest,       r: 'oldrel'}
+          - {os: windows-latest,   r: 'release'}
       fail-fast: false
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -28,10 +28,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up R ${{ matrix.config.r-version }}
+      - name: Set up R ${{ matrix.config.r }}
         uses: r-lib/actions/setup-r@v1
         with:
-          r-version: ${{ matrix.config.r-version }}
+          r-version: ${{ matrix.config.r }}
 
       - uses: r-lib/actions/setup-tinytex@v1
 
