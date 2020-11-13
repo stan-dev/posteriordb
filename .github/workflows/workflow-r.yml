@@ -16,6 +16,8 @@ jobs:
           os: [ubuntu-latest, macos-latest, windows-latest]
           r-version: ['release', 'oldrel']
       fail-fast: false
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Checkout github
         uses: actions/checkout@v2
@@ -27,12 +29,11 @@ jobs:
         with:
           r-version: ${{ matrix.r-version }}
 
-      - name: install miniconda
-        if: matrix.os == 'windows-latest'
-        uses: conda-incubator/setup-miniconda@v1.7.0
-        with:
-          auto-update-conda: true
-          python-version: 3.8
+      - name: Set up tinytex
+        uses: r-lib/actions/setup-tinytex@v1
+
+      - name: check tex version
+        run: tlmgr --version
 
       - uses: r-lib/actions/setup-pandoc@master
 
@@ -40,28 +41,8 @@ jobs:
         if: matrix.os == 'ubuntu-latest'
         run: |
           sudo apt-get update
-          sudo apt-get install libcurl4-openssl-dev libv8-dev texlive-latex-base texlive-fonts-recommended texlive-fonts-extra texlive-latex-extra
-
-      - name: Install dependencies (macOS)
-        if: matrix.os == 'macos-latest'
-        run: |
-          brew install gnu-which
-          PATH="/usr/local/opt/gnu-which/libexec/gnubin:$PATH"
-          brew cask install basictex
-          export PATH=“/Library/TeX/texbin/:$PATH”
-          eval "$(/usr/libexec/path_helper)"
-          sudo fmtutil-sys --all
-          sudo tlmgr update --self
-          sudo tlmgr update --all
-          sudo tlmgr install titling framed inconsolata
-          sudo tlmgr install collection-fontsrecommended
-          which pdflatex
-
-      - name: Install dependencies (Windows)
-        if: matrix.os == 'windows-latest'
-        run: |
-          conda install -c conda-forge miktex
-
+          sudo apt-get install libcurl4-openssl-dev libv8-dev
+  
       - name: Install R dependencies (release)
         run: |
           options(install.packages.check.source = "no")
@@ -79,38 +60,22 @@ jobs:
           writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
         shell: Rscript {0}
 
-      - name: Cache R packages
-        if: matrix.os != 'windows-latest'
-        uses: actions/cache@v1
-        with:
-          path: ${{ env.R_LIBS_USER }}
-          key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
-          restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
-
       - name: Run R tests (Ubuntu)
         if: matrix.os == 'ubuntu-latest'
-        env:
-           GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
         run: |
           R CMD build rpackage
           R CMD check posteriordb_*.tar.gz
 
       - name: Run R tests (macOS)
         if: matrix.os == 'macos-latest'
-        env:
-           GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
         run: |
           export LC_ALL=C
           export LANG=C
-          export PATH=“/Library/TeX/texbin/:$PATH”
-          eval "$(/usr/libexec/path_helper)"
           R CMD build rpackage
           R CMD check posteriordb_*.tar.gz
 
       - name: Run R tests (Windows)
         if: matrix.os == 'windows-latest'
-        env:
-           GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
         run: |
           RCMD build rpackage
           RCMD check posteriordb_*.tar.gz
@@ -129,8 +94,7 @@ jobs:
           name: exception_results_${{ matrix.os}}_${{ matrix.r-version}}
           path: /Users/runner/work/posteriordb/posteriordb/posteriordb.Rcheck/*.log
 
-
-      - name: Codecov
-        run: |
-          cd rpackage
-          Rscript -e 'covr::codecov(quiet = FALSE)'
+      #- name: Codecov
+      #  run: |
+      #    cd rpackage
+      #    Rscript -e 'covr::codecov(quiet = FALSE)'
