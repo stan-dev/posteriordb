@@ -4,10 +4,14 @@ test_that("README.md works as stated", {
   skip_on_cran()
   skip_on_appveyor()
   on_travis <- identical(Sys.getenv("TRAVIS"), "true")
-  TRAVIS_BUILD_DIR <- Sys.getenv("TRAVIS_BUILD_DIR")
+  on_actions <- identical(Sys.getenv("GITHUB_ACTIONS"), "true")
   if(on_travis){
     # On Travis the package are checked in rpackage/
+    TRAVIS_BUILD_DIR <- Sys.getenv("TRAVIS_BUILD_DIR")
     fp_to_README_md <- file.path(TRAVIS_BUILD_DIR, "README.md")
+  } else if {
+    ACTIONS_WORKSPACE <- Sys.getenv("GITHUB_WORKSPACE")
+    fp_to_README_md <- file.path(ACTIONS_BUILD_DIR, "README.md")
   } else {
     fp_to_README_md <- "../../../README.md"
   }
