@@ -4,13 +4,17 @@ test_that("CONTRIBUTION.md works as usual (not testing rstan)", {
   skip_on_cran()
   skip_on_appveyor()
   on_travis <- identical(Sys.getenv("TRAVIS"), "true")
+  on_actions <- identical(Sys.getenv("GITHUB_ACTIONS"), "true")
   in_covr <- identical(Sys.getenv("R_COVR"), "true")
   if(on_travis){
     # On Travis the package are checked in rpackage/
     TRAVIS_BUILD_DIR <- Sys.getenv("TRAVIS_BUILD_DIR")
     fp_to_CONTRIBUTING_md <- file.path(TRAVIS_BUILD_DIR, "doc", "CONTRIBUTING.md")
+  } else if(on_actions) {
+    ACTIONS_WORKSPACE <- Sys.getenv("GITHUB_WORKSPACE")
+    fp_to_README_md <- file.path(ACTIONS_WORKSPACE, "doc", "CONTRIBUTING.md")
   } else {
-    fp_to_CONTRIBUTING_md <- "../../../doc/CONTRIBUTING.md"
+  fp_to_CONTRIBUTING_md <- "../../../doc/CONTRIBUTING.md"
   }
 
   skip_if(!file.exists(fp_to_CONTRIBUTING_md))
@@ -89,6 +93,8 @@ test_that("CONTRIBUTION.md works as usual (not testing rstan)", {
   # Posterior draws
   if(in_covr & on_travis){
     expect_silent(pdbl <- pdb_local(path = file.path(TRAVIS_BUILD_DIR, "posterior_database")))
+  } if(in_covr & on_actions){
+    expect_silent(pdbl <- pdb_local(path = file.path(ACTIONS_WORKSPACE, "posterior_database")))
   } else {
     expect_silent(pdbl <- pdb_local())
   }

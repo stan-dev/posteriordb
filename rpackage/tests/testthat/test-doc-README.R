@@ -9,9 +9,9 @@ test_that("README.md works as stated", {
     # On Travis the package are checked in rpackage/
     TRAVIS_BUILD_DIR <- Sys.getenv("TRAVIS_BUILD_DIR")
     fp_to_README_md <- file.path(TRAVIS_BUILD_DIR, "README.md")
-  } else if {
+  } else if(on_actions) {
     ACTIONS_WORKSPACE <- Sys.getenv("GITHUB_WORKSPACE")
-    fp_to_README_md <- file.path(ACTIONS_BUILD_DIR, "README.md")
+    fp_to_README_md <- file.path(ACTIONS_WORKSPACE, "README.md")
   } else {
     fp_to_README_md <- "../../../README.md"
   }
