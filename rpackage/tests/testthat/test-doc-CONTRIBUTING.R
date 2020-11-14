@@ -28,6 +28,8 @@ test_that("CONTRIBUTION.md works as usual (not testing rstan)", {
   # Init
   if(in_covr & on_travis){
     expect_silent(pdbl <- pdb_local(path = file.path(TRAVIS_BUILD_DIR, "posterior_database")))
+  } else if(in_covr & on_actions){
+    expect_silent(pdbl <- pdb_local(path = file.path(ACTIONS_WORKSPACE, "posterior_database")))
   } else {
     expect_silent(pdbl <- pdb_local())
   }
@@ -93,7 +95,7 @@ test_that("CONTRIBUTION.md works as usual (not testing rstan)", {
   # Posterior draws
   if(in_covr & on_travis){
     expect_silent(pdbl <- pdb_local(path = file.path(TRAVIS_BUILD_DIR, "posterior_database")))
-  } if(in_covr & on_actions){
+  } else if(in_covr & on_actions){
     expect_silent(pdbl <- pdb_local(path = file.path(ACTIONS_WORKSPACE, "posterior_database")))
   } else {
     expect_silent(pdbl <- pdb_local())
