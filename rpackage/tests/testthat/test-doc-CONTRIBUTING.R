@@ -12,7 +12,7 @@ test_that("CONTRIBUTION.md works as usual (not testing rstan)", {
     fp_to_CONTRIBUTING_md <- file.path(TRAVIS_BUILD_DIR, "doc", "CONTRIBUTING.md")
   } else if(on_actions) {
     ACTIONS_WORKSPACE <- Sys.getenv("GITHUB_WORKSPACE")
-    fp_to_README_md <- file.path(ACTIONS_WORKSPACE, "doc", "CONTRIBUTING.md")
+    fp_to_CONTRIBUTING_md <- file.path(ACTIONS_WORKSPACE, "doc", "CONTRIBUTING.md")
   } else {
   fp_to_CONTRIBUTING_md <- "../../../doc/CONTRIBUTING.md"
   }
