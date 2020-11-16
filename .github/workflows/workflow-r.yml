@@ -70,7 +70,6 @@ jobs:
           R CMD check posteriordb_*.tar.gz
 
       - name: Run R tests (macOS)
-        env:
         if: matrix.config.os == 'macos-latest'
         run: |
           export LC_ALL=C
