@@ -65,6 +65,7 @@ jobs:
       - name: Run R tests (Ubuntu)
         env: 
           _R_CHECK_TESTS_NLINES: 0
+          _R_CHECK_VIGNETTES_NLINES: 0
         if: matrix.config.os == 'ubuntu-latest'
         run: |
           R CMD build rpackage
@@ -73,6 +74,7 @@ jobs:
       - name: Run R tests (macOS)
         env:
            _R_CHECK_TESTS_NLINES: 0
+           _R_CHECK_VIGNETTES_NLINES: 0
         if: matrix.config.os == 'macos-latest'
         run: |
           export LC_ALL=C
@@ -83,6 +85,7 @@ jobs:
       - name: Run R tests (Windows)
         env:
           _R_CHECK_TESTS_NLINES: 0
+          _R_CHECK_VIGNETTES_NLINES: 0
         if: matrix.config.os == 'windows-latest'
         run: |
           RCMD build rpackage
