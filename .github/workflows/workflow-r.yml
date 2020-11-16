@@ -22,6 +22,7 @@ jobs:
       fail-fast: false
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      _R_CHECK_TESTS_NLINES_: 0
     steps:
       - name: Checkout github
         uses: actions/checkout@v2
@@ -63,9 +64,6 @@ jobs:
         shell: Rscript {0}
 
       - name: Run R tests (Ubuntu)
-        env: 
-          _R_CHECK_TESTS_NLINES: 0
-          _R_CHECK_VIGNETTES_NLINES: 0
         if: matrix.config.os == 'ubuntu-latest'
         run: |
           R CMD build rpackage
@@ -73,8 +71,6 @@ jobs:
 
       - name: Run R tests (macOS)
         env:
-           _R_CHECK_TESTS_NLINES: 0
-           _R_CHECK_VIGNETTES_NLINES: 0
         if: matrix.config.os == 'macos-latest'
         run: |
           export LC_ALL=C
@@ -83,9 +79,6 @@ jobs:
           R CMD check posteriordb_*.tar.gz
 
       - name: Run R tests (Windows)
-        env:
-          _R_CHECK_TESTS_NLINES: 0
-          _R_CHECK_VIGNETTES_NLINES: 0
         if: matrix.config.os == 'windows-latest'
         run: |
           RCMD build rpackage
@@ -95,14 +88,14 @@ jobs:
         if: failure() && (matrix.config.os == 'ubuntu-latest')
         uses: actions/upload-artifact@v2
         with:
-          name: exception_results_${{ matrix.config.os}}_${{ matrix.config.r-version}}
+          name: exception_results_${{ matrix.config.os}}_${{ matrix.config.r}}
           path: /home/runner/work/posteriordb/posteriordb/posteriordb.Rcheck/*.log
         
       - name: debug logs
         if: failure() && (matrix.config.os == 'macos-latest')
         uses: actions/upload-artifact@v2
         with:
-          name: exception_results_${{ matrix.config.os}}_${{ matrix.config.r-version}}
+          name: exception_results_${{ matrix.config.os}}_${{ matrix.config.r}}
           path: /Users/runner/work/posteriordb/posteriordb/posteriordb.Rcheck/*.log
 
       #- name: Codecov
