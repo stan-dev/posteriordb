@@ -251,9 +251,9 @@ database.
 3.  Models and data has (model/data).info.json files with model and data
     specific information.
 4.  Templates for different JSONs can be found in content/templates and
-    schemas in schemas (Note: these don't exist right now and will be
+    schemas in schemas (Note: these don’t exist right now and will be
     added later)
-5.  Prefix 'syn\_' stands for synthetic data where the generative
+5.  Prefix ‘syn\_’ stands for synthetic data where the generative
     process is known and found in content/data-raw.
 6.  All data preprocessing is included in content/data-raw.
 7.  Specific information for different PPL representations of models is
