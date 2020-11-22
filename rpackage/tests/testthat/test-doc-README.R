@@ -2,7 +2,7 @@ context("test-README.md")
 
 test_that("README.md works as stated", {
   skip_on_cran()
-  skip_on_appveyor()
+  skip_on_os("windows")
   on_travis <- identical(Sys.getenv("TRAVIS"), "true")
   on_actions <- identical(Sys.getenv("GITHUB_ACTIONS"), "true")
   if(on_travis){

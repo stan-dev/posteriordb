@@ -2,7 +2,7 @@ context("test-CONTRIBUTING.md")
 
 test_that("CONTRIBUTION.md works as usual (not testing rstan)", {
   skip_on_cran()
-  skip_on_appveyor()
+  skip_on_os("windows")
   on_travis <- identical(Sys.getenv("TRAVIS"), "true")
   on_actions <- identical(Sys.getenv("GITHUB_ACTIONS"), "true")
   in_covr <- identical(Sys.getenv("R_COVR"), "true")

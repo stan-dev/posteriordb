@@ -1,7 +1,7 @@
 context("test-travis-envir")
 
 test_that("Environmental variable TRAVIS_BUILD_DIR exist on Travis CI", {
-  skip_on_appveyor()
+  skip_on_os("windows")
 
   on_travis <- identical(Sys.getenv("TRAVIS"), "true")
   if(on_travis){
