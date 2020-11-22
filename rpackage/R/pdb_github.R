@@ -136,6 +136,7 @@ github_path <- function(pdb, type, path = NULL){
 #' @export
 github_pat <- function(pdb = NULL) {
   # Sys.setenv(GITHUB_PAT = "my github token here")
+  # Sys.unsetenv("GITHUB_PAT")
   pat <- Sys.getenv("GITHUB_PAT")
   if (nzchar(pat)) {
     return(pat)
