@@ -149,12 +149,14 @@ github_pat <- function(pdb = NULL) {
 #'
 #' A github reference to use
 #' Looks in env var `GITHUB_REF`
-#' @param pdb A posterior datasbase object to extract pat from.
+#' @param pdb A posterior datasbase object.
 #' @export
 github_ref <- function(pdb = NULL) {
   ref <- Sys.getenv("GITHUB_REF")
   if (nzchar(ref)) {
-    return(ref)
+    # This is to handle that GITHUB_REF on Github Actions return 'refs/heads/[ref]'
+    ref <- strsplit(ref, "/")[[1]]
+    return(ref[length(ref)])
   } else {
     return("master")
   }

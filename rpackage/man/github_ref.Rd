@@ -7,7 +7,7 @@
 github_ref(pdb = NULL)
 }
 \arguments{
-\item{pdb}{A posterior datasbase object to extract pat from.}
+\item{pdb}{A posterior datasbase object.}
 }
 \description{
 A github reference to use
