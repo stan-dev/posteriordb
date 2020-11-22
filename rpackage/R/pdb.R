@@ -637,7 +637,7 @@ write_to_path <- function(x, path, type, pdb, name = NULL, zip = FALSE, info = T
   }
 
   if(type == "json"){
-    out <- jsonlite::toJSON(x, pretty = TRUE, auto_unbox = TRUE, null = "null", digits = NA)
+    out <- jsonlite::toJSON(x, pretty = TRUE, auto_unbox = TRUE, null = "null", digits = NA, encoding = "UTF-8")
   } else if (type == "txt"){
     out <- x
   } else if (type == "stan"){
