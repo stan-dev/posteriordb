@@ -135,6 +135,7 @@ github_path <- function(pdb, type, path = NULL){
 #' @param pdb A posterior datasbase object to extract pat from.
 #' @export
 github_pat <- function(pdb = NULL) {
+  # Sys.setenv(GITHUB_PAT = "my github token here")
   pat <- Sys.getenv("GITHUB_PAT")
   if (nzchar(pat)) {
     return(pat)
