@@ -149,6 +149,8 @@ test_that("write reference_posterior", {
   expect_silent(write_pdb(gsd, pdb_test, overwrite = TRUE))
 
   expect_silent(rpt <- pdb_reference_posterior_draws(x = "test_data-test_model", pdb_test))
+
+  expect_identical(info(gsd)$added_by, info(rpt)$added_by)
   expect_identical(gsd, rpt)
 
   # Remove rpd
