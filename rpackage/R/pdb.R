@@ -646,7 +646,8 @@ write_to_path <- function(x, path, type, pdb, name = NULL, zip = FALSE, info = T
     stop(type, " not implemented.")
   }
 
-  writeLines(text = out, con = fp)
+  Encoding(out) <- "UTF-8"
+  writeLines(text = out, con = fp, useBytes = TRUE)
 
   if(zip){
     zip(files = fp, zipfile = zfp, flags = "-jq")
