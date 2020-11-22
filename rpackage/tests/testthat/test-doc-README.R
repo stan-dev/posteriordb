@@ -18,11 +18,11 @@ test_that("README.md works as stated", {
 
   skip_if(!file.exists(fp_to_README_md))
   # check hash
-  # If this fails, the CONTRIBUTING.md has been changed.
+  # If this fails, the README.md has been changed.
   # Please check that no code has been changed or update this test suite accordingly
   # Then change the hash to the md5 of the new updated file.
   md5_hash <- digest::digest(readLines(fp_to_README_md), algo = "md5")
-  expect_equal(md5_hash, "b3d18584e9bdc3a40b1f276d851e38e8")
+  expect_equal(md5_hash, "ab828f372d840618672b2e393ad48540")
 
   skip_if(is.null(github_pat()))
 
