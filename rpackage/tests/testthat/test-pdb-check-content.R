@@ -1,4 +1,7 @@
 context("test-pdb-check-content")
+# This is checks of the content of the database,
+# Hence it does not need to run on all systems using CI
+if(on_github_actions()) skip_on_os("windows")
 
 test_that("check_pdb_read_posteriors", {
   posterior_db_path <- posteriordb:::get_test_pdb_dir()

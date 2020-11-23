@@ -11,7 +11,7 @@ test_that("Check that all posteriors can access stan_data and stan_code", {
   # Test stan_data_file_path
   expect_silent(sdfp <- stan_data_file_path(po))
   expect_true(file.exists(sdfp))
-  if(!on_appveyor()) expect_true(grepl(pattern = tempdir(), x = sdfp))
+  if(!on_windows()) expect_true(grepl(pattern = tempdir(), x = sdfp))
   expect_equal(posteriordb:::get_file_extension(sdfp), "json")
   expect_silent(jsonlite::read_json(sdfp))
 
@@ -23,7 +23,7 @@ test_that("Check that all posteriors can access stan_data and stan_code", {
   # Test model_code
   expect_silent(mcfp <- model_code_file_path(po, "stan"))
   expect_true(file.exists(mcfp))
-  if(!on_appveyor()) expect_true(grepl(pattern = tempdir(), x = mcfp))
+  if(!on_windows()) expect_true(grepl(pattern = tempdir(), x = mcfp))
   expect_equal(posteriordb:::get_file_extension(mcfp), "stan")
   expect_silent(scfp <- stan_code_file_path(po))
   expect_equal(scfp, mcfp)

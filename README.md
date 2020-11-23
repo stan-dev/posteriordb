@@ -2,30 +2,42 @@
 
 [![CRAN
 status](https://www.r-pkg.org/badges/version/posterior)](https://CRAN.R-project.org/package=posterior)
-[![Build
-Status](https://travis-ci.org/MansMeg/posteriordb.svg?branch=master)](https://travis-ci.org/MansMeg/posteriordb)
-[![AppVeyor build
-status](https://ci.appveyor.com/api/projects/status/github/MansMeg/posteriordb?branch=master&svg=true)](https://ci.appveyor.com/project/MansMeg/posteriordb)
+[![R build
+status](https://github.com/MansMeg/posteriordb/workflows/R-CMD-check/badge.svg)](https://github.com/MansMeg/posteriordb/actions)
 [![codecov](https://codecov.io/gh/MansMeg/posteriordb/branch/master/graph/badge.svg)](https://codecov.io/gh/MansMeg/posteriordb)
 
+`posteriordb`: a database of Bayesian posterior inference
+=========================================================
 
-# `posteriordb`: a database of Bayesian posterior inference
+What is `posteriordb`?
+----------------------
 
-## What is `posteriordb`?
+`posteriordb` is a set of posteriors, i.e. Bayesian statistical models
+and data sets, reference implementations in probabilistic programming
+languages, and reference posterior inferences in the form of posterior
+samples.
 
-`posteriordb` is a set of posteriors, i.e. Bayesian statistical models and data sets, reference implementations in probabilistic programming languages, and reference posterior inferences in the form of posterior samples.   
+Why use `posteriordb`?
+----------------------
 
-## Why use `posteriordb`?
+`posteriordb` is designed to test inference algorithms across a wide
+range of models and data sets. Applications include testing for
+accuracy, testing for speed, and testing for scalability. Algorithms
+being tested may be approximate like variational inference or
+asymptotically exact like Markov chain Monte Carlo. `posteriordb` can be
+used to test new algorithms being developed or deployed as part of
+continuous integration for ongoing regression testing of algorithms in
+probabilistic programming frameworks.
 
-`posteriordb` is designed to test inference algorithms across a wide range of models and data sets.  Applications include testing for accuracy, testing for speed, and testing for scalability.  Algorithms being tested may be approximate like variational inference or asymptotically exact like Markov chain Monte Carlo.  `posteriordb` can be used to test new algorithms being developed or deployed as part of continuous integration for ongoing regression testing of algorithms in probabilistic programming frameworks.
+`posteriordb` also makes it easy for students and instructors to access
+a range of pedagogical and real-world examples with precise model
+definitions, well-curated data sets, and reference posteriors.
 
-`posteriordb` also makes it easy for students and instructors to access a range of pedagogical and real-world examples with precise model definitions, well-curated data sets, and reference posteriors.  
+`posteriordb` is framework agnostic and easily accessible from R and
+Python.
 
-`posteriordb` is framework agnostic and easily accessible from R and Python.
-
-For more details regarding the use cases of  `posteriordb`, see [doc/use_cases.md](https://github.com/MansMeg/posteriordb/blob/master/doc/use_cases.md).
-
-
+For more details regarding the use cases of `posteriordb`, see
+[doc/use\_cases.md](https://github.com/MansMeg/posteriordb/blob/master/doc/use_cases.md).
 
 Content
 -------

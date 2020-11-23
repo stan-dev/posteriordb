@@ -127,7 +127,7 @@ test_that("write posterior", {
 
 
 test_that("write reference_posterior", {
-  skip_on_appveyor()
+  if(on_github_actions()) skip_on_os("windows")
 
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
   expect_silent(pdb_test <- pdb(posterior_db_path))
@@ -149,6 +149,8 @@ test_that("write reference_posterior", {
   expect_silent(write_pdb(gsd, pdb_test, overwrite = TRUE))
 
   expect_silent(rpt <- pdb_reference_posterior_draws(x = "test_data-test_model", pdb_test))
+
+  expect_identical(info(gsd)$added_by, info(rpt)$added_by)
   expect_identical(gsd, rpt)
 
   # Remove rpd
