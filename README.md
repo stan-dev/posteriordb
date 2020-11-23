@@ -2,10 +2,8 @@
 
 [![CRAN
 status](https://www.r-pkg.org/badges/version/posterior)](https://CRAN.R-project.org/package=posterior)
-[![Build
-Status](https://travis-ci.org/MansMeg/posteriordb.svg?branch=master)](https://travis-ci.org/MansMeg/posteriordb)
-[![AppVeyor build
-status](https://ci.appveyor.com/api/projects/status/github/MansMeg/posteriordb?branch=master&svg=true)](https://ci.appveyor.com/project/MansMeg/posteriordb)
+[![R build
+status](https://github.com/MansMeg/posteriordb/workflows/R-CMD-check/badge.svg)](https://github.com/MansMeg/posteriordb/actions)
 [![codecov](https://codecov.io/gh/MansMeg/posteriordb/branch/master/graph/badge.svg)](https://codecov.io/gh/MansMeg/posteriordb)
 
 `posteriordb`: a database of Bayesian posterior inference
