@@ -61,7 +61,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         if: success() && matrix.os == 'ubuntu-latest'
         with:
-          name: pyinfraformat_wheel
+          name: posteriordb_wheel
           path: python/dist/*.whl
 
       - name: Upload wheel to release
