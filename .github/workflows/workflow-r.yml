@@ -79,7 +79,7 @@ jobs:
       - name: R version info (Windows)
         if: runner.os == 'Windows'
         run: |
-          RScript -e \"sessionInfo();cat(\\"\nInstalled R packages:\n\\", paste(installed.packages()[,\\"Package\\"], installed.packages()[,\\"Version\\"], \\"\n\\"))\"
+          RScript -e "sessionInfo();cat('\nInstalled R packages:\n', paste(installed.packages()[,'Package'], installed.packages()[,'Version'], '\n'))"
 
       - name: Run R tests (Ubuntu)
         if: matrix.config.os == 'ubuntu-latest'
@@ -115,7 +115,7 @@ jobs:
           name: exception_results_${{ matrix.config.os}}_${{ matrix.config.r}}
           path: /Users/runner/work/posteriordb/posteriordb/posteriordb.Rcheck/*.log
 
-      #- name: Codecov
-      #  run: |
-      #    cd rpackage
-      #    Rscript -e 'covr::codecov(quiet = FALSE)'
+      - name: Codecov
+        run: |
+          cd rpackage
+          Rscript -e 'covr::codecov(quiet = FALSE)'
