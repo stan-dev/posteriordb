@@ -1,4 +1,4 @@
-name: Python Workflow
+name: Python
 
 on:
   push:

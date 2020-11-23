@@ -21,7 +21,7 @@ test_that("README.md works as stated", {
   # Please check that no code has been changed or update this test suite accordingly
   # Then change the hash to the md5 of the new updated file.
   md5_hash <- digest::digest(readLines(fp_to_README_md), algo = "md5")
-  expect_equal(md5_hash, "d1052012a01f5fc8e5fdd0feabacae02")
+  expect_equal(md5_hash, "a4d6669ea9dbb5d95253e4d0342b215b")
 
   skip_if(is.null(github_pat()))
 

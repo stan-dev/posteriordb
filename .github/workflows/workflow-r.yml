@@ -1,4 +1,4 @@
-name: R Workflow
+name: R
 
 on:
   push:
