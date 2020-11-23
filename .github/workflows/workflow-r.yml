@@ -116,5 +116,6 @@ jobs:
           path: /Users/runner/work/posteriordb/posteriordb/posteriordb.Rcheck/*.log
 
       - name: Codecov
-        run: covr::codecov(quiet = FALSE)
-        shell: Rscript {0}
+        run: |
+          cd rpackage
+          Rscript -e "covr::codecov(quiet = FALSE)"
