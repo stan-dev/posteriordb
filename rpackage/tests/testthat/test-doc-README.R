@@ -2,14 +2,13 @@ context("test-README.md")
 
 test_that("README.md works as stated", {
   skip_on_cran()
-  skip_on_os("windows")
-  on_travis <- identical(Sys.getenv("TRAVIS"), "true")
-  on_actions <- identical(Sys.getenv("GITHUB_ACTIONS"), "true")
-  if(on_travis){
+  if(on_github_actions()) skip_on_os("windows")
+
+  if(on_travis()){
     # On Travis the package are checked in rpackage/
     TRAVIS_BUILD_DIR <- Sys.getenv("TRAVIS_BUILD_DIR")
     fp_to_README_md <- file.path(TRAVIS_BUILD_DIR, "README.md")
-  } else if(on_actions) {
+  } else if(on_github_actions()) {
     ACTIONS_WORKSPACE <- Sys.getenv("GITHUB_WORKSPACE")
     fp_to_README_md <- file.path(ACTIONS_WORKSPACE, "README.md")
   } else {
