@@ -119,4 +119,4 @@ jobs:
         if: runner.os != 'Windows'
         run: |
           echo $GITHUB_WORKSPACE
-          Rscript -e "covr::codecov(path = "rpackage", quiet = FALSE)"
+          Rscript -e "covr::codecov(path = 'rpackage', quiet = FALSE)"
