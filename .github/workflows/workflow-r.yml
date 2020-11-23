@@ -70,12 +70,21 @@ jobs:
           writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
         shell: Rscript {0}
 
+      - name: R version info (Ubuntu and macOS)
+        if: runner.os != 'Windows'
+        run: |
+          Rscript -e 'sessionInfo();cat(paste(installed.packages()[,"Package"], installed.packages()[,"Version"], "\n"))'
+
+      - name: R version info (Windows)
+        if: runner.os == 'Windows'
+        run: |
+          RScript -e 'sessionInfo();cat(paste(installed.packages()[,"Package"], installed.packages()[,"Version"], "\n"))'
+
       - name: Run R tests (Ubuntu)
         if: matrix.config.os == 'ubuntu-latest'
         run: |
           R CMD build rpackage
           R CMD check posteriordb_*.tar.gz
-          Rscript -e 'sessionInfo()'
 
       - name: Run R tests (macOS)
         if: matrix.config.os == 'macos-latest'
@@ -84,14 +93,12 @@ jobs:
           export LANG=C
           R CMD build rpackage
           R CMD check posteriordb_*.tar.gz
-          Rscript -e 'sessionInfo()'
 
       - name: Run R tests (Windows)
         if: matrix.config.os == 'windows-latest'
         run: |
           RCMD build rpackage
           RCMD check posteriordb_*.tar.gz
-          RScript -e 'sessionInfo()'
 
       - name: debug logs
         if: failure() && (matrix.config.os == 'ubuntu-latest')
