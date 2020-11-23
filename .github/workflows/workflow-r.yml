@@ -78,7 +78,7 @@ jobs:
       - name: R version info (Windows)
         if: runner.os == 'Windows'
         run: |
-          RScript -e "sessionInfo();cat(\"\nInstalled R packages:\n\", paste(installed.packages()[,\"Package\"], installed.packages()[,\"Version\"], \"\n\"))"
+          RScript -e 'sessionInfo();cat(\"\nInstalled R packages:\n\", paste(installed.packages()[,\"Package\"], installed.packages()[,\"Version\"], \"\n\"))'
 
       - name: Run R tests (Ubuntu)
         if: matrix.config.os == 'ubuntu-latest'
