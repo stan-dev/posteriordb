@@ -110,6 +110,7 @@ jobs:
           path: /Users/runner/work/posteriordb/posteriordb/posteriordb.Rcheck/*.log
 
       - name: Codecov
+        if: runner.os != 'Windows'
         run: |
           cd rpackage
           Rscript -e "covr::codecov(quiet = FALSE)"
