@@ -71,13 +71,7 @@ jobs:
           writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
         shell: Rscript {0}
 
-      - name: R version info (Ubuntu and macOS)
-        if: runner.os != 'Windows'
-        run: |
-          Rscript -e 'sessionInfo();cat("\nInstalled R packages:\n", paste(installed.packages()[,"Package"], installed.packages()[,"Version"], "\n"))'
-
-      - name: R version info (Windows)
-        if: runner.os == 'Windows'
+      - name: R version info
         run: |
           RScript -e "sessionInfo();cat('\nInstalled R packages:\n', paste(installed.packages()[,'Package'], installed.packages()[,'Version'], '\n'))"
 
