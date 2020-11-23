@@ -75,7 +75,7 @@ jobs:
         if: runner.os != 'Windows'
         run: |
           Rscript -e 'sessionInfo();cat("\nInstalled R packages:\n", paste(installed.packages()[,"Package"], installed.packages()[,"Version"], "\n"))'
-  
+
       - name: R version info (Windows)
         if: runner.os == 'Windows'
         run: |
@@ -118,5 +118,5 @@ jobs:
       - name: Codecov
         if: runner.os != 'Windows'
         run: |
-          cd rpackage
-          Rscript -e "covr::codecov(quiet = FALSE)"
+          echo $GITHUB_WORKSPACE
+          Rscript -e "covr::codecov(path = "rpackage", quiet = FALSE)"

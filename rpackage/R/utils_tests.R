@@ -10,6 +10,9 @@ get_test_pdb_dir <- function(x) {
   if (on_travis()) x <- Sys.getenv("TRAVIS_BUILD_DIR")
   # If on Appveyor - use Appveyor build path
   if (on_appveyor()) x <- Sys.getenv("APPVEYOR_BUILD_FOLDER")
+  # If on github actions, use github actions build path
+  if (on_github_actions()) x <- Sys.getenv("GITHUB_WORKSPACE")
+
   find_local_posterior_database(x)
 }
 
