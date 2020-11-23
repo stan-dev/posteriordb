@@ -40,12 +40,19 @@ jobs:
 
       - uses: r-lib/actions/setup-pandoc@master
 
+      - name: Cache R packages
+        if: runner.os != 'Windows'
+        uses: actions/cache@v1
+        with:
+          path: ${{ env.R_LIBS_USER }}
+          key: ${{ runner.os }}-r-${{ matrix.config.r }}-${{ hashFiles('DESCRIPTION') }}
+
       - name: Install dependencies (Ubuntu)
         if: matrix.config.os == 'ubuntu-latest'
         run: |
           sudo apt-get update
           sudo apt-get install libcurl4-openssl-dev libv8-dev
-  
+
       - name: Install R dependencies
         run: |
           options(install.packages.check.source = "no")
@@ -89,7 +96,7 @@ jobs:
         with:
           name: exception_results_${{ matrix.config.os}}_${{ matrix.config.r}}
           path: /home/runner/work/posteriordb/posteriordb/posteriordb.Rcheck/*.log
-        
+
       - name: debug logs
         if: failure() && (matrix.config.os == 'macos-latest')
         uses: actions/upload-artifact@v2
