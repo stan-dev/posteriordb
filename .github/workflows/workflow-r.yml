@@ -116,7 +116,7 @@ jobs:
           path: /Users/runner/work/posteriordb/posteriordb/posteriordb.Rcheck/*.log
 
       - name: Codecov
-        if: matrix.config.r == 'release' && runner.os == 'macos-latest')
+        if: (matrix.config.r == 'release') && (runner.os == 'macos-latest')
         run: |
           echo $GITHUB_WORKSPACE
           Rscript -e "covr::codecov(path = 'rpackage', quiet = FALSE)"
