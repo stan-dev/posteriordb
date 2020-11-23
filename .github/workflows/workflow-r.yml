@@ -75,6 +75,7 @@ jobs:
         run: |
           R CMD build rpackage
           R CMD check posteriordb_*.tar.gz
+          Rscript -e 'sessionInfo()'
 
       - name: Run R tests (macOS)
         if: matrix.config.os == 'macos-latest'
@@ -83,12 +84,14 @@ jobs:
           export LANG=C
           R CMD build rpackage
           R CMD check posteriordb_*.tar.gz
+          Rscript -e 'sessionInfo()'
 
       - name: Run R tests (Windows)
         if: matrix.config.os == 'windows-latest'
         run: |
           RCMD build rpackage
           RCMD check posteriordb_*.tar.gz
+          RScript -e 'sessionInfo()'
 
       - name: debug logs
         if: failure() && (matrix.config.os == 'ubuntu-latest')
