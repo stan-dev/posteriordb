@@ -76,9 +76,10 @@ def download_file(url, path, overwrite=False, sha=None):
     To manually disable requests verify
     set environmental variable REQUESTS_VERIFY to false.
     """
-    # Check if file exists and
+    if (not overwrite) and path.exists():
+        return True
     if overwrite and (sha is not None) and path.exists():
-        if sha256 == get_sha256_hash(path):
+        if sha == get_sha1_hash(path):
             return True
 
     verify = os.environ.get("REQUESTS_VERIFY", True)
@@ -160,6 +161,9 @@ class PosteriorDatabaseGithub:
 
         self.refresh_url()
 
+        self._progressbar_width = 30
+        self._progressbar_marker = b"\xe2\x96\xa0".decode("utf-8")
+
         if refresh:
             self.refresh_github()
         else:
@@ -180,7 +184,7 @@ class PosteriorDatabaseGithub:
     def refresh_github(self):
         self._links = get_content(self._url, path=self.path.parent)
 
-    def download_all(self, refresh=True, overwrite=None):
+    def download_all(self, refresh=False, overwrite=None, show_progress=True):
         """Download all files for database."""
         if refresh:
             self.refresh_github()
@@ -188,7 +192,15 @@ class PosteriorDatabaseGithub:
             overwrite = self.overwrite
         n = len(self._links)
         for i, (path, metadata) in enumerate(self._links.items(), 1):
-            print("\rFile ({}/{})".format(i, n), end="")
+            print(
+                "\rDownloading {:<30} ({}/{})".format(
+                    self._progressbar_marker * int(i / n * self._progressbar_width),
+                    i,
+                    n,
+                ),
+                end="",
+                flush=True,
+            )
             download_file(
                 metadata["download_url"], path, overwrite=overwrite, sha=metadata["sha"]
             )

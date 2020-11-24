@@ -2,6 +2,7 @@ import os
 import re
 
 from posteriordb import PosteriorDatabase, PosteriorDatabaseGithub
+from posteriordb.posterior_database_github import get_sha1_hash
 
 
 def test_posterior_database():
@@ -120,6 +121,18 @@ def test_posterior_database_github():
         # test that pdb.model works
         model2 = pdb.model(model.name)
         assert model2 is not None
+
+        # check sha1
+        ((model_file_path, sha1_github),) = [
+            (key, item["sha"])
+            for key, item in pdb._links.items()
+            if (
+                (key.with_suffix("").stem == model.name)
+                and ("/models/" in key.as_posix())
+            )
+        ]
+        sha1_file = get_sha1_hash(model_file_path)
+        assert sha1_file == sha1_github
 
     posteriors = list(pdb.posteriors())
     assert len(posteriors) > 0
