@@ -155,8 +155,8 @@ github_ref <- function(pdb = NULL) {
   ref <- Sys.getenv("GITHUB_REF")
   if (nzchar(ref)) {
     # This is to handle that GITHUB_REF on Github Actions return 'refs/heads/[ref]'
-    ref <- strsplit(ref, "/")[[1]]
-    return(ref[length(ref)])
+    ref <- sub("^refs/heads/", "", ref)
+    return(ref)
   } else {
     return("master")
   }
