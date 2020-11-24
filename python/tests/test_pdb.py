@@ -123,7 +123,7 @@ def test_posterior_database_github():
         assert model2 is not None
 
         # check sha1
-        ((model_file_path, sha1_github),) = [
+        model_files = [
             (key, item["sha"])
             for key, item in pdb._links.items()
             if (
@@ -131,8 +131,9 @@ def test_posterior_database_github():
                 and ("/models/" in key.as_posix())
             )
         ]
-        sha1_file = get_sha1_hash(model_file_path)
-        assert sha1_file == sha1_github
+        for model_file_path, sha1_github in model_files:
+            sha1_file = get_sha1_hash(model_file_path)
+            assert sha1_file == sha1_github
 
     posteriors = list(pdb.posteriors())
     assert len(posteriors) > 0
