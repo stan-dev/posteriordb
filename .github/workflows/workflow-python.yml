@@ -3,9 +3,9 @@ name: Python
 on:
   push:
     branches:
-      - '*'
+      - '**'
     tags:
-      - '*'
+      - '**'
 
 jobs:
   models:

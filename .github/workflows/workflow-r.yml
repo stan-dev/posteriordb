@@ -3,9 +3,9 @@ name: R
 on:
   push:
     branches:
-      - '*'
+      - '**'
     tags:
-      - '*'
+      - '**'
 
 jobs:
   models:
