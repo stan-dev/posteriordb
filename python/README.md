@@ -34,9 +34,9 @@ The above code requires that your working directory is in the main folder of you
 of this project. Alternatively, you can specify the path to the folder directly.
 
 To use online database use `PosteriorDatabaseGithub` class. Remember to create and set `GITHUB_PAT` environmental variable.
-It is recommended that users create a read-only (no extra permissions) Personal Access Token (PAT) for `posteriordb` use.
+It is recommended that users create a read-only (no extra permissions) [GitHub Personal Access Token (PAT)](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token) for `posteriordb` use. It is recommended that the
+GITHUB_PAT variable is added to user environmental variables and it is not set in Python script as shown in the example.
 
-https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token
 
 If not explicitly defined, `PosteriorDatabaseGithub` will create a new or use old database located at `POSTERIOR_DB_DIR` if
 defined and `$HOME/.posteriordb/posterior_database`. Each used model and data is downloaded from online dynamically when needed.
@@ -44,6 +44,8 @@ defined and `$HOME/.posteriordb/posterior_database`. Each used model and data is
 ```python
 >>> from posteriordb import PosteriorDatabaseGithub
 >>> import os
+>>> # It is recommended that GITHUB_PAT is added to the user environmental variables
+>>> # outside python and not in a python script as shown in this example code
 >>> os.environ["GITHUB_PAT"] = "token-string-here"
 >>> my_pdb = PosteriorDatabaseGithub()
 ```
