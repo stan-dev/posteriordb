@@ -68,6 +68,8 @@ def test_posterior_database():
 def test_posterior_database_github():
     # Skip test if GITHUB_PAT not defined
     if os.environ.get("GITHUB_PAT") is None:
+        if os.environ.get("CI"):
+            raise TypeError("GITHUB_PAT environmental variable is missing")
         return
 
     kwargs = {}
