@@ -34,7 +34,10 @@ The above code requires that your working directory is in the main folder of you
 of this project. Alternatively, you can specify the path to the folder directly.
 
 To use online database use `PosteriorDatabaseGithub` class. Remember to create and set `GITHUB_PAT` environmental variable.
-It is recommended that users create a read-only Personal Access Token for `posteriordb` use.
+It is recommended that users create a read-only (no extra permissions) Personal Access Token (PAT) for `posteriordb` use.
+
+https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token
+
 If not explicitly defined, `PosteriorDatabaseGithub` will create a new or use old database located at `POSTERIOR_DB_DIR` if
 defined and `$HOME/.posteriordb/posterior_database`. Each used model and data is downloaded from online dynamically when needed.
 
