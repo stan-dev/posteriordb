@@ -10,7 +10,7 @@ Installation from PyPI is recommended.
 pip install posteriordb
 ```
 
-Or with a local git clone
+Installing from the local clone.
 
 ```bash
 git clone https://github.com/MansMeg/posteriordb
