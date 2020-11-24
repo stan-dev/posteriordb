@@ -33,13 +33,14 @@ First we create the posterior database to use, here the cloned posterior databas
 The above code requires that your working directory is in the main folder of your copy
 of this project. Alternatively, you can specify the path to the folder directly.
 
-To use online database use `PosteriorDatabaseGithub` class. Remember to create and set `GITHUB_PAT` environmental variable.
-It is recommended that users create a read-only (no extra permissions) [GitHub Personal Access Token (PAT)](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token) for `posteriordb` use. It is recommended that the
-GITHUB_PAT variable is added to user environmental variables and it is not set in Python script as shown in the example.
+Online database can be used with the `PosteriorDatabaseGithub` class. Remember to create and set `GITHUB_PAT` environmental variable.
+It's recommended that users create a read-only (no extra permissions) [GitHub Personal Access Token (PAT)](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token) for `posteriordb` use. It's also recommended that the
+`GITHUB_PAT` environmental variable is added to user environmental variables and it is not shown in Python script as in the example below.
 
 
-If not explicitly defined, `PosteriorDatabaseGithub` will create a new or use old database located at `POSTERIOR_DB_DIR` if
-defined and `$HOME/.posteriordb/posterior_database`. Each used model and data is downloaded from online dynamically when needed.
+If not explicitly defined, `PosteriorDatabaseGithub` will create a new (or use old database) located at `POSTERIOR_DB_DIR` if it's
+defined and finally as a fallback `$HOME/.posteriordb/posterior_database` is used.
+Each model and data is only downloaded and cached when needed.
 
 ```python
 >>> from posteriordb import PosteriorDatabaseGithub
