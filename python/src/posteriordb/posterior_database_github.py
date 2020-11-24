@@ -1,3 +1,4 @@
+import hashlib
 import json
 import os
 import tempfile
@@ -69,12 +70,17 @@ def get_content(url, path=None, headers=None):
     return contents
 
 
-def download_file(url, path):
+def download_file(url, path, overwrite=False, sha=None):
     """Download file with a requests.
 
     To manually disable requests verify
     set environmental variable REQUESTS_VERIFY to false.
     """
+    # Check if file exists and
+    if overwrite and (sha is not None) and path.exists():
+        if sha256 == get_sha256_hash(path):
+            return True
+
     verify = os.environ.get("REQUESTS_VERIFY", True)
     if str(verify).lower() in ("0", "false"):
         verify = False
@@ -94,19 +100,32 @@ def download_file(url, path):
     return True
 
 
-def load_json_file(path, metadata):
+def get_sha1_hash(path):
+    sha1_hash = hashlib.sha1()
+    size = path.stat().st_size
+    with path.open("rb") as f:
+        sha1_hash.update(bytes("blob {}".format(size), encoding="utf-8") + b"\0")
+        for byte_block in iter(lambda: f.read(4096), b""):
+            sha1_hash.update(byte_block)
+    return sha1_hash.hexdigest()
+
+
+def load_json_file(path, metadata, overwrite=False):
     if not path.exists():
         if metadata is not None:
             download_file(metadata["download_url"], path)
         else:
             raise TypeError("File was not found in GitHub")
+    elif overwrite:
+        if metadata is not None:
+            download_file(metadata["download_url"], path, sha=metadata["sha"])
     with path.open(encoding="utf-8") as f:
         data = json.load(f)
     return data
 
 
-def load_info(path, assertion_function, metadata):
-    info = load_json_file(path, metadata)
+def load_info(path, assertion_function, metadata, overwrite=False):
+    info = load_json_file(path, metadata, overwrite=overwrite)
     assertion_function(info)
     return info
 
@@ -121,7 +140,12 @@ def filenames_in_dir_no_extension(directory, gh_directory, extension):
 
 class PosteriorDatabaseGithub:
     def __init__(
-        self, path: str = None, repo="MansMeg/posteriordb", ref="master", refresh=True
+        self,
+        path: str = None,
+        repo="MansMeg/posteriordb",
+        ref="master",
+        refresh=True,
+        overwrite=False,
     ):
         if path is None:
             path = os.environ.get("POSTERIOR_DB_DIR")
@@ -130,12 +154,13 @@ class PosteriorDatabaseGithub:
                 path.mkdir(parents=True, exist_ok=True)
         self.path = Path(path)
 
+        self.overwrite = overwrite
         self._repo = repo
         self._ref = ref
 
         self.refresh_url()
 
-        if refresh_github:
+        if refresh:
             self.refresh_github()
         else:
             self._links = {}
@@ -155,14 +180,18 @@ class PosteriorDatabaseGithub:
     def refresh_github(self):
         self._links = get_content(self._url, path=self.path.parent)
 
-    def download_all(self, refresh=True):
+    def download_all(self, refresh=True, overwrite=None):
         """Download all files for database."""
         if refresh:
             self.refresh_github()
+        if overwrite is None:
+            overwrite = self.overwrite
         n = len(self._links)
         for i, (path, metadata) in enumerate(self._links.items(), 1):
             print("\rFile ({}/{})".format(i, n), end="")
-            download_file(metadata["download_url"], path)
+            download_file(
+                metadata["download_url"], path, overwrite=overwrite, sha=metadata["sha"]
+            )
 
     def full_path(self, path: str):
         return self.path / path
@@ -191,20 +220,35 @@ class PosteriorDatabaseGithub:
 
     def get_posterior_info(self, name: str):
         path = self.posterior_info_path(name)
-        return load_info(path, temporary_no_assertions, self._links.get(path))
+        return load_info(
+            path,
+            temporary_no_assertions,
+            self._links.get(path),
+            overwrite=self.overwrite,
+        )
 
     def get_model_info(self, name: str):
         # load from the correct path
         file_name = name + ".info.json"
         path = self.path / "models" / "info" / file_name
 
-        return load_info(path, temporary_no_assertions, self._links.get(path))
+        return load_info(
+            path,
+            temporary_no_assertions,
+            self._links.get(path),
+            overwrite=self.overwrite,
+        )
 
     def get_data_info(self, name: str):
         file_name = name + ".info.json"
         path = self.path / "data" / "info" / file_name
 
-        return load_info(path, temporary_no_assertions, self._links.get(path))
+        return load_info(
+            path,
+            temporary_no_assertions,
+            self._links.get(path),
+            overwrite=self.overwrite,
+        )
 
     def get_reference_draws_path(self, name: str):
         reference_root = self.path / "reference_posteriors" / "draws" / "draws"
@@ -218,7 +262,12 @@ class PosteriorDatabaseGithub:
         reference_name = self.get_posterior_info(name).get("reference_posterior_name")
         assert reference_name is not None
         path = reference_root / (reference_name + ".info.json")
-        return load_info(path, temporary_no_assertions, self._links.get(path, None))
+        return load_info(
+            path,
+            temporary_no_assertions,
+            self._links.get(path, None),
+            overwrite=self.overwrite,
+        )
 
     def get_model_code_path(self, name, framework):
         model_info = self.get_model_info(name)
@@ -228,8 +277,13 @@ class PosteriorDatabaseGithub:
         path = self.path / path_within_posterior_db
 
         # download model code
-        if not path.exists():
-            download_file(self._links[path]["download_url"], path)
+        if not path.exists() or self.overwrite:
+            download_file(
+                self._links[path]["download_url"],
+                path,
+                overwrite=self.overwrite,
+                sha=self._links[path]["sha"],
+            )
 
         return path
 
@@ -238,8 +292,13 @@ class PosteriorDatabaseGithub:
         path = self.path / (data_info["data_file"] + ".zip")
 
         # download model code
-        if not path.exists():
-            download_file(self._links[path]["download_url"], path)
+        if not path.exists() or self.overwrite:
+            download_file(
+                self._links[path]["download_url"],
+                path,
+                overwrite=self.overwrite,
+                sha=self._links[path]["sha"],
+            )
 
         return path
 

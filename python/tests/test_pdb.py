@@ -1,4 +1,5 @@
 import os
+import re
 
 from posteriordb import PosteriorDatabase, PosteriorDatabaseGithub
 
@@ -65,10 +66,16 @@ def test_posterior_database():
 
 def test_posterior_database_github():
     # Skip test if GITHUB_PAT not defined
-    if "GITHUB_PAT" not in os.environ:
+    if os.environ.get("GITHUB_PAT") is None:
         return
 
-    pdb = PosteriorDatabaseGithub()
+    kwargs = {}
+    if os.environ.get("GITHUB_ACTIONS"):
+        kwargs["repo"] = os.environ.get("GITHUB_REPOSITORY", "MansMeg/posteriordb")
+        kwargs["ref"] = re.sub(
+            "^refs/heads/", "", os.environ.get("GITHUB_REF", "master")
+        )
+    pdb = PosteriorDatabaseGithub(**kwargs)
 
     model_names = pdb.model_names()
     assert len(model_names) > 0
