@@ -4,12 +4,19 @@ Currently only python 3.6+ is supported. Python 3.5+ support can be added if nee
 
 ## Installation
 
-Currently only local install is supported. From the main directory of this project run
+Installation from PyPI is recommended.
+
 ```bash
-pip install python/
+pip install posteriordb
 ```
 
-Installing from git url will be supported soon. Publishing the package to PyPI will also happen at some point.
+Or with a local git clone
+
+```bash
+git clone https://github.com/MansMeg/posteriordb
+cd posteriordb
+pip install python/
+```
 
 ## Using the posterior database from python
 
@@ -23,9 +30,22 @@ First we create the posterior database to use, here the cloned posterior databas
 >>> pdb_path = os.path.join(os.getcwd(), "posterior_database")
 >>> my_pdb = PosteriorDatabase(pdb_path)
 ```
-
 The above code requires that your working directory is in the main folder of your copy
-of this project. Alternatively, you can specify the path to the folder directly. To list the posteriors available, use `posterior_names`.
+of this project. Alternatively, you can specify the path to the folder directly.
+
+To use online database use `PosteriorDatabaseGithub` class. Remember to create and set `GITHUB_PAT` environmental variable.
+It is recommended that users create a read-only Personal Access Token for `posteriordb` use.
+If not explicitly defined, `PosteriorDatabaseGithub` will create a new or use old database located at `POSTERIOR_DB_DIR` if
+defined and `$HOME/.posteriordb/posterior_database`. Each used model and data is downloaded from online dynamically when needed.
+
+```python
+>>> from posteriordb import PosteriorDatabaseGithub
+>>> import os
+>>> os.environ["GITHUB_PAT"] = "token-string-here"
+>>> my_pdb = PosteriorDatabaseGithub()
+```
+
+To list the posteriors available, use `posterior_names`.
 
 ```python
 >>> pos = my_pdb.posterior_names()

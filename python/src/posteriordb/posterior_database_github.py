@@ -130,18 +130,39 @@ class PosteriorDatabaseGithub:
                 path.mkdir(parents=True, exist_ok=True)
         self.path = Path(path)
 
-        self._url = "https://api.github.com/repos/{repo}/contents/posterior_database?ref={ref}".format(
-            repo=repo, ref=ref
-        )
+        self._repo = repo
+        self._ref = ref
+
+        self.refresh_url()
+
         if refresh_github:
             self.refresh_github()
         else:
-            self.links = {}
+            self._links = {}
 
         # TODO assert that path is a valid posterior database
 
+    def refresh_url(self, repo=None, ref=None):
+        if repo is not None:
+            self._repo = repo
+        if ref is not None:
+            self._ref = ref
+
+        self._url = "https://api.github.com/repos/{repo}/contents/posterior_database?ref={ref}".format(
+            repo=self._repo, ref=self._ref
+        )
+
     def refresh_github(self):
         self._links = get_content(self._url, path=self.path.parent)
+
+    def download_all(self, refresh=True):
+        """Download all files for database."""
+        if refresh:
+            self.refresh_github()
+        n = len(self._links)
+        for i, (path, metadata) in enumerate(self._links.items(), 1):
+            print("\rFile ({}/{})".format(i, n), end="")
+            download_file(metadata["download_url"], path)
 
     def full_path(self, path: str):
         return self.path / path

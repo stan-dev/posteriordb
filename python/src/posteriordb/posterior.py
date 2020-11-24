@@ -4,7 +4,6 @@ from zipfile import ZipFile
 
 from .dataset import Dataset
 from .model import Model
-from .posterior_database import load_json_file
 from .posterior_database import PosteriorDatabase
 from .posterior_database_github import PosteriorDatabaseGithub
 from .util import drop_keys
