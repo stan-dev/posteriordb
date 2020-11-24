@@ -4,6 +4,12 @@ from setuptools import setup
 
 PROJECT_ROOT = os.path.dirname(os.path.realpath(__file__))
 VERSION_FILE = os.path.join(PROJECT_ROOT, "src", "posteriordb", "__init__.py")
+README_FILE = os.path.join(PROJECT_ROOT, "README.md")
+
+
+def get_long_description():
+    with open(README_FILE, "rt") as buff:
+        return buff.read()
 
 
 def get_version():
@@ -24,6 +30,8 @@ setup(
     author="Eero Linna",
     author_email="eero.linna@aalto.fi",
     license="GPL",
+    long_description=get_long_description(),
+    long_description_content_type="text/markdown",
     packages=["posteriordb"],
     package_dir={"": "src"},
     zip_safe=False,
