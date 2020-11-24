@@ -34,5 +34,6 @@ setup(
     long_description_content_type="text/markdown",
     packages=["posteriordb"],
     package_dir={"": "src"},
+    install_requires=["requests"],
     zip_safe=False,
 )
