@@ -1,15 +1,19 @@
 import json
+from typing import Union
 from zipfile import ZipFile
 
 from .dataset import Dataset
 from .model import Model
 from .posterior_database import load_json_file
 from .posterior_database import PosteriorDatabase
+from .posterior_database_github import PosteriorDatabaseGithub
 from .util import drop_keys
 
 
 class Posterior:
-    def __init__(self, name: str, posterior_db: PosteriorDatabase):
+    def __init__(
+        self, name: str, posterior_db: Union[PosteriorDatabase, PosteriorDatabaseGithub]
+    ):
         self.name = name
 
         assert name in posterior_db.posterior_names()
