@@ -1,14 +1,18 @@
 import json
 import os
 import tempfile
+from typing import Union
 from zipfile import ZipFile
 
 from .posterior_database import PosteriorDatabase
+from .posterior_database_github import PosteriorDatabaseGithub
 from .util import drop_keys
 
 
 class Dataset:
-    def __init__(self, name: str, posterior_db: PosteriorDatabase):
+    def __init__(
+        self, name: str, posterior_db: Union[PosteriorDatabase, PosteriorDatabaseGithub]
+    ):
         self.name = name
         self.posterior_db = posterior_db
         full_information = self.posterior_db.get_data_info(name=self.name)

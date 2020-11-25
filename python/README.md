@@ -4,12 +4,19 @@ Currently only python 3.6+ is supported. Python 3.5+ support can be added if nee
 
 ## Installation
 
-Currently only local install is supported. From the main directory of this project run
+Installation from PyPI is recommended.
+
 ```bash
-pip install python/
+pip install posteriordb
 ```
 
-Installing from git url will be supported soon. Publishing the package to PyPI will also happen at some point.
+Installing from the local clone.
+
+```bash
+git clone https://github.com/MansMeg/posteriordb
+cd posteriordb
+pip install python/
+```
 
 ## Using the posterior database from python
 
@@ -23,9 +30,28 @@ First we create the posterior database to use, here the cloned posterior databas
 >>> pdb_path = os.path.join(os.getcwd(), "posterior_database")
 >>> my_pdb = PosteriorDatabase(pdb_path)
 ```
-
 The above code requires that your working directory is in the main folder of your copy
-of this project. Alternatively, you can specify the path to the folder directly. To list the posteriors available, use `posterior_names`.
+of this project. Alternatively, you can specify the path to the folder directly.
+
+Online database can be used with the `PosteriorDatabaseGithub` class. Remember to create and set `GITHUB_PAT` environmental variable.
+It's recommended that users create a read-only (no extra permissions) [GitHub Personal Access Token (PAT)](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token) for `posteriordb` use. It's also recommended that the
+`GITHUB_PAT` environmental variable is added to user environmental variables and it is not shown in Python script as in the example below.
+
+
+If not explicitly defined, `PosteriorDatabase` and `PosteriorDatabaseGithub` will create a new (or use old database) located at `POSTERIOR_DB_PATH` if it's
+defined. `PosteriorDatabaseGithub` will finally use `$HOME/.posteriordb/posterior_database` as a fallback location if no environmental variables have been set.
+Each model and data is only downloaded and cached when needed.
+
+```python
+>>> from posteriordb import PosteriorDatabaseGithub
+>>> import os
+>>> # It is recommended that GITHUB_PAT is added to the user environmental variables
+>>> # outside python and not in a python script as shown in this example code
+>>> os.environ["GITHUB_PAT"] = "token-string-here"
+>>> my_pdb = PosteriorDatabaseGithub()
+```
+
+To list the posteriors available, use `posterior_names`.
 
 ```python
 >>> pos = my_pdb.posterior_names()
