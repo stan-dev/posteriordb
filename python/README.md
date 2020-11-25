@@ -38,8 +38,8 @@ It's recommended that users create a read-only (no extra permissions) [GitHub Pe
 `GITHUB_PAT` environmental variable is added to user environmental variables and it is not shown in Python script as in the example below.
 
 
-If not explicitly defined, `PosteriorDatabaseGithub` will create a new (or use old database) located at `POSTERIOR_DB_DIR` if it's
-defined and finally as a fallback `$HOME/.posteriordb/posterior_database` is used.
+If not explicitly defined, `PosteriorDatabase` and `PosteriorDatabaseGithub` will create a new (or use old database) located at `POSTERIOR_DB_PATH` if it's
+defined. `PosteriorDatabaseGithub` will finally use `$HOME/.posteriordb/posterior_database` as a fallback location if no environmental variables have been set.
 Each model and data is only downloaded and cached when needed.
 
 ```python

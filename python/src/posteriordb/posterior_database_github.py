@@ -149,7 +149,7 @@ class PosteriorDatabaseGithub:
         overwrite=False,
     ):
         if path is None:
-            path = os.environ.get("POSTERIOR_DB_DIR")
+            path = os.environ.get("POSTERIOR_DB_PATH")
             if path is None:
                 path = Path.home() / ".posteriordb" / "posterior_database"
                 path.mkdir(parents=True, exist_ok=True)

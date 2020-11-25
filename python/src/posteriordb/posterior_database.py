@@ -32,8 +32,10 @@ def filenames_in_dir_no_extension(directory, extension):
 
 
 class PosteriorDatabase:
-    def __init__(self, path: str):
-        self.path = path
+    def __init__(self, path: str = None):
+        if path is None:
+            path = os.environ.get("POSTERIOR_DB_PATH")
+        self.path = str(path)
         # TODO assert that path is a valid posterior database
 
     def full_path(self, path: str):
