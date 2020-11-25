@@ -25,4 +25,5 @@ setup(
     packages=["posteriordb"],
     package_dir={"": "src"},
     zip_safe=False,
+    include_package_data=True,
 )
