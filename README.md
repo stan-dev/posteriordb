@@ -1,9 +1,12 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-[![CRAN status](https://www.r-pkg.org/badges/version/posterior)](https://CRAN.R-project.org/package=posterior)
-[![R build status](https://github.com/MansMeg/posteriordb/workflows/R/badge.svg)](https://github.com/MansMeg/posteriordb/actions)
-[![Python build status](https://github.com/MansMeg/posteriordb/workflows/Python/badge.svg)](https://github.com/MansMeg/posteriordb/actions)
-[![codecov](https://codecov.io/gh/MansMeg/posteriordb/branch/master/graph/badge.svg)](https://codecov.io/gh/MansMeg/posteriordb)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/posterior)](https://CRAN.R-project.org/package=posterior)
+[![R build
+status](https://github.com/stan-dev/posteriordb/workflows/R/badge.svg)](https://github.com/stan-dev/posteriordb/actions)
+[![Python build
+status](https://github.com/stan-dev/posteriordb/workflows/Python/badge.svg)](https://github.com/stan-dev/posteriordb/actions)
+[![codecov](https://codecov.io/gh/stan-dev/posteriordb/branch/master/graph/badge.svg)](https://codecov.io/gh/stan-dev/posteriordb)
 
 `posteriordb`: a database of Bayesian posterior inference
 =========================================================
@@ -36,13 +39,13 @@ definitions, well-curated data sets, and reference posteriors.
 Python.
 
 For more details regarding the use cases of `posteriordb`, see
-[doc/use\_cases.md](https://github.com/MansMeg/posteriordb/blob/master/doc/use_cases.md).
+[doc/use\_cases.md](https://github.com/stan-dev/posteriordb/blob/master/doc/use_cases.md).
 
 Content
 -------
 
 See
-[DATABASE\_CONTENT.md](https://github.com/MansMeg/posteriordb/blob/master/doc/DATABASE_CONTENT.md)
+[DATABASE\_CONTENT.md](https://github.com/stan-dev/posteriordb/blob/master/doc/DATABASE_CONTENT.md)
 for the details content of the posterior database.
 
 Contributing
@@ -50,7 +53,7 @@ Contributing
 
 We are happy with any help in adding posteriors, data, and models to the
 database! See
-[CONTRIBUTING.md](https://github.com/MansMeg/posteriordb/blob/master/doc/CONTRIBUTING.md)
+[CONTRIBUTING.md](https://github.com/stan-dev/posteriordb/blob/master/doc/CONTRIBUTING.md)
 for the details on how to contribute.
 
 Quick usage of the posterior database from R
@@ -59,7 +62,7 @@ Quick usage of the posterior database from R
 Install the package from GitHub
 
 ``` r
-remotes::install_github("MansMeg/posteriordb", subdir = "rpackage")
+remotes::install_github("stan-dev/posteriordb", subdir = "rpackage")
 ```
 
 Load the R package and load a posterior from the default posteriordb.
