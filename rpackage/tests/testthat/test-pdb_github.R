@@ -3,7 +3,7 @@ context("test-pdb_github")
 test_that("posteriordb:::check_pdb indicates that github PDB is ok", {
   skip_if(is.null(github_pat()))
 
-  expect_silent(pdb_github_test <- pdb_github("MansMeg/posteriordb/posterior_database"))
+  expect_silent(pdb_github_test <- pdb_github("stan-dev/posteriordb/posterior_database"))
   expect_output(print(pdb_github_test), "Posterior Database")
   expect_output(print(pdb_github_test), "github")
   posteriordb:::pdb_clear_cache(pdb_github_test)
@@ -27,7 +27,7 @@ test_that("model_names, data_names and posterior_names work", {
   checkmate::expect_choice("eight_schools-eight_schools_noncentered", nms)
 
 
-  expect_silent(pdb_github_test <- pdb_github("MansMeg/posteriordb/posterior_database"))
+  expect_silent(pdb_github_test <- pdb_github("stan-dev/posteriordb/posterior_database"))
   posteriordb:::pdb_clear_cache(pdb_github_test)
   expect_silent(nms <- posterior_names(pdb_github_test))
   checkmate::expect_choice("eight_schools-eight_schools_centered", nms)
@@ -45,6 +45,6 @@ test_that("pdb_default is github", {
   skip_if(is.null(github_pat()))
 
   expect_silent(pdb_default_test <- pdb_default())
-  expect_silent(pdb_github_test <- pdb_github("MansMeg/posteriordb/posterior_database"))
+  expect_silent(pdb_github_test <- pdb_github("stan-dev/posteriordb/posterior_database"))
   expect_equal(pdb_default_test, pdb_github_test)
 })
