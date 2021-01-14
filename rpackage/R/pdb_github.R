@@ -1,6 +1,6 @@
 #' @rdname pdb_local
 #' @export
-pdb_github <- function(repo = getOption("pdb_repo", "MansMeg/posteriordb/posterior_database"),
+pdb_github <- function(repo = getOption("pdb_repo", "stan-dev/posteriordb/posterior_database"),
                        cache_path = tempdir(),
                        ref = github_ref(),
                        subdir = NULL,

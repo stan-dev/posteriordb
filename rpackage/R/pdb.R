@@ -109,7 +109,7 @@ supported_pdb_types <- function() c("local", "github")
 pdb_default <- function(cache_path = tempdir()){
   pdbc <- suppressWarnings(try(pdb_config(), silent = TRUE))
   if(inherits(pdbc, "pdb")) return(pdbc)
-  pdb_github("MansMeg/posteriordb/posterior_database", cache_path = cache_path)
+  pdb_github("stan-dev/posteriordb/posterior_database", cache_path = cache_path)
 }
 
 #' @rdname pdb_local
