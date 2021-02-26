@@ -26,7 +26,7 @@ pdb_default(cache_path = tempdir())
 pdb_config(directory = getwd())
 
 pdb_github(
-  repo = getOption("pdb_repo", "MansMeg/posteriordb/posterior_database"),
+  repo = getOption("pdb_repo", "stan-dev/posteriordb/posterior_database"),
   cache_path = tempdir(),
   ref = github_ref(),
   subdir = NULL,
