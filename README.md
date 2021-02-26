@@ -6,7 +6,7 @@ status](https://www.r-pkg.org/badges/version/posterior)](https://CRAN.R-project.
 status](https://github.com/stan-dev/posteriordb/workflows/R/badge.svg)](https://github.com/stan-dev/posteriordb/actions)
 [![Python build
 status](https://github.com/stan-dev/posteriordb/workflows/Python/badge.svg)](https://github.com/stan-dev/posteriordb/actions)
-[![codecov](https://codecov.io/gh/stan-dev/posteriordb/branch/master/graph/badge.svg)](https://codecov.io/gh/stan-dev/posteriordb)
+
 
 `posteriordb`: a database of Bayesian posterior inference
 =========================================================
