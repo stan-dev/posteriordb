@@ -1,0 +1,11 @@
+{
+  "name": "three_men2",
+  "keywords": "text",
+  "title": "Three Men and a Boat (corpus 2)",
+  "description": "The data consist of a pre-processed multilingual corpus of the book 'Three men and a boat' in English, French, and Swedish. The corpus has been processed so that a small proportion of the corpus is in Swedish and French (roughly 20%). The original translation was made by Andras Farka. Corpus 1 divide up the chapters som that there are in total 14 documents, 10 English, 2 French and 2 Swedish documents.",
+  "references": ["jonasson2021rapid", "farkas2014threemen"],
+  "urls": "https://farkastranslations.com/books/Jerome_Jerome_K-Three_Men_in_a_Boat-en-fr-it-sv.html",
+  "added_date": "2021-02-26",
+  "added_by": "Mans Magnusson",
+  "data_file": "data/data/three_men2.json"
+}
