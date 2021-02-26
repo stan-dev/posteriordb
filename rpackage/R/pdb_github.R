@@ -1,6 +1,6 @@
 #' @rdname pdb_local
 #' @export
-pdb_github <- function(repo = getOption("pdb_repo", "MansMeg/posteriordb/posterior_database"),
+pdb_github <- function(repo = getOption("pdb_repo", "stan-dev/posteriordb/posterior_database"),
                        cache_path = tempdir(),
                        ref = github_ref(),
                        subdir = NULL,
@@ -135,6 +135,8 @@ github_path <- function(pdb, type, path = NULL){
 #' @param pdb A posterior datasbase object to extract pat from.
 #' @export
 github_pat <- function(pdb = NULL) {
+  # Sys.setenv(GITHUB_PAT = "my github token here")
+  # Sys.unsetenv("GITHUB_PAT")
   pat <- Sys.getenv("GITHUB_PAT")
   if (nzchar(pat)) {
     return(pat)
@@ -147,11 +149,13 @@ github_pat <- function(pdb = NULL) {
 #'
 #' A github reference to use
 #' Looks in env var `GITHUB_REF`
-#' @param pdb A posterior datasbase object to extract pat from.
+#' @param pdb A posterior datasbase object.
 #' @export
 github_ref <- function(pdb = NULL) {
   ref <- Sys.getenv("GITHUB_REF")
   if (nzchar(ref)) {
+    # This is to handle that GITHUB_REF on Github Actions return 'refs/heads/[ref]'
+    ref <- sub("^refs/heads/", "", ref)
     return(ref)
   } else {
     return("master")

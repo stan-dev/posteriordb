@@ -1,6 +1,8 @@
 import os
+from typing import Union
 
 from .posterior_database import PosteriorDatabase
+from .posterior_database_github import PosteriorDatabaseGithub
 from .pymc3_model_implementation import PyMC3ModelImplementation
 from .stan_model_implementation import StanModelImplementation
 from .util import drop_keys
@@ -9,7 +11,9 @@ implementations = {"stan": StanModelImplementation, "pymc3": PyMC3ModelImplement
 
 
 class Model:
-    def __init__(self, name: str, posterior_db: PosteriorDatabase):
+    def __init__(
+        self, name: str, posterior_db: Union[PosteriorDatabase, PosteriorDatabaseGithub]
+    ):
         self.name = name
         self.posterior_db = posterior_db
         full_model_info = self.posterior_db.get_model_info(name=self.name)

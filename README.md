@@ -2,47 +2,50 @@
 
 [![CRAN
 status](https://www.r-pkg.org/badges/version/posterior)](https://CRAN.R-project.org/package=posterior)
-[![Build
-Status](https://travis-ci.org/MansMeg/posteriordb.svg?branch=master)](https://travis-ci.org/MansMeg/posteriordb)
-[![AppVeyor build
-status](https://ci.appveyor.com/api/projects/status/github/MansMeg/posteriordb?branch=master&svg=true)](https://ci.appveyor.com/project/MansMeg/posteriordb)
-[![codecov](https://codecov.io/gh/MansMeg/posteriordb/branch/master/graph/badge.svg)](https://codecov.io/gh/MansMeg/posteriordb)
+[![R build
+status](https://github.com/stan-dev/posteriordb/workflows/R/badge.svg)](https://github.com/stan-dev/posteriordb/actions)
+[![Python build
+status](https://github.com/stan-dev/posteriordb/workflows/Python/badge.svg)](https://github.com/stan-dev/posteriordb/actions)
+[![codecov](https://codecov.io/gh/stan-dev/posteriordb/branch/master/graph/badge.svg)](https://codecov.io/gh/stan-dev/posteriordb)
 
-A Posterior Database (PDB) for Bayesian Inference
-=================================================
+`posteriordb`: a database of Bayesian posterior inference
+=========================================================
 
-This repository contains data and models to produce posteriors based on
-different probabilistic programming languages (PPL). Currently, the
-focus is Stan, but it should be possible to use it with other frameworks
-as well.
+What is `posteriordb`?
+----------------------
 
-Purpose of the PDB
-------------------
+`posteriordb` is a set of posteriors, i.e. Bayesian statistical models
+and data sets, reference implementations in probabilistic programming
+languages, and reference posterior inferences in the form of posterior
+samples.
 
-There are many purposes with the PDB
+Why use `posteriordb`?
+----------------------
 
-1.  A simple repository to access many models and datasets in a
-    structured way from R and Python
-2.  Store models and data in a structure that lends itself to testing
-    inference algorithms on a large number of posteriors.
-3.  An interface that makes it easy for students to access models and
-    data for courses in Bayesian data analysis.
-4.  Model contents that are framework agnostic (although now Stan is in
-    focus), and can be used with many different probabilistic
-    programming frameworks.
-5.  A structure that simplifies regression testing of probabilistic
-    programming frameworks.
-6.  Providing reliable reference posteriors for use in inference method
-    development.
+`posteriordb` is designed to test inference algorithms across a wide
+range of models and data sets. Applications include testing for
+accuracy, testing for speed, and testing for scalability. Algorithms
+being tested may be approximate like variational inference or
+asymptotically exact like Markov chain Monte Carlo. `posteriordb` can be
+used to test new algorithms being developed or deployed as part of
+continuous integration for ongoing regression testing of algorithms in
+probabilistic programming frameworks.
 
-The long term goal is to move the posterior database to an open RESTful
-NoSQL database for easy access.
+`posteriordb` also makes it easy for students and instructors to access
+a range of pedagogical and real-world examples with precise model
+definitions, well-curated data sets, and reference posteriors.
+
+`posteriordb` is framework agnostic and easily accessible from R and
+Python.
+
+For more details regarding the use cases of `posteriordb`, see
+[doc/use\_cases.md](https://github.com/stan-dev/posteriordb/blob/master/doc/use_cases.md).
 
 Content
 -------
 
 See
-[DATABASE\_CONTENT.md](https://github.com/MansMeg/posteriordb/blob/master/doc/DATABASE_CONTENT.md)
+[DATABASE\_CONTENT.md](https://github.com/stan-dev/posteriordb/blob/master/doc/DATABASE_CONTENT.md)
 for the details content of the posterior database.
 
 Contributing
@@ -50,7 +53,7 @@ Contributing
 
 We are happy with any help in adding posteriors, data, and models to the
 database! See
-[CONTRIBUTING.md](https://github.com/MansMeg/posteriordb/blob/master/doc/CONTRIBUTING.md)
+[CONTRIBUTING.md](https://github.com/stan-dev/posteriordb/blob/master/doc/CONTRIBUTING.md)
 for the details on how to contribute.
 
 Quick usage of the posterior database from R
@@ -59,7 +62,7 @@ Quick usage of the posterior database from R
 Install the package from GitHub
 
 ``` r
-remotes::install_github("MansMeg/posteriordb", subdir = "rpackage")
+remotes::install_github("stan-dev/posteriordb", subdir = "rpackage")
 ```
 
 Load the R package and load a posterior from the default posteriordb.

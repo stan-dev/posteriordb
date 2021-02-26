@@ -2,23 +2,26 @@ context("test-README.md")
 
 test_that("README.md works as stated", {
   skip_on_cran()
-  skip_on_appveyor()
-  on_travis <- identical(Sys.getenv("TRAVIS"), "true")
-  TRAVIS_BUILD_DIR <- Sys.getenv("TRAVIS_BUILD_DIR")
-  if(on_travis){
+  if(on_github_actions()) skip_on_os("windows")
+
+  if(on_travis()){
     # On Travis the package are checked in rpackage/
+    TRAVIS_BUILD_DIR <- Sys.getenv("TRAVIS_BUILD_DIR")
     fp_to_README_md <- file.path(TRAVIS_BUILD_DIR, "README.md")
+  } else if(on_github_actions()) {
+    ACTIONS_WORKSPACE <- Sys.getenv("GITHUB_WORKSPACE")
+    fp_to_README_md <- file.path(ACTIONS_WORKSPACE, "README.md")
   } else {
     fp_to_README_md <- "../../../README.md"
   }
 
   skip_if(!file.exists(fp_to_README_md))
   # check hash
-  # If this fails, the CONTRIBUTING.md has been changed.
+  # If this fails, the README.md has been changed.
   # Please check that no code has been changed or update this test suite accordingly
   # Then change the hash to the md5 of the new updated file.
   md5_hash <- digest::digest(readLines(fp_to_README_md), algo = "md5")
-  expect_equal(md5_hash, "b3d18584e9bdc3a40b1f276d851e38e8")
+  expect_equal(md5_hash, "a4d6669ea9dbb5d95253e4d0342b215b")
 
   skip_if(is.null(github_pat()))
 

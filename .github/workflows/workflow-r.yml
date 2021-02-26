@@ -1,0 +1,122 @@
+name: R
+
+on:
+  push:
+    branches:
+      - '**'
+    tags:
+      - '**'
+
+jobs:
+  models:
+    name: R Tests
+    runs-on: ${{ matrix.config.os }}
+    strategy:
+      matrix:
+        config:
+          - {os: ubuntu-latest,     r: 'release'}
+          - {os: ubuntu-latest,     r: 'oldrel'}
+          - {os: macos-latest,       r: 'release'}
+          - {os: macos-latest,       r: 'oldrel'}
+          - {os: windows-latest,   r: 'release'}
+      fail-fast: false
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      _R_CHECK_TESTS_NLINES_: 0
+    steps:
+      - name: Checkout github
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Set up R ${{ matrix.config.r }}
+        uses: r-lib/actions/setup-r@v1
+        with:
+          r-version: ${{ matrix.config.r }}
+
+      - uses: r-lib/actions/setup-tinytex@v1
+
+      - run: tlmgr --version
+
+      - uses: r-lib/actions/setup-pandoc@master
+
+      - name: Cache R packages
+        if: runner.os != 'Windows'
+        uses: actions/cache@v1
+        with:
+          path: ${{ env.R_LIBS_USER }}
+          key: ${{ runner.os }}-r-${{ matrix.config.r }}-${{ hashFiles('DESCRIPTION') }}
+          restore-keys: ${{ runner.os }}-r-${{ matrix.config.r }}-
+
+      - name: Install dependencies (Ubuntu)
+        if: matrix.config.os == 'ubuntu-latest'
+        run: |
+          sudo apt-get update
+          sudo apt-get install libcurl4-openssl-dev libv8-dev
+
+      - name: Install R dependencies
+        run: |
+          options(install.packages.check.source = "no")
+          install.packages('posterior', repos = c('https://mc-stan.org/r-packages/', getOption('repos')))
+          options(pkgType = ifelse(grepl("linux", R.version$os), "source", "binary"))
+          install.packages('remotes')
+          install.packages('jsonlite')
+          install.packages('V8')
+          install.packages('covr')
+          install.packages('testthat')
+          install.packages('git2r')
+          install.packages('gh')
+          install.packages('bibtex')
+          install.packages('rstan', repos = 'https://cloud.r-project.org/', dependencies = TRUE)
+          writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
+        shell: Rscript {0}
+
+      - name: R version info (Ubuntu and macOS)
+        if: runner.os != 'Windows'
+        run: |
+          Rscript -e 'sessionInfo();cat("\nInstalled R packages:\n", paste(installed.packages()[,"Package"], installed.packages()[,"Version"], "\n"))'
+
+      - name: R version info (Windows)
+        if: runner.os == 'Windows'
+        run: |
+          RScript -e "sessionInfo();cat('\nInstalled R packages:\n', paste(installed.packages()[,'Package'], installed.packages()[,'Version'], '\n'))"
+
+      - name: Run R tests (Ubuntu)
+        if: matrix.config.os == 'ubuntu-latest'
+        run: |
+          R CMD build rpackage
+          R CMD check posteriordb_*.tar.gz
+
+      - name: Run R tests (macOS)
+        if: matrix.config.os == 'macos-latest'
+        run: |
+          export LC_ALL=C
+          export LANG=C
+          R CMD build rpackage
+          R CMD check posteriordb_*.tar.gz
+
+      - name: Run R tests (Windows)
+        if: matrix.config.os == 'windows-latest'
+        run: |
+          RCMD build rpackage
+          RCMD check posteriordb_*.tar.gz
+
+      - name: debug logs
+        if: failure() && (matrix.config.os == 'ubuntu-latest')
+        uses: actions/upload-artifact@v2
+        with:
+          name: exception_results_${{ matrix.config.os}}_${{ matrix.config.r}}
+          path: /home/runner/work/posteriordb/posteriordb/posteriordb.Rcheck/*.log
+
+      - name: debug logs
+        if: failure() && (matrix.config.os == 'macos-latest')
+        uses: actions/upload-artifact@v2
+        with:
+          name: exception_results_${{ matrix.config.os}}_${{ matrix.config.r}}
+          path: /Users/runner/work/posteriordb/posteriordb/posteriordb.Rcheck/*.log
+
+      - name: Codecov
+        if: (matrix.config.r == 'release') && (matrix.config.os == 'macos-latest')
+        run: |
+          echo $GITHUB_WORKSPACE
+          Rscript -e "covr::codecov(path = 'rpackage', quiet = FALSE)"

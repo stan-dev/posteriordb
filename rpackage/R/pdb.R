@@ -109,7 +109,7 @@ supported_pdb_types <- function() c("local", "github")
 pdb_default <- function(cache_path = tempdir()){
   pdbc <- suppressWarnings(try(pdb_config(), silent = TRUE))
   if(inherits(pdbc, "pdb")) return(pdbc)
-  pdb_github("MansMeg/posteriordb/posterior_database", cache_path = cache_path)
+  pdb_github("stan-dev/posteriordb/posterior_database", cache_path = cache_path)
 }
 
 #' @rdname pdb_local
@@ -637,7 +637,7 @@ write_to_path <- function(x, path, type, pdb, name = NULL, zip = FALSE, info = T
   }
 
   if(type == "json"){
-    out <- jsonlite::toJSON(x, pretty = TRUE, auto_unbox = TRUE, null = "null", digits = NA)
+    out <- jsonlite::toJSON(x, pretty = TRUE, auto_unbox = TRUE, null = "null", digits = NA, encoding = "UTF-8")
   } else if (type == "txt"){
     out <- x
   } else if (type == "stan"){
@@ -646,7 +646,8 @@ write_to_path <- function(x, path, type, pdb, name = NULL, zip = FALSE, info = T
     stop(type, " not implemented.")
   }
 
-  writeLines(text = out, con = fp)
+  Encoding(out) <- "UTF-8"
+  writeLines(text = out, con = fp, useBytes = TRUE)
 
   if(zip){
     zip(files = fp, zipfile = zfp, flags = "-jq")

@@ -1,5 +1,5 @@
 library(posteriordb)
-# remotes::install_github("jgabry/posterior")
+# remotes::install_github("stan-dev/posterior")
 library(posterior)
 
 # Use local pdb to write posterior
