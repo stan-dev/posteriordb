@@ -1,8 +1,10 @@
 {
   "name": "ldaK5",
   "title": "LDA with 5 topics",
-  "description": "Latent Dirichlet Allocation (LDA) with token indicators summed out.",
-  "keywords": [],
+  "description": "Latent Dirichlet Allocation (LDA) with token indicators marginalized out.",
+  "keywords": [
+    "mixed_membership"
+  ],
   "references": [
     "blei2003latent"
   ],

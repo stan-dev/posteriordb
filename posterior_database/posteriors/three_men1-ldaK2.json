@@ -1,0 +1,14 @@
+{
+  "keywords": ["multimodal", "text"],
+  "references": "jonasson2021rapid",
+  "dimensions": {
+    "theta": 12,
+    "phi": 498
+  },
+  "reference_posterior_name": null,
+  "added_date": "2021-02-26",
+  "added_by": "Mans Magnusson",
+  "name": "three_men1-ldaK2",
+  "model_name": "ldaK2",
+  "data_name": "three_men1"
+}

@@ -1,0 +1,10 @@
+{
+  "name": "three_docs1200",
+  "keywords": ["simulated data", "text"],
+  "title": "A simulated textual dataset",
+  "description": "The dataset contain three document, three words and 1200 tokens. The model is generated based on three topics, and if only two topics are used, the posterior become multimodal.",
+  "references": "jonasson2021rapid",
+  "added_date": "2021-02-26",
+  "added_by": "Mans Magnusson",
+  "data_file": "data/data/three_docs1200.json"
+}
