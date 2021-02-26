@@ -17,7 +17,6 @@ jobs:
           - {os: ubuntu-latest,     r: 'release'}
           - {os: ubuntu-latest,     r: 'oldrel'}
           - {os: macos-latest,       r: 'release'}
-          - {os: macos-latest,       r: 'oldrel'}
           - {os: windows-latest,   r: 'release'}
       fail-fast: false
     env:
