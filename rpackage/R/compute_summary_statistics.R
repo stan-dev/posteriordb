@@ -24,9 +24,9 @@ compute_reference_posterior_summary_statistic <- function(rpd, summary_statistic
   } else {
     stop("Summary statistic is not implemented.")
   }
-  class(res) <- c(summary_statistic_class_name(summary_statistic), "pdb_reference_posterior_summary_statistic", "list")
-  info(res) <- rpi
-  res
+
+  rpss <- reference_posterior_summary_statistic(res, rpi, summary_statistic)
+  rpss
 }
 
 #' @rdname compute_reference_posterior_summary_statistic

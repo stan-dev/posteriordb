@@ -55,12 +55,14 @@ reference_posterior_info.list <- function(x, type = NULL, pdb = NULL, ...) {
 #' Read in reference_posterior_info json object
 #' @param x a data, model or posterior name
 #' @param pdb a posterior db object to access the info json from
-#' @param type Type of reference posterior [draws] or [expectations].
+#' @param type Type of reference posterior [draws] or sufficient statistic of interst, such as the means.
 #' @noRd
 #' @keywords internal
 read_reference_posterior_info <- function(x, type, pdb = NULL, ...) {
   if(is.null(x)) stop("There is currently no reference posterior for this posterior.")
-  reference_posterior_info <- read_info_json(x, path = paste0("reference_posteriors/", type, "/info"), pdb = pdb, ...)
+  type_path <- type
+  if(type %in% supported_summary_statistic_types()) type_path <- paste("summary_statistics", type, sep = "/")
+  reference_posterior_info <- read_info_json(x, path = paste0("reference_posteriors/", type_path, "/info"), pdb = pdb, ...)
   class(reference_posterior_info) <- "pdb_reference_posterior_info"
   assert_reference_posterior_info(reference_posterior_info)
   reference_posterior_info

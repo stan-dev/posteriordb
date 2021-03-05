@@ -543,9 +543,12 @@ supported_pdb_paths <- function(){
     "reference_posteriors/draws/draws",
     "reference_posteriors/draws/info",
     "reference_posteriors/expectations/expectations",
-    "reference_posteriors/expectations/info",
+    paste0("reference_posteriors/summary_statistics/", supported_summary_statistic_types(), "/",supported_summary_statistic_types()),
+    paste0("reference_posteriors/summary_statistics/", supported_summary_statistic_types(), "/info"),
     "bibliography")
 }
+
+
 
 #' Read JSON objects from the posterior database
 #'

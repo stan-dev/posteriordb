@@ -29,7 +29,7 @@ pdb_reference_posterior_draws(x, ...)
 
 assert_reference_posterior_draws(x)
 
-reference_posterior_summary_statistic(x, type, ...)
+reference_posterior_summary_statistic(x, ...)
 }
 \arguments{
 \item{x}{a [posterior] object or a posterior name.}
