@@ -6,7 +6,7 @@
 \alias{check_reference_posterior_draws.pdb_posterior}
 \alias{check_reference_posterior_draws.pdb_reference_posterior_draws}
 \title{Check that reference posterior draws follows the
-reference posterior definition.}
+reference posterior draws definition.}
 \usage{
 check_reference_posterior_draws(x, ...)
 
@@ -23,5 +23,5 @@ check_reference_posterior_draws(x, ...)
 }
 \description{
 Check that reference posterior draws follows the
-reference posterior definition.
+reference posterior draws definition.
 }
