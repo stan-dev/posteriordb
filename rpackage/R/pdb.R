@@ -543,9 +543,12 @@ supported_pdb_paths <- function(){
     "reference_posteriors/draws/draws",
     "reference_posteriors/draws/info",
     "reference_posteriors/expectations/expectations",
-    "reference_posteriors/expectations/info",
+    paste0("reference_posteriors/summary_statistics/", supported_summary_statistic_types(), "/",supported_summary_statistic_types()),
+    paste0("reference_posteriors/summary_statistics/", supported_summary_statistic_types(), "/info"),
     "bibliography")
 }
+
+
 
 #' Read JSON objects from the posterior database
 #'
@@ -604,7 +607,7 @@ read_info_json.pdb_posterior <- function(x, path, pdb = NULL, ...){
 #' @param pdb a local posteriordb object to write to
 #' @keywords internal
 write_to_path <- function(x, path, type, pdb, name = NULL, zip = FALSE, info = TRUE, overwrite = FALSE){
-  checkmate::assert_subset(class(x)[1], choices = c("character", "pdb_posterior", "pdb_model_info", "pdb_data_info", "pdb_data", "pdb_model_code", "pdb_reference_posterior_draws", "pdb_reference_posterior_info"))
+  checkmate::assert_subset(class(x)[1], choices = c("character", "pdb_posterior", "pdb_model_info", "pdb_data_info", "pdb_data", "pdb_model_code", "pdb_reference_posterior_draws", "pdb_reference_posterior_info", supported_summary_statistic_classes()))
   checkmate::assert_string(path)
   checkmate::assert_class(pdb, "pdb_local")
   checkmate::assert_choice(type, c("json", "txt", supported_frameworks()))

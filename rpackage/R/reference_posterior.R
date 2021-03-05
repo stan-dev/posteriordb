@@ -6,7 +6,7 @@
 #'
 #' @param x a \code{posterior} object to access the reference posterior for.
 #' @param pdb a \code{pdb} posterior database connection.
-#' @param type Type of reference posterior [draws] or [expectations].
+#' @param type Type of reference posterior [draws] or [summary_statistic].
 #' @param ... Currently not used.
 #'
 #' @seealso reference_posterior_draws
@@ -30,11 +30,6 @@ reference_posterior_draws_info <- function(x, pdb = pdb_default(), ...) {
 #' @export
 pdb_reference_posterior_draws_info <- reference_posterior_draws_info
 
-#' @rdname reference_posterior_info
-#' @export
-reference_posterior_expectations_info <- function(x, pdb = pdb_default(), ...) {
-  reference_posterior_info(x, type = "expectations", pdb = pdb)
-}
 
 #' @rdname reference_posterior_info
 #' @export
@@ -60,12 +55,14 @@ reference_posterior_info.list <- function(x, type = NULL, pdb = NULL, ...) {
 #' Read in reference_posterior_info json object
 #' @param x a data, model or posterior name
 #' @param pdb a posterior db object to access the info json from
-#' @param type Type of reference posterior [draws] or [expectations].
+#' @param type Type of reference posterior [draws] or sufficient statistic of interst, such as the means.
 #' @noRd
 #' @keywords internal
 read_reference_posterior_info <- function(x, type, pdb = NULL, ...) {
   if(is.null(x)) stop("There is currently no reference posterior for this posterior.")
-  reference_posterior_info <- read_info_json(x, path = paste0("reference_posteriors/", type, "/info"), pdb = pdb, ...)
+  type_path <- type
+  if(type %in% supported_summary_statistic_types()) type_path <- paste("summary_statistics", type, sep = "/")
+  reference_posterior_info <- read_info_json(x, path = paste0("reference_posteriors/", type_path, "/info"), pdb = pdb, ...)
   class(reference_posterior_info) <- "pdb_reference_posterior_info"
   assert_reference_posterior_info(reference_posterior_info)
   reference_posterior_info
@@ -128,7 +125,7 @@ reference_posterior_draws_file_path.pdb_reference_posterior_info <- function(x, 
 }
 
 
-#' Reference Posterior posterior Draws and Expectations
+#' Reference Posterior draws and summary statistics
 #' @param x a [posterior] object or a posterior name.
 #' @param pdb a [pdb] object (if [x] is a posterior name)
 #' @param info a [pdb_reference_posterior_info] object
@@ -226,7 +223,7 @@ assert_reference_posterior_info <- function(x){
   checkmate::assert_string(x$added_by)
   checkmate::assert_date(x$added_date)
   if(!is.null(x$versions)){
-    checkmate::assert_names(names(x$versions), subset.of = c("rstan_version", "r_Makevars", "r_version", "r_session"))
+    checkmate::assert_names(names(x$versions), subset.of = c("rstan_version", "r_Makevars", "r_version", "r_session", "r_summary_statistic"))
     if(!is.null(x$versions$rstan_version)){
       checkmate::assert_names(names(x$versions), must.include = c("rstan_version", "r_Makevars", "r_version", "r_session"))
     }
@@ -273,15 +270,7 @@ print.pdb_reference_posterior_info <- function(x, ...) {
   print_list(x$inference$method_arguments)
 }
 
-
-#' @rdname reference_posterior_draws
-#' @export
-reference_posterior_expectations <- function(x, ...){
-  stop("not implemented!")
-}
-
-supported_reference_posterior_types <- function() c("draws", "expectations")
-
+supported_reference_posterior_types <- function() c("draws", supported_summary_statistic_types())
 
 #' Thin draws to reduce their size and autocorrelation of the chains.
 #'

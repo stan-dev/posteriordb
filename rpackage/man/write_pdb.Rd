@@ -4,6 +4,7 @@
 \alias{write_pdb}
 \alias{write_pdb.pdb_reference_posterior_info}
 \alias{write_pdb.pdb_reference_posterior_draws}
+\alias{write_pdb.pdb_reference_posterior_summary_statistic}
 \alias{write_pdb.pdb_data}
 \alias{write_pdb.pdb_data_info}
 \alias{write_pdb.stanmodel}
@@ -17,6 +18,8 @@ write_pdb(x, pdb, overwrite = FALSE, ...)
 \method{write_pdb}{pdb_reference_posterior_info}(x, pdb, overwrite = FALSE, type, ...)
 
 \method{write_pdb}{pdb_reference_posterior_draws}(x, pdb, overwrite = FALSE, ...)
+
+\method{write_pdb}{pdb_reference_posterior_summary_statistic}(x, pdb, overwrite = FALSE, ...)
 
 \method{write_pdb}{pdb_data}(x, pdb, overwrite = FALSE, ...)
 

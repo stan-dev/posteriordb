@@ -5,7 +5,6 @@
 \alias{pdb_reference_posterior_info}
 \alias{reference_posterior_draws_info}
 \alias{pdb_reference_posterior_draws_info}
-\alias{reference_posterior_expectations_info}
 \alias{reference_posterior_info.pdb_posterior}
 \alias{reference_posterior_info.character}
 \alias{reference_posterior_info.list}
@@ -19,8 +18,6 @@ reference_posterior_draws_info(x, pdb = pdb_default(), ...)
 
 pdb_reference_posterior_draws_info(x, pdb = pdb_default(), ...)
 
-reference_posterior_expectations_info(x, pdb = pdb_default(), ...)
-
 \method{reference_posterior_info}{pdb_posterior}(x, type, ...)
 
 \method{reference_posterior_info}{character}(x, type, pdb = pdb_default(), ...)
@@ -30,7 +27,7 @@ reference_posterior_expectations_info(x, pdb = pdb_default(), ...)
 \arguments{
 \item{x}{a \code{posterior} object to access the reference posterior for.}
 
-\item{type}{Type of reference posterior [draws] or [expectations].}
+\item{type}{Type of reference posterior [draws] or [summary_statistic].}
 
 \item{pdb}{a \code{pdb} posterior database connection.}
 

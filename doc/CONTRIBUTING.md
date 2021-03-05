@@ -13,8 +13,9 @@ Pull request workflow
 -------------
 
 1. Fork this repository
-1. Make a contribution
-1. Open a pull request in GitHub (the tests will the automatically run on Travis)
+1. Make a contribution and add to the local (cloned) posteriordb
+1. Commit the contribution and push to the fork
+1. Open a pull request (the tests of the contribution will the automatically run on Github Action)
 
 
 CONTRIBUTING CONTENT

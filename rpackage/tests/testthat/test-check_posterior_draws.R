@@ -19,5 +19,7 @@ test_that("check_pdb_posterior works", {
   expect_silent(pdb_test <- pdb(posterior_db_path))
 
   po <- pdb_posterior("eight_schools-eight_schools_noncentered", pdb_test)
+
+  if(on_github_actions()) skip_on_os("linux") # Currently problem with stringi on ubuntu (2021-03-10)
   expect_message(check_pdb_posterior(po, run_stan_code_checks = FALSE), regexp = "Posterior is ok.")
 })
