@@ -59,6 +59,7 @@ test_that("check_pdb_references", {
   posterior_db_path <- posteriordb:::get_test_pdb_dir()
   expect_silent(pdb_test <- pdb(posterior_db_path))
 
+  if(on_github_actions()) skip_on_os("linux") # Currently problem with stringi on ubuntu (2021-03-10)
   expect_message(check_pdb_references(pdb_test))
 })
 
