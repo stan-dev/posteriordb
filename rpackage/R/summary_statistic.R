@@ -52,42 +52,6 @@ assert_reference_posterior_summary_statistic <- function(x){
 }
 
 
-
-
-
-
-#' Extract data for posterior
-#'
-#' @inheritParams model_code_file_path
-#' @export
-reference_posterior_draws_file_path <- function(x, ...) {
-  UseMethod("reference_posterior_draws_file_path")
-}
-
-#' @rdname reference_posterior_draws_file_path
-#' @export
-reference_posterior_draws_file_path.pdb_posterior <- function(x, ...) {
-  if(is.null(x$reference_posterior_name)) stop2("There is currently no gold standard for this posterior.")
-  reference_posterior_draws_file_path(x$reference_posterior_name, pdb = pdb(x))
-}
-
-#' @rdname reference_posterior_draws_file_path
-#' @export
-reference_posterior_draws_file_path.character <- function(x, pdb = pdb_default(), ...) {
-  checkmate::assert_string(x)
-  fp <- paste0("reference_posteriors/draws/draws/", x, ".json")
-  rpfp <- pdb_cached_local_file_path(pdb, path = fp, unzip = TRUE)
-  checkmate::assert_file_exists(rpfp)
-  rpfp
-}
-
-#' @rdname reference_posterior_draws_file_path
-#' @export
-reference_posterior_draws_file_path.pdb_reference_posterior_info <- function(x, pdb = pdb_default(), ...) {
-  reference_posterior_draws_file_path(x$name, pdb, ...)
-}
-
-
 #' Reference posterior summary statistics
 #'
 #' @param x a [posterior] object or a posterior name.
