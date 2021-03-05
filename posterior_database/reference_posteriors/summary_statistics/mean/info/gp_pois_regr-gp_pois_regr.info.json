@@ -1,0 +1,46 @@
+{
+  "name": "gp_pois_regr-gp_pois_regr",
+  "inference": {
+    "method": "stan_sampling",
+    "method_arguments": {
+      "chains": 10,
+      "iter": 20000,
+      "warmup": 10000,
+      "thin": 10,
+      "seed": 4711,
+      "control": {
+        "adapt_delta": 0.99,
+        "max_treedepth": 15
+      }
+    }
+  },
+  "diagnostics": {
+    "diagnostic_information": {
+      "names": ["rho", "alpha", "f[1]", "f[2]", "f[3]", "f[4]", "f[5]", "f[6]", "f[7]", "f[8]", "f[9]", "f[10]", "f[11]"]
+    },
+    "ndraws": 10000,
+    "nchains": 10,
+    "effective_sample_size_bulk": [10052.8833264339, 9956.36483774459, 10258.7021728578, 9915.17944798762, 9948.51823330704, 10080.2864931092, 10276.8933445883, 9989.16115283084, 9952.74684015017, 9995.42386062447, 9681.07877805813, 9787.53270385891, 9938.81966989769],
+    "effective_sample_size_tail": [10038.4765550238, 10209.9936100763, 9616.73147225019, 9698.19541282685, 10035.3609273258, 9536.46761555707, 9926.77355494514, 9654.96465047676, 10037.2308129699, 9893.59183418044, 9713.92537655802, 10109.2250285868, 9906.62503584401],
+    "r_hat": [1.00072761814935, 1.00088646471972, 1.00005309532803, 1.00037131773654, 1.00042623108153, 1.00003635193234, 1.00003309706308, 1.00024515084225, 0.999646238012742, 1.00025402707965, 1.00039383185108, 1.00013426412392, 1.0001343539592],
+    "divergent_transitions": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "expected_fraction_of_missing_information": [1.97269113944322, 1.95027402154911, 1.87881671070644, 2.01108536893885, 2.05173712263014, 2.07667879582461, 2.00964523644518, 1.99242892378985, 2.00385567627302, 2.02343071700875]
+  },
+  "checks_made": {
+    "ndraws_is_gte_10k": true,
+    "nchains_is_gte_4": true,
+    "ess_within_bounds": true,
+    "r_hat_below_1_01": true,
+    "efmi_above_0_2": true
+  },
+  "comments": null,
+  "added_by": "Oliver J<c3><a4>rnefelt",
+  "added_date": "2020-05-17",
+  "versions": {
+    "rstan_version": "rstan 2.19.3",
+    "r_Makevars": "",
+    "r_version": "R version 3.6.1 (2019-07-05)",
+    "r_session": "R version 3.6.1 (2019-07-05)\nPlatform: x86_64-pc-linux-gnu (64-bit)\nRunning under: CentOS Linux 7 (Core)\n\nMatrix products: default\nBLAS/LAPACK: /share/apps/spack/envs/fgci-centos7-generic/software/openblas/0.3.7/fqs4o7j/lib/libopenblasp-r0.3.7.so\n\nlocale:\n[1] C\n\nattached base packages:\n[1] stats     graphics  grDevices utils     datasets  methods   base     \n\nother attached packages:\n[1] posterior_0.0.2    posteriordb_0.1    rstan_2.19.3       ggplot2_3.3.0     \n[5] StanHeaders_2.19.2\n\nloaded via a namespace (and not attached):\n [1] Rcpp_1.0.4.6       pillar_1.4.3       compiler_3.6.1     prettyunits_1.1.1 \n [5] tools_3.6.1        pkgbuild_1.0.7     lifecycle_0.2.0    tibble_3.0.1      \n [9] gtable_0.3.0       checkmate_2.0.0    pkgconfig_2.0.3    rlang_0.4.6       \n[13] cli_2.0.2          parallel_3.6.1     loo_2.2.0          gridExtra_2.3     \n[17] withr_2.2.0        dplyr_0.8.5        vctrs_0.2.4        stats4_3.6.1      \n[21] grid_3.6.1         tidyselect_1.0.0   glue_1.4.0         inline_0.3.15     \n[25] R6_2.4.1           processx_3.4.2     fansi_0.4.1        callr_3.4.3       \n[29] purrr_0.3.4        magrittr_1.5       backports_1.1.6    scales_1.1.0      \n[33] ps_1.3.2           ellipsis_0.3.0     matrixStats_0.56.0 abind_1.4-5       \n[37] assertthat_0.2.1   colorspace_1.4-1   munsell_0.5.0      crayon_1.3.4      ",
+    "r_summary_statistic": "posterior R package, version 0.1.2"
+  }
+}
