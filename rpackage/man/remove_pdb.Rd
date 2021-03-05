@@ -10,6 +10,7 @@
 \alias{remove_pdb.pdb_posterior}
 \alias{remove_pdb.pdb_reference_posterior_draws}
 \alias{remove_pdb.pdb_reference_posterior_info}
+\alias{remove_pdb.pdb_reference_posterior_summary_statistic}
 \title{Remove objects from local pdb}
 \usage{
 remove_pdb(x, pdb, ...)
@@ -29,6 +30,8 @@ remove_pdb(x, pdb, ...)
 \method{remove_pdb}{pdb_reference_posterior_draws}(x, pdb, remove_info = TRUE, ...)
 
 \method{remove_pdb}{pdb_reference_posterior_info}(x, pdb, type, ...)
+
+\method{remove_pdb}{pdb_reference_posterior_summary_statistic}(x, pdb, remove_info = TRUE, ...)
 }
 \arguments{
 \item{x}{an object to remove to the pdb.}
