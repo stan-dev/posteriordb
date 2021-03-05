@@ -6,7 +6,7 @@
 #'
 #' @param x a \code{posterior} object to access the reference posterior for.
 #' @param pdb a \code{pdb} posterior database connection.
-#' @param type Type of reference posterior [draws] or [expectations].
+#' @param type Type of reference posterior [draws] or [summary_statistic].
 #' @param ... Currently not used.
 #'
 #' @seealso reference_posterior_draws
@@ -30,11 +30,6 @@ reference_posterior_draws_info <- function(x, pdb = pdb_default(), ...) {
 #' @export
 pdb_reference_posterior_draws_info <- reference_posterior_draws_info
 
-#' @rdname reference_posterior_info
-#' @export
-reference_posterior_expectations_info <- function(x, pdb = pdb_default(), ...) {
-  reference_posterior_info(x, type = "expectations", pdb = pdb)
-}
 
 #' @rdname reference_posterior_info
 #' @export
@@ -128,7 +123,7 @@ reference_posterior_draws_file_path.pdb_reference_posterior_info <- function(x, 
 }
 
 
-#' Reference Posterior posterior Draws and Expectations
+#' Reference Posterior draws and summary statistics
 #' @param x a [posterior] object or a posterior name.
 #' @param pdb a [pdb] object (if [x] is a posterior name)
 #' @param info a [pdb_reference_posterior_info] object
@@ -226,7 +221,7 @@ assert_reference_posterior_info <- function(x){
   checkmate::assert_string(x$added_by)
   checkmate::assert_date(x$added_date)
   if(!is.null(x$versions)){
-    checkmate::assert_names(names(x$versions), subset.of = c("rstan_version", "r_Makevars", "r_version", "r_session"))
+    checkmate::assert_names(names(x$versions), subset.of = c("rstan_version", "r_Makevars", "r_version", "r_session", "r_summary_statistic"))
     if(!is.null(x$versions$rstan_version)){
       checkmate::assert_names(names(x$versions), must.include = c("rstan_version", "r_Makevars", "r_version", "r_session"))
     }
@@ -276,12 +271,11 @@ print.pdb_reference_posterior_info <- function(x, ...) {
 
 #' @rdname reference_posterior_draws
 #' @export
-reference_posterior_expectations <- function(x, ...){
+reference_posterior_summary_statistic <- function(x, type, ...){
   stop("not implemented!")
 }
 
-supported_reference_posterior_types <- function() c("draws", "expectations")
-
+supported_reference_posterior_types <- function() c("draws", supported_summary_statistic_types())
 
 #' Thin draws to reduce their size and autocorrelation of the chains.
 #'
