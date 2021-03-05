@@ -99,7 +99,7 @@ reference_posterior_summary_statistic.list <- function(x, info, type, ...){
 }
 
 
-#' Read reference_posterior_draws json object
+#' Read reference_posterior_summary_statistic json object
 #' @param x a data, model or posterior name
 #' @param pdb a posterior db object to access the info json from
 #' @param ... further arguments. Currently not used.

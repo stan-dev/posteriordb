@@ -15,12 +15,12 @@ compute_reference_posterior_summary_statistic <- function(rpd, summary_statistic
     res <- posterior::summarise_draws(rpd, "mean", "mcse_mean")
     res <- as.list(res)
     names(res)[1] <- "names"
-    rpi$versions$r_summary_statistic <- paste0("posterior R package, version ", packageVersion("posterior"))
+    rpi$versions$r_summary_statistic <- paste0("posterior R package, version ", utils::packageVersion("posterior"))
   } else if (summary_statistic == "sd"){
     res <- posterior::summarise_draws(rpd, "sd", "mcse_sd")
     res <- as.list(res)
     names(res)[1] <- "names"
-    rpi$versions$r_summary_statistic <- paste0("posterior R package, version ", packageVersion("posterior"))
+    rpi$versions$r_summary_statistic <- paste0("posterior R package, version ", utils::packageVersion("posterior"))
   } else {
     stop("Summary statistic is not implemented.")
   }

@@ -270,13 +270,6 @@ print.pdb_reference_posterior_info <- function(x, ...) {
   print_list(x$inference$method_arguments)
 }
 
-
-#' @rdname reference_posterior_draws
-#' @export
-reference_posterior_summary_statistic <- function(x, type, ...){
-  stop("not implemented!")
-}
-
 supported_reference_posterior_types <- function() c("draws", supported_summary_statistic_types())
 
 #' Thin draws to reduce their size and autocorrelation of the chains.

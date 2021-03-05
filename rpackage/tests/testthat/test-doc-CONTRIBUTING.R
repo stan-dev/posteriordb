@@ -21,7 +21,7 @@ test_that("CONTRIBUTION.md works as usual (not testing rstan)", {
   # Please check that no code has been changed or update this test suite accordingly
   # Then change the hash to the md5 of the new updated file.
   md5_hash <- digest::digest(readLines(fp_to_CONTRIBUTING_md), algo = "md5")
-  expect_equal(md5_hash, "2cd6a73c7c902fc5388b29d595330ec0")
+  expect_equal(md5_hash, "10368458d4fe0e5278f01d6bebceb43c")
 
   # Init
   if(on_covr() & on_travis()){
