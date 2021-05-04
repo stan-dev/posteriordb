@@ -7,7 +7,7 @@ Don't hesitate to make a Pull Request (PR) with a new model, data, or posterior 
 
 Copyright
 -------------
-All models supplied will use the BD3 license by default (see R package). It is possible to manually specify a license in data, model or reference posterior info object.
+All models supplied will use the BSD3 license by default (see R package). It is possible to specify an altenrative open-source license in data, model or reference posterior info object.
 
 Pull request workflow
 -------------
