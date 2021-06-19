@@ -1,0 +1,11 @@
+{
+  "name": "ratings_1_data",
+  "keywords": ["movie", "ratings"],
+  "title": "Ratings for two movies",
+  "description": "Ratings for two movies from zero to five",
+  "urls": "https://github.com/stan-dev/example-models/tree/master/knitr/ratings",
+  "references": "gelman2018examples",
+  "added_date": "2021-06-18",
+  "added_by": "Kane Lindsay",
+  "data_file": "data/data/ratings_1_data.json"
+}

@@ -1,0 +1,11 @@
+{
+  "name": "ssm_data",
+  "keywords": ["Population", "Modelling", "Modeling", "Ibex", "Animal", "Biological"],
+  "title": "Yearly population counts of Ibex",
+  "description": "The observed number of Ibex conditional on the true population sizes",
+  "urls": "https://github.com/stan-dev/example-models/tree/master/BPA/Ch.05",
+  "references": "kery2011population",
+  "added_date": "2021-06-18",
+  "added_by": "Kane Lindsay",
+  "data_file": "data/data/ssm_data.json"
+}
