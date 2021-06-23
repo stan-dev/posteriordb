@@ -1,0 +1,17 @@
+{
+  "keywords": ["M0", "Constant Detection Probability", "Population"],
+  "urls": "https://github.com/stan-dev/example-models/blob/master/BPA/Ch.06",
+  "references": "kery2011population",
+  "dimensions": {
+    "omega": 1,
+    "p": 1,
+    "omega_nd": 1,
+    "N": 1
+  },
+  "reference_posterior_name": null,
+  "added_date": "2021-06-23",
+  "added_by": "Kane Lindsay",
+  "name": "M0_data-M0_model",
+  "model_name": "M0_model",
+  "data_name": "M0_data"
+}

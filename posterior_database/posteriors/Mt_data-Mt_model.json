@@ -1,0 +1,18 @@
+{
+  "keywords": ["Mt", "occasion", "Capture-Recapture"],
+  "urls": "https://github.com/stan-dev/example-models/blob/master/BPA/Ch.06",
+  "references": "kery2011population",
+  "dimensions": {
+    "omega": 1,
+    "p": 3,
+    "pr": 1,
+    "omega_nd": 1,
+    "N": 1
+  },
+  "reference_posterior_name": null,
+  "added_date": "2021-06-22",
+  "added_by": "Kane Lindsay",
+  "name": "Mt_data-Mt_model",
+  "model_name": "Mt_model",
+  "data_name": "Mt_data"
+}

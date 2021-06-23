@@ -1,0 +1,11 @@
+{
+  "name": "Mtbh_data",
+  "keywords": ["wryneck", "bird", "population", "Czechia", "Czech Republic"],
+  "title": "Bird Count Data in the Czech Republic",
+  "description": "Counts of the wryneck bird from cycling an East–West\n          transect spanning almost the whole of Czechia and conducting a 5 min\n          point count after every 500 m in 2004–2005. Repeated five times\n          within the same breeding season.",
+  "urls": "https://link.springer.com/article/10.1007/s10531-008-9430-4",
+  "references": "reif2008bird",
+  "added_date": "2021-06-23",
+  "added_by": "Kane Lindsay",
+  "data_file": "data/data/Mtbh_data.json"
+}

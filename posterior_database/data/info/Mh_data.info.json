@@ -1,0 +1,11 @@
+{
+  "name": "Mh_data",
+  "keywords": ["Capture", "Recapture", "Population", "Frequency", "Modelling", "Modeling", "Mh_data"],
+  "title": "Individuals detected in capture-recapture sampling",
+  "description": "Aggregated simulated capture frequencies: the counts of the number of times each individual was encountered.",
+  "urls": "https://github.com/stan-dev/example-models/blob/master/BPA/Ch.06",
+  "references": "kery2011population",
+  "added_date": "2021-06-22",
+  "added_by": "Kane Lindsay",
+  "data_file": "data/data/Mh_data.json"
+}
