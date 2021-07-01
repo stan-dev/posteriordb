@@ -1,0 +1,24 @@
+{
+  "keywords": ["Mtbh", "occasion", "heterogeneity", "behaviour", "Capture-Recapture", "population"],
+  "urls": "https://github.com/stan-dev/example-models/blob/master/BPA/Ch.06",
+  "references": "kery2011population",
+  "dimensions": {
+    "omega": 1,
+    "mean_p": 5,
+    "gamma": 1,
+    "sigma": 1,
+    "eps_raw": 146,
+    "eps": 146,
+    "alpha": 5,
+    "logit_p": 730,
+    "p": 730,
+    "z": 146,
+    "N": 1
+  },
+  "reference_posterior_name": null,
+  "added_date": "2021-06-23",
+  "added_by": "Kane Lindsay",
+  "name": "Mtbh_data-Mtbh_model",
+  "model_name": "Mtbh_model",
+  "data_name": "Mtbh_data"
+}
