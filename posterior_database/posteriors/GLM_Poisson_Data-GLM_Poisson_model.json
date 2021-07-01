@@ -1,0 +1,19 @@
+{
+  "keywords": ["GLM_Poisson", "Population"],
+  "urls": "https://github.com/stan-dev/example-models/tree/master/BPA/Ch.03",
+  "references": "kery2011population",
+  "dimensions": {
+    "alpha": 1,
+    "beta1": 1,
+    "beta2": 1,
+    "beta3": 1,
+    "log_lambda": 40,
+    "lambda": 40
+  },
+  "reference_posterior_name": null,
+  "added_date": "2021-07-01",
+  "added_by": "Kane Lindsay",
+  "name": "GLM_Poisson_Data-GLM_Poisson_model",
+  "model_name": "GLM_Poisson_model",
+  "data_name": "GLM_Poisson_Data"
+}
