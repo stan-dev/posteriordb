@@ -1,0 +1,15 @@
+{
+  "name": "GLMM1_model",
+  "keywords": ["BPA", "Ch.4", "GLMM1_model"],
+  "title": "Generalized Linear Mixed Model for Peregrine Population Size",
+  "description": "A GLMM for modeling peregrine population size with a random effect being the site of observation.",
+  "urls": "https://github.com/stan-dev/example-models/blob/master/BPA/Ch.04",
+  "references": "kery2011population",
+  "added_by": "Kane Lindsay",
+  "added_date": "2021-06-25",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/GLMM1_model.stan"
+    }
+  }
+}

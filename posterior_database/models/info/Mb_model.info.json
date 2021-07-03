@@ -6,7 +6,7 @@
   "urls": "https://github.com/stan-dev/example-models/blob/master/BPA/Ch.06",
   "references": "kery2011population",
   "added_by": "Kane Lindsay",
-  "added_date": "2021-06-22",
+  "added_date": "2021-06-25",
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/Mb_model.stan"
