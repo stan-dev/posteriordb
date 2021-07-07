@@ -1,0 +1,15 @@
+{
+  "name": "Rate_4_model",
+  "keywords": ["Trial", "Success Rate", "Inference", "Prior Inference", "Posterior Inference"],
+  "title": "Success rate of a trial with prior and posterior inference",
+  "description": "Inference of the success rate of a trial with prior and posterior inference",
+  "urls": "https://github.com/stan-dev/example-models/tree/master/Bayesian_Cognitive_Modeling/ParameterEstimation/Binomial",
+  "references": "lee2013cognitive",
+  "added_by": "Kane Lindsay",
+  "added_date": "2021-06-30",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/Rate_4_model.stan"
+    }
+  }
+}

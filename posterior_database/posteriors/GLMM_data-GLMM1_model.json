@@ -1,0 +1,18 @@
+{
+  "keywords": "GLMM",
+  "urls": "https://github.com/stan-dev/example-models/blob/master/BPA/Ch.06",
+  "references": "kery2011population",
+  "dimensions": {
+    "alpha": 235,
+    "mu_alpha": 1,
+    "sd_alpha": 1,
+    "log_lambda": 2115,
+    "mis": 43
+  },
+  "reference_posterior_name": null,
+  "added_date": "2021-06-25",
+  "added_by": "Kane Lindsay",
+  "name": "GLMM_data-GLMM1_model",
+  "model_name": "GLMM1_model",
+  "data_name": "GLMM_data"
+}

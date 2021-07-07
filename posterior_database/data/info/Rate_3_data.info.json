@@ -1,0 +1,11 @@
+{
+  "name": "Rate_3_data",
+  "keywords": "Test Score",
+  "title": "Success counts from two trials",
+  "description": "The number of successes (k1, k2) from two trials of sizes n1 and n2",
+  "urls": "https://github.com/stan-dev/example-models/tree/master/Bayesian_Cognitive_Modeling/ParameterEstimation/Binomial",
+  "references": "lee2013cognitive",
+  "added_date": "2021-06-30",
+  "added_by": "Kane Lindsay",
+  "data_file": "data/data/Rate_3_data.json"
+}

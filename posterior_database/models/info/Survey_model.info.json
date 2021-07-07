@@ -1,0 +1,15 @@
+{
+  "name": "Survey_model",
+  "keywords": ["Return Rate", "Joint Probability Distribution", "Survey"],
+  "title": "Inferring the Return Rate and Number of Surveys from Observed Returns",
+  "description": "Inference for the joint probability distribution of the\n          rate of return and the number of surveys by observing the number of returned surveys.",
+  "urls": "https://github.com/stan-dev/example-models/tree/master/Bayesian_Cognitive_Modeling/ParameterEstimation/Binomial",
+  "references": "lee2013cognitive",
+  "added_by": "Kane Lindsay",
+  "added_date": "2021-06-30",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/Survey_model.stan"
+    }
+  }
+}
