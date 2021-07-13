@@ -1,0 +1,18 @@
+{
+  "keywords": ["LSAT", "Random Effects", "Rasch"],
+  "urls": "https://github.com/stan-dev/example-models/tree/master/bugs_examples/vol1/lsat",
+  "references": "mrc1winbugs",
+  "dimensions": {
+    "alpha": 5,
+    "theta": 1000,
+    "beta": 1,
+    "mean_alpha": 1,
+    "a": 5
+  },
+  "reference_posterior_name": null,
+  "added_date": "2021-07-13",
+  "added_by": "Kane Lindsay",
+  "name": "lsat_data-lsat_model",
+  "model_name": "lsat_model",
+  "data_name": "lsat_data"
+}
