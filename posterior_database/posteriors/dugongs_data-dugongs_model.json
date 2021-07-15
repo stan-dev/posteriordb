@@ -1,0 +1,19 @@
+{
+  "keywords": ["Non-Linear", "Growth Curve", "Dugongs"],
+  "urls": "https://github.com/stan-dev/example-models/tree/master/bugs_examples/vol2",
+  "references": "mrc2winbugs",
+  "dimensions": {
+    "alpha": 1,
+    "beta": 1,
+    "lambda": 1,
+    "tau": 1,
+    "sigma": 1,
+    "U3": 1
+  },
+  "reference_posterior_name": null,
+  "added_date": "2021-07-15",
+  "added_by": "Kane Lindsay",
+  "name": "dugongs_data-dugongs_model",
+  "model_name": "dugongs_model",
+  "data_name": "dugongs_data"
+}

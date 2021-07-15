@@ -1,0 +1,11 @@
+{
+  "name": "dugongs_data",
+  "keywords": ["dugong", "dugongs", "age", "length"],
+  "title": "Dugong Ages and Lengths",
+  "description": "The ages and lengths of 27 captured dugongs (sea cows)",
+  "urls": "https://github.com/stan-dev/example-models/tree/master/bugs_examples/vol2",
+  "references": "mrc2winbugs",
+  "added_date": "2021-07-15",
+  "added_by": "Kane Lindsay",
+  "data_file": "data/data/dugongs_data.json"
+}
