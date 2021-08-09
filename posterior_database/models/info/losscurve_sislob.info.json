@@ -1,0 +1,15 @@
+{
+  "name": "losscurve_sislob",
+  "keywords": "actuarial",
+  "title": "Hierarchical Loss Curve Model",
+  "description": "Hierarchical Loss Curve Model",
+  "urls": "https://mc-stan.org/users/documentation/case-studies/losscurves_casestudy.html",
+  "references": "https://mc-stan.org/users/documentation/case-studies/losscurves_casestudy.html",
+  "added_by": "Keane Nguyen",
+  "added_date": "2021-08-03",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/losscurve_sislob.stan"
+    }
+  }
+}

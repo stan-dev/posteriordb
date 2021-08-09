@@ -1,0 +1,11 @@
+{
+  "name": "traffic_accident_nyc",
+  "keywords": "benchmarking_1.0",
+  "title": "Traffic Accidents in NYC",
+  "description": "This dataset was compiled from all reported traffic accidents involving a car and either a pedestrian or bicyclist in New York City between 2001 and 2009, localized to the census tract level. We are using just the 2001 data for total population per census tract and total number of accidents. Although there are 2168 total census tracts in New York City, we only have data for 1929 regions, 8 of which aren’t properly connected to other regions and are therefore omitted for the sake of simplicity.",
+  "urls": "https://pubmed.ncbi.nlm.nih.gov/25643104/",
+  "references": "https://pubmed.ncbi.nlm.nih.gov/25643104/",
+  "added_date": "2021-08-03",
+  "added_by": "Keane Nguyen",
+  "data_file": "data/data/traffic_accident_nyc.json"
+}

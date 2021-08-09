@@ -1,0 +1,11 @@
+{
+  "name": "timssAusTwn_irt",
+  "keywords": "benchmarking_1.0",
+  "title": "The example data are from the TIMSS 2011 mathematics assessment (Mullis et al. 2012) of Australian and Taiwanese students. For convenience, a subset of 500 students is used. The subsetted data is then divided into a person covariate matrix and an item response matrix.",
+  "description": "Please look at the TAM package for more details",
+  "urls": "https://www.rdocumentation.org/packages/TAM/versions/3.7-16/topics/data.timssAusTwn",
+  "references": null,
+  "added_date": "2021-08-03",
+  "added_by": "Keane Nguyen",
+  "data_file": "data/data/timssAusTwn_irt.json"
+}
