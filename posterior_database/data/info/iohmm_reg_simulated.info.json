@@ -1,0 +1,11 @@
+{
+  "name": "iohmm_reg_simulated",
+  "keywords": "benchmarking_1.0",
+  "title": "Simulated data for iohmm_reg model",
+  "description": "Simulated data for iohmm_reg model",
+  "urls": "https://github.com/luisdamiano/stancon18",
+  "references": "https://github.com/luisdamiano/stancon18",
+  "added_date": "2021-08-19",
+  "added_by": "Keane Nguyen",
+  "data_file": "data/data/iohmm_reg_simulated.json"
+}
