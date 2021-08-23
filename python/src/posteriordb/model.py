@@ -1,6 +1,7 @@
 import os
 from typing import Union
 
+from . import STAN_BACKEND
 from .posterior_database import PosteriorDatabase
 from .posterior_database_github import PosteriorDatabaseGithub
 from .pymc3_model_implementation import PyMC3ModelImplementation
@@ -57,7 +58,7 @@ class Model:
             if backend not in {"cmdstanpy", "pystan", "pystan2", None}:
                 raise TypeError("Invalid backend option: {backend}".format(backend))
             if backend is None:
-                backend = "cmdstanpy"
+                backend = STAN_BACKEND
 
         implementation_info = self._implementations[framework]
         implementation_class = implementations[

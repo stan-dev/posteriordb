@@ -5,3 +5,8 @@ def drop_keys(dct, keys_to_drop):
     new_dct = {k: v for (k, v) in dct.items() if k not in keys_to_drop}
 
     return new_dct
+
+
+def change_stan_backend(backend):
+    assert backend in {"cmdstanpy", "pystan", "pystan2"}
+    STAN_BACKEND = backend
