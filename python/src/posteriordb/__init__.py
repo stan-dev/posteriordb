@@ -7,6 +7,7 @@ STAN_BACKEND = "cmdstanpy"
 
 
 def change_stan_backend(backend):
+    """Update default backend for Stan."""
     assert backend in {"cmdstanpy", "pystan", "pystan2"}
     global STAN_BACKEND
     STAN_BACKEND = backend
