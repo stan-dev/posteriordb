@@ -1,0 +1,11 @@
+{
+  "name": "loss_curves",
+  "keywords": "benchmarking_1.0",
+  "title": "loss_curves",
+  "description": "loss_curves",
+  "urls": "https://mc-stan.org/users/documentation/case-studies/losscurves_casestudy.html",
+  "references": "https://mc-stan.org/users/documentation/case-studies/losscurves_casestudy.html",
+  "added_date": "2021-08-03",
+  "added_by": "Keane Nguyen",
+  "data_file": "data/data/loss_curves.json"
+}

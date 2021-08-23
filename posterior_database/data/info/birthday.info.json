@@ -1,0 +1,11 @@
+{
+  "name": "birthday",
+  "keywords": "benchmarking_1.0",
+  "title": "Number of births per day in USA from 1969 - 1988",
+  "description": "Number of births per day in USA from 1969-01-01 to 1988-12-31.\nData source: National Vital Statistics System natality data, as\nprovided by Google BigQuery and exported to cvs by Chris Mulligan (sum\ndata http://chmullig.com/wp-content/uploads/2012/06/births.csv) and\nRobert Kern (whole time series\nhttp://www.mechanicalkern.com/static/birthdates-1968-1988.csv).\n\nData columns\n- year\n- month\n- day\n- births\n- day_of_year\n- day_of_week\n- id\n- day_of_year2 = this is same as day_of_year",
+  "urls": null,
+  "references": null,
+  "added_date": "2021-08-23",
+  "added_by": "Keane Nguyen",
+  "data_file": "data/data/birthday.json"
+}

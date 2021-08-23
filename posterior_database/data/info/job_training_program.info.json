@@ -1,0 +1,11 @@
+{
+  "name": "job_training_program",
+  "keywords": "benchmarking_1.0",
+  "title": "Data from job training program for people with longstanding employment problems",
+  "description": "the data come from a randomized evaluation of the National Supported Work (NSW) project. The project was a transitional and subsidized job training program for people with longstanding employment problems. The data has been widely analyzed in the study on program evaluation particularly in econometrics, including Heckman and Hotz (1989), Dehejia and Wahba (1999), and Smith and Todd (2001). We analyze a subset of the data used by Dehejia and Wahba (1999), which is the same data set illustrated in chapter 8 of Imbens and Rubin (2015).",
+  "urls": "https://mc-stan.org/users/documentation/case-studies/model-based_causal_inference_for_RCT.html#introduction",
+  "references": "https://mc-stan.org/users/documentation/case-studies/model-based_causal_inference_for_RCT.html#introduction",
+  "added_date": "2021-08-03",
+  "added_by": "Keane Nguyen",
+  "data_file": "data/data/job_training_program.json"
+}

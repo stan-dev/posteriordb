@@ -1,0 +1,15 @@
+{
+  "name": "independent_potential_outcomes_with_covariates",
+  "keywords": "causal",
+  "title": "Independent Potential Outcomes With Covariates",
+  "description": "The Bayesian inferential framework introduced by Rubin (1978) defines causal effects as a comparison of the potential outcomes of the same units and clearly separates the true underlying model of the potential outcomes from the treatment assignment mechanism. Then the framework takes advantage of fully Bayesian posterior predictive inference for multiply-imputing the missing potential outcomes.",
+  "urls": "https://mc-stan.org/users/documentation/case-studies/model-based_causal_inference_for_RCT.html#introduction",
+  "references": "https://mc-stan.org/users/documentation/case-studies/model-based_causal_inference_for_RCT.html#introduction",
+  "added_by": "Keane Nguyen",
+  "added_date": "2021-08-03",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/independent_potential_outcomes_with_covariates.stan"
+    }
+  }
+}

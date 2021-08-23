@@ -6,6 +6,7 @@
 \alias{model_code.character}
 \alias{model_code.pdb_model_info}
 \alias{model_code.stanmodel}
+\alias{model_code.CmdStanModel}
 \alias{pdb_model_code}
 \alias{model_code_file_path}
 \alias{model_code_file_path.pdb_posterior}
@@ -25,6 +26,8 @@ model_code(x, ...)
 \method{model_code}{pdb_model_info}(x, framework, pdb = pdb_default(), ...)
 
 \method{model_code}{stanmodel}(x, info, ...)
+
+\method{model_code}{CmdStanModel}(x, info, ...)
 
 pdb_model_code(x, ...)
 

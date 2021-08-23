@@ -1,0 +1,11 @@
+{
+  "name": "scotish_lip_cancer",
+  "keywords": "benchmarking_1.0",
+  "title": "Scotish lip cancer data",
+  "description": "This data set includes observed lip cancer case counts at 56 spatial units in Scotland, with an expected number of cases to be used as an offset, and an area-specific continuous covariate that represents the proportion of the population employed in agriculture, fishing, or forestry.",
+  "urls": "https://cran.r-project.org/web/packages/CARBayesdata/CARBayesdata.pdf",
+  "references": null,
+  "added_date": "2021-08-03",
+  "added_by": "Keane Nguyen",
+  "data_file": "data/data/scotish_lip_cancer.json"
+}

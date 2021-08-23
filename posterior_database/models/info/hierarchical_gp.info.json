@@ -1,0 +1,15 @@
+{
+  "name": "hierarchical_gp",
+  "keywords": "gaussian process",
+  "title": "Hierarchical Gaussian Process",
+  "description": "Hierarchical Gaussian Process",
+  "urls": "https://mc-stan.org/events/stancon2017-notebooks/stancon2017-trangucci-hierarchical-gps.pdf",
+  "references": null,
+  "added_by": "Keane Nguyen",
+  "added_date": "2021-08-03",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/hierarchical_gp.stan"
+    }
+  }
+}

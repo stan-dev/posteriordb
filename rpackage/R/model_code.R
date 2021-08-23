@@ -52,8 +52,19 @@ model_code.stanmodel <- function(x, info, ...){
 
 #' @rdname model_code
 #' @export
-pdb_model_code <- model_code
+model_code.CmdStanModel <- function(x, info, ...){
+  mc <- paste(x$code(), collapse = "\n")
+  class(mc) <- "pdb_model_code"
+  framework(mc) <- "stan"
+  info(mc) <- info
+  assert_model_code(mc)
+  mc
+}
 
+
+#' @rdname model_code
+#' @export
+pdb_model_code <- model_code
 
 
 #' @rdname model_code
