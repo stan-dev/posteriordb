@@ -1,0 +1,15 @@
+{
+  "name": "state_space_stochastic_level_stochastic_seasonal",
+  "keywords": "Structured Time Series",
+  "title": "Structured Time Series model with stochastic level and stochastic seasonal",
+  "description": "Structured Time Series model with stochastic level and stochastic seasonal",
+  "urls": "https://github.com/sinhrks/stan-statespace/blob/master/models/fig07_02.stan",
+  "references": "https://github.com/sinhrks/stan-statespace/blob/master/models/fig07_02.stan",
+  "added_by": "Keane Nguyen",
+  "added_date": "2021-08-19",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/state_space_stochastic_level_stochastic_seasonal.stan"
+    }
+  }
+}
