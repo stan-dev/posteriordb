@@ -1,5 +1,5 @@
 import os
-from typing import Union
+from typing import Any, Union
 
 from . import STAN_BACKEND
 from .posterior_database import PosteriorDatabase
@@ -22,10 +22,14 @@ implementations = {
 
 class Model:
     def __init__(
-        self, name: str, posterior_db: Union[PosteriorDatabase, PosteriorDatabaseGithub]
+        self,
+        name: str,
+        posterior_db: Union[PosteriorDatabase, PosteriorDatabaseGithub],
+        data: Any = None,
     ):
         self.name = name
         self.posterior_db = posterior_db
+        self._data = data
         full_model_info = self.posterior_db.get_model_info(name=self.name)
         self.information = drop_keys(full_model_info, "model_implementations")
         self._implementations = full_model_info["model_implementations"]
@@ -56,7 +60,7 @@ class Model:
     def implementation(self, framework, backend=None):
         if framework == "stan":
             if backend not in {"cmdstanpy", "pystan", "pystan2", None}:
-                raise TypeError("Invalid backend option: {backend}".format(backend))
+                raise TypeError("Invalid backend option: {}".format(backend))
             if backend is None:
                 backend = STAN_BACKEND
 
@@ -64,7 +68,12 @@ class Model:
         implementation_class = implementations[
             framework if backend is None else backend
         ]
-        implementation_obj = implementation_class(
-            self.posterior_db, **implementation_info
-        )
+        if framework == "stan" and backend == "pystan":
+            implementation_obj = implementation_class(
+                self.posterior_db, data=self._data, **implementation_info
+            )
+        else:
+            implementation_obj = implementation_class(
+                self.posterior_db, **implementation_info
+            )
         return implementation_obj

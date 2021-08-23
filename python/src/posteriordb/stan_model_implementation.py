@@ -1,6 +1,7 @@
 from functools import partial
 import json
 
+from .dataset import Dataset
 from .model_implementation_base import ModelImplementationBase
 
 
@@ -37,7 +38,9 @@ class PyStanModelImplementation(ModelImplementationBase):
             if self.data is None and "data" in kwargs:
                 kwargs = kwargs.copy()
                 data = kwargs.pop("data")
-            if not isinstance(self.data, dict):
+            if isinstance(self.data, Dataset):
+                data = self.data.values()
+            elif not isinstance(self.data, dict):
                 with open(self.data, "w") as file_obj:
                     data = json.load(file_obj)
         except ValueError as exc:
