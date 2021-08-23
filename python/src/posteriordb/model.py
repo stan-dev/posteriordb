@@ -4,10 +4,19 @@ from typing import Union
 from .posterior_database import PosteriorDatabase
 from .posterior_database_github import PosteriorDatabaseGithub
 from .pymc3_model_implementation import PyMC3ModelImplementation
-from .stan_model_implementation import StanModelImplementation
+from .stan_model_implementation import (
+    PyStanModelImplementation,
+    PyStan2ModelImplementation,
+    CmdStanPyModelImplementation,
+)
 from .util import drop_keys
 
-implementations = {"stan": StanModelImplementation, "pymc3": PyMC3ModelImplementation}
+implementations = {
+    "cmdstanpy": CmdStanPyModelImplementation,
+    "pystan2": PyStan2ModelImplementation,
+    "pystan": PyStanModelImplementation,
+    "pymc3": PyMC3ModelImplementation,
+}
 
 
 class Model:
@@ -43,9 +52,17 @@ class Model:
     def stan_code_file_path(self):
         return self.code_file_path("stan")
 
-    def implementation(self, framework):
+    def implementation(self, framework, backend=None):
+        if framework == "stan":
+            if backend not in {"cmdstanpy", "pystan", "pystan2", None}:
+                raise TypeError("Invalid backend option: {backend}".format(backend))
+            if backend is None:
+                backend = "cmdstanpy"
+
         implementation_info = self._implementations[framework]
-        implementation_class = implementations[framework]
+        implementation_class = implementations[
+            framework if backend is None else backend
+        ]
         implementation_obj = implementation_class(
             self.posterior_db, **implementation_info
         )
