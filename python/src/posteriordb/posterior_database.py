@@ -19,7 +19,7 @@ def temporary_no_assertions(x):
 
 
 def filename(path):
-    """Given a full file path return just the filename without extension """
+    """Given a full file path return just the filename without extension"""
     # with_suffix is needed in case the file has multiple extensions
     return path.with_suffix("").stem
 

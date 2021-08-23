@@ -6,9 +6,9 @@ from .posterior_database import PosteriorDatabase
 from .posterior_database_github import PosteriorDatabaseGithub
 from .pymc3_model_implementation import PyMC3ModelImplementation
 from .stan_model_implementation import (
-    PyStanModelImplementation,
-    PyStan2ModelImplementation,
     CmdStanPyModelImplementation,
+    PyStan2ModelImplementation,
+    PyStanModelImplementation,
 )
 from .util import drop_keys
 

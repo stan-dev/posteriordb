@@ -1,5 +1,5 @@
-from functools import partial
 import json
+from functools import partial
 
 from .dataset import Dataset
 from .model_implementation_base import ModelImplementationBase

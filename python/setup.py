@@ -1,5 +1,6 @@
 import os
 import re
+
 from setuptools import setup
 
 PROJECT_ROOT = os.path.dirname(os.path.realpath(__file__))
