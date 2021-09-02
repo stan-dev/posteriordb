@@ -1,7 +1,8 @@
 import os
 
-from . import helpers
 from posteriordb import PosteriorDatabase
+
+from . import helpers
 
 
 def get_posterior_db():

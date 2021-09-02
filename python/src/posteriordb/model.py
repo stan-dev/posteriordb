@@ -1,21 +1,35 @@
 import os
-from typing import Union
+from typing import Any, Union
 
+from . import STAN_BACKEND
 from .posterior_database import PosteriorDatabase
 from .posterior_database_github import PosteriorDatabaseGithub
 from .pymc3_model_implementation import PyMC3ModelImplementation
-from .stan_model_implementation import StanModelImplementation
+from .stan_model_implementation import (
+    CmdStanPyModelImplementation,
+    PyStan2ModelImplementation,
+    PyStanModelImplementation,
+)
 from .util import drop_keys
 
-implementations = {"stan": StanModelImplementation, "pymc3": PyMC3ModelImplementation}
+implementations = {
+    "cmdstanpy": CmdStanPyModelImplementation,
+    "pystan2": PyStan2ModelImplementation,
+    "pystan": PyStanModelImplementation,
+    "pymc3": PyMC3ModelImplementation,
+}
 
 
 class Model:
     def __init__(
-        self, name: str, posterior_db: Union[PosteriorDatabase, PosteriorDatabaseGithub]
+        self,
+        name: str,
+        posterior_db: Union[PosteriorDatabase, PosteriorDatabaseGithub],
+        data: Any = None,
     ):
         self.name = name
         self.posterior_db = posterior_db
+        self._data = data
         full_model_info = self.posterior_db.get_model_info(name=self.name)
         self.information = drop_keys(full_model_info, "model_implementations")
         self._implementations = full_model_info["model_implementations"]
@@ -43,10 +57,23 @@ class Model:
     def stan_code_file_path(self):
         return self.code_file_path("stan")
 
-    def implementation(self, framework):
+    def implementation(self, framework, backend=None):
+        if framework == "stan":
+            if backend not in {"cmdstanpy", "pystan", "pystan2", None}:
+                raise TypeError("Invalid backend option: {}".format(backend))
+            if backend is None:
+                backend = STAN_BACKEND
+
         implementation_info = self._implementations[framework]
-        implementation_class = implementations[framework]
-        implementation_obj = implementation_class(
-            self.posterior_db, **implementation_info
-        )
+        implementation_class = implementations[
+            framework if backend is None else backend
+        ]
+        if framework == "stan" and backend == "pystan":
+            implementation_obj = implementation_class(
+                self.posterior_db, data=self._data, **implementation_info
+            )
+        else:
+            implementation_obj = implementation_class(
+                self.posterior_db, **implementation_info
+            )
         return implementation_obj

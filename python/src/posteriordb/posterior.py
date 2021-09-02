@@ -21,9 +21,11 @@ class Posterior:
 
         self.posterior_info = posterior_db.get_posterior_info(name)
 
-        self.model = Model(self.posterior_info["model_name"], posterior_db)
-
         self.data = Dataset(self.posterior_info["data_name"], posterior_db)
+
+        self.model = Model(
+            self.posterior_info["model_name"], posterior_db, data=self.data
+        )
 
         self.information = drop_keys(
             self.posterior_info,

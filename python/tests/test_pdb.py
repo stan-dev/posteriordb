@@ -1,8 +1,9 @@
 import os
 import re
 
-from posteriordb import PosteriorDatabase, PosteriorDatabaseGithub
 from posteriordb.posterior_database_github import get_sha1_hash
+
+from posteriordb import PosteriorDatabase, PosteriorDatabaseGithub
 
 
 def test_posterior_database():
