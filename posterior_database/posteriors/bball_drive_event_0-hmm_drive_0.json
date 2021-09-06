@@ -5,7 +5,6 @@
   "model_name": "hmm_drive_0",
   "data_name": "bball_drive_event_0",
   "reference_posterior_name": "bball_drive_event_0-hmm_drive_0",
-  "references": "",
   "dimensions": {
     "theta1": 2,
     "theta2": 2,
