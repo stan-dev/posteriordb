@@ -13,7 +13,7 @@ on:
 
 jobs:
   models:
-    name: R Tests
+    name: Check posteriordb content
     runs-on: ${{ matrix.config.os }}
     strategy:
       matrix:
@@ -33,7 +33,7 @@ jobs:
           R -e 'remotes::install_github("stan-dev/posteriordb-r")'
 
       - name: Set PDB path
-        run: export PDB_PATH=$GITHUB_WORKSPACE"/posteriordb";echo $PDB_PATH;echo PDB_PATH="$PDB_PATH" >> ~/.Renviron;ls $PDB_PATH
+        run: export PDB_PATH=$GITHUB_WORKSPACE;echo $PDB_PATH;echo PDB_PATH="$PDB_PATH" >> ~/.Renviron;ls $PDB_PATH
         shell: bash
 
       - name: Check PDB content
