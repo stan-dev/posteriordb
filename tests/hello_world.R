@@ -1,8 +1,5 @@
 # remotes::install_github("stan-dev/posteriordb-r")
-q(status = 1)
 library(posteriordb)
 pdbl <- pdb_local("posterior_database")
-check_pdb(pdbl, run_stan_code_checks = FALSE)
-
-print("hello world!")
-message("hello world!")
+status_code <- check_pdb(pdbl, run_stan_code_checks = FALSE)
+q(status = status_code)
