@@ -5,7 +5,7 @@
   "description": "Data Dimensions:\n- N: length of the process\n- K: number of latent states (1: None, 2: drive)\n- u: 1 / speed\n- v: distance to hoop\n- alpha: transit prior matrix\n- tau: sd of u\n- rho: sd of v\n",
   "urls": "https://github.com/imadmali/bball-hmm/tree/master/data",
   "data_file": "data/data/bball_drive_event_1.json",
-  "references": "",
+  "references": null,
   "added_date": "2020-05-10",
   "added_by": "Oliver Järnefelt"
 }

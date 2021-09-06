@@ -5,7 +5,7 @@
   "description": "Example data for a Hidden Markov Model\nData Dimensions:\n- N: number of data points\n- K: number of latent states\n- y: observed values\n",
   "urls": "https://github.com/imadmali/bball-hmm/tree/master/data",
   "data_file": "data/data/hmm_example.json",
-  "references": "",
+  "references": null,
   "added_date": "2020-05-10",
   "added_by": "Oliver Järnefelt"
 }

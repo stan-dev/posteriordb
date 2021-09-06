@@ -5,7 +5,7 @@
   "description": "Ovarian cancer dataset with 1536 predictors and 54 instances",
   "urls": "",
   "data_file": "data/data/ovarian.json",
-  "references": "",
+  "references": null,
   "added_date": "2020-02-29",
   "added_by": "Oliver Järnefelt"
 }
