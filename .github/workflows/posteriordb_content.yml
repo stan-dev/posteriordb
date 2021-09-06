@@ -30,7 +30,7 @@ jobs:
       - name: Install packages
         run: |
           R -e 'install.packages("remotes")'
-          R -e 'remotes::install_github("stan-dev/posteriordb-r")'
+          R -e 'remotes::install_github("stan-dev/posteriordb-r", dependencies = TRUE)'
 
       - name: Set PDB path
         run: export PDB_PATH=$GITHUB_WORKSPACE;echo $PDB_PATH;echo PDB_PATH="$PDB_PATH" >> ~/.Renviron;ls $PDB_PATH
