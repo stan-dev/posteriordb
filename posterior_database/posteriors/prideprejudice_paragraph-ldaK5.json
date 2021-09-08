@@ -1,11 +1,9 @@
 {
-  "name": "prideprejustice_paragraph-ldaK5",
-  "keywords": [
-    "multimodal"
-  ],
+  "name": "prideprejudice_paragraph-ldaK5",
+  "keywords": "multimodal",
   "model_name": "ldaK5",
   "reference_posterior_name": null,
-  "data_name": "prideprejustice_paragraph",
+  "data_name": "prideprejudice_paragraph",
   "dimensions": {
     "theta": 8100,
     "phi": 7470
