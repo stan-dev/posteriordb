@@ -1,0 +1,14 @@
+{
+  "name": "fims.Aus.Jpn_irt-2pl_latent_reg_irt",
+  "model_name": "2pl_latent_reg_irt",
+  "data_name": "fims.Aus.Jpn_irt",
+  "reference_posterior_name": null,
+  "dimensions": {
+    "alpha": 14,
+    "beta_free": 13,
+    "theta": 500,
+    "lambda_adj": 4
+  },
+  "added_by": "Mans Magnusson",
+  "added_date": "2021-09-08"
+}

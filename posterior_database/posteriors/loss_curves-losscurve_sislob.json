@@ -1,0 +1,16 @@
+{
+  "name": "loss_curves-losscurve_sislob",
+  "model_name": "losscurve_sislob",
+  "data_name": "loss_curves",
+  "reference_posterior_name": null,
+  "dimensions": {
+    "omega": 1,
+    "theta": 1,
+    "LR": 10,
+    "mu_LR": 1,
+    "sd_LR": 1,
+    "loss_sd": 1
+  },
+  "added_by": "Mans Magnusson",
+  "added_date": "2021-09-08"
+}

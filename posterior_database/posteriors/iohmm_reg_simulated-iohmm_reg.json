@@ -1,0 +1,14 @@
+{
+  "name": "iohmm_reg_simulated-iohmm_reg",
+  "model_name": "iohmm_reg",
+  "data_name": "iohmm_reg_simulated",
+  "reference_posterior_name": null,
+  "dimensions": {
+    "pi1": 2,
+    "w": [3, 4],
+    "b": [3, 4],
+    "sigma": 3
+  },
+  "added_by": "Mans Magnusson",
+  "added_date": "2021-09-08"
+}

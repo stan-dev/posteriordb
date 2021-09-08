@@ -1,0 +1,15 @@
+{
+  "name": "traffic_accident_nyc-bym2_offset_only",
+  "model_name": "bym2_offset_only",
+  "data_name": "traffic_accident_nyc",
+  "reference_posterior_name": null,
+  "dimensions": {
+    "beta0": 1,
+    "sigma": 1,
+    "rho": 1,
+    "theta": 1921,
+    "phi": 1921
+  },
+  "added_by": "Mans Magnusson",
+  "added_date": "2021-09-08"
+}

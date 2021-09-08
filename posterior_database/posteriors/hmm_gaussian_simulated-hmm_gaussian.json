@@ -1,0 +1,14 @@
+{
+  "name": "hmm_gaussian_simulated-hmm_gaussian",
+  "model_name": "hmm_gaussian",
+  "data_name": "hmm_gaussian_simulated",
+  "reference_posterior_name": null,
+  "dimensions": {
+    "pi1": 2,
+    "A": [3, 2],
+    "mu": 3,
+    "sigma": 3
+  },
+  "added_by": "Mans Magnusson",
+  "added_date": "2021-09-08"
+}
