@@ -2,4 +2,4 @@
 library(posteriordb)
 pdbl <- pdb_local("posterior_database")
 status_code <- check_pdb(pdbl, run_stan_code_checks = FALSE)
-#q(status = status_code)
+q(status = status_code)
