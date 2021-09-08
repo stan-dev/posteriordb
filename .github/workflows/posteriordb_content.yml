@@ -27,6 +27,10 @@ jobs:
 
       - uses: r-lib/actions/setup-r@master
 
+      - name: Install curl
+        run: |
+          sudo apt-get install libcurl4-openssl-dev
+
       - name: Cache R packages
         if: runner.os != 'Windows'
         uses: actions/cache@v1
