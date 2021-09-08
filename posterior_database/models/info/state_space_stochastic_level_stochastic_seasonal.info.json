@@ -4,7 +4,7 @@
   "title": "Structured Time Series model with stochastic level and stochastic seasonal",
   "description": "Structured Time Series model with stochastic level and stochastic seasonal",
   "urls": "https://github.com/sinhrks/stan-statespace/blob/master/models/fig07_02.stan",
-  "references": "https://github.com/sinhrks/stan-statespace/blob/master/models/fig07_02.stan",
+  "references": null,
   "added_by": "Keane Nguyen",
   "added_date": "2021-08-19",
   "model_implementations": {

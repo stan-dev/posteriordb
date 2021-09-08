@@ -4,7 +4,7 @@
   "title": "UK Drivers dataset from An Introduction to State Space Time Series Analysis text",
   "description": "UK Drivers dataset from An Introduction to State Space Time Series Analysis text",
   "urls": "https://github.com/sinhrks/stan-statespace/tree/master/data",
-  "references": "https://github.com/sinhrks/stan-statespace/tree/master/data",
+  "references": null,
   "added_date": "2021-08-19",
   "added_by": "Keane Nguyen",
   "data_file": "data/data/uk_drivers.json"
