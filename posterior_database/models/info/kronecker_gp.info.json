@@ -4,7 +4,7 @@
   "title": "Kronecker Gaussian Process",
   "description": "Gaussian Process using Kronecker structure",
   "urls": "https://sethrf.com/files/fast-hierarchical-GPs.pdf",
-  "references": "https://sethrf.com/files/fast-hierarchical-GPs.pdf",
+  "references": "flaxman2015fast",
   "added_by": "Keane Nguyen",
   "added_date": "2021-08-03",
   "model_implementations": {
