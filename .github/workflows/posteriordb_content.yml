@@ -27,6 +27,13 @@ jobs:
 
       - uses: r-lib/actions/setup-r@master
 
+      - id: files
+        uses: jitterbit/get-changed-files@v1
+        run: |
+          for changed_file in ${{ steps.files.outputs.all }}; do
+          echo "Do something with this ${changed_file}."
+          done
+
       - name: Install curl
         if: runner.os == 'Linux'
         run: |
