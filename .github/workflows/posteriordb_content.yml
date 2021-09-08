@@ -36,7 +36,7 @@ jobs:
 
       - name: Install packages
         run: |
-          R -e 'install.packages("remotes")'
+          R -e 'install.packages(c("remotes", "gh"))'
           R -e 'remotes::install_github("stan-dev/posteriordb-r")'
 
       - name: Set PDB path
