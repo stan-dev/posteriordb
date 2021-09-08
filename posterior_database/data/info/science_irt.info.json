@@ -4,7 +4,7 @@
   "title": "This data set comes from the Consumer Protection and Perceptions of Science and Technology section of the 1992 Euro-Barometer Survey (Karlheinz and Melich, 1992) based on a sample from Great Britain. T",
   "description": "Please look at Science data set from ltm package for more details",
   "urls": "https://www.rdocumentation.org/packages/ltm/versions/1.1-1/topics/Science",
-  "references": "KarlheinzandMelich1992",
+  "references": "reif1995euro",
   "added_date": "2021-08-03",
   "added_by": "Keane Nguyen",
   "data_file": "data/data/science_irt.json"
