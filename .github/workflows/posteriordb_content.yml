@@ -27,17 +27,17 @@ jobs:
 
       - uses: r-lib/actions/setup-r@master
 
-      - name: Install packages
-        run: |
-          R -e 'install.packages("remotes")'
-          R -e 'remotes::install_github("stan-dev/posteriordb-r", dependencies = TRUE)'
-
       - name: Cache R packages
         if: runner.os != 'Windows'
         uses: actions/cache@v1
         with:
           path: ${{ env.R_LIBS_USER }}
           key: ${{ runner.os }}-r-${{ matrix.config.r }}-${{ hashFiles('DESCRIPTION') }}
+
+      - name: Install packages
+        run: |
+          R -e 'install.packages("remotes")'
+          R -e 'remotes::install_github("stan-dev/posteriordb-r")'
 
       - name: Set PDB path
         run: export PDB_PATH=$GITHUB_WORKSPACE;echo $PDB_PATH;echo PDB_PATH="$PDB_PATH" >> ~/.Renviron;ls $PDB_PATH
