@@ -28,6 +28,7 @@ jobs:
       - uses: r-lib/actions/setup-r@master
 
       - name: Install curl
+        if: runner.os != 'Linux'
         run: |
           sudo apt-get install libcurl4-openssl-dev
 
@@ -40,8 +41,8 @@ jobs:
 
       - name: Install packages
         run: |
-          R -e 'install.packages(c("remotes", "gh"))'
-          R -e 'remotes::install_github("stan-dev/posteriordb-r")'
+          R -e 'install.packages(c("remotes"))'
+          R -e 'remotes::install_github("stan-dev/posteriordb-r", dependencies = TRUE)'
 
       - name: Set PDB path
         run: export PDB_PATH=$GITHUB_WORKSPACE;echo $PDB_PATH;echo PDB_PATH="$PDB_PATH" >> ~/.Renviron;ls $PDB_PATH
