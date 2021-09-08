@@ -29,7 +29,9 @@ jobs:
 
       - id: files
         uses: jitterbit/get-changed-files@v1
-        run: |
+          with:
+            format: 'json'
+      - run: |
           for changed_file in ${{ steps.files.outputs.all }}; do
           echo "Do something with this ${changed_file}."
           done
