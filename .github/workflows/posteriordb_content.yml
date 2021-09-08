@@ -58,4 +58,4 @@ jobs:
         shell: bash
 
       - name: Check PDB content
-        run: Rscript tests/hello_world.R
+        run: Rscript tests/check_posteriordb_content.R
