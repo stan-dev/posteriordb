@@ -1,8 +1,6 @@
 {
-  "name": "prideprejustice_chapter-ldaK5",
-  "keywords": [
-    "multimodal"
-  ],
+  "name": "prideprejudice_chapter-ldaK5",
+  "keywords": "multimodal",
   "model_name": "ldaK5",
   "reference_posterior_name": null,
   "data_name": "prideprejustice_chapter",
