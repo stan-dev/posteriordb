@@ -4,7 +4,7 @@
   "title": "State-wide presidential votes",
   "description": "Historical presidential votes by state",
   "urls": "https://mc-stan.org/events/stancon2017-notebooks/stancon2017-trangucci-hierarchical-gps.pdf",
-  "references": "https://mc-stan.org/events/stancon2017-notebooks/stancon2017-trangucci-hierarchical-gps.pdf",
+  "references": null,
   "added_date": "2021-08-03",
   "added_by": "Keane Nguyen",
   "data_file": "data/data/state_wide_presidential_votes.json"

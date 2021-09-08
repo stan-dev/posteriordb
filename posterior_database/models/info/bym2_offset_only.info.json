@@ -3,8 +3,8 @@
   "keywords": "spatial model, car",
   "title": "BYM2 model",
   "description": "The BYM2 model was proposed by Riebler et al 2016, following Simpson 2014. Like the BYM model, it includes two random effects components, and like the alternative Leroux (1999) model, it places a single precision (scale) parameter on the combined components, and a mixing parameter for the amount of spatial/non-spatial variation.",
-  "urls": "https://github.com/stan-dev/example-models/tree/master/knitr/car-iar-poisson",
-  "references": "https://mc-stan.org/users/documentation/case-studies/icar_stan.html",
+  "urls": ["https://github.com/stan-dev/example-models/tree/master/knitr/car-iar-poisson", "https://mc-stan.org/users/documentation/case-studies/icar_stan.html"],
+  "references": null,
   "added_by": "Keane Nguyen",
   "added_date": "2021-08-03",
   "model_implementations": {
