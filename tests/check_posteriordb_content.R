@@ -4,6 +4,7 @@ pdbl <- pdb_local("posterior_database")
 print(Sys.getenv("steps.files.outputs.all"))
 print(Sys.getenv("changed_file"))
 print(Sys.getenv("all"))
+print(jsonlite::read_json("changed.json"))
 #status_code <- check_pdb(pdbl, run_stan_code_checks = FALSE)
 status_code <- 0L
 q(status = status_code)
