@@ -32,7 +32,6 @@ jobs:
 
       - run: |
           echo "${{ steps.files.outputs.all }}" >> "all.txt"
-          cat "all.txt"
 
       - name: Install curl
         if: runner.os == 'Linux'
