@@ -5,7 +5,6 @@ pdbl <- pdb_local("posterior_database")
 #print(Sys.getenv("changed_file"))
 #print(Sys.getenv("all"))
 print(dir(getwd()))
-print(readLines("added_modified.txt"))
 print(readLines("all.txt"))
 #status_code <- check_pdb(pdbl, run_stan_code_checks = FALSE)
 status_code <- 0L
