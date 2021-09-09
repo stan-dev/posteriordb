@@ -12,4 +12,4 @@ if(length(posteriors_to_check) > 0){
   status_code <- max(status_code, status_code2)
 }
 
-q(status = max(status_code1, status_code2))
+q(status = status_code)
