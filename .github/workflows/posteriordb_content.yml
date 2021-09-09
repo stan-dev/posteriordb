@@ -34,7 +34,6 @@ jobs:
           echo "${added_modified}" >> "added_modified.txt"
           echo "${all}" >> "all.txt"
           ls
-          done
 
       - name: Install curl
         if: runner.os == 'Linux'
