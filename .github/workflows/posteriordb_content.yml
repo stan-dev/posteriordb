@@ -34,6 +34,7 @@ jobs:
           for changed_file in ${{ steps.files.outputs.all }}; do
           echo "${all}" >> "all.txt"
           done
+          cat all.txt
 
       - name: Install curl
         if: runner.os == 'Linux'
