@@ -90,8 +90,8 @@ functions {
     theta[3] = alpha21;
     theta[4] = alpha12;
 
-    C_hat = integrate_ode(two_pool_feedback,
-                           C_t0, t0, ts, theta, x_r, x_i);
+    C_hat = integrate_ode_rk45(two_pool_feedback,
+                               C_t0, t0, ts, theta, x_r, x_i);
 
     for (t in 1:N_t)
       eCO2_hat[t] = totalC_t0 - sum(C_hat[t]);
