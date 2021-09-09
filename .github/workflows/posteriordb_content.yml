@@ -31,9 +31,8 @@ jobs:
         uses: jitterbit/get-changed-files@v1
 
       - run: |
-          for changed_file in ${{ steps.files.outputs.added_modified }}; do
-          echo "Do something with this ${added_modified}."
           echo "${added_modified}" >> "added_modified.txt"
+          echo "${all}" >> "all.txt"
           ls
           done
 
