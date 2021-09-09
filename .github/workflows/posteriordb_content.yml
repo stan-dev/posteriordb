@@ -31,9 +31,9 @@ jobs:
         uses: jitterbit/get-changed-files@v1
 
       - run: |
-          echo "${added_modified}" >> "added_modified.txt"
+          for changed_file in ${{ steps.files.outputs.all }}; do
           echo "${all}" >> "all.txt"
-          ls
+          done
 
       - name: Install curl
         if: runner.os == 'Linux'
