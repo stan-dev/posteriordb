@@ -1,8 +1,6 @@
 # remotes::install_github("stan-dev/posteriordb-r")
 library(posteriordb)
 pdbl <- pdb_local("posterior_database")
-print(dir(getwd()))
-print(readLines("all.txt"))
-#status_code <- check_pdb(pdbl, run_stan_code_checks = FALSE)
-status_code <- 0L
+print(readLines("added_modified.txt"))
+status_code <- check_pdb(pdbl, run_stan_code_checks = FALSE)
 q(status = status_code)
