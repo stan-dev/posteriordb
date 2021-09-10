@@ -7,8 +7,8 @@ on:
       - master
       - development
     paths:
-      - 'posterior_database'
-      - 'tests'
+      - 'posterior_database/*'
+      - 'tests/*'
   pull_request:
     branches:
       - master

@@ -9,6 +9,7 @@
 #'
 #' @param paths to extract posteriors for
 #' @param pdb a `posteriordb` connection
+#'
 get_posteriors_from_paths <- function(paths, pdb){
   pns <- posteriordb::posterior_names(pdbl)
   mns <- posteriordb::model_names(pdbl)
