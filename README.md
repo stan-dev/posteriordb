@@ -20,15 +20,13 @@ Why use `posteriordb`?
 
 `posteriordb` is designed to test inference algorithms across a wide
 range of models and data sets. Applications include testing for
-accuracy, testing for speed, and testing for scalability. Algorithms
-being tested may be approximate like variational inference or
-asymptotically exact like Markov chain Monte Carlo. `posteriordb` can be
-used to test new algorithms being developed or deployed as part of
-continuous integration for ongoing regression testing of algorithms in
-probabilistic programming frameworks.
+accuracy, speed, and scalability. `posteriordb` can be used to test new
+algorithms being developed or deployed as part of continuous integration
+for ongoing regression testing algorithms in probabilistic programming
+frameworks.
 
 `posteriordb` also makes it easy for students and instructors to access
-a range of pedagogical and real-world examples with precise model
+various pedagogical and real-world examples with precise model
 definitions, well-curated data sets, and reference posteriors.
 
 `posteriordb` is framework agnostic and easily accessible from R and
@@ -56,9 +54,11 @@ Using `posteriordb`
 -------------------
 
 To simplify the use of `posteriordb`, there are convenience functions
-both in Python and in R. To use R see the
-[posteriordb-r](./python/README.md) repsoitory and to use Python, see
-the [posteriordb-r](./python/README.md)
+both in Python and in R. To use R, see the
+[posteriordb-r](https://github.com/stan-dev/posteriordb-r) repository,
+and to use Python, see the
+[posteriordb-python](https://github.com/stan-dev/posteriordb-python)
+repository.
 
 Design choices (so far)
 -----------------------
@@ -90,7 +90,7 @@ database.
 Versioning of models
 --------------------
 
-Models included in posteriordb might be updated over time. Although the
+We might update models included in posteriordb over time. However, the
 models will only have the same name in posteriordb if the log density is
-the same (up to a normalizing constant). Otherwise a new model will be
-included in the database.
+the same (up to a normalizing constant). Otherwise, we will include a
+new model in the database.
