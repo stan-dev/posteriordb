@@ -7,6 +7,8 @@
 #' The point is to extract what posteriors that need to be
 #' checked more thorough in the CI.
 #'
+#' @param paths to extract posteriors for
+#' @param pdb a `posteriordb` connection
 get_posteriors_from_paths <- function(paths, pdb){
   pns <- posteriordb::posterior_names(pdbl)
   mns <- posteriordb::model_names(pdbl)
