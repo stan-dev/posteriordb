@@ -1,0 +1,15 @@
+{
+  "name": "uk_drivers-state_space_stochastic_level_stochastic_seasonal",
+  "model_name": "state_space_stochastic_level_stochastic_seasonal",
+  "data_name": "uk_drivers",
+  "reference_posterior_name": null,
+  "dimensions": {
+    "mu": 192,
+    "seasonal": 192,
+    "beta": 1,
+    "lambda": 1,
+    "sigma": 3
+  },
+  "added_by": "Mans Magnusson",
+  "added_date": "2021-09-08"
+}

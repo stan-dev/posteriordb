@@ -30,7 +30,7 @@ model {
   matrix[2,2] L_Sigma;
   L_Sigma = diag_pre_multiply(tau, L_Omega);
   for (i in 1:I)
-    xi[i] ~ multi_normal_cholesky(mu, L_Sigma);
+    target +=  multi_normal_cholesky_lpdf(xi[i] |mu, L_Sigma);
   theta ~ normal(0, 1);
   L_Omega ~ lkj_corr_cholesky(4);
   mu[1] ~ normal(0,1);

@@ -1,0 +1,61 @@
+# Check posteriordb
+name: check_posteriordb_content
+
+on:
+  push:
+    branches:
+      - master
+      - development
+    paths:
+      - 'posterior_database'
+      - 'tests'
+  pull_request:
+    branches:
+      - master
+      - development
+
+jobs:
+  models:
+    name: Check posteriordb content
+    runs-on: ${{ matrix.config.os }}
+    strategy:
+      matrix:
+        config:
+          - {os: ubuntu-latest,     r: 'release'}
+      fail-fast: false
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@master
+
+      - uses: r-lib/actions/setup-r@master
+
+      - id: files
+        uses: jitterbit/get-changed-files@v1
+
+      - run: |
+          echo "${{ steps.files.outputs.added_modified }}" >> "added_modified.txt"
+
+      - name: Install curl
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get install libcurl4-openssl-dev
+
+      - name: Cache R packages
+        if: runner.os != 'Windows'
+        uses: actions/cache@v1
+        with:
+          path: ${{ env.R_LIBS_USER }}
+          key: ${{ runner.os }}-r-${{ matrix.config.r }}-${{ hashFiles('DESCRIPTION') }}
+
+      - name: Install packages
+        run: |
+          R -e 'install.packages(c("remotes"))'
+          R -e 'remotes::install_github("stan-dev/posteriordb-r", dependencies = TRUE)'
+
+      - name: Set PDB path
+        run: export PDB_PATH=$GITHUB_WORKSPACE;echo $PDB_PATH;echo PDB_PATH="$PDB_PATH" >> ~/.Renviron;ls $PDB_PATH
+        shell: bash
+
+      - name: Check PDB content
+        run: Rscript tests/check_posteriordb_content.R

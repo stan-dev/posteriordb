@@ -90,8 +90,8 @@ functions {
     theta[3] = alpha21;
     theta[4] = alpha12;
 
-    C_hat = integrate_ode(two_pool_feedback,
-                           C_t0, t0, ts, theta, x_r, x_i);
+    C_hat = integrate_ode_rk45(two_pool_feedback,
+                               C_t0, t0, ts, theta, x_r, x_i);
 
     for (t in 1:N_t)
       eCO2_hat[t] = totalC_t0 - sum(C_hat[t]);
@@ -109,10 +109,12 @@ data {
 
   real<lower=0> eCO2mean[N_t]; // measured cumulative evolved carbon
 }
+
 transformed data {
   real x_r[0];                 // no real data for ODE system
   int x_i[0];                  // no integer data for ODE system
 }
+
 parameters {
   real<lower=0> k1;            // pool 1 decomposition rate
   real<lower=0> k2;            // pool 2 decomposition rate
@@ -124,11 +126,13 @@ parameters {
 
   real<lower=0> sigma;         // observation std dev
 }
+
 transformed parameters {
   real eCO2_hat[N_t];
   eCO2_hat = evolved_CO2(N_t, t0, ts, gamma, totalC_t0,
                           k1, k2, alpha21, alpha12, x_r, x_i);
 }
+
 model {
   // priors
   gamma ~ beta(10,1);         // identifies pools

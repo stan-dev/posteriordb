@@ -5,7 +5,7 @@
   "model_name": "normal_mixture",
   "data_name": "normal_2",
   "reference_posterior_name": null,
-  "references": "",
+  "references": null,
   "dimensions": {
     "theta": 1,
     "mu": 2

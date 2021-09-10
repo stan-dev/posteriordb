@@ -1,0 +1,16 @@
+{
+  "keywords": ["Success Rate", "Difference"],
+  "urls": "https://github.com/stan-dev/example-models/tree/master/Bayesian_Cognitive_Modeling/ParameterEstimation/Binomial",
+  "references": "lee2013cognitive",
+  "dimensions": {
+    "theta1": 1,
+    "theta2": 1,
+    "delta": 1
+  },
+  "reference_posterior_name": null,
+  "added_date": "2021-06-30",
+  "added_by": "Kane Lindsay",
+  "name": "Rate_2_data-Rate_2_model",
+  "model_name": "Rate_2_model",
+  "data_name": "Rate_2_data"
+}

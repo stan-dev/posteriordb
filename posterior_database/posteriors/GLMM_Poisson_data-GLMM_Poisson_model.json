@@ -1,0 +1,21 @@
+{
+  "keywords": ["GLMM_Poisson", "Population"],
+  "urls": "https://github.com/stan-dev/example-models/blob/master/BPA/Ch.06",
+  "references": "kery2011population",
+  "dimensions": {
+    "alpha": 1,
+    "beta_1": 1,
+    "beta_2": 1,
+    "beta_3": 1,
+    "eps": 40,
+    "sigma": 1,
+    "log_lambda": 40,
+    "lambda": 40
+  },
+  "reference_posterior_name": null,
+  "added_date": "2021-06-29",
+  "added_by": "Kane Lindsay",
+  "name": "GLMM_Poisson_data-GLMM_Poisson_model",
+  "model_name": "GLMM_Poisson_model",
+  "data_name": "GLMM_Poisson_data"
+}

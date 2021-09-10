@@ -1,0 +1,11 @@
+{
+  "name": "fims_Aus_Jpn_irt",
+  "keywords": "benchmarking_1.0",
+  "title": "The example data are from the The First International Mathematics Study (Husen and others 1967; Postlethwaite 1967). The data include information about student gender and country (Australia or Japan). For convenience, only a subset of the full data are used.",
+  "description": "Please look at the TAM package for more details",
+  "urls": "https://www.rdocumentation.org/packages/TAM/versions/3.6-45/topics/data.fims.Aus.Jpn.scored",
+  "references": null,
+  "added_date": "2021-08-03",
+  "added_by": "Keane Nguyen",
+  "data_file": "data/data/fims_Aus_Jpn_irt.json"
+}

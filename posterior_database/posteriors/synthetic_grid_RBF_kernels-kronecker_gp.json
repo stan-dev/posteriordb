@@ -1,0 +1,14 @@
+{
+  "name": "synthetic_grid_RBF_kernels-kronecker_gp",
+  "model_name": "kronecker_gp",
+  "data_name": "synthetic_grid_RBF_kernels",
+  "reference_posterior_name": null,
+  "dimensions": {
+    "var1": 1,
+    "bw1": 1,
+    "L": 435,
+    "sigma1": 1
+  },
+  "added_by": "Mans Magnusson",
+  "added_date": "2021-09-08"
+}

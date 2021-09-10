@@ -1,0 +1,15 @@
+{
+  "name": "hmm_gaussian",
+  "keywords": "HMM",
+  "title": "HMM with Gaussian emission",
+  "description": "HMM with Gaussian emission",
+  "urls": "https://github.com/luisdamiano/stancon18",
+  "references": null,
+  "added_by": "Keane Nguyen",
+  "added_date": "2021-08-19",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/hmm_gaussian.stan"
+    }
+  }
+}

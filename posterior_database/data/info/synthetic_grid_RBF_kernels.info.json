@@ -1,0 +1,11 @@
+{
+  "name": "synthetic_grid_RBF_kernels",
+  "keywords": "benchmarking_1.0",
+  "title": "Synthetic 2D grid data",
+  "description": "Simulated from a Gaussian process on an n × n regular grid using a product of RBF kernels",
+  "urls": "https://sethrf.com/files/fast-hierarchical-GPs.pdf",
+  "references": "flaxman2015fast",
+  "added_date": "2021-08-03",
+  "added_by": "Keane Nguyen",
+  "data_file": "data/data/synthetic_grid_RBF_kernels.json"
+}

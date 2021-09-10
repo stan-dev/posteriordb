@@ -21,7 +21,7 @@ parameters {
 model {
   for (m in 1:M)
     theta[m] ~ dirichlet(alpha);  // prior
-  for (k in 1:5)
+  for (k in 1:K)
     phi[k] ~ dirichlet(beta);     // prior
   for (n in 1:N) {
     real gamma[K];

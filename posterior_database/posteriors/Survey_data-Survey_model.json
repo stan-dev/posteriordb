@@ -1,0 +1,17 @@
+{
+  "keywords": ["Survey", "Return Rate", "Joint"],
+  "urls": "https://github.com/stan-dev/example-models/tree/master/Bayesian_Cognitive_Modeling/ParameterEstimation/Binomial",
+  "references": "lee2013cognitive",
+  "dimensions": {
+    "theta": 1,
+    "lp_parts": 500,
+    "n": 1,
+    "prob_n": 500
+  },
+  "reference_posterior_name": null,
+  "added_date": "2021-06-30",
+  "added_by": "Kane Lindsay",
+  "name": "Survey_data-Survey_model",
+  "model_name": "Survey_model",
+  "data_name": "Survey_data"
+}

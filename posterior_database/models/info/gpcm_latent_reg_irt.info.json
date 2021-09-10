@@ -1,0 +1,15 @@
+{
+  "name": "gpcm_latent_reg_irt",
+  "keywords": "item response model",
+  "title": "Partial credit and generalized partial credit models with latent regression",
+  "description": "The PCM (Masters 1982) is used for item response data that features more than two ordered response categories for some or all items. This extends the PCM by including a discrimination term.",
+  "urls": "https://github.com/danielcfurr/edstan",
+  "references": null,
+  "added_by": "Keane Nguyen",
+  "added_date": "2021-08-03",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/gpcm_latent_reg_irt.stan"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "keywords": ["Success Rate", "Prior Inference", "Posterior Inference"],
+  "urls": "https://github.com/stan-dev/example-models/tree/master/Bayesian_Cognitive_Modeling/ParameterEstimation/Binomial",
+  "references": "lee2013cognitive",
+  "dimensions": {
+    "theta": 1,
+    "thetaprior": 1,
+    "postpredk": 1,
+    "priorpredk": 1
+  },
+  "reference_posterior_name": null,
+  "added_date": "2021-06-30",
+  "added_by": "Kane Lindsay",
+  "name": "Rate_4_data-Rate_4_model",
+  "model_name": "Rate_4_model",
+  "data_name": "Rate_4_data"
+}

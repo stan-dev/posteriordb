@@ -1,0 +1,11 @@
+{
+  "name": "Survey_data",
+  "keywords": ["Survey", "Return Rate"],
+  "title": "Number of Returned Surveys",
+  "description": "The number of returned surveys (k) from 'm' number of 'helpers'.",
+  "urls": "https://github.com/stan-dev/example-models/tree/master/Bayesian_Cognitive_Modeling/ParameterEstimation/Binomial",
+  "references": "lee2013cognitive",
+  "added_date": "2021-06-30",
+  "added_by": "Kane Lindsay",
+  "data_file": "data/data/Survey_data.json"
+}

@@ -1,0 +1,15 @@
+{
+  "name": "science_irt-grsm_latent_reg_irt",
+  "model_name": "grsm_latent_reg_irt",
+  "data_name": "science_irt",
+  "reference_posterior_name": null,
+  "dimensions": {
+    "alpha": 7,
+    "beta_free": 6,
+    "kappa_free": 2,
+    "theta": 392,
+    "lambda_adj": 1
+  },
+  "added_by": "Mans Magnusson",
+  "added_date": "2021-09-08"
+}

@@ -12,7 +12,7 @@
       "model_code": "models/stan/normal_mixture_k.stan"
     }
   },
-  "references": "",
+  "references": null,
   "added_date": "2020-03-11",
   "added_by": "Oliver Järnefelt"
 }

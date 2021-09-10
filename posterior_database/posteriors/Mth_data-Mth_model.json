@@ -1,0 +1,23 @@
+{
+  "keywords": ["Mth", "occasion", "heterogeneity", "Capture-Recapture"],
+  "urls": "https://github.com/stan-dev/example-models/blob/master/BPA/Ch.06",
+  "references": "kery2011population",
+  "dimensions": {
+    "omega": 1,
+    "mean_p": 5,
+    "sigma": 1,
+    "eps_raw": 387,
+    "eps": 387,
+    "mean_lp": 5,
+    "logit_p": 1935,
+    "p": 1935,
+    "z": 387,
+    "N": 1
+  },
+  "reference_posterior_name": null,
+  "added_date": "2021-06-25",
+  "added_by": "Kane Lindsay",
+  "name": "Mth_data-Mth_model",
+  "model_name": "Mth_model",
+  "data_name": "Mth_data"
+}

@@ -1,0 +1,22 @@
+{
+  "name": "state_wide_presidential_votes-hierarchical_gp",
+  "model_name": "hierarchical_gp",
+  "data_name": "state_wide_presidential_votes",
+  "reference_posterior_name": null,
+  "dimensions": {
+    "GP_region_std": [14, 10],
+    "GP_state_std": [14, 50],
+    "year_std": 11,
+    "state_std": 50,
+    "region_std": 10,
+    "tot_var": 1,
+    "prop_var": 16,
+    "mu": 1,
+    "length_GP_region_long": 1,
+    "length_GP_state_long": 1,
+    "length_GP_region_short": 1,
+    "length_GP_state_short": 1
+  },
+  "added_by": "Mans Magnusson",
+  "added_date": "2021-09-08"
+}

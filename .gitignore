@@ -12,3 +12,7 @@ python/build*
 sandbox/*
 TODO.tdl
 .Rhistory
+*.exe
+*.hpp
+*.dll
+tmp*

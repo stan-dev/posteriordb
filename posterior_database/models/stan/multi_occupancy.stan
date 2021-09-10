@@ -61,7 +61,8 @@ model {
   beta ~ cauchy(0, 2.5);
   sigma_uv ~ cauchy(0, 2.5);
   (rho_uv + 1) / 2 ~ beta(2, 2);
-  uv ~ multi_normal(rep_vector(0, 2), cov_matrix_2d(sigma_uv, rho_uv));
+  // Parse warnings: uv ~ multi_normal(rep_vector(0, 2), cov_matrix_2d(sigma_uv, rho_uv));
+  target += multi_normal_lpdf(uv | rep_vector(0, 2), cov_matrix_2d(sigma_uv, rho_uv));
   Omega ~ beta(2,2);
 
   // likelihood

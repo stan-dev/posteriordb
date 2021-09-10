@@ -1,0 +1,15 @@
+{
+  "name": "kronecker_gp",
+  "keywords": "gaussian process, kronecker",
+  "title": "Kronecker Gaussian Process",
+  "description": "Gaussian Process using Kronecker structure",
+  "urls": "https://sethrf.com/files/fast-hierarchical-GPs.pdf",
+  "references": "flaxman2015fast",
+  "added_by": "Keane Nguyen",
+  "added_date": "2021-08-03",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/kronecker_gp.stan"
+    }
+  }
+}

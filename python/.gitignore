@@ -1,5 +1,0 @@
-.env
-__pycache__
-*.egg-info
-.tox
-.mypy_cache

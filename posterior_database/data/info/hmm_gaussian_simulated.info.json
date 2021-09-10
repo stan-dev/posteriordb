@@ -1,0 +1,11 @@
+{
+  "name": "hmm_gaussian_simulated",
+  "keywords": "benchmarking_1.0",
+  "title": "Simulated data for hmm_gaussian model",
+  "description": "Simulated data for hmm_gaussian model",
+  "urls": "https://github.com/luisdamiano/stancon18",
+  "references": null,
+  "added_date": "2021-08-19",
+  "added_by": "Keane Nguyen",
+  "data_file": "data/data/hmm_gaussian_simulated.json"
+}

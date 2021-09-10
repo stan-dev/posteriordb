@@ -6,10 +6,7 @@ output:
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-
-[![CRAN status](https://www.r-pkg.org/badges/version/posterior)](https://CRAN.R-project.org/package=posterior)
-[![R build status](https://github.com/stan-dev/posteriordb/workflows/R/badge.svg)](https://github.com/stan-dev/posteriordb/actions)
-[![Python build status](https://github.com/stan-dev/posteriordb/workflows/Python/badge.svg)](https://github.com/stan-dev/posteriordb/actions)
+[![R-CMD-check](https://github.com/stan-dev/posteriordb-r/actions/workflows/check-release.yaml/badge.svg)](https://github.com/stan-dev/posteriordb-r/actions/workflows/check-release.yaml) [![Codecov test coverage](https://codecov.io/gh/stan-dev/posteriordb-r/branch/main/graph/badge.svg)](https://codecov.io/gh/stan-dev/posteriordb-r?branch=main)
 
 
 # `posteriordb`: a database of Bayesian posterior inference
@@ -20,15 +17,13 @@ output:
 
 ## Why use `posteriordb`?
 
-`posteriordb` is designed to test inference algorithms across a wide range of models and data sets.  Applications include testing for accuracy, testing for speed, and testing for scalability.  Algorithms being tested may be approximate like variational inference or asymptotically exact like Markov chain Monte Carlo.  `posteriordb` can be used to test new algorithms being developed or deployed as part of continuous integration for ongoing regression testing of algorithms in probabilistic programming frameworks.
+`posteriordb` is designed to test inference algorithms across a wide range of models and data sets.  Applications include testing for accuracy, speed, and scalability. `posteriordb` can be used to test new algorithms being developed or deployed as part of continuous integration for ongoing regression testing algorithms in probabilistic programming frameworks.
 
-`posteriordb` also makes it easy for students and instructors to access a range of pedagogical and real-world examples with precise model definitions, well-curated data sets, and reference posteriors.
+`posteriordb` also makes it easy for students and instructors to access various pedagogical and real-world examples with precise model definitions, well-curated data sets, and reference posteriors.
 
 `posteriordb` is framework agnostic and easily accessible from R and Python.
 
 For more details regarding the use cases of  `posteriordb`, see [doc/use_cases.md](https://github.com/stan-dev/posteriordb/blob/master/doc/use_cases.md).
-
-
 
 
 ## Content
@@ -40,89 +35,12 @@ See [DATABASE_CONTENT.md](https://github.com/stan-dev/posteriordb/blob/master/do
 We are happy with any help in adding posteriors, data, and models to the database! See [CONTRIBUTING.md](https://github.com/stan-dev/posteriordb/blob/master/doc/CONTRIBUTING.md) for the details on how to contribute.
 
 
-## Quick usage of the posterior database from R
+## Using `posteriordb`
 
-Install the package from GitHub
+To simplify the use of `posteriordb`, there are convenience functions both in Python and in R. To use R, see the [posteriordb-r](https://github.com/stan-dev/posteriordb-r) repository, and to use Python, see the [posteriordb-python](https://github.com/stan-dev/posteriordb-python) repository.
 
-```{r, eval = FALSE}
-remotes::install_github("stan-dev/posteriordb", subdir = "rpackage")
-```
-
-Load the R package and load a posterior from the default posteriordb.
-
-```{r}
-library(posteriordb)
-pd <- pdb_default() # Posterior database connection
-pn <- posterior_names(pd)
-head(pn)
-```
-
-```{r}
-po <- pdb_posterior("eight_schools-eight_schools_centered", pdb = pd)
-po
-```
-
-From the posterior, we can easily access data and models as
-
-```{r}
-sc <- pdb_stan_code(x = po)
-sc
-```
-
-We can get additional information about the model by using `info()`.
-
-```{r}
-info(sc)
-```
-
-To access data for a specific posterior, we can use `pdb_data()`
-
-```{r}
-dat <- pdb_data(po)
-dat
-```
-
-Again, we can get additional information about the data by using `info()`.
-
-```{r}
-info(dat)
-```
-
-Finally, we can access reference posterior draws for the given posterior.
-
-```{r}
-rpd <- reference_posterior_draws(po)
-```
-
-The posterior is based on the [posterior](https://github.com/jgabry/posterior) R package structure and can easily be summarized and transformed using the `posterior` R package.
-
-```{r}
-library(posterior)
-summarize_draws(rpd)
-```
-
-Using `info()`, we can access more detailed information on the reference posterior draws.
-
-```{r}
-info(rpd)
-```
-
-It is also possible to access only information for models, data, and draws as follows.
-
-```{r}
-pdb_model_info(po)
-pdb_data_info(po)
-pdb_reference_posterior_draws_info(po)
-```
-
-## Using the posterior database from python
-See [python README](./python/README.md)
-
-## Using the posterior database from R (extensive)
-See [R README](./rpackage/README.md)
 
 ## Design choices (so far)
-
 The main focus of the database is simplicity, both in understanding and in use.
 
 The following are the current design choices in designing the posterior database.
@@ -136,3 +54,6 @@ The following are the current design choices in designing the posterior database
 1. Prefix 'syn_' stands for synthetic data where the generative process is known and found in content/data-raw.
 1. All data preprocessing is included in content/data-raw.
 1. Specific information for different PPL representations of models is included in the PPL syntax files as comments, not in the model.info.json files.
+
+## Versioning of models
+We might update models included in posteriordb over time. However, the models will only have the same name in posteriordb if the log density is the same (up to a normalizing constant). Otherwise, we will include a new model in the database.

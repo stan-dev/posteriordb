@@ -1,0 +1,10 @@
+{
+  "name": "GLMM_Poisson_data",
+  "keywords": ["GLMM_Poisson_data", "population"],
+  "title": "Simulated Peregrine Population Observations with Random Year Effect",
+  "description": "Simulated population counts of peregrines in various sites and years in the French Jura over 9 years",
+  "references": "kery2011population",
+  "added_date": "2021-06-29",
+  "added_by": "Kane Lindsay",
+  "data_file": "data/data/GLMM_Poisson_data.json"
+}
