@@ -1,7 +1,8 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 [![posteriordb
-Content](https://github.com/stan-dev/posteriordb/actions/workflows/posteriordb_content.yml/badge.svg)](https://github.com/stan-dev/posteriordb/actions/workflows/posteriordb_content.yml)[![R-CMD-check](https://github.com/stan-dev/posteriordb-r/actions/workflows/check-release.yaml/badge.svg)](https://github.com/stan-dev/posteriordb-r/actions/workflows/check-release.yaml)
+Content](https://github.com/stan-dev/posteriordb/actions/workflows/posteriordb_content.yml/badge.svg)](https://github.com/stan-dev/posteriordb/actions/workflows/posteriordb_content.yml)
+[![R-CMD-check](https://github.com/stan-dev/posteriordb-r/actions/workflows/check-release.yaml/badge.svg)](https://github.com/stan-dev/posteriordb-r/actions/workflows/check-release.yaml)
 [![Codecov test
 coverage](https://codecov.io/gh/stan-dev/posteriordb-r/branch/main/graph/badge.svg)](https://codecov.io/gh/stan-dev/posteriordb-r?branch=main)
 
