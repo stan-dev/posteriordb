@@ -5,6 +5,7 @@ Content](https://github.com/stan-dev/posteriordb/actions/workflows/posteriordb_c
 [![R-CMD-check](https://github.com/stan-dev/posteriordb-r/actions/workflows/check-release.yaml/badge.svg)](https://github.com/stan-dev/posteriordb-r/actions/workflows/check-release.yaml)
 [![Codecov test
 coverage](https://codecov.io/gh/stan-dev/posteriordb-r/branch/main/graph/badge.svg)](https://codecov.io/gh/stan-dev/posteriordb-r?branch=main)
+[![Python](https://github.com/stan-dev/posteriordb-python/actions/workflows/push.yml/badge.svg)](https://github.com/stan-dev/posteriordb-python/actions/workflows/push.yml)
 
 `posteriordb`: a database of Bayesian posterior inference
 =========================================================
