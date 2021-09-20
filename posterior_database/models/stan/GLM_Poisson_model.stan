@@ -8,8 +8,8 @@ transformed data {
   vector[n] year_squared;
   vector[n] year_cubed;
 
-  year_squared = year .* year;
-  year_cubed = year .* year .* year;
+  year_squared = square(year);
+  year_cubed = year_squared .* year;
 }
 
 parameters {
@@ -40,4 +40,3 @@ generated quantities {
 
   lambda = exp(log_lambda);
 }
-
