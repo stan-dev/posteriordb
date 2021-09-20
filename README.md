@@ -63,6 +63,25 @@ and to use Python, see the
 [posteriordb-python](https://github.com/stan-dev/posteriordb-python)
 repository.
 
+Citing `posteriordb`
+--------------------
+
+Developing and maintaining open-source software is an important yet
+often underappreciated contribution to scientific progress. Thus, please
+make sure to cite it appropriately so that developers get credit for
+their work. Information on how to cite `posteriordb` can be found in the
+[CITATION.cff](https://github.com/stan-dev/posteriordb/blob/master/CITATION.cff)
+file. Use the “cite this repository” button under “About” to get a
+simple BibTeX or APA snippet.
+
+As `posteriordb` rely heavily on Stan, so please consider also to cite
+Stan:
+
+Carpenter B., Gelman A., Hoffman M. D., Lee D., Goodrich B., Betancourt
+M., Brubaker M., Guo J., Li P., and Riddell A. (2017). Stan: A
+probabilistic programming language. Journal of Statistical Software.
+76(1). 10.18637/jss.v076.i01
+
 Design choices (so far)
 -----------------------
 
