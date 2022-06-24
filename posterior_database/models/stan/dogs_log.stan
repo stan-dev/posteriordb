@@ -4,7 +4,8 @@ data {
   int<lower=0,upper=1> y[n_dogs,n_trials];
 }
 parameters {
-  vector[2] beta;
+  real<lower=-100, upper=0> beta1;
+  real<lower=0, upper=100> beta2;
 }
 transformed parameters {
   matrix[n_dogs,n_trials] n_avoid;
@@ -19,14 +20,13 @@ transformed parameters {
       n_shock[j,t] = n_shock[j,t-1] + y[j,t-1];
     }
     for (t in 1:n_trials)
-      p[j,t] = inv_logit(beta[1] * n_avoid[j,t] + beta[2] * n_shock[j,t]);
+      p[j,t] = inv_logit(beta1 * n_avoid[j,t] + beta2 * n_shock[j,t]);
   }
 }
 model {
   beta[1] ~ uniform(-100, 0);
   beta[2] ~ uniform(0, 100);
   for (i in 1:n_dogs) {
-    for (j in 1:n_trials)
-      y[i,j] ~ bernoulli(p[i,j]);
+    y[i] ~ bernoulli(p[i]);
   }
 }
