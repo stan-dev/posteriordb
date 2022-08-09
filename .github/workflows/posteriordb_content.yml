@@ -6,9 +6,6 @@ on:
     branches:
       - master
       - development
-    paths:
-      - 'posterior_database/*'
-      - 'tests/*'
   pull_request:
     branches:
       - master
