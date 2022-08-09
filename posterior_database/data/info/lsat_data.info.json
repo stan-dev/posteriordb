@@ -1,0 +1,11 @@
+{
+  "name": "lsat_data",
+  "keywords": ["law", "school", "aptitude", "test", "multiple choice test", "binary"],
+  "title": "32 Possible LSAT Response Patterns & Their Cumulative Frequencies",
+  "urls": "https://github.com/stan-dev/example-models/tree/master/bugs_examples/vol1/lsat",
+  "description": "The Law School Aptitude Test (LSAT) is a 5-item multiple choice test.\n          Students score 1 on correct answers and 0 on incorrect. The data contains the possible\n          combinations of answers and their cumulative frequencies.",
+  "references": "mrc1winbugs",
+  "added_date": "2021-07-13",
+  "added_by": "Kane Lindsay",
+  "data_file": "data/data/lsat_data.json"
+}

@@ -1,0 +1,15 @@
+{
+  "name": "lsat_model",
+  "keywords": ["Random Effects", "Random", "LSAT"],
+  "title": "Random Effects (Rasch) Model for True Difficulty of LSAT Questions",
+  "description": "One-parameter 'Rasch Model' where the probability that a student\n          responds correctly to a question is assumed to follow a logistic\n          function parameterized by 'item difficulty' and a latent variable\n          representing the students underlying ability.",
+  "urls": "https://github.com/stan-dev/example-models/tree/master/bugs_examples/vol1/lsat",
+  "references": "mrc1winbugs",
+  "added_by": "Kane Lindsay",
+  "added_date": "2021-07-13",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/lsat_model.stan"
+    }
+  }
+}
