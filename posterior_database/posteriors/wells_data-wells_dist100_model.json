@@ -1,0 +1,15 @@
+{
+  "keywords": ["wells", "logistic", "regression", "scaled", "wells_dist100"],
+  "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.5",
+  "references": "gelman2006data",
+  "dimensions": {
+    "alpha": 1,
+    "beta": 1
+  },
+  "reference_posterior_name": null,
+  "added_date": "2021-07-07",
+  "added_by": "Kane Lindsay",
+  "name": "wells_data-wells_dist100_model",
+  "model_name": "wells_dist100_model",
+  "data_name": "wells_data"
+}

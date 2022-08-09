@@ -1,0 +1,14 @@
+{
+  "keywords": ["bones", "latent trait"],
+  "urls": ["https://github.com/stan-dev/example-models/tree/master/bugs_examples/vol1/bones", "http://www.mrc-bsu.cam.ac.uk/wp-content/uploads/WinBUGS_Vol1.pdf"],
+  "references": "mrc1winbugs",
+  "dimensions": {
+    "theta": 13
+  },
+  "reference_posterior_name": null,
+  "added_date": "2021-07-06",
+  "added_by": "Kane Lindsay",
+  "name": "bones_data-bones_model",
+  "model_name": "bones_model",
+  "data_name": "bones_data"
+}

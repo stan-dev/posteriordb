@@ -1,0 +1,11 @@
+{
+  "name": "surgical_data",
+  "keywords": ["cardiac", "surgery", "infant", "mortality", "deaths", "hospitals"],
+  "title": "Number of Cardiac Surgeries on Infants and Failures",
+  "urls": "https://github.com/stan-dev/example-models/tree/master/bugs_examples/vol1/surgical",
+  "description": "The mortality rates in 12 hospitals performing cardiac surgery on babies.",
+  "references": "mrc1winbugs",
+  "added_date": "2021-07-08",
+  "added_by": "Kane Lindsay",
+  "data_file": "data/data/surgical_data.json"
+}

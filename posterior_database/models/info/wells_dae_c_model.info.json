@@ -1,0 +1,15 @@
+{
+  "name": "wells_dae_c_model",
+  "keywords": ["wells", "ARM", "Ch.5", "logistic", "regression", "scaled", "three predictors", "arsenic", "distance", "education", "centered", "social predictor"],
+  "title": "3-Predictor logistic regression model with centered inputs for decision to switch wells",
+  "description": "Performs logistic regression using three centered predictors \n          (distance from nearest safe well, arsenic levels, and years in\n          education).",
+  "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.5",
+  "references": "gelman2006data",
+  "added_by": "Kane Lindsay",
+  "added_date": "2021-07-07",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/wells_dae_c_model.stan"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "keywords": ["seeds", "germination", "random effect", "logistic regression"],
+  "urls": "http://www.mrc-bsu.cam.ac.uk/wp-content/uploads/WinBUGS_Vol1.pdf",
+  "references": "crowder1978beta",
+  "dimensions": {
+    "alpha0": 1,
+    "alpha1": 1,
+    "alpha12": 1,
+    "alpha2": 1,
+    "tau": 1,
+    "b": 21,
+    "sigma": 1
+  },
+  "reference_posterior_name": null,
+  "added_date": "2021-07-07",
+  "added_by": "Kane Lindsay",
+  "name": "seeds_data-seeds_model",
+  "model_name": "seeds_model",
+  "data_name": "seeds_data"
+}

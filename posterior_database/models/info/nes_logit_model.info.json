@@ -1,0 +1,15 @@
+{
+  "name": "nes_logit_model",
+  "keywords": ["National", "Election", "Study", "Logistic Regression", "Single Predictor", "Preference", "Presidential Election"],
+  "title": "Logistic Regression Model for Voting Preference based on Income",
+  "description": "Logistic regression to estimate the probability of supporting a candidate inferring on income.",
+  "urls": ["https://github.com/stan-dev/example-models/tree/master/ARM/Ch.5", "http://www.stat.columbia.edu/~gelman/arm/"],
+  "references": "gelman2006data",
+  "added_by": "Kane Lindsay",
+  "added_date": "2021-07-01",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/nes_logit_model.stan"
+    }
+  }
+}

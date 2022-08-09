@@ -1,0 +1,19 @@
+{
+  "keywords": ["hospital", "ranking", "surgical"],
+  "urls": "https://github.com/stan-dev/example-models/tree/master/bugs_examples/vol1/rats",
+  "references": "mrc1winbugs",
+  "dimensions": {
+    "mu": 1,
+    "sigmasq": 1,
+    "b": 12,
+    "sigma": 1,
+    "p": 12,
+    "pop_mean": 1
+  },
+  "reference_posterior_name": null,
+  "added_date": "2021-07-08",
+  "added_by": "Kane Lindsay",
+  "name": "surgical_data-surgical_model",
+  "model_name": "surgical_model",
+  "data_name": "surgical_data"
+}

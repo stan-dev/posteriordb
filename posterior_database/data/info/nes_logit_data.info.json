@@ -1,0 +1,11 @@
+{
+  "name": "nes_logit_data",
+  "keywords": ["National", "Election", "Study", "Presidential Election"],
+  "title": "National Election Study 1992",
+  "description": "Results from the 1992 USA National Election Study where\n          1 indicates a preference for George Bush and 0 indicates a preference\n          for Bill Clinton, excluding other candidates to create a binary outcome.\n          The incomes of the corresponding families are split on a five point scale.",
+  "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.5",
+  "references": "gelman2006data",
+  "added_date": "2021-07-01",
+  "added_by": "Kane Lindsay",
+  "data_file": "data/data/nes_logit_data.json"
+}
