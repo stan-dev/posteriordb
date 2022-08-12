@@ -1,0 +1,18 @@
+{
+  "name": "dogs_hierarchical",
+  "keywords": ["ARM", "Ch. 24"],
+  "title": "Hierarchical Logistic Mixed Effects Model",
+  "prior": {
+    "keywords": "stan_recommended_35dbfe6"
+  },
+  "description": "Hierarchical Logistic Mixed Effects Model.",
+  "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.24",
+  "references": null,
+  "added_by": "Mans Magnusson",
+  "added_date": "2022-08-12",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/dogs_hierarchical.stan"
+    }
+  }
+}
