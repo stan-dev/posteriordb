@@ -3,9 +3,9 @@
   "keywords": ["ARM", "Ch. 24", "stan_examples"],
   "title": "Dog Shock Behavioural study",
   "description": "- n_dogs: number of dogs\n- n_trials: number of trials\n- y: avoided shock or not",
-  "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.24",
+  "urls": "http://www.stat.columbia.edu/~gelman/arm/examples/dogs/dogs.dat",
   "data_file": "data/data/dogs.json",
   "references": "gelman2006data",
-  "added_date": "2020-04-05",
-  "added_by": "Oliver Järnefelt"
+  "added_date": "2022-08-15",
+  "added_by": "Mans Magnusson"
 }
