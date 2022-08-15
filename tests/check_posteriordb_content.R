@@ -10,7 +10,7 @@ posteriors_to_check <- get_posteriors_from_paths(paths = added_modified_paths, p
 
 if(length(posteriors_to_check) > 0){
   cat("Checking changed posteriors:\n")
-  cat(paste(posteriors_to_check, collapse = "\n"))
+  cat(paste(posteriors_to_check, collapse = "\n"),"\n\n")
   library(rstan)
   for(i in seq_along(posteriors_to_check)){
     post <- pdb_posterior(posteriors_to_check[i], pdbl)
