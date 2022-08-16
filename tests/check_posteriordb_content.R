@@ -12,7 +12,7 @@ posteriors_to_check <- get_posteriors_from_paths(paths = added_modified_paths, p
 posteriors_to_skip_check <- c("dogs-dogs_nonhierarchical", "wells_data-wells_dae_c_model")
 
 
-if(length(posteriors_to_check) > 0){
+if(FALSE){#length(posteriors_to_check) > 0){
   cat("Checking changed posteriors:\n")
   cat(paste(posteriors_to_check, collapse = "\n"),"\n\n")
   library(rstan)
