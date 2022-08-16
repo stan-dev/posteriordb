@@ -9,10 +9,10 @@ added_modified_paths <- strsplit(readLines(con = "added_modified.txt"), " ")[[1]
 posteriors_to_check <- get_posteriors_from_paths(paths = added_modified_paths, pdbl)
 
 # Posteriors to skip on CI (they work locally)
-posteriors_to_skip_check <- c("dogs-dogs_nonhierarchical", "wells_data-wells_dae_c_model")
+posteriors_to_skip_check <- c("dogs-dogs_nonhierarchical", "wells_data-wells_dae_c_model", "seeds_data-seeds_stanified_model")
 
 
-if(FALSE){#length(posteriors_to_check) > 0){
+if(length(posteriors_to_check) > 0){
   cat("Checking changed posteriors:\n")
   cat(paste(posteriors_to_check, collapse = "\n"),"\n\n")
   library(rstan)
