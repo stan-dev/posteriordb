@@ -57,10 +57,9 @@ Using `posteriordb`
 -------------------
 
 To simplify the use of `posteriordb`, there are convenience functions
-both in Python and in R. To use R, see the
-[posteriordb-r](https://github.com/stan-dev/posteriordb-r) repository,
-and to use Python, see the
-[posteriordb-python](https://github.com/stan-dev/posteriordb-python)
+both in R and in Python. 
+- For R, see the [posteriordb-r](https://github.com/stan-dev/posteriordb-r) repository.
+- For Python, see the [posteriordb-python](https://github.com/stan-dev/posteriordb-python)
 repository.
 
 Citing `posteriordb`
