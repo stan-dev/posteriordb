@@ -1,0 +1,12 @@
+{
+  "name": "dogs-dogs_hierarchical",
+  "model_name": "dogs_hierarchical",
+  "data_name": "dogs",
+  "reference_posterior_name": null,
+  "dimensions": {
+    "a": 1,
+    "b": 1
+  },
+  "added_by": "Mans Magnusson",
+  "added_date": "2022-08-12"
+}

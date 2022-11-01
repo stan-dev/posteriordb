@@ -1,0 +1,15 @@
+{
+  "name": "seeds_centered_model",
+  "keywords": ["Random", "Effect", "Logistic", "Regression", "Stanified", "Centered"],
+  "title": "Normal Heirarchical Model to Model Rats' Weight Over Time",
+  "description": "The model is essentially a random effects logistic,\n          allowing for over-dispersion. Models the proportion of germination\n          of different seeds in different root extracts. 'Stanified' & centered:\n          tau replaced by sigma, direct estimation using \n          narrower semi-informative priors, coefficients are centered",
+  "urls": "http://www.mrc-bsu.cam.ac.uk/wp-content/uploads/WinBUGS_Vol1.pdf",
+  "references": "crowder1978beta",
+  "added_by": "Kane Lindsay",
+  "added_date": "2021-07-07",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/seeds_centered_model.stan"
+    }
+  }
+}

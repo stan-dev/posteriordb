@@ -4,7 +4,7 @@
   "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.24",
   "model_name": "dogs_log",
   "data_name": "dogs",
-  "reference_posterior_name": "dogs-dogs_log",
+  "reference_posterior_name": null,
   "references": "gelman2006data",
   "dimensions": {
     "beta": 2

@@ -2,11 +2,11 @@
   "name": "blr",
   "title": "A Bayesian linear regression model with vague priors",
   "description": "A Bayesian linear regression model with vague priors.",
-  "keywords": [],
+  "keywords": null,
   "references": null,
-  "urls": [],
+  "urls": null,
   "prior": {
-    "keywords": []
+    "keywords": null
   },
   "model_implementations": {
     "stan": {

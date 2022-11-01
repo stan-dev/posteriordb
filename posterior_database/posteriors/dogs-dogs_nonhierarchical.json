@@ -1,0 +1,14 @@
+{
+  "name": "dogs-dogs_nonhierarchical",
+  "model_name": "dogs_nonhierarchical",
+  "data_name": "dogs",
+  "reference_posterior_name": null,
+  "dimensions": {
+    "mu_logit_ab": 2,
+    "sigma_logit_ab": 2,
+    "L_logit_ab": 1,
+    "z": 62
+  },
+  "added_by": "Mans Magnusson",
+  "added_date": "2022-08-12"
+}

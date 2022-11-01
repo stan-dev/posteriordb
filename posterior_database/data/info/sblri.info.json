@@ -5,7 +5,7 @@
   ],
   "title": "Data for Bayesian Linear Regession with independent betas.",
   "description": "Simulated data with 100 observations and 5 coefficients using an uninformative prior. The true values for beta and sigma is 1 and the betas are independent in the posterior with var(beta) = 0.01. See data/data-raw/sblr.R for exact code.",
-  "urls": [],
+  "urls": null,
   "data_file": "data/data/sblri.json",
   "references": null,
   "added_date": "2019-11-29",

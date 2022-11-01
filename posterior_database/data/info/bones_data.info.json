@@ -1,0 +1,11 @@
+{
+  "name": "bones_data",
+  "keywords": ["bone", "radiograph", "skeletal", "maturity", "skeletal age", "chronological age"],
+  "title": "34 Indicators of Skeletal Age From 13 Boys of 6 Months to 18 Years of Chronological Age.",
+  "description": "34 indicators of skeletal age (SA) for 13 boys aged 6 months to 18 years. Each indicator is\n          categorised with respect to its degree of maturity. 19 are binary \n          (0 immature, 1 mature), 8 are ternary, 1 has 4 grades and 6 have 5\n          grades of maturity. For binary items, there is a single threshold\n          for the Chronological Age where 50% of individuals are mature for that parameter. Ternary\n          items have 2 threshold parameters: first corresponding to the\n          CA where 50% of individuals are partially or fully mature, second where 50% are fully mature., ",
+  "urls": "https://github.com/stan-dev/example-models/tree/master/bugs_examples/vol1/bones",
+  "references": "mrc1winbugs",
+  "added_date": "2021-07-06",
+  "added_by": "Kane Lindsay",
+  "data_file": "data/data/bones_data.json"
+}

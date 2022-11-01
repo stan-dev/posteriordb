@@ -19,9 +19,6 @@
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/eight_schools_centered.stan"
-    },
-    "pymc3": {
-      "model_code": "models/pymc3/eight_schools_centered.py"
     }
   },
   "added_by": "Mans Magnusson",

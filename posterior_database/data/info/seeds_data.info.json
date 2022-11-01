@@ -1,0 +1,11 @@
+{
+  "name": "seeds_data",
+  "keywords": "winbugs vol 1",
+  "title": "Seeds data of Crowder (1978)",
+  "description": "The data is taken from Table 3 of Crowder (1978). It consists of a data on the proportion of seeds that germinated by seed and type of root extract.",
+  "urls": "http://www.mrc-bsu.cam.ac.uk/wp-content/uploads/WinBUGS_Vol1.pdf",
+  "references": "crowder1978beta",
+  "added_date": "2022-08-09",
+  "added_by": "Mans Magnusson",
+  "data_file": "data/data/seeds_data.json"
+}

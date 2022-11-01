@@ -1,0 +1,10 @@
+{
+  "name": "rats_data",
+  "keywords": ["rat", "rats", "weight"],
+  "title": "Weights of 30 Rats Measured Weekly for 5 Weeks",
+  "urls": "https://github.com/stan-dev/example-models/tree/master/bugs_examples/vol1/rats",
+  "references": "mrc1winbugs",
+  "added_date": "2022-08-16",
+  "added_by": "Mans Magnusson",
+  "data_file": "data/data/rats_data.json"
+}
