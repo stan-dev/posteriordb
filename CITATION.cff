@@ -8,5 +8,5 @@ authors:
   - family-names: Vehtari
     given-names: Aki
 title: "posteriordb: a set of posteriors for Bayesian inference and probabilistic programming"
-version: 0.3
-date-released: 2021-09-10
+version: 0.4
+date-released: 2022-11-02
