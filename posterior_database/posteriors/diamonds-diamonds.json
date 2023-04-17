@@ -1,6 +1,6 @@
 {
   "name": "diamonds-diamonds",
-  "keywords": ["stan_benchmark", "linear regression"],
+  "keywords": ["stan_benchmark", "linear regression", "pathfinder_paper"],
   "urls": "https://github.com/bbbales2/cmdstan-warmup/blob/develop/examples/diamonds",
   "model_name": "diamonds",
   "data_name": "diamonds",

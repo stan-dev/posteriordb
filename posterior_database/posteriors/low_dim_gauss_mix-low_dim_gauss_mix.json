@@ -1,7 +1,7 @@
 {
   "name": "low_dim_gauss_mix-low_dim_gauss_mix",
   "keywords": [
-    "stan_benchmark"
+    "stan_benchmark", "pathfinder_paper"
   ],
   "urls": [],
   "model_name": "low_dim_gauss_mix",

@@ -1,7 +1,7 @@
 {
   "name": "arma-arma11",
   "keywords": [
-    "stan_benchmark"
+    "stan_benchmark", "pathfinder_paper", "time series"
   ],
   "urls": [],
   "model_name": "arma11",
