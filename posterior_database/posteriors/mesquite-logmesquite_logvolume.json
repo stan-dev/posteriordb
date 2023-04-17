@@ -1,6 +1,6 @@
 {
   "name": "mesquite-logmesquite_logvolume",
-  "keywords": ["ARM", "Ch. 4", "stan_examples"],
+  "keywords": ["arm_book", "stan_examples"],
   "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.4",
   "model_name": "logmesquite_logvolume",
   "data_name": "mesquite",

@@ -1,6 +1,6 @@
 {
   "name": "mnist-nn_rbm1bJ100",
-  "keywords": "neural net",
+  "keywords": ["neural net", "multimodal"],
   "urls": null,
   "model_name": "nn_rbm1bJ100",
   "data_name": "mnist",

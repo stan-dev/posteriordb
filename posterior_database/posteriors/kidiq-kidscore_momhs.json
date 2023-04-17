@@ -1,6 +1,6 @@
 {
   "name": "kidiq-kidscore_momhs",
-  "keywords": ["ARM", "Ch. 3", "stan_examples"],
+  "keywords": ["arm_book", "stan_examples"],
   "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.3",
   "model_name": "kidscore_momhs",
   "data_name": "kidiq",

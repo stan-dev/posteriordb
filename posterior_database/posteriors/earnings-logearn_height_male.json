@@ -1,6 +1,6 @@
 {
   "name": "earnings-logearn_height_male",
-  "keywords": ["ARM", "Ch. 4", "stan_examples"],
+  "keywords": ["arm_book", "stan_examples"],
   "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.4",
   "model_name": "logearn_height_male",
   "data_name": "earnings",
