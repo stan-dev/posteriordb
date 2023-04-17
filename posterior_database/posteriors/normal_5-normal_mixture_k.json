@@ -1,6 +1,6 @@
 {
   "name": "normal_5-normal_mixture_k",
-  "keywords": ["basic_estimators", "stan_examples"],
+  "keywords": ["stan_examples", "mixture model"],
   "urls": "https://github.com/stan-dev/example-models/tree/master/basic_estimators",
   "model_name": "normal_mixture_k",
   "data_name": "normal_5",
