@@ -1,5 +1,8 @@
 {
   "name": "synthetic_grid_RBF_kernels-kronecker_gp",
+  "keywords": [
+    "gaussian process model"
+  ],
   "model_name": "kronecker_gp",
   "data_name": "synthetic_grid_RBF_kernels",
   "reference_posterior_name": null,

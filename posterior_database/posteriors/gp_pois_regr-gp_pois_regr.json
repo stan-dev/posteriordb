@@ -1,7 +1,7 @@
 {
   "name": "gp_pois_regr-gp_pois_regr",
   "keywords": [
-    "stan_benchmark"
+    "stan_benchmark", "gaussian process model"
   ],
   "urls": [],
   "model_name": "gp_pois_regr",

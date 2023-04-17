@@ -1,7 +1,7 @@
 Posterior keywords
 ==================
 
-Below are the definition of some of the keywords used:
+Below are the definition of some of the keywords used. These are tags added to posterior that we known. Hence, there might exist posteriors that should have the keyword where it is currently missing. If you see this, please file an issue and we will try to fix it.
 
 ```arm book```: Posteriors that can be found in Gelman, A., & Hill, J. (2006). Data analysis using regression and multilevel/hierarchical models. Cambridge university press.
 
