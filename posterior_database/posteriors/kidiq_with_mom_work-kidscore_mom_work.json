@@ -1,6 +1,6 @@
 {
   "name": "kidiq_with_mom_work-kidscore_mom_work",
-  "keywords": ["arm_book", "stan_examples"],
+  "keywords": ["arm book", "stan examples"],
   "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.4",
   "model_name": "kidscore_mom_work",
   "data_name": "kidiq_with_mom_work",

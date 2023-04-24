@@ -1,6 +1,6 @@
 {
   "name": "butterfly-multi_occupancy",
-  "keywords": ["stan_examples", "stan_benchmark"],
+  "keywords": ["stan examples", "stan benchmark"],
   "urls": "",
   "model_name": "multi_occupancy",
   "data_name": "butterfly",

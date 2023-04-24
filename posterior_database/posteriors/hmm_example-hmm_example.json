@@ -1,6 +1,6 @@
 {
   "name": "hmm_example-hmm_example",
-  "keywords": ["stan_examples", "stan_benchmark"],
+  "keywords": ["stan examples", "stan benchmark"],
   "urls": "https://github.com/imadmali/bball-hmm/blob/master",
   "model_name": "hmm_example",
   "data_name": "hmm_example",

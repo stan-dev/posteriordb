@@ -1,6 +1,6 @@
 {
   "name": "dogs-dogs",
-  "keywords": ["arm_book", "stan_examples", "pathfinder_paper"],
+  "keywords": ["arm book", "stan examples", "pathfinder paper"],
   "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.24",
   "model_name": "dogs",
   "data_name": "dogs",

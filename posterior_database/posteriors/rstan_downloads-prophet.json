@@ -1,6 +1,6 @@
 {
   "name": "rstan_downloads-prophet",
-  "keywords": ["stan_benchmark", "time series", "structural time series"],
+  "keywords": ["warmup paper", "time series"],
   "urls": "https://github.com/bbbales2/cmdstan-warmup/blob/develop/examples/prophet",
   "model_name": "prophet",
   "data_name": "rstan_downloads",

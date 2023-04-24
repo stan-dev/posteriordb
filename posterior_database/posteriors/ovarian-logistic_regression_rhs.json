@@ -1,6 +1,6 @@
 {
   "name": "ovarian-logistic_regression_rhs",
-  "keywords": ["stan_benchmark", "logistic regression"],
+  "keywords": ["stan benchmark", "logistic regression", "multimodal"],
   "urls": "",
   "model_name": "logistic_regression_rhs",
   "data_name": "ovarian",

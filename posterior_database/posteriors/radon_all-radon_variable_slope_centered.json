@@ -1,7 +1,7 @@
 {
   "name": "radon_all-radon_variable_slope_centered",
-  "keywords": "radon",
-  "urls": null,
+  "keywords": ["stan case study"],
+  "urls": "https://mc-stan.org/users/documentation/case-studies/radon.html",
   "model_name": "radon_variable_slope_centered",
   "data_name": "radon_all",
   "reference_posterior_name": null,

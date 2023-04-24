@@ -1,6 +1,6 @@
 {
   "name": "election88-election88_full",
-  "keywords": ["arm_book", "stan_examples"],
+  "keywords": ["arm book", "stan examples"],
   "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.14",
   "model_name": "election88_full",
   "data_name": "election88",

@@ -1,7 +1,7 @@
 {
   "name": "gp_pois_regr-gp_regr",
   "keywords": [
-    "stan_benchmark", "pathfinder_paper", "gaussian process model"
+    "stan benchmark", "pathfinder paper", "gaussian process model"
   ],
   "urls": [],
   "model_name": "gp_regr",

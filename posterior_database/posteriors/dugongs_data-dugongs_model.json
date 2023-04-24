@@ -1,5 +1,5 @@
 {
-  "keywords": ["Non-Linear", "Growth Curve", "Dugongs"],
+  "keywords": ["bugs examples", "non-linear", "growth curve model"],
   "urls": "https://github.com/stan-dev/example-models/tree/master/bugs_examples/vol2",
   "references": "mrc2winbugs",
   "dimensions": {

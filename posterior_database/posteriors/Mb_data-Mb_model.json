@@ -1,5 +1,5 @@
 {
-  "keywords": ["Mb", "Trap-Response", "BPA"],
+  "keywords": ["bpa_book", "capture-recapture"],
   "urls": "https://github.com/stan-dev/example-models/blob/master/BPA/Ch.06",
   "references": "kery2011population",
   "dimensions": {

@@ -1,6 +1,7 @@
 {
   "name": "radon_all-radon_pooled",
-  "keywords": "radon",
+  "keywords": ["stan case study"],
+  "urls": "https://mc-stan.org/users/documentation/case-studies/radon.html",
   "urls": null,
   "model_name": "radon_pooled",
   "data_name": "radon_all",

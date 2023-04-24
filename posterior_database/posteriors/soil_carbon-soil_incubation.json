@@ -1,6 +1,6 @@
 {
   "name": "soil_carbon-soil_incubation",
-  "keywords": ["stan_examples", "stan_benchmark"],
+  "keywords": ["stan examples"],
   "urls": "https://github.com/stan-dev/example-models/blob/master/knitr/soil-carbon",
   "model_name": "soil_incubation",
   "data_name": "soil_carbon",

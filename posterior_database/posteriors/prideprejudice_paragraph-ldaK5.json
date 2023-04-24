@@ -1,6 +1,6 @@
 {
   "name": "prideprejudice_paragraph-ldaK5",
-  "keywords": "multimodal",
+  "keywords": ["multimodal", "text data"],
   "model_name": "ldaK5",
   "reference_posterior_name": null,
   "data_name": "prideprejudice_paragraph",

@@ -1,5 +1,5 @@
 {
-  "keywords": ["sesame", "linear model"],
+  "keywords": ["arm book"],
   "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.10",
   "references": "gelman2006data",
   "dimensions": {

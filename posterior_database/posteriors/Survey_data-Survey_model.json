@@ -1,7 +1,4 @@
 {
-  "keywords": ["Survey", "Return Rate", "Joint"],
-  "urls": "https://github.com/stan-dev/example-models/tree/master/Bayesian_Cognitive_Modeling/ParameterEstimation/Binomial",
-  "references": "lee2013cognitive",
   "dimensions": {
     "theta": 1,
     "lp_parts": 500,

@@ -1,5 +1,5 @@
 {
-  "keywords": ["GLM_Binomial", "Success", "Peregrine"],
+  "keywords": ["bpa book", "binomial"],
   "urls": "https://github.com/stan-dev/example-models/tree/master/BPA/Ch.03",
   "references": "kery2011population",
   "dimensions": {

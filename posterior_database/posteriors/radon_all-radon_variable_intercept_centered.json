@@ -1,6 +1,7 @@
 {
   "name": "radon_all-radon_variable_intercept_centered",
-  "keywords": "radon",
+  "keywords": ["stan case study"],
+  "urls": "https://mc-stan.org/users/documentation/case-studies/radon.html",
   "urls": null,
   "model_name": "radon_variable_intercept_centered",
   "data_name": "radon_all",

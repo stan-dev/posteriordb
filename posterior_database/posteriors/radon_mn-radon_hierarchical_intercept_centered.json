@@ -1,6 +1,6 @@
 {
   "name": "radon_mn-radon_hierarchical_intercept_centered",
-  "keywords": ["radon", "stan_case_study"],
+  "keywords": ["stan case study"],
   "urls": "https://mc-stan.org/users/documentation/case-studies/radon.html",
   "model_name": "radon_hierarchical_intercept_centered",
   "data_name": "radon_mn",

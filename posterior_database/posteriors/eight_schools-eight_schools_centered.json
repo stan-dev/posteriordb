@@ -1,7 +1,7 @@
 {
   "name": "eight_schools-eight_schools_centered",
   "keywords": [
-    "stan_benchmark", "pathfinder_paper"
+    "stan benchmark", "pathfinder paper"
   ],
   "model_name": "eight_schools_centered",
   "reference_posterior_name": "eight_schools-eight_schools_noncentered",

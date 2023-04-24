@@ -1,6 +1,6 @@
 {
   "name": "sat-hier_2pl",
-  "keywords": ["stan_examples", "stan_benchmark"],
+  "keywords": ["stan case studies", "item response theory", "hierarchical", "binomial"],
   "urls": "https://mc-stan.org/users/documentation/case-studies/hierarchical_2pl.html",
   "model_name": "hier_2pl",
   "data_name": "sat",

@@ -1,6 +1,6 @@
 {
   "name": "kidiq-kidscore_momiq",
-  "keywords": ["arm_book", "stan_examples"],
+  "keywords": ["arm book", "stan examples"],
   "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.3",
   "model_name": "kidscore_momiq",
   "data_name": "kidiq",
