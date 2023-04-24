@@ -1,5 +1,5 @@
 {
-  "keywords": ["heterogeneity model", "logistic-normal", "bpa_book"],
+  "keywords": ["heterogeneity model", "logistic-normal", "bpa book"],
   "urls": "https://github.com/stan-dev/example-models/blob/master/BPA/Ch.06",
   "references": "kery2011population",
   "dimensions": {

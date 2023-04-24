@@ -1,6 +1,6 @@
 {
   "name": "mcycle_splines-accel_splines",
-  "keywords": ["stan_benchmark", "spline"],
+  "keywords": ["warmup paper", "spline"],
   "urls": "https://github.com/bbbales2/cmdstan-warmup/blob/develop/examples/accel_splines/",
   "model_name": "accel_splines",
   "data_name": "mcycle_splines",

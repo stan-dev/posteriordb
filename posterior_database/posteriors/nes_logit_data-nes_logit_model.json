@@ -1,5 +1,5 @@
 {
-  "keywords": ["arm_book"],
+  "keywords": ["arm book"],
   "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.5",
   "references": "gelman2006data",
   "dimensions": {
