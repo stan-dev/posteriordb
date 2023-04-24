@@ -1,5 +1,5 @@
 {
-  "keywords": ["bpa book", "GLMM", "Poisson"],
+  "keywords": ["bpa book", "GLMM", "Poisson model"],
   "urls": "https://github.com/stan-dev/example-models/blob/master/BPA/Ch.06",
   "references": "kery2011population",
   "dimensions": {
