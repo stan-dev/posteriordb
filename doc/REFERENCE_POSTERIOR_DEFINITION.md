@@ -5,10 +5,10 @@ The purpose of the reference posterior definition is to define the criteria for 
 
 A reference posterior should have:
 1. 10 000 draws per parameter in the model.
-1. Each parameter should have an Rhat (see [arXiv](https://arxiv.org/abs/1903.08008)) below 1.01.
-1. The effective sample size (bulk and tail) should fall within a probability bound of 0.95. See details below.
+1. An Rhat (see [arXiv](https://arxiv.org/abs/1903.08008)) below 1.01 for all parameters.
+1. Approximately independent draws, i.e all parameters have an autocorrelation at lag 1 that is less than 0.05.
 1. All Expected Fraction of Missing Information (E-FMI) is below 0.2
-1. Efficient sample size (ESS) / iteration > 0.0001
+1. No divergent transitions (if HMC is used)
 
 
 Computing Reference Posteriors Draws
@@ -29,14 +29,3 @@ Check that:
 
 If it is possible to compute the true posterior analytically, we can make draws from the posterior distribution directly.
 
-
-
-
-Computing parameter ESS bounds
-------
-
-The variability of ESS estimate is relatively high, so to assert that we have a reasonable bound on the ESS values, we have simulated the distribution for ESS bulk and ESS tail (see [arXiv](https://arxiv.org/abs/1903.08008)) based on 10 000 normal draws.
-
-We now check that the ESS bulk and tail is roughly within 4 SD from a NULL distribution (that is roughly ```sqrt(7 * S)``` where ```S``` is the total number of draws. This is a rough check for the ESS values, but far from perfect. In the long run, we want to check this with a hierarchical model instead.
-
-See `ess_bounds()` in ```rpackage/R/utils_reference_posterior.R``` to see details for how bounds are chosen.
