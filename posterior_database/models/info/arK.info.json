@@ -14,7 +14,8 @@
   },
   "model_implementations": {
     "stan": {
-      "model_code": "models/stan/arK.stan"
+      "model_code": "models/stan/arK.stan",
+      "stan_version": ">=2.26.0"
     }
   },
   "added_by": "Mans Magnusson",
