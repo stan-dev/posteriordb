@@ -2,19 +2,16 @@
   "name": "one_comp_mm_elim_abs",
   "title": "A one compartment model",
   "description": "Note that the model in the database currently hardcodes C0.",
-  "keywords": [
-    "stan_benchmark"
-  ],
+  "keywords": "stan_benchmark",
   "references": null,
-  "urls": [
-    "https://github.com/stan-dev/stat_comp_benchmarks/tree/master/benchmarks/pkpd"
-  ],
+  "urls": "https://github.com/stan-dev/stat_comp_benchmarks/tree/master/benchmarks/pkpd",
   "prior": {
     "keywords": []
   },
   "model_implementations": {
     "stan": {
-      "model_code": "models/stan/one_comp_mm_elim_abs.stan"
+      "model_code": "models/stan/one_comp_mm_elim_abs.stan",
+      "stan_version": ">=2.26.0"
     }
   },
   "added_by": "Mans Magnusson",

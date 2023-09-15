@@ -1,6 +1,6 @@
 data {
   int<lower=0> N;
-  int<lower=0,upper=1> switched[N];
+  array[N] int<lower=0, upper=1> switched;
   vector[N] dist;
 }
 parameters {
@@ -9,3 +9,5 @@ parameters {
 model {
   switched ~ bernoulli_logit(beta[1] + beta[2] * dist);
 }
+
+

@@ -2,21 +2,16 @@
   "name": "ldaK5",
   "title": "LDA with 5 topics",
   "description": "Latent Dirichlet Allocation (LDA) with token indicators marginalized out.",
-  "keywords": [
-    "mixed_membership"
-  ],
-  "references": [
-    "blei2003latent"
-  ],
-  "urls": [
-    "https://mc-stan.org/docs/2_18/stan-users-guide/latent-dirichlet-allocation.html"
-  ],
+  "keywords": "mixed_membership",
+  "references": "blei2003latent",
+  "urls": "https://mc-stan.org/docs/2_18/stan-users-guide/latent-dirichlet-allocation.html",
   "prior": {
     "keywords": []
   },
   "model_implementations": {
     "stan": {
-      "model_code": "models/stan/ldaK5.stan"
+      "model_code": "models/stan/ldaK5.stan",
+      "stan_version": ">=2.26.0"
     }
   },
   "added_by": "Mans Magnusson",

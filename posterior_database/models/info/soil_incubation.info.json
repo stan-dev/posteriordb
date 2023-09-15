@@ -9,7 +9,8 @@
   "urls": "https://github.com/stan-dev/example-models/blob/master/knitr/soil-carbon/soil_incubation.stan",
   "model_implementations": {
     "stan": {
-      "model_code": "models/stan/soil_incubation.stan"
+      "model_code": "models/stan/soil_incubation.stan",
+      "stan_version": ">=2.26.0"
     }
   },
   "references": "sierra2014modeling",

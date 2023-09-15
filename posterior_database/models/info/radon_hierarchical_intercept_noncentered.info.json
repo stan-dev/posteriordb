@@ -9,7 +9,8 @@
   "urls": "https://mc-stan.org/users/documentation/case-studies/radon.html",
   "model_implementations": {
     "stan": {
-      "model_code": "models/stan/radon_hierarchical_intercept_noncentered.stan"
+      "model_code": "models/stan/radon_hierarchical_intercept_noncentered.stan",
+      "stan_version": ">=2.26.0"
     }
   },
   "references": "gelman2006data",

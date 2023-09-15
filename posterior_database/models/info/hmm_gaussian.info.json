@@ -9,7 +9,8 @@
   "added_date": "2021-08-19",
   "model_implementations": {
     "stan": {
-      "model_code": "models/stan/hmm_gaussian.stan"
+      "model_code": "models/stan/hmm_gaussian.stan",
+      "stan_version": ">=2.26.0"
     }
   }
 }

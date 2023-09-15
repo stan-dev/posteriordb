@@ -9,7 +9,8 @@
   "urls": "https://mc-stan.org/users/documentation/case-studies/hierarchical_2pl.html",
   "model_implementations": {
     "stan": {
-      "model_code": "models/stan/hier_2pl.stan"
+      "model_code": "models/stan/hier_2pl.stan",
+      "stan_version": ">=2.26.0"
     }
   },
   "references": "furr2016hier",

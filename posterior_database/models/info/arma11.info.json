@@ -2,19 +2,16 @@
   "name": "arma11",
   "title": "Autoregressive Moving Average",
   "description": "An ARMA(1, 1) time series model.",
-  "keywords": [
-    "stan_benchmark"
-  ],
+  "keywords": "stan_benchmark",
   "references": null,
-  "urls": [
-    "https://github.com/stan-dev/stat_comp_benchmarks/tree/master/benchmarks/arma"
-  ],
+  "urls": "https://github.com/stan-dev/stat_comp_benchmarks/tree/master/benchmarks/arma",
   "prior": {
     "keywords": []
   },
   "model_implementations": {
     "stan": {
-      "model_code": "models/stan/arma11.stan"
+      "model_code": "models/stan/arma11.stan",
+      "stan_version": ">=2.26.0"
     }
   },
   "added_by": "Mans Magnusson",

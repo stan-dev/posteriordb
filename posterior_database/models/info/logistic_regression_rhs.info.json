@@ -9,7 +9,8 @@
   "urls": "",
   "model_implementations": {
     "stan": {
-      "model_code": "models/stan/logistic_regression_rhs.stan"
+      "model_code": "models/stan/logistic_regression_rhs.stan",
+      "stan_version": ">=2.26.0"
     }
   },
   "references": "piironen2017sparsity",

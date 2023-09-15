@@ -9,7 +9,8 @@
   "urls": "https://raw.githubusercontent.com/facebook/prophet/master/R/inst/stan/prophet.stan",
   "model_implementations": {
     "stan": {
-      "model_code": "models/stan/prophet.stan"
+      "model_code": "models/stan/prophet.stan",
+      "stan_version": ">=2.26.0"
     }
   },
   "references": "taylor2018forecasting",

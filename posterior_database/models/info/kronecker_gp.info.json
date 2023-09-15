@@ -9,7 +9,8 @@
   "added_date": "2021-08-03",
   "model_implementations": {
     "stan": {
-      "model_code": "models/stan/kronecker_gp.stan"
+      "model_code": "models/stan/kronecker_gp.stan",
+      "stan_version": ">=2.26.0"
     }
   }
 }

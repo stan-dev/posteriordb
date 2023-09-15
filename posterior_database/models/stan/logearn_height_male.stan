@@ -4,7 +4,8 @@ data {
   vector[N] height;
   vector[N] male;
 }
-transformed data {           // log transformation
+transformed data {
+  // log transformation
   vector[N] log_earn;
   log_earn = log(earn);
 }
@@ -15,3 +16,5 @@ parameters {
 model {
   log_earn ~ normal(beta[1] + beta[2] * height + beta[3] * male, sigma);
 }
+
+

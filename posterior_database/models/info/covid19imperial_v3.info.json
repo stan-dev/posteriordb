@@ -9,7 +9,8 @@
   "urls": "https://github.com/ImperialCollegeLondon/covid19model",
   "model_implementations": {
     "stan": {
-      "model_code": "models/stan/covid19imperial_v3.stan"
+      "model_code": "models/stan/covid19imperial_v3.stan",
+      "stan_version": ">=2.26.0"
     }
   },
   "references": null,

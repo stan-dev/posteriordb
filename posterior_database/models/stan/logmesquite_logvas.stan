@@ -15,12 +15,12 @@ transformed data {
   vector[N] log_canopy_shape;
   vector[N] log_total_height;
   vector[N] log_density;
-  log_weight        = log(weight);
+  log_weight = log(weight);
   log_canopy_volume = log(diam1 .* diam2 .* canopy_height);
-  log_canopy_area   = log(diam1 .* diam2);
-  log_canopy_shape  = log(diam1 ./ diam2);
-  log_total_height  = log(total_height);
-  log_density       = log(density);
+  log_canopy_area = log(diam1 .* diam2);
+  log_canopy_shape = log(diam1 ./ diam2);
+  log_total_height = log(total_height);
+  log_density = log(density);
 }
 parameters {
   vector[7] beta;
@@ -28,8 +28,10 @@ parameters {
 }
 model {
   log_weight ~ normal(beta[1] + beta[2] * log_canopy_volume
-                      + beta[3] * log_canopy_area + beta[4] * log_canopy_shape
+                      + beta[3] * log_canopy_area
+                      + beta[4] * log_canopy_shape
                       + beta[5] * log_total_height + beta[6] * log_density
-                      + beta[7] * group,
-                      sigma);
+                      + beta[7] * group, sigma);
 }
+
+

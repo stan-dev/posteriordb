@@ -9,7 +9,8 @@
   "added_date": "2021-08-03",
   "model_implementations": {
     "stan": {
-      "model_code": "models/stan/bym2_offset_only.stan"
+      "model_code": "models/stan/bym2_offset_only.stan",
+      "stan_version": ">=2.26.0"
     }
   }
 }

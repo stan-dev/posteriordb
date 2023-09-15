@@ -9,7 +9,8 @@
   "urls": "https://raw.githubusercontent.com/stan-dev/example-models/master/ARM/Ch.4/earn_height.stan",
   "model_implementations": {
     "stan": {
-      "model_code": "models/stan/earn_height.stan"
+      "model_code": "models/stan/earn_height.stan",
+      "stan_version": ">=2.26.0"
     }
   },
   "references": "gelman2006data",
