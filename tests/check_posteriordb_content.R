@@ -5,8 +5,9 @@ pdbl <- pdb_local("posterior_database")
 status_code <- check_pdb(pdbl, run_stan_code_checks = FALSE)
 
 # These tests are currently skipped because a large number of model
-# updates are being done to update to Stan 2.26 syntax
+# updates are being done to update to Stan 2.26 syntax.
 # All models has been tested locally.
+# In addition it is difficulties in getting changed files that needs to be fixed
 if(FALSE){
   # Run Stan code for changed or added models
   added_modified_paths <- strsplit(readLines(con = "added_modified.txt"), " ")[[1]]
