@@ -82,10 +82,11 @@ model {
   }
 }
 generated quantities {
-  vector[K] lambda;
-  lambda[2 : K] = lambda_adj[2 : K] ./ to_vector(adj[2, 2 : K]);
-  lambda[1] = W_adj[1, 1 : K] * lambda_adj[1 : K]
-              - W[1, 2 : K] * lambda[2 : K];
+  // This part is currently not working
+  //  vector[K] lambda;
+  //  lambda[2 : K] = lambda_adj[2 : K] ./ to_vector(adj[2, 2 : K]);
+  //  lambda[1] = W_adj[1, 1 : K] * lambda_adj[1 : K]
+  //              - W[1, 2 : K] * lambda[2 : K];
 }
 
 
