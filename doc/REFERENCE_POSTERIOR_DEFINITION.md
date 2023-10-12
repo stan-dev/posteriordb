@@ -5,10 +5,10 @@ The purpose of the reference posterior definition is to define the criteria for 
 
 A reference posterior should have:
 1. 10 000 draws per parameter in the model.
-1. An Rhat (see [arXiv](https://arxiv.org/abs/1903.08008)) below 1.01 for all parameters.
-1. Approximately independent draws, i.e all parameters have an autocorrelation at lag 1 that is less than 0.05.
-1. All Expected Fraction of Missing Information (E-FMI) is below 0.2
-1. No divergent transitions (if HMC is used)
+1. An Rhat (see [Vehtari et al. (2021)](https://doi.org/10.1214/20-BA1221)) below 1.01 for all parameters.
+1. Approximately independent draws, that is, all parameters have an autocorrelation at lag 1 that is less than 0.05 (see, e.g., [Vehtari et al. (2021)](https://doi.org/10.1214/20-BA1221))).
+1. All Expected Fraction of Missing Information (E-FMI) is below 0.2 (see section 6.1 of [A Conceptual Introduction to Hamiltonian Monte Carlo](https://arxiv.org/abs/1701.02434))
+1. No divergent transitions if HMC is used (see [Stan Reference Manual](https://mc-stan.org/docs/reference-manual/divergent-transitions.html))
 
 
 Computing Reference Posteriors Draws
