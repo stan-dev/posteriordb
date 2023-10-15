@@ -9,7 +9,8 @@
   "urls": "https://github.com/bbbales2/cmdstan-warmup/blob/develop/examples/accel_splines/",
   "model_implementations": {
     "stan": {
-      "model_code": "models/stan/accel_splines.stan"
+      "model_code": "models/stan/accel_splines.stan",
+      "stan_version": ">=2.26.0"
     }
   },
   "references": "bales2019selecting",

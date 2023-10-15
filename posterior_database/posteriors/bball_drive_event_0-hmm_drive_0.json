@@ -1,6 +1,6 @@
 {
   "name": "bball_drive_event_0-hmm_drive_0",
-  "keywords": ["stan_examples", "stan_benchmark"],
+  "keywords": ["stan examples", "stan benchmark", "pathfinder paper", "hidden markov model", "multimodal"],
   "urls": "https://github.com/imadmali/bball-hmm/blob/master",
   "model_name": "hmm_drive_0",
   "data_name": "bball_drive_event_0",

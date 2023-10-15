@@ -1,6 +1,6 @@
 {
   "name": "sblri-blr",
-  "keywords": [],
+  "keywords": ["linear regression"],
   "urls": [],
   "model_name": "blr",
   "data_name": "sblri",

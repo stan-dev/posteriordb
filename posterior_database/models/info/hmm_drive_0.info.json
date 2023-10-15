@@ -9,7 +9,8 @@
   "urls": "https://github.com/imadmali/bball-hmm/blob/master/models/drive_0.stan",
   "model_implementations": {
     "stan": {
-      "model_code": "models/stan/hmm_drive_0.stan"
+      "model_code": "models/stan/hmm_drive_0.stan",
+      "stan_version": ">=2.26.0"
     }
   },
   "added_date": "2020-05-10",

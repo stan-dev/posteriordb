@@ -1,7 +1,7 @@
 {
   "name": "low_dim_gauss_mix_collapse-low_dim_gauss_mix_collapse",
   "keywords": [
-    "stan_benchmark"
+    "stan benchmark", "mixture model"
   ],
   "urls": [],
   "model_name": "low_dim_gauss_mix_collapse",

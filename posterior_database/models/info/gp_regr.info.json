@@ -2,20 +2,16 @@
   "name": "gp_regr",
   "title": "Gaussian Process regression",
   "description": "One-dimensional Gaussian process Regression using the\nexponential quadratic covariance function.",
-  "keywords": [
-    "stan_benchmark",
-    "gaussian process"
-  ],
+  "keywords": ["stan_benchmark", "gaussian process"],
   "references": null,
-  "urls": [
-    "https://github.com/stan-dev/stat_comp_benchmarks/tree/master/benchmarks/gp_regr"
-  ],
+  "urls": "https://github.com/stan-dev/stat_comp_benchmarks/tree/master/benchmarks/gp_regr",
   "prior": {
     "keywords": []
   },
   "model_implementations": {
     "stan": {
-      "model_code": "models/stan/gp_regr.stan"
+      "model_code": "models/stan/gp_regr.stan",
+      "stan_version": ">=2.26.0"
     }
   },
   "added_by": "Mans Magnusson",

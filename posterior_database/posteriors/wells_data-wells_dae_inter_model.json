@@ -1,5 +1,5 @@
 {
-  "keywords": ["wells", "logistic", "regression", "scaled", "wells_dae_inter", "social predictor", "interaction", "centered"],
+  "keywords": ["arm book", "logistic regression", "interaction"],
   "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.5",
   "references": "gelman2006data",
   "dimensions": {

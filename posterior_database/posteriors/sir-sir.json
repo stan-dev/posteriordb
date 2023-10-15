@@ -1,9 +1,9 @@
 {
   "name": "sir-sir",
   "keywords": [
-    "stan_benchmark"
+    "stan benchmark"
   ],
-  "urls": [],
+  "urls": ["https://github.com/stan-dev/stat_comp_benchmarks/tree/master/benchmarks/sir"],
   "model_name": "sir",
   "data_name": "sir",
   "reference_posterior_name": null,

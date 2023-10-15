@@ -1,6 +1,6 @@
 {
   "name": "radon_mn-radon_variable_intercept_slope_centered",
-  "keywords": ["radon", "stan_case_study"],
+  "keywords": ["stan case study"],
   "urls": "https://mc-stan.org/users/documentation/case-studies/radon.html",
   "model_name": "radon_variable_intercept_slope_centered",
   "data_name": "radon_mn",

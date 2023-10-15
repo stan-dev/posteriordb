@@ -9,7 +9,8 @@
   "added_date": "2021-06-29",
   "model_implementations": {
     "stan": {
-      "model_code": "models/stan/GLMM_Poisson_model.stan"
+      "model_code": "models/stan/GLMM_Poisson_model.stan",
+      "stan_version": ">=2.26.0"
     }
   }
 }

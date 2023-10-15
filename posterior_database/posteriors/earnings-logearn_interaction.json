@@ -1,6 +1,6 @@
 {
   "name": "earnings-logearn_interaction",
-  "keywords": ["ARM", "Ch. 4", "stan_examples"],
+  "keywords": ["arm book", "stan examples", "pathfinder paper", "interaction"],
   "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.4",
   "model_name": "logearn_interaction",
   "data_name": "earnings",

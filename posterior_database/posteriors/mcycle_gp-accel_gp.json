@@ -1,6 +1,6 @@
 {
   "name": "mcycle_gp-accel_gp",
-  "keywords": ["stan_benchmark", "gaussian process"],
+  "keywords": ["stan benchmark", "gaussian process model", "pathfinder paper"],
   "urls": "https://github.com/bbbales2/cmdstan-warmup/blob/develop/examples/accel_gp",
   "model_name": "accel_gp",
   "data_name": "mcycle_gp",

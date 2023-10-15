@@ -1,7 +1,7 @@
 {
   "name": "arK-arK",
   "keywords": [
-    "stan_benchmark"
+    "stan benchmark", "pathfinder paper"
   ],
   "model_name": "arK",
   "reference_posterior_name": "arK-arK",

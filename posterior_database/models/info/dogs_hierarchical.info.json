@@ -12,7 +12,8 @@
   "added_date": "2022-08-12",
   "model_implementations": {
     "stan": {
-      "model_code": "models/stan/dogs_hierarchical.stan"
+      "model_code": "models/stan/dogs_hierarchical.stan",
+      "stan_version": ">=2.26.0"
     }
   }
 }

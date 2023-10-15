@@ -1,6 +1,6 @@
 {
   "name": "hudson_lynx_hare-lotka_volterra",
-  "keywords": ["stan_examples", "stan_benchmark"],
+  "keywords": ["stan examples", "stan benchmark", "pathfinder paper", "differential equation model"],
   "urls": "https://github.com/stan-dev/example-models/blob/master/knitr/lotka-volterra",
   "model_name": "lotka_volterra",
   "data_name": "hudson_lynx_hare",

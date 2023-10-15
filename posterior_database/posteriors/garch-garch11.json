@@ -1,8 +1,9 @@
 {
   "name": "garch-garch11",
   "keywords": [
-    "stan_benchmark",
-    "time series"
+    "stan benchmark",
+    "time series",
+    "pathfinder paper"
   ],
   "urls": [],
   "model_name": "garch11",

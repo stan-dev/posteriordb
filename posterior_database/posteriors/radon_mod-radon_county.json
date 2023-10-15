@@ -1,6 +1,6 @@
 {
   "name": "radon_mod-radon_county",
-  "keywords": ["stan_benchmark", "hierarchical model"],
+  "keywords": ["warmup paper", "hierarchical model"],
   "urls": "https://github.com/bbbales2/cmdstan-warmup/blob/develop/examples/radon",
   "model_name": "radon_county",
   "data_name": "radon_mod",

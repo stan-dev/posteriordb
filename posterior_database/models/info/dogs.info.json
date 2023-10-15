@@ -9,7 +9,8 @@
   "urls": "https://raw.githubusercontent.com/stan-dev/example-models/master/ARM/Ch.24/dogs.stan",
   "model_implementations": {
     "stan": {
-      "model_code": "models/stan/dogs.stan"
+      "model_code": "models/stan/dogs.stan",
+      "stan_version": ">=2.26.0"
     }
   },
   "references": "gelman2006data",

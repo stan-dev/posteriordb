@@ -1,6 +1,6 @@
 {
   "name": "nes2000-nes",
-  "keywords": ["ARM", "Ch. 4", "stan_examples"],
+  "keywords": ["arm book", "stan examples", "pathfinder paper"],
   "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.4",
   "model_name": "nes",
   "data_name": "nes2000",

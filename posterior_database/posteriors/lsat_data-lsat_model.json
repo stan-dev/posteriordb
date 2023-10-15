@@ -1,5 +1,5 @@
 {
-  "keywords": ["LSAT", "Random Effects", "Rasch"],
+  "keywords": ["stan examples", "bugs examples", "random effects model"],
   "urls": "https://github.com/stan-dev/example-models/tree/master/bugs_examples/vol1/lsat",
   "references": "mrc1winbugs",
   "dimensions": {

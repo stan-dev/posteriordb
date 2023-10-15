@@ -15,6 +15,7 @@ parameters {
 model {
   weight ~ normal(beta[1] + beta[2] * diam1 + beta[3] * diam2
                   + beta[4] * canopy_height + beta[5] * total_height
-                  + beta[6] * density + beta[7] * group,
-                  sigma);
+                  + beta[6] * density + beta[7] * group, sigma);
 }
+
+

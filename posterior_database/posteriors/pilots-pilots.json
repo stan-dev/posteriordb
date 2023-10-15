@@ -1,6 +1,6 @@
 {
   "name": "pilots-pilots",
-  "keywords": ["ARM", "Ch. 14", "stan_examples", "stan_benchmark"],
+  "keywords": ["arm book", "stan examples", "stan benchmark"],
   "urls": "",
   "model_name": "pilots",
   "data_name": "pilots",

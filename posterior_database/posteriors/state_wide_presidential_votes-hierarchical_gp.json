@@ -1,5 +1,8 @@
 {
   "name": "state_wide_presidential_votes-hierarchical_gp",
+  "keywords": [
+    "gaussian process model"
+  ],
   "model_name": "hierarchical_gp",
   "data_name": "state_wide_presidential_votes",
   "reference_posterior_name": null,

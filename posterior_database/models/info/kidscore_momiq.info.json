@@ -9,7 +9,8 @@
   "urls": "https://raw.githubusercontent.com/stan-dev/example-models/master/ARM/Ch.3/kidscore_momiq.stan",
   "model_implementations": {
     "stan": {
-      "model_code": "models/stan/kidscore_momiq.stan"
+      "model_code": "models/stan/kidscore_momiq.stan",
+      "stan_version": ">=2.26.0"
     }
   },
   "references": "gelman2006data",

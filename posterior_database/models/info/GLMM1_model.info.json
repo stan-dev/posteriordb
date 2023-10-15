@@ -9,7 +9,8 @@
   "added_date": "2021-06-25",
   "model_implementations": {
     "stan": {
-      "model_code": "models/stan/GLMM1_model.stan"
+      "model_code": "models/stan/GLMM1_model.stan",
+      "stan_version": ">=2.26.0"
     }
   }
 }

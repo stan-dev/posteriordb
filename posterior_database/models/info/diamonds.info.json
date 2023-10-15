@@ -9,7 +9,8 @@
   "urls": "https://github.com/bbbales2/cmdstan-warmup/blob/develop/examples/diamonds",
   "model_implementations": {
     "stan": {
-      "model_code": "models/stan/diamonds.stan"
+      "model_code": "models/stan/diamonds.stan",
+      "stan_version": ">=2.26.0"
     }
   },
   "references": "bales2019selecting",

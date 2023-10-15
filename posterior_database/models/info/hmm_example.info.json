@@ -9,7 +9,8 @@
   "urls": "https://github.com/imadmali/bball-hmm/blob/master/models/hmm_example.stan",
   "model_implementations": {
     "stan": {
-      "model_code": "models/stan/hmm_example.stan"
+      "model_code": "models/stan/hmm_example.stan",
+      "stan_version": ">=2.26.0"
     }
   },
   "references": null,
