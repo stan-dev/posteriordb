@@ -3,7 +3,7 @@
 posteriordb has different uses. Below is list of example use cases and what features are important in each use case.
 
 
-## Unit testing
+## Testing
 
 Developers of different algorithms can use the posterior database to get data, models and reference posteriors to asses that the software is working as it should.
 
