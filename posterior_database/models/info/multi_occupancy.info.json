@@ -6,7 +6,7 @@
     "keywords": "stan_recommended_35dbfe6"
   },
   "description": "a hierarchical occupancy model for estimating\nspecies richness and accumulation by forming these community-level\nattributes as functions of model-based estimators of species occurence\nwhile accounting for imperfect detection of individual species.",
-  "urls": "",
+  "urls": "https://mc-stan.org/users/documentation/case-studies/dorazio-royle-occupancy.html",
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/multi_occupancy.stan",
