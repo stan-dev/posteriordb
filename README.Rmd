@@ -34,6 +34,9 @@ See [DATABASE_CONTENT.md](https://github.com/stan-dev/posteriordb/blob/master/do
 
 We are happy with any help in adding posteriors, data, and models to the database! See [CONTRIBUTING.md](https://github.com/stan-dev/posteriordb/blob/master/doc/CONTRIBUTING.md) for the details on how to contribute.
 
+## Licences
+Most model code are using the BSD-3 licence. So is this repository in general. Although, some models and some data might have other open licences such as MIT. Each model has a ```licence``` element in the info JSON files that specifies the actual licence of the model. Some data might also have licences, then that is specified in a similar way.
+
 
 ## Using `posteriordb`
 
