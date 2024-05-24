@@ -3,7 +3,7 @@
   "keywords": "item response model",
   "title": "Two-parameter logistic item theory model with latent regression",
   "description": "The Rasch model (Rasch 1960) is an item response theory model for dichotomous items. The two-parameter logistic model (2PL) (Swaminathan and Gifford 1985) is an item response theory model that includes parameters for both the difficulty and discrimination of dichotomous items. The version presented includes a latent regression. However, the latent regression part of the model may be restricted to an intercept only, resulting in a regular 2PL.",
-  "urls": "https://github.com/danielcfurr/edstan",
+  "urls": ["https://github.com/danielcfurr/edstan", "https://mc-stan.org/users/documentation/case-studies/rasch_and_2pl.html"],
   "references": null,
   "added_by": "Keane Nguyen",
   "added_date": "2021-08-03",
