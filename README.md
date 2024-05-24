@@ -48,13 +48,16 @@ database! See
 [CONTRIBUTING.md](https://github.com/stan-dev/posteriordb/blob/master/doc/CONTRIBUTING.md)
 for the details on how to contribute.
 
-## Licences
+## Licensing
 
-Most model code are using the BSD-3 licence. So is this repository in
-general. Although, some models and some data might have other open
-licences such as MIT. Each model has a `licence` element in the info
-JSON files that specifies the actual licence of the model. Some data
-might also have licences, then that is specified in a similar way.
+The posteriordb is licensed under the [new BSD
+license](https://github.com/stan-dev/posteriordb/LICENCE.md).
+
+Most model code are using the the same BSD-3 licence. Although, some
+models and some data might have other open licences such as MIT. Each
+model has a `licence` element in the info JSON files that specifies the
+actual licence of the model. Some data might also have licences, then
+that is specified in a similar way.
 
 ## Using `posteriordb`
 
