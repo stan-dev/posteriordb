@@ -1,0 +1,5 @@
+{
+  "names": ["rho", "alpha", "sigma"],
+  "mean_squared_value": [48.8586, 6.5765, 3.5993],
+  "mcse_mean": [0.183, 0.0443, 0.0205]
+}

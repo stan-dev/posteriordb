@@ -1,0 +1,5 @@
+{
+  "names": ["beta[1]", "beta[2]", "sigma"],
+  "mean_squared_value": [6.3412, 0.0007, 0.1508],
+  "mcse_mean": [0.0099, 1.4929e-06, 0.0001]
+}

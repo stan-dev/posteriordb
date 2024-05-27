@@ -1,0 +1,5 @@
+{
+  "names": ["mu", "phi", "theta", "sigma"],
+  "mean_squared_value": [0.0002, 0.9164, 0.0047, 0.0278],
+  "mcse_mean": [2.4956e-06, 0.0004, 0.0001, 0]
+}
