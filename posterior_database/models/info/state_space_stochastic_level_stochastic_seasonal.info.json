@@ -12,5 +12,6 @@
       "model_code": "models/stan/state_space_stochastic_level_stochastic_seasonal.stan",
       "stan_version": ">=2.26.0"
     }
-  }
+  },
+  "licence": "MIT"
 }

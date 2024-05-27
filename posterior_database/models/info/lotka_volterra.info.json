@@ -15,5 +15,6 @@
   },
   "references": ["lotka1925principles", "volterra1926fluctuations", "volterra1927variazioni"],
   "added_date": "2020-04-21",
-  "added_by": "Oliver Järnefelt"
+  "added_by": "Oliver Järnefelt",
+  "licence": "BSD3"
 }

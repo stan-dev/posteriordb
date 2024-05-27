@@ -12,5 +12,6 @@
       "model_code": "models/stan/Rate_4_model.stan",
       "stan_version": ">=2.26.0"
     }
-  }
+  },
+  "licence": "BSD3"
 }
