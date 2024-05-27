@@ -15,5 +15,6 @@
   },
   "references": "sierra2014modeling",
   "added_date": "2020-05-04",
-  "added_by": "Oliver Järnefelt"
+  "added_by": "Oliver Järnefelt",
+  "licence": "BSD3"
 }

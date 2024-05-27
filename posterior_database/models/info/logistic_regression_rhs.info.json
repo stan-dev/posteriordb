@@ -15,5 +15,6 @@
   },
   "references": "piironen2017sparsity",
   "added_date": "2020-02-29",
-  "added_by": "Oliver Järnefelt"
+  "added_by": "Oliver Järnefelt",
+  "licence": "BSD3"
 }
