@@ -1,0 +1,118 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "cr": "http://mlcommons.org/croissant/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "sc": "https://schema.org/",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform"
+  },
+  "@type": "sc:Dataset",
+  "name": "posteriordb",
+  "description": " Probabilistic programming languages (PPL), such as Stan, Tensorflow Probability, PyMC, Pyro, and Turing.jl,are becoming increasingly popular for Bayesian probabilistic data analysis and predictive modelling.  These languages all rely on general inference algorithms such as Markov chain Monte Carlo sampling or black-box variational inference. We introduce posteriordb, a database of models, compatible data sets, and reference posteriors intended to make evaluatingand comparing models easier and more trustworthy. Posteriordb currently includes mixed effect regressions, time series, hierarchical Gaussian processes, hidden Markov models, mixture models, ordinary differential equation models, and more. ",
+  "conformsTo": "http://mlcommons.org/croissant/1.0",
+  "url": "https://https://github.com/stan-dev/posteriordb",
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "github-repository",
+      "name": "github-repository",
+      "description": "PosteriorDB's GitHub repository.",
+      "contentUrl": "https://https://github.com/stan-dev/posteriordb",
+      "encodingFormat": "git+https",
+      "sha256": "main"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "data-zip-files",
+      "name": "data-zip-files",
+      "description": "Datasets in json format stored in zip files.",
+      "containedIn": {
+        "@id": "github-repository"
+      },
+      "encodingFormat": "application/zip",
+      "includes": "posterior_database/data/data/*.zip"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "data-csv-files",
+      "name": "data-csv-files",
+      "description": "Datasets stored in csv format.",
+      "containedIn": {
+        "@id": "github-repository"
+      },
+      "encodingFormat": "application/zip",
+      "includes": "posterior_database/data/data-raw/*.csv"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "draws-zip-files",
+      "name": "draws-zip-files",
+      "description": "Posterior samples in json format stored in zip files.",
+      "containedIn": {
+        "@id": "github-repository"
+      },
+      "encodingFormat": "application/zip",
+      "includes": "posterior_database/reference_posteriors/draws/draws/*.zip"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "stan-model-files",
+      "name": "stan-model-files",
+      "description": "Posterior models in .stan format.",
+      "containedIn": {
+        "@id": "github-repository"
+      },
+      "encodingFormat": "application/stan",
+      "includes": "posterior_database/models/stan/*.stan"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "pymc3-model-files",
+      "name": "pymc3-model-files",
+      "description": "Posterior pymc3 models in .py format.",
+      "containedIn": {
+        "@id": "github-repository"
+      },
+      "encodingFormat": "application/py",
+      "includes": "posterior_database/models/pymc3/*.py"
+    }
+  ]
+}
