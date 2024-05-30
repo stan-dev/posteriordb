@@ -20,18 +20,20 @@
     },
     "ndraws": 10000,
     "nchains": 10,
-    "effective_sample_size_bulk": [9642.8243, 9695.6936, 9816.8029],
-    "effective_sample_size_tail": [9870.9289, 9525.9991, 9440.9362],
-    "r_hat": [0.9999, 1.0001, 1],
+    "effective_sample_size_bulk": [9642.82434219008, 9695.69356892313, 9816.80292628036],
+    "effective_sample_size_tail": [9870.92886556851, 9525.99906700861, 9440.93615890716],
+    "r_hat": [0.999891471265879, 1.00009170792976, 0.999972174586517],
     "divergent_transitions": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    "expected_fraction_of_missing_information": [1.9055, 2.0428, 1.8909, 1.8892, 1.9551, 1.9536, 1.9025, 2.0212, 1.8627, 1.9613]
+    "expected_fraction_of_missing_information": [1.9054534828592, 2.04283846038632, 1.89087498163633, 1.88917968889126, 1.95506175016557, 1.95361734835695, 1.90252164274861, 2.02120203606408, 1.86273820844116, 1.96131348290903],
+    "mean_lag1_ac": [0.0195153463047347, 0.0150256873920764, 0.00364422705690719]
   },
   "checks_made": {
     "ndraws_is_gte_10k": true,
     "nchains_is_gte_4": true,
     "ess_within_bounds": true,
     "r_hat_below_1_01": true,
-    "efmi_above_0_2": true
+    "efmi_above_0_2": true,
+    "abs_mean_lag1_ac_below_0_05": true
   },
   "comments": null,
   "added_by": "Jakob Torgander",
