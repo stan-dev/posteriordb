@@ -1,0 +1,46 @@
+{
+  "name": "one_comp_mm_elim_abs-one_comp_mm_elim_abs",
+  "inference": {
+    "method": "stan_sampling",
+    "method_arguments": {
+      "chains": 10,
+      "iter": 45000,
+      "warmup": 35000,
+      "thin": 10,
+      "seed": 4711,
+      "control": {
+        "adapt_delta": 0.98999999999999999,
+        "max_treedepth": 20
+      }
+    }
+  },
+  "diagnostics": {
+    "diagnostic_information": {
+      "names": ["k_a", "K_m", "V_m", "sigma"]
+    },
+    "ndraws": 10000,
+    "nchains": 10,
+    "effective_sample_size_bulk": [9910.2438660389998, 9337.3501729486798, 9666.4253699015699, 9839.6009182775106],
+    "effective_sample_size_tail": [9870.6027400225594, 9397.45579249619, 9625.1818283941193, 9850.37806425083],
+    "r_hat": [1.00012623206822, 1.0001487275601499, 1.00031200477474, 1.0003939885164199],
+    "divergent_transitions": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "expected_fraction_of_missing_information": [1.9690056999211401, 1.92502492301568, 2.02216768336445, 2.0728171204324601, 1.99966349503513, 2.0310320716714201, 1.9378832279577101, 2.0992524279703701, 2.0423764143294201, 2.0711252215618399]
+  },
+  "checks_made": {
+    "ndraws_is_gte_10k": true,
+    "nchains_is_gte_4": true,
+    "ess_within_bounds": true,
+    "r_hat_below_1_01": true,
+    "efmi_above_0_2": true
+  },
+  "comments": {},
+  "added_by": "Jakob Torgander",
+  "added_date": "2024-05-28",
+  "versions": {
+    "rstan_version": "rstan 2.19.3",
+    "r_Makevars": "",
+    "r_version": "R version 3.6.1 (2019-07-05)",
+    "r_session": "R version 3.6.1 (2019-07-05)\nPlatform: x86_64-pc-linux-gnu (64-bit)\nRunning under: CentOS Linux 7 (Core)\n\nMatrix products: default\nBLAS/LAPACK: /share/apps/spack/envs/fgci-centos7-generic/software/openblas/0.3.7/fqs4o7j/lib/libopenblasp-r0.3.7.so\n\nlocale:\n [1] LC_CTYPE=en_GB.UTF-8       LC_NUMERIC=C              \n [3] LC_TIME=en_GB.UTF-8        LC_COLLATE=en_GB.UTF-8    \n [5] LC_MONETARY=en_GB.UTF-8    LC_MESSAGES=en_GB.UTF-8   \n [7] LC_PAPER=en_GB.UTF-8       LC_NAME=C                 \n [9] LC_ADDRESS=C               LC_TELEPHONE=C            \n[11] LC_MEASUREMENT=en_GB.UTF-8 LC_IDENTIFICATION=C       \n\nattached base packages:\n[1] stats     graphics  grDevices utils     datasets  methods   base     \n\nother attached packages:\n[1] posterior_0.0.2    posteriordb_0.1    rstan_2.19.3       ggplot2_3.3.0     \n[5] StanHeaders_2.19.2\n\nloaded via a namespace (and not attached):\n [1] Rcpp_1.0.4.6       pillar_1.4.3       compiler_3.6.1     prettyunits_1.1.1 \n [5] tools_3.6.1        pkgbuild_1.0.7     lifecycle_0.2.0    tibble_3.0.1      \n [9] gtable_0.3.0       checkmate_2.0.0    pkgconfig_2.0.3    rlang_0.4.6       \n[13] cli_2.0.2          parallel_3.6.1     loo_2.2.0          gridExtra_2.3     \n[17] withr_2.2.0        dplyr_0.8.5        vctrs_0.2.4        stats4_3.6.1      \n[21] grid_3.6.1         tidyselect_1.0.0   glue_1.4.0         inline_0.3.15     \n[25] R6_2.4.1           processx_3.4.2     fansi_0.4.1        callr_3.4.3       \n[29] purrr_0.3.4        magrittr_1.5       backports_1.1.6    scales_1.1.0      \n[33] ps_1.3.2           ellipsis_0.3.0     matrixStats_0.56.0 abind_1.4-5       \n[37] assertthat_0.2.1   colorspace_1.4-1   munsell_0.5.0      crayon_1.3.4      ",
+    "r_summary_statistic": "posterior R package, version 1.5.0"
+  }
+}
