@@ -9,7 +9,7 @@
       "thin": 10,
       "seed": 4711,
       "control": {
-        "adapt_delta": 0.94999999999999996
+        "adapt_delta": 0.95
       }
     }
   },
@@ -19,11 +19,11 @@
     },
     "ndraws": 10000,
     "nchains": 10,
-    "effective_sample_size_bulk": [10041.0896201168, 9989.2716395650896, 10095.296771642399, 10048.7605290177, 9533.2269699408607, 10026.3139529165, 9921.7667154621104, 9782.6912591799992, 10038.512124352201, 9605.1545326923406],
-    "effective_sample_size_tail": [9973.4769650583603, 9992.1810032474896, 9732.4795272390802, 10139.1087989181, 9338.9817171425402, 9665.7783122239907, 10206.526353924601, 10038.576355031901, 9689.92308837161, 9870.8837460981104],
-    "r_hat": [0.99976115558752998, 0.99984547337444796, 0.99978876758351798, 0.99983973611751897, 1.00013610191566, 1.00026622626714, 1.00048367344003, 1.00004664967257, 0.99993152729423596, 0.99996833017314402],
+    "effective_sample_size_bulk": [10041.0896, 9989.2716, 10095.2968, 10048.7605, 9533.227, 10026.314, 9921.7667, 9782.6913, 10038.5121, 9605.1545],
+    "effective_sample_size_tail": [9973.477, 9992.181, 9732.4795, 10139.1088, 9338.9817, 9665.7783, 10206.5264, 10038.5764, 9689.9231, 9870.8837],
+    "r_hat": [0.9998, 0.9998, 0.9998, 0.9998, 1.0001, 1.0003, 1.0005, 1, 0.9999, 1],
     "divergent_transitions": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    "expected_fraction_of_missing_information": [2.0577865528433201, 1.94573243779057, 1.8614981645551401, 2.0354076442814999, 2.04937069252516, 2.0096436975793801, 1.92195205578032, 1.95938358722255, 1.9956485441691401, 1.9902402183992201]
+    "expected_fraction_of_missing_information": [2.0578, 1.9457, 1.8615, 2.0354, 2.0494, 2.0096, 1.922, 1.9594, 1.9956, 1.9902]
   },
   "checks_made": {
     "ndraws_is_gte_10k": true,
@@ -32,9 +32,9 @@
     "r_hat_below_1_01": true,
     "efmi_above_0_2": true
   },
-  "comments": {},
+  "comments": null,
   "added_by": "Jakob Torgander",
-  "added_date": "2024-05-28",
+  "added_date": "2024-05-30",
   "versions": {
     "rstan_version": "rstan 2.21.1",
     "r_Makevars": "# clang: start\nCFLAGS=-isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk\nCCFLAGS=-isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk\nCXXFLAGS=-isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk\nCPPFLAGS=-isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -I/usr/local/include\n\nSHLIB_CXXLDFLAGS+=-Wl,-rpath,/Library/Frameworks/R.framework/Resources/lib /Library/Frameworks/R.framework/Resources/lib/libc++abi.1.dylib\nSHLIB_CXX11LDFLAGS+=-Wl,-rpath,/Library/Frameworks/R.framework/Resources/lib /Library/Frameworks/R.framework/Resources/lib/libc++abi.1.dylib\nSHLIB_CXX14LDFLAGS+=-Wl,-rpath,/Library/Frameworks/R.framework/Resources/lib /Library/Frameworks/R.framework/Resources/lib/libc++abi.1.dylib\n# clang: end",

@@ -9,7 +9,7 @@
       "thin": 10,
       "seed": 4711,
       "control": {
-        "adapt_delta": 0.80000000000000004
+        "adapt_delta": 0.8
       }
     }
   },
@@ -19,11 +19,11 @@
     },
     "ndraws": 10000,
     "nchains": 10,
-    "effective_sample_size_bulk": [9470.1591507231806, 9472.9228290323208, 9846.9164838993802],
-    "effective_sample_size_tail": [9768.2803220080896, 9686.80970033417, 9670.2345262351191],
-    "r_hat": [1.00057213655634, 1.0007298243755001, 1.00070942951177],
+    "effective_sample_size_bulk": [9470.1592, 9472.9228, 9846.9165],
+    "effective_sample_size_tail": [9768.2803, 9686.8097, 9670.2345],
+    "r_hat": [1.0006, 1.0007, 1.0007],
     "divergent_transitions": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    "expected_fraction_of_missing_information": [2.0052584235414299, 2.12927207055762, 1.9953102263132301, 2.0675159898448299, 2.0266838256164399, 1.9192390847434699, 1.99836610065186, 2.0366202292095901, 2.0697337828851001, 2.08244122357263]
+    "expected_fraction_of_missing_information": [2.0053, 2.1293, 1.9953, 2.0675, 2.0267, 1.9192, 1.9984, 2.0366, 2.0697, 2.0824]
   },
   "checks_made": {
     "ndraws_is_gte_10k": true,
@@ -32,9 +32,9 @@
     "r_hat_below_1_01": true,
     "efmi_above_0_2": true
   },
-  "comments": {},
+  "comments": null,
   "added_by": "Jakob Torgander",
-  "added_date": "2024-05-28",
+  "added_date": "2024-05-30",
   "versions": {
     "rstan_version": "rstan 2.19.2",
     "r_Makevars": "\nCXX14FLAGS=-O3 -march=native -mtune=native -fPIC\nCXX14=g++",
