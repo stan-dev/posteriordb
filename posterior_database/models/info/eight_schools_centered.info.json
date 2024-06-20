@@ -12,6 +12,9 @@
     "stan": {
       "model_code": "models/stan/eight_schools_centered.stan",
       "stan_version": ">=2.26.0"
+    },
+    "turing": {
+      "model_code": "models/turing/eight_schools_centered/eight_schools_centered.jl"
     }
   },
   "added_by": "Mans Magnusson",

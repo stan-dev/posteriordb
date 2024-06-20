@@ -11,6 +11,9 @@
     "stan": {
       "model_code": "models/stan/nes.stan",
       "stan_version": ">=2.26.0"
+    },
+    "turing": {
+      "model_code": "models/turing/nes/nes.jl"
     }
   },
   "references": "gelman2006data",
