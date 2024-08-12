@@ -1,7 +1,8 @@
+import numpy as np
+import pymc as pm
+
 def model(data):
     y = np.array(data["y"])  # capture history matrix
-    s = y.sum(1) # total captures
-    C = sum(s > 0)
     T = np.array(data["T"])  # time periods
     coords = {"individual": np.arange(data["M"]),
               "capture_period": np.arange(data["T"])}
