@@ -11,6 +11,10 @@
     "stan": {
       "model_code": "models/stan/GLM_Poisson_model.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/GLM_Poisson_model.py",
+      "stan_version": ">=5.16.2"
     }
   }
 }
