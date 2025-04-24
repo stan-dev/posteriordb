@@ -11,5 +11,6 @@
     "stan": {
       "model_code": "models/stan/seeds_model.stan"
     }
-  }
+  },
+  "licence": "BSD3"
 }

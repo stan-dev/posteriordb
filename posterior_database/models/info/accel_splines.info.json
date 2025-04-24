@@ -15,5 +15,6 @@
   },
   "references": "bales2019selecting",
   "added_date": "2020-02-01",
-  "added_by": "Oliver Järnefelt"
+  "added_by": "Oliver Järnefelt",
+  "licence": "BSD3"
 }

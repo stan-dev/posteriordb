@@ -7,19 +7,16 @@ Content](https://github.com/stan-dev/posteriordb/actions/workflows/posteriordb_c
 coverage](https://codecov.io/gh/stan-dev/posteriordb-r/branch/main/graph/badge.svg)](https://codecov.io/gh/stan-dev/posteriordb-r?branch=main)
 [![Python](https://github.com/stan-dev/posteriordb-python/actions/workflows/push.yml/badge.svg)](https://github.com/stan-dev/posteriordb-python/actions/workflows/push.yml)
 
-`posteriordb`: a database of Bayesian posterior inference
-=========================================================
+# `posteriordb`: a database of Bayesian posterior inference
 
-What is `posteriordb`?
-----------------------
+## What is `posteriordb`?
 
 `posteriordb` is a set of posteriors, i.e. Bayesian statistical models
 and data sets, reference implementations in probabilistic programming
 languages, and reference posterior inferences in the form of posterior
 samples.
 
-Why use `posteriordb`?
-----------------------
+## Why use `posteriordb`?
 
 `posteriordb` is designed to test inference algorithms across a wide
 range of models and data sets. Applications include testing for
@@ -39,32 +36,40 @@ For more details regarding the use cases of `posteriordb`, see
 [doc/use\_cases.md](https://github.com/stan-dev/posteriordb/blob/master/doc/use_cases.md)
 and the paper [posteriordb: Testing, benchmarking and developing Bayesian inference algorithms](https://proceedings.mlr.press/v258/magnusson25a.html).
 
-Content
--------
+## Content
 
 See
-[DATABASE\_CONTENT.md](https://github.com/stan-dev/posteriordb/blob/master/doc/DATABASE_CONTENT.md)
+[DATABASE_CONTENT.md](https://github.com/stan-dev/posteriordb/blob/master/doc/DATABASE_CONTENT.md)
 for the details content of the posterior database.
 
-Contributing
-------------
+## Contributing
 
 We are happy with any help in adding posteriors, data, and models to the
 database! See
 [CONTRIBUTING.md](https://github.com/stan-dev/posteriordb/blob/master/doc/CONTRIBUTING.md)
 for the details on how to contribute.
 
-Using `posteriordb`
--------------------
+## Licensing
+
+The posteriordb is licensed under the [new BSD
+license](https://github.com/stan-dev/posteriordb/LICENCE.md).
+
+Most model code are using the the same BSD-3 licence. Although, some
+models and some data might have other open licences such as MIT. Each
+model has a `licence` element in the info JSON files that specifies the
+actual licence of the model. Some data might also have licences, then
+that is specified in a similar way.
+
+## Using `posteriordb`
 
 To simplify the use of `posteriordb`, there are convenience functions
-both in R and in Python. 
-- For R, see the [posteriordb-r](https://github.com/stan-dev/posteriordb-r) repository.
-- For Python, see the [posteriordb-python](https://github.com/stan-dev/posteriordb-python)
+both in Python and in R. To use R, see the
+[posteriordb-r](https://github.com/stan-dev/posteriordb-r) repository,
+and to use Python, see the
+[posteriordb-python](https://github.com/stan-dev/posteriordb-python)
 repository.
 
-Citing `posteriordb`
---------------------
+## Citing `posteriordb`
 
 Developing and maintaining open-source software is an important yet
 often underappreciated contribution to scientific progress. Thus, please
@@ -82,8 +87,7 @@ International Conference on Artificial Intelligence and Statistics
 - You can also cite the `posteriordb` repository. Use the “cite this repository” 
 button under “About” to get a simple BibTeX or APA snippet.
 
-Design choices (so far)
------------------------
+## Design choices (so far)
 
 The main focus of the database is simplicity, both in understanding and
 in use.
@@ -109,8 +113,7 @@ database.
     included in the PPL syntax files as comments, not in the
     model.info.json files.
 
-Versioning of models
---------------------
+## Versioning of models
 
 We might update models included in posteriordb over time. However, the
 models will only have the same name in posteriordb if the log density is

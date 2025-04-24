@@ -1,7 +1,7 @@
 {
   "name": "seeds_stanified_model",
   "keywords": ["Random", "Effect", "Logistic", "Regression", "Stanified"],
-  "title": "Normal Heirarchical Model to Model Rats' Weight Over Time",
+  "title": "Random Effect Logistic Regression for Seed Germination Proportion",
   "description": "The model is essentially a random effects logistic,\n          allowing for over-dispersion. Models the proportion of germination\n          of different seeds in different root extracts. 'Stanified':\n          tau replaced by sigma, direct estimation using \n          narrower semi-informative priors",
   "urls": "http://www.mrc-bsu.cam.ac.uk/wp-content/uploads/WinBUGS_Vol1.pdf",
   "references": "crowder1978beta",
@@ -12,5 +12,6 @@
       "model_code": "models/stan/seeds_stanified_model.stan",
       "stan_version": ">=2.26.0"
     }
-  }
+  },
+  "licence": "BSD3"
 }
