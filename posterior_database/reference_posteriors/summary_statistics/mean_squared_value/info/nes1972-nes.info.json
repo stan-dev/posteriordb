@@ -1,0 +1,47 @@
+{
+  "name": "nes1972-nes",
+  "inference": {
+    "method": "stan_sampling",
+    "method_arguments": {
+      "chains": 10,
+      "iter": 20000,
+      "warmup": 10000,
+      "thin": 10,
+      "seed": 4711,
+      "control": {
+        "adapt_delta": 0.8
+      }
+    }
+  },
+  "diagnostics": {
+    "diagnostic_information": {
+      "names": ["beta[1]", "beta[2]", "beta[3]", "beta[4]", "beta[5]", "beta[6]", "beta[7]", "beta[8]", "beta[9]", "sigma"]
+    },
+    "ndraws": 10000,
+    "nchains": 10,
+    "effective_sample_size_bulk": [9586.0714609217, 9933.76482353288, 9931.1981252759, 10087.5605109175, 10130.7409604529, 10311.9278150886, 9813.31927830061, 9936.52208701825, 10038.7338296428, 10213.9094325691],
+    "effective_sample_size_tail": [9987.17906765283, 9913.39923842219, 10095.5510023825, 9637.05044869545, 9602.58866340304, 9967.78479392215, 10122.586307328, 9909.79948997856, 9551.08983324551, 9667.23423420944],
+    "r_hat": [1.00031394510546, 1.00026305052453, 0.999877385628981, 0.999884428651847, 1.00025910082107, 1.00062695727412, 1.00045796667593, 0.999648082860553, 0.999696618434531, 1.00032182803183],
+    "divergent_transitions": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "expected_fraction_of_missing_information": [1.90971381691331, 1.9645589096674, 2.04589013054772, 1.97239123453648, 2.07111944446061, 2.06597890107551, 2.0364062371584, 2.02440966438441, 1.96175625740044, 2.03461514158428],
+    "mean_lag1_ac": [0.00185639125109538, -0.00615889125741554, 0.00329513085526644, -0.0011326934536492, 0.00680379065259328, -0.00730752927538349, 0.00740702775434627, 0.00494957826517478, 0.00463588155606245, -0.00831205298409654]
+  },
+  "checks_made": {
+    "ndraws_is_gte_10k": true,
+    "nchains_is_gte_4": true,
+    "ess_within_bounds": true,
+    "r_hat_below_1_01": true,
+    "efmi_above_0_2": true,
+    "abs_mean_lag1_ac_below_0_05": true
+  },
+  "comments": null,
+  "added_by": "Jakob Torgander",
+  "added_date": "2024-05-30",
+  "versions": {
+    "rstan_version": "rstan 2.19.2",
+    "r_Makevars": "\nCXX14FLAGS=-O3 -march=native -mtune=native -fPIC\nCXX14=g++",
+    "r_version": "R version 3.6.1 (2019-07-05)",
+    "r_session": "R version 3.6.1 (2019-07-05)\nPlatform: x86_64-pc-linux-gnu (64-bit)\nRunning under: Ubuntu 16.04.6 LTS\n\nMatrix products: default\nBLAS:   /usr/lib/libblas/libblas.so.3.6.0\nLAPACK: /usr/lib/lapack/liblapack.so.3.6.0\n\nlocale:\n [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=fi_FI.UTF-8        LC_COLLATE=en_US.UTF-8    \n [5] LC_MONETARY=fi_FI.UTF-8    LC_MESSAGES=en_US.UTF-8    LC_PAPER=fi_FI.UTF-8       LC_NAME=C                 \n [9] LC_ADDRESS=C               LC_TELEPHONE=C             LC_MEASUREMENT=fi_FI.UTF-8 LC_IDENTIFICATION=C       \n\nattached base packages:\n[1] stats     graphics  grDevices utils     datasets  methods   base     \n\nother attached packages:\n[1] posterior_0.0.1    posteriordb_0.1    rstan_2.19.2       ggplot2_3.2.1      StanHeaders_2.19.0\n\nloaded via a namespace (and not attached):\n [1] Rcpp_1.0.2         pillar_1.4.2       compiler_3.6.1     prettyunits_1.0.2  tools_3.6.1        pkgbuild_1.0.6    \n [7] checkmate_2.0.0    tibble_2.1.3       gtable_0.3.0       pkgconfig_2.0.3    rlang_0.4.4        cli_1.1.0         \n[13] rstudioapi_0.10    yaml_2.2.0         parallel_3.6.1     loo_2.1.0          gridExtra_2.3      withr_2.1.2       \n[19] dplyr_0.8.3        stats4_3.6.1       grid_3.6.1         tidyselect_0.2.5   inline_0.3.15      glue_1.3.1        \n[25] R6_2.4.0           processx_3.4.1     callr_3.3.2        purrr_0.3.3        magrittr_1.5       backports_1.1.6   \n[31] scales_1.0.0       ps_1.3.0           matrixStats_0.55.0 abind_1.4-5        assertthat_0.2.1   colorspace_1.4-1  \n[37] lazyeval_0.2.2     munsell_0.5.0      crayon_1.3.4      ",
+    "r_summary_statistic": "posterior R package, version 1.5.0"
+  }
+}

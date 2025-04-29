@@ -14,6 +14,7 @@
     }
   },
   "references": "taylor2018forecasting",
+  "licence": "MIT",
   "added_date": "2020-02-06",
   "added_by": "Oliver Järnefelt"
 }

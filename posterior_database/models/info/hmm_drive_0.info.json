@@ -14,5 +14,6 @@
     }
   },
   "added_date": "2020-05-10",
-  "added_by": "Oliver Järnefelt"
+  "added_by": "Oliver Järnefelt",
+  "licence": "BSD3"
 }

@@ -1,0 +1,47 @@
+{
+  "name": "earnings-log10earn_height",
+  "inference": {
+    "method": "stan_sampling",
+    "method_arguments": {
+      "chains": 10,
+      "iter": 20000,
+      "warmup": 10000,
+      "thin": 10,
+      "seed": 4711,
+      "control": {
+        "adapt_delta": 0.8
+      }
+    }
+  },
+  "diagnostics": {
+    "diagnostic_information": {
+      "names": ["beta[1]", "beta[2]", "sigma"]
+    },
+    "ndraws": 10000,
+    "nchains": 10,
+    "effective_sample_size_bulk": [10038.8538073074, 10043.069716679, 10081.0910652864],
+    "effective_sample_size_tail": [9786.37554662473, 9867.68190212497, 9911.49305203185],
+    "r_hat": [0.999647735108857, 0.999667536322598, 1.00036530121073],
+    "divergent_transitions": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "expected_fraction_of_missing_information": [1.94798898305679, 1.87908993098234, 1.94163214461435, 2.03481947744139, 1.86907773776702, 1.92883298534479, 1.9688844159423, 2.09442790513109, 1.91686794013174, 1.94148401708973],
+    "mean_lag1_ac": [-0.000924818753046908, -0.00120032825155225, -0.00337098545949484]
+  },
+  "checks_made": {
+    "ndraws_is_gte_10k": true,
+    "nchains_is_gte_4": true,
+    "ess_within_bounds": true,
+    "r_hat_below_1_01": true,
+    "efmi_above_0_2": true,
+    "abs_mean_lag1_ac_below_0_05": true
+  },
+  "comments": null,
+  "added_by": "Oliver Järnefelt",
+  "added_date": "2020-04-23",
+  "versions": {
+    "rstan_version": "rstan 2.19.2",
+    "r_Makevars": "\nCXX14FLAGS=-O3 -march=native -mtune=native -fPIC\nCXX14=g++",
+    "r_version": "R version 3.6.1 (2019-07-05)",
+    "r_session": "R version 3.6.1 (2019-07-05)\nPlatform: x86_64-pc-linux-gnu (64-bit)\nRunning under: Ubuntu 16.04.6 LTS\n\nMatrix products: default\nBLAS:   /usr/lib/libblas/libblas.so.3.6.0\nLAPACK: /usr/lib/lapack/liblapack.so.3.6.0\n\nlocale:\n [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=fi_FI.UTF-8       \n [4] LC_COLLATE=en_US.UTF-8     LC_MONETARY=fi_FI.UTF-8    LC_MESSAGES=en_US.UTF-8   \n [7] LC_PAPER=fi_FI.UTF-8       LC_NAME=C                  LC_ADDRESS=C              \n[10] LC_TELEPHONE=C             LC_MEASUREMENT=fi_FI.UTF-8 LC_IDENTIFICATION=C       \n\nattached base packages:\n[1] stats     graphics  grDevices utils     datasets  methods   base     \n\nother attached packages:\n[1] posterior_0.0.1    posteriordb_0.1    rstan_2.19.2       ggplot2_3.2.1     \n[5] StanHeaders_2.19.0\n\nloaded via a namespace (and not attached):\n [1] Rcpp_1.0.2         pillar_1.4.2       compiler_3.6.1     prettyunits_1.0.2 \n [5] tools_3.6.1        pkgbuild_1.0.6     checkmate_2.0.0    tibble_2.1.3      \n [9] gtable_0.3.0       pkgconfig_2.0.3    rlang_0.4.4        cli_1.1.0         \n[13] rstudioapi_0.10    yaml_2.2.0         parallel_3.6.1     loo_2.1.0         \n[17] gridExtra_2.3      withr_2.1.2        dplyr_0.8.3        stats4_3.6.1      \n[21] grid_3.6.1         tidyselect_0.2.5   glue_1.3.1         inline_0.3.15     \n[25] R6_2.4.0           processx_3.4.1     purrr_0.3.3        callr_3.3.2       \n[29] magrittr_1.5       backports_1.1.6    scales_1.0.0       ps_1.3.0          \n[33] matrixStats_0.55.0 abind_1.4-5        assertthat_0.2.1   colorspace_1.4-1  \n[37] lazyeval_0.2.2     munsell_0.5.0      crayon_1.3.4      ",
+    "r_summary_statistic": "posterior R package, version 0.1.2"
+  }
+}

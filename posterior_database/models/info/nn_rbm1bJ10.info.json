@@ -15,5 +15,6 @@
   },
   "references": "lampinen2001bayesian",
   "added_date": "2020-05-28",
-  "added_by": "Mans Magnusson"
+  "added_by": "Mans Magnusson",
+  "licence": "BSD3"
 }

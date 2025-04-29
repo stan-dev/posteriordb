@@ -15,5 +15,6 @@
       "model_code": "models/stan/dogs_nonhierarchical.stan",
       "stan_version": ">=2.26.0"
     }
-  }
+  },
+  "licence": "BSD3"
 }
