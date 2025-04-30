@@ -45,7 +45,15 @@ Most model code are using the the same BSD-3 licence. Although, some models and 
 To simplify the use of `posteriordb`, there are convenience functions both in Python and in R. To use R, see the [posteriordb-r](https://github.com/stan-dev/posteriordb-r) repository, and to use Python, see the [posteriordb-python](https://github.com/stan-dev/posteriordb-python) repository.
 
 ## Citing `posteriordb`
-Developing and maintaining open-source software is an important yet often underappreciated contribution to scientific progress. Thus, please make sure to cite it appropriately so that developers get credit for their work. Information on how to cite `posteriordb` can be found in the [CITATION.cff](https://github.com/stan-dev/posteriordb/blob/master/CITATION.cff) file. Use the "cite this repository" button under "About" to get a simple BibTeX or APA snippet.
+Developing and maintaining open-source software is an important yet often underappreciated contribution to scientific progress. Thus, please make sure to cite it appropriately so that developers get credit for their work. 
+
+To cite the actual posterior database on github, information can be found in the [CITATION.cff](https://github.com/stan-dev/posteriordb/blob/master/CITATION.cff) file. Use the "cite this repository" button under "About" to get a simple BibTeX or APA snippet.
+
+We have also released a paper describing `posteriordb` that we encourage to cite when using `posteriordb`:
+
+Magnusson, M., Torgander, J., Bürkner, P., Zhang, L., Carpenter, B., Vehtari, A.. (2025). posteriordb: Testing, Benchmarking and Developing Bayesian Inference Algorithms. *Proceedings of The 28th International Conference on Artificial Intelligence and Statistics*, in *Proceedings of Machine Learning Research* 258:1198-1206 Available from (https://proceedings.mlr.press/v258/magnusson25a.html)[https://proceedings.mlr.press/v258/magnusson25a.html].
+
+If you do extensive testing of individual posterior, also please consider citing the paper that introduced the posterior by citing the origin of the posterior. This information can be found in the meta data associated with the posterior, data an/or model.
 
 As `posteriordb` rely heavily on Stan, so please consider also to cite Stan:
 

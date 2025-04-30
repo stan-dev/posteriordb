@@ -3,10 +3,16 @@ message: "If you use posteriordb, please cite it as below."
 authors:
   - family-names: Magnusson
     given-names: Måns
+  - family-names: Torgander
+    given-names: Jakob
   - family-names: Bürkner
     given-names: Paul
+  - family-names: Zhang
+    given-names: Lu
+  - family-names: Carpenter
+    given-names: Bob
   - family-names: Vehtari
     given-names: Aki
-title: "posteriordb: a set of posteriors for Bayesian inference and probabilistic programming"
-version: 0.5
-date-released: 2023-10-15
+title: "posteriordb: Testing, Benchmarking and Developing Bayesian Inference Algorithms"
+version: 1.0
+date-released: 2025-04-29

@@ -33,8 +33,7 @@ definitions, well-curated data sets, and reference posteriors.
 Python.
 
 For more details regarding the use cases of `posteriordb`, see
-[doc/use\_cases.md](https://github.com/stan-dev/posteriordb/blob/master/doc/use_cases.md)
-and the paper [posteriordb: Testing, benchmarking and developing Bayesian inference algorithms](https://proceedings.mlr.press/v258/magnusson25a.html).
+[doc/use_cases.md](https://github.com/stan-dev/posteriordb/blob/master/doc/use_cases.md).
 
 ## Content
 
@@ -74,18 +73,36 @@ repository.
 Developing and maintaining open-source software is an important yet
 often underappreciated contribution to scientific progress. Thus, please
 make sure to cite it appropriately so that developers get credit for
-their work. 
+their work.
 
-When using **posteriordb**, please cite it as follows:
+To cite the actual posterior database on github, information can be
+found in the
+[CITATION.cff](https://github.com/stan-dev/posteriordb/blob/master/CITATION.cff)
+file. Use the “cite this repository” button under “About” to get a
+simple BibTeX or APA snippet.
 
-- Magnusson, M., Torgander, J., Bürkner, P.-C., Zhang, L., Carpenter, B.,
-and Vehtari, A. (2025). posteriordb: Testing, benchmarking and
-developing Bayesian inference algorithms. *Proceedings of the 28th
-International Conference on Artificial Intelligence and Statistics
-(AISTATS)*, PMLR 258:1198-1206.
+We have also released a paper describing `posteriordb` that we encourage
+to cite when using `posteriordb`:
 
-- You can also cite the `posteriordb` repository. Use the “cite this repository” 
-button under “About” to get a simple BibTeX or APA snippet.
+Magnusson, M., Torgander, J., Bürkner, P., Zhang, L., Carpenter, B.,
+Vehtari, A.. (2025). posteriordb: Testing, Benchmarking and Developing
+Bayesian Inference Algorithms. *Proceedings of The 28th International
+Conference on Artificial Intelligence and Statistics*, in *Proceedings
+of Machine Learning Research* 258:1198-1206 Available from
+(<https://proceedings.mlr.press/v258/magnusson25a.html>)\[<https://proceedings.mlr.press/v258/magnusson25a.html>\].
+
+If you do extensive testing of individual posterior, also please
+consider citing the paper that introduced the posterior by citing the
+origin of the posterior. This information can be found in the meta data
+associated with the posterior, data an/or model.
+
+As `posteriordb` rely heavily on Stan, so please consider also to cite
+Stan:
+
+Carpenter B., Gelman A., Hoffman M. D., Lee D., Goodrich B., Betancourt
+M., Brubaker M., Guo J., Li P., and Riddell A. (2017). Stan: A
+probabilistic programming language. Journal of Statistical Software.
+76(1). 10.18637/jss.v076.i01
 
 ## Design choices (so far)
 
