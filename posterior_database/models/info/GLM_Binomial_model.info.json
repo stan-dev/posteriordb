@@ -11,6 +11,10 @@
     "stan": {
       "model_code": "models/stan/GLM_Binomial_model.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+        "model_code": "models/pymc/GLM_Binomial_model.py",
+        "pymc_version": ">=5.16.2"    
     }
   },
   "licence": "BSD3"
