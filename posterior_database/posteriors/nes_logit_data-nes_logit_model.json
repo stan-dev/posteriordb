@@ -1,12 +1,14 @@
 {
-  "keywords": ["arm book"],
+  "keywords": [
+    "arm book"
+  ],
   "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.5",
   "references": "gelman2006data",
   "dimensions": {
     "alpha": 1,
     "beta": 1
   },
-  "reference_posterior_name": null,
+  "reference_posterior_name": "nes_logit_data-nes_logit_model",
   "added_date": "2021-07-01",
   "added_by": "Kane Lindsay",
   "name": "nes_logit_data-nes_logit_model",
