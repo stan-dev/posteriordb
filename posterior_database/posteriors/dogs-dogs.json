@@ -1,14 +1,10 @@
 {
   "name": "dogs-dogs",
-  "keywords": [
-    "arm book",
-    "stan examples",
-    "pathfinder paper"
-  ],
+  "keywords": ["arm book", "stan examples", "pathfinder paper"],
   "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.24",
   "model_name": "dogs",
   "data_name": "dogs",
-  "reference_posterior_name": "dogs-dogs",
+  "reference_posterior_name": null,
   "references": "gelman2006data",
   "dimensions": {
     "beta": 3
