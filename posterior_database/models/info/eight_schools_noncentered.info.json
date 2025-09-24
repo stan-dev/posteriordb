@@ -15,6 +15,9 @@
     },
     "pymc3": {
       "model_code": "models/pymc3/eight_schools_noncentered.py"
+    },
+    "turing": {
+      "model_code": "models/turing/eight_schools_noncentered/eight_schools_noncentered.jl"
     }
   },
   "added_by": "Mans Magnusson",
