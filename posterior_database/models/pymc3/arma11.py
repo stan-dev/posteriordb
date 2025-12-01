@@ -14,24 +14,30 @@ def model(data):
         theta = pm.Normal(
             "theta", mu=0, sigma=2
         ) # moving average
-        sigma = pm.Cauchy(
-            "sigma", alpha=0, beta=2.5
+        sigma = pm.HalfCauchy(
+            "sigma", beta=2.5
         ) # noise scale
 
         # scan variables
-        i = pt.arange(up_to)
-        outputs_info = [pt.as_tensor_variable(np.asarray(0.0)), pt.as_tensor_variable(np.asarray(0.0))]
+        y = pt.as_tensor_variable(y_obs)
+        y_hat0 = mu + phi * mu
+        err0 = y[0] - y_hat0
+        outputs_info = [y_hat0, err0, y[0]]
 
-        def step(prev_obs, current_obs, seq, _, prev_error, mu, phi, theta):
-            y_hat = pt.switch(pt.gt(seq, 0), mu + phi * prev_obs + theta * prev_error, mu + phi * mu)
-            return [y_hat, current_obs - y_hat]
-        
-        [predictions, _], _ = pytensor.scan(fn=step,
-                                            outputs_info=outputs_info,
-                                            sequences=[{"input": pt.as_tensor_variable(y_obs), "taps": [-1, 0]}, i],
-                                            non_sequences=[mu, phi, theta])
+        def step(curr_obs, prev_pred, prev_err, prev_obs, mu, phi, theta):
+            y_hat = mu + phi * prev_obs + theta * prev_err
+            new_err = curr_obs - y_hat
+            return [y_hat, new_err, curr_obs]
 
-        final_predictions = predictions[-1]
-        pm.Normal("output", mu=final_predictions, sigma=sigma, observed=y_obs)
-      
+        [predictions, _, _] , _ = pytensor.scan(fn=step,
+                                              outputs_info=outputs_info,    
+                                              sequences=y[1:],              
+                                              non_sequences=[mu, phi, theta])
+
+        # concatenating predictions
+        y_hat0_vec = y_hat0.dimshuffle("x")
+        final_predictions = pt.concatenate([y_hat0_vec, predictions])
+
+        pm.Normal("y", mu=final_predictions, sigma=sigma, observed=y)
+
     return pymc_model
