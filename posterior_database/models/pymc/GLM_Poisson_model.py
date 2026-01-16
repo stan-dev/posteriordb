@@ -1,6 +1,6 @@
 import numpy as np
 import pymc as pm
-
+import pytensor.tensor as pt
 
 def model(data):
     years_data = np.array(data["year"])
@@ -12,7 +12,10 @@ def model(data):
     }
     with pm.Model(coords=coords) as pymc_model:
         alpha = pm.Uniform("alpha", -20, +20)
-        beta = pm.Uniform("beta", -10, +10, dims="features")
+        beta1 = pm.Uniform("beta1", -10, +10)
+        beta2 = pm.Uniform("beta2", -10, +10)
+        beta3 = pm.Uniform("beta3", -10, +10)
+
         X = pm.Data(
             "X",
             np.column_stack([years_data, years_data**2, years_data**3]),
@@ -20,6 +23,8 @@ def model(data):
         )
         y = pm.Data("y", counts_data, dims="observation")
 
+        beta = pm.Deterministic("beta", pt.stack([beta1, beta2, beta3]), dims = "feature")
+        
         log_lambda = pm.Deterministic(
             "log_lambda", alpha + X @ beta, dims="observation"
         )
@@ -29,4 +34,3 @@ def model(data):
         )
 
     return pymc_model
-
