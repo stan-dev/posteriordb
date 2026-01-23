@@ -5,7 +5,7 @@
   "description": "Detection probability of an individual is assumed constant over individuals and over time periods",
   "urls": "https://github.com/stan-dev/example-models/blob/master/BPA/Ch.06",
   "references": "kery2011population",
-  "added_by": "Kane Lindsay",
+  "added_by": "Chris Fonnesbeck",
   "added_date": "2021-06-24",
   "model_implementations": {
     "pymc": {
