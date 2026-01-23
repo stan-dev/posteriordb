@@ -1,0 +1,18 @@
+{
+  "keywords": ["bpa book", "capture-recapture"],
+  "urls": "https://github.com/stan-dev/example-models/blob/master/BPA/Ch.06",
+  "references": "kery2011population",
+  "dimensions": {
+    "omega": 1,
+    "p": 1,
+    "omega_nd": 1,
+    "N": 1,
+    "z": 237
+  },
+  "reference_posterior_name": "M0_data-M0_model_discrete",
+  "added_date": "2026-01-16",
+  "added_by": "Chris Fonnesbeck",
+  "name": "M0_data-M0_model_discrete",
+  "model_name": "M0_model_discrete",
+  "data_name": "M0_data"
+}
