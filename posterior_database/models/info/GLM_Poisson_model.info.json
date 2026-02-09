@@ -14,7 +14,7 @@
     },
     "pymc": {
       "model_code": "models/pymc/GLM_Poisson_model.py",
-      "stan_version": ">=5.16.2"
+      "pymc_version": ">=5.16.2"
     }
   },
   "licence": "BSD3"
