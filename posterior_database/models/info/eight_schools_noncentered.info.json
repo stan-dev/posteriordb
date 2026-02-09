@@ -14,7 +14,8 @@
       "stan_version": ">=2.26.0"
     },
     "pymc": {
-      "model_code": "models/pymc/eight_schools_noncentered.py"
+      "model_code": "models/pymc/eight_schools_noncentered.py",
+      "pymc_version": ">=5.16.2" 
     }
   },
   "added_by": "Mans Magnusson",
