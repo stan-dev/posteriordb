@@ -9,7 +9,7 @@
     "N": 1,
     "z": 237
   },
-  "reference_posterior_name": "M0_data-M0_model_discrete",
+  "reference_posterior_name": null,
   "added_date": "2026-01-16",
   "added_by": "Chris Fonnesbeck",
   "name": "M0_data-M0_model_discrete",
