@@ -3,7 +3,10 @@
   "title": "A non-centered hiearchical model for 8 schools",
   "description": "A non-centered hiearchical model for the 8 schools example of Rubin (1981)",
   "keywords": "hiearchical",
-  "references": ["rubin1981estimation", "gelman2013bayesian"],
+  "references": [
+    "rubin1981estimation",
+    "gelman2013bayesian"
+  ],
   "urls": "http://www.stat.columbia.edu/~gelman/arm/examples/schools",
   "prior": {
     "keywords": []
@@ -15,6 +18,9 @@
     },
     "pymc3": {
       "model_code": "models/pymc3/eight_schools_noncentered.py"
+    },
+    "pymc": {
+      "model_code": "models/pymc/eight_schools_noncentered.py"
     }
   },
   "added_by": "Mans Magnusson",

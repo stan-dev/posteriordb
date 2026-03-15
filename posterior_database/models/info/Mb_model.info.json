@@ -1,6 +1,15 @@
 {
   "name": "Mb_model",
-  "keywords": ["BPA", "Ch.6", "Population", "Capture", "Recapture", "Trap", "Response", "Immediate"],
+  "keywords": [
+    "BPA",
+    "Ch.6",
+    "Population",
+    "Capture",
+    "Recapture",
+    "Trap",
+    "Response",
+    "Immediate"
+  ],
   "title": "Inferring population size considering immediate trap-response",
   "description": "Capture-recapture population model where capture\n          probability is modeled by a different parameter for p depending on\n          whether an animal was caught immediately before or not.",
   "urls": "https://github.com/stan-dev/example-models/blob/master/BPA/Ch.06",
@@ -11,6 +20,9 @@
     "stan": {
       "model_code": "models/stan/Mb_model.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/Mb_model.py"
     }
   },
   "licence": "BSD3"

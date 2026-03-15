@@ -1,6 +1,17 @@
 {
   "name": "Mh_model",
-  "keywords": ["Heterogeneity", "BPA", "Ch.6", "Population", "Capture", "Recapture", "Individual", "Logistic-Normal", "Logistic", "Normal"],
+  "keywords": [
+    "Heterogeneity",
+    "BPA",
+    "Ch.6",
+    "Population",
+    "Capture",
+    "Recapture",
+    "Individual",
+    "Logistic-Normal",
+    "Logistic",
+    "Normal"
+  ],
   "title": "Logistic-Normal Heterogeneity Model",
   "description": "Heterogeneity is inherent difference\n          in the behaviour of individuals. Individual heterogeneity is\n          modeled as random noise around some mean on a logit-transformed scale,\n          and the model for the noise is the normal distribution.",
   "urls": "https://github.com/stan-dev/example-models/blob/master/BPA/Ch.06",
@@ -11,6 +22,9 @@
     "stan": {
       "model_code": "models/stan/Mh_model.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/Mh_model.py"
     }
   },
   "licence": "BSD3"

@@ -1,6 +1,9 @@
 {
   "name": "accel_gp",
-  "keywords": ["stan_benchmark", "gaussian process"],
+  "keywords": [
+    "stan_benchmark",
+    "gaussian process"
+  ],
   "title": "Gaussian Processes that model the mean and std of acceleration",
   "prior": {
     "keywords": "stan_recommended_35dbfe6"
@@ -11,10 +14,13 @@
     "stan": {
       "model_code": "models/stan/accel_gp.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/accel_gp.py"
     }
   },
   "references": "bales2019selecting",
   "added_date": "2020-02-01",
-  "added_by": "Oliver Järnefelt",
+  "added_by": "Oliver J\u00e4rnefelt",
   "licence": "BSD3"
 }

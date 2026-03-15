@@ -1,6 +1,9 @@
 {
   "name": "prophet",
-  "keywords": ["stan_benchmark", "time series"],
+  "keywords": [
+    "stan_benchmark",
+    "time series"
+  ],
   "title": "Structural Time Series Model",
   "prior": {
     "keywords": "stan_recommended_35dbfe6"
@@ -11,10 +14,13 @@
     "stan": {
       "model_code": "models/stan/prophet.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/prophet.py"
     }
   },
   "references": "taylor2018forecasting",
   "licence": "MIT",
   "added_date": "2020-02-06",
-  "added_by": "Oliver Järnefelt"
+  "added_by": "Oliver J\u00e4rnefelt"
 }

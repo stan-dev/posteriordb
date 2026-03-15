@@ -1,6 +1,17 @@
 {
   "name": "Mt_model",
-  "keywords": ["BPA", "Ch.6", "Population", "Capture", "Recapture", "Individual", "Capture-Recapture", "Occasion", "Mt", "Mt_model"],
+  "keywords": [
+    "BPA",
+    "Ch.6",
+    "Population",
+    "Capture",
+    "Recapture",
+    "Individual",
+    "Capture-Recapture",
+    "Occasion",
+    "Mt",
+    "Mt_model"
+  ],
   "title": "Capture-recapture model where detection probability varies by occasion",
   "description": "A capture-recapture sampling model where that assumes \n          detection probability p varies only by occasion, perhaps because of \n          weather conditions or because different traps or detection devices were used",
   "urls": "https://github.com/stan-dev/example-models/blob/master/BPA/Ch.06",
@@ -11,6 +22,9 @@
     "stan": {
       "model_code": "models/stan/Mt_model.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/Mt_model.py"
     }
   },
   "licence": "BSD3"

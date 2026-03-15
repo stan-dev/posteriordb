@@ -11,10 +11,13 @@
     "stan": {
       "model_code": "models/stan/multi_occupancy.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/multi_occupancy.py"
     }
   },
   "references": "dorazio2006estimating",
   "added_date": "2020-05-06",
-  "added_by": "Oliver Järnefelt",
+  "added_by": "Oliver J\u00e4rnefelt",
   "licence": "BSD3"
 }

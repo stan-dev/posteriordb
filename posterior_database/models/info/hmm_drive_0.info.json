@@ -1,6 +1,9 @@
 {
   "name": "hmm_drive_0",
-  "keywords": ["hidden markov model", "stan_examples"],
+  "keywords": [
+    "hidden markov model",
+    "stan_examples"
+  ],
   "title": "Hidden Markov Model",
   "prior": {
     "keywords": "stan_recommended_35dbfe6"
@@ -11,9 +14,12 @@
     "stan": {
       "model_code": "models/stan/hmm_drive_0.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/hmm_drive_0.py"
     }
   },
   "added_date": "2020-05-10",
-  "added_by": "Oliver Järnefelt",
+  "added_by": "Oliver J\u00e4rnefelt",
   "licence": "BSD3"
 }

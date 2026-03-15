@@ -11,6 +11,9 @@
     "stan": {
       "model_code": "models/stan/losscurve_sislob.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/losscurve_sislob.py"
     }
   },
   "licence": "BSD3"

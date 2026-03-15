@@ -3,7 +3,10 @@
   "keywords": "item response model",
   "title": "Rating scale and generalized rating scale models with latent regression",
   "description": "The rating scale model (Andrich 1978) is used for item response data that involves Likert scale responses. This model extends the RSM by including a discrimination term",
-  "urls": ["https://github.com/danielcfurr/edstan", "https://mc-stan.org/users/documentation/case-studies/rsm_and_grsm.html"],
+  "urls": [
+    "https://github.com/danielcfurr/edstan",
+    "https://mc-stan.org/users/documentation/case-studies/rsm_and_grsm.html"
+  ],
   "references": null,
   "added_by": "Keane Nguyen",
   "added_date": "2021-08-03",
@@ -11,6 +14,9 @@
     "stan": {
       "model_code": "models/stan/grsm_latent_reg_irt.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/grsm_latent_reg_irt.py"
     }
   },
   "licence": "BSD3"

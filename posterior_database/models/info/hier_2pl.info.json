@@ -1,6 +1,10 @@
 {
   "name": "hier_2pl",
-  "keywords": ["item_response_theory", "hierarchical", "stan_examples"],
+  "keywords": [
+    "item_response_theory",
+    "hierarchical",
+    "stan_examples"
+  ],
   "title": "Hierarchical Two-Parameter Logistic Item Response Model",
   "prior": {
     "keywords": "stan_recommended_35dbfe6"
@@ -11,10 +15,13 @@
     "stan": {
       "model_code": "models/stan/hier_2pl.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/hier_2pl.py"
     }
   },
   "references": "furr2016hier",
   "added_date": "2020-05-19",
-  "added_by": "Oliver Järnefelt",
+  "added_by": "Oliver J\u00e4rnefelt",
   "licence": "BSD3"
 }

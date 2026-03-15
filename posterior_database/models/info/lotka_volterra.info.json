@@ -1,6 +1,9 @@
 {
   "name": "lotka_volterra",
-  "keywords": ["mechanistic", "stan_examples"],
+  "keywords": [
+    "mechanistic",
+    "stan_examples"
+  ],
   "title": "Lotka-Volterra Error Model",
   "prior": {
     "keywords": "stan_recommended_35dbfe6"
@@ -11,10 +14,17 @@
     "stan": {
       "model_code": "models/stan/lotka_volterra.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/lotka_volterra.py"
     }
   },
-  "references": ["lotka1925principles", "volterra1926fluctuations", "volterra1927variazioni"],
+  "references": [
+    "lotka1925principles",
+    "volterra1926fluctuations",
+    "volterra1927variazioni"
+  ],
   "added_date": "2020-04-21",
-  "added_by": "Oliver Järnefelt",
+  "added_by": "Oliver J\u00e4rnefelt",
   "licence": "BSD3"
 }

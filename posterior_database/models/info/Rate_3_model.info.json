@@ -1,6 +1,11 @@
 {
   "name": "Rate_3_model",
-  "keywords": ["Test Score", "Correct Answer Rate", "Beta Distribution", "Common Rate"],
+  "keywords": [
+    "Test Score",
+    "Correct Answer Rate",
+    "Beta Distribution",
+    "Common Rate"
+  ],
   "title": "Common rate of success from two trials",
   "description": "Inference of a common rate of success from two trials",
   "urls": "https://github.com/stan-dev/example-models/tree/master/Bayesian_Cognitive_Modeling/ParameterEstimation/Binomial",
@@ -11,6 +16,9 @@
     "stan": {
       "model_code": "models/stan/Rate_3_model.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/Rate_3_model.py"
     }
   },
   "licence": "BSD3"

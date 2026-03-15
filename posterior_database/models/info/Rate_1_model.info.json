@@ -1,6 +1,10 @@
 {
   "name": "Rate_1_model",
-  "keywords": ["Test Score", "Correct Answer Rate", "Beta Distribution"],
+  "keywords": [
+    "Test Score",
+    "Correct Answer Rate",
+    "Beta Distribution"
+  ],
   "title": "Predicting the rate of correct test question answers",
   "description": "Predicting the rate of correct answers for one subject over questions with the same difficulty.",
   "urls": "https://github.com/stan-dev/example-models/tree/master/Bayesian_Cognitive_Modeling/GettingStarted",
@@ -11,6 +15,9 @@
     "stan": {
       "model_code": "models/stan/Rate_1_model.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/Rate_1_model.py"
     }
   },
   "licence": "BSD3"

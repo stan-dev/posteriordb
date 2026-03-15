@@ -12,6 +12,9 @@
     "stan": {
       "model_code": "models/stan/ldaK5.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/ldaK5.py"
     }
   },
   "added_by": "Mans Magnusson",

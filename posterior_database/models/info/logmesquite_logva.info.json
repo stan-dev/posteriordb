@@ -1,6 +1,10 @@
 {
   "name": "logmesquite_logva",
-  "keywords": ["ARM", "Ch. 4", "stan_examples"],
+  "keywords": [
+    "ARM",
+    "Ch. 4",
+    "stan_examples"
+  ],
   "title": "Log-Log Model",
   "prior": {
     "keywords": "stan_recommended_35dbfe6"
@@ -11,10 +15,13 @@
     "stan": {
       "model_code": "models/stan/logmesquite_logva.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/logmesquite_logva.py"
     }
   },
   "references": "gelman2006data",
   "added_date": "2020-01-30",
-  "added_by": "Oliver Järnefelt",
+  "added_by": "Oliver J\u00e4rnefelt",
   "licence": "BSD3"
 }

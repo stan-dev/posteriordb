@@ -1,6 +1,13 @@
 {
   "name": "GLM_Binomial_model",
-  "keywords": ["Success", "Peregrine", "Generalized", "Generalised", "Linear Model", "Binomial"],
+  "keywords": [
+    "Success",
+    "Peregrine",
+    "Generalized",
+    "Generalised",
+    "Linear Model",
+    "Binomial"
+  ],
   "title": "Success Rate of Peregrine broods",
   "description": "Binomial GLM for modeling the success rate of Peregrine broods in the French Jura.",
   "urls": "https://github.com/stan-dev/example-models/tree/master/BPA/Ch.03",
@@ -11,6 +18,9 @@
     "stan": {
       "model_code": "models/stan/GLM_Binomial_model.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/GLM_Binomial_model.py"
     }
   },
   "licence": "BSD3"

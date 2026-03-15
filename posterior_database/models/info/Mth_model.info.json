@@ -1,6 +1,18 @@
 {
   "name": "Mth_model",
-  "keywords": ["BPA", "Ch.6", "Population", "Capture", "Recapture", "Individual", "Capture-Recapture", "Occasion", "Heterogeneity", "Mth", "Mth_model"],
+  "keywords": [
+    "BPA",
+    "Ch.6",
+    "Population",
+    "Capture",
+    "Recapture",
+    "Individual",
+    "Capture-Recapture",
+    "Occasion",
+    "Heterogeneity",
+    "Mth",
+    "Mth_model"
+  ],
   "title": "Capture-recapture model where detection probability varies by occasion and heterogeneity",
   "description": "A capture-recapture sampling model where that assumes \n          detection probability p varies by an additive effect of the occasion\n          and heterogeneity of individuals in a capture-history matrix with\n          columns representing time, and rows representing individuals.",
   "urls": "https://github.com/stan-dev/example-models/blob/master/BPA/Ch.06",
@@ -11,6 +23,9 @@
     "stan": {
       "model_code": "models/stan/Mth_model.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/Mth_model.py"
     }
   },
   "licence": "BSD3"

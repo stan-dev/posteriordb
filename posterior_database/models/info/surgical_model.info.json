@@ -1,6 +1,9 @@
 {
   "name": "surgical_model",
-  "keywords": ["Random Effects", "Random"],
+  "keywords": [
+    "Random Effects",
+    "Random"
+  ],
   "title": "Random Effects Model to Rank Hospitals on True Failure Probability",
   "description": "Random effects model assuming the probabilities of failure over hospitals are similar in some way.",
   "urls": "https://github.com/stan-dev/example-models/tree/master/bugs_examples/vol1/surgical",
@@ -11,6 +14,9 @@
     "stan": {
       "model_code": "models/stan/surgical_model.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/surgical_model.py"
     }
   },
   "licence": "BSD3"

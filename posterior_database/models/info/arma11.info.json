@@ -12,6 +12,9 @@
     "stan": {
       "model_code": "models/stan/arma11.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/arma11.py"
     }
   },
   "added_by": "Mans Magnusson",

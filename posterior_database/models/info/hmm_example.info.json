@@ -11,10 +11,13 @@
     "stan": {
       "model_code": "models/stan/hmm_example.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/hmm_example.py"
     }
   },
   "references": null,
   "added_date": "2020-05-10",
-  "added_by": "Oliver Järnefelt",
+  "added_by": "Oliver J\u00e4rnefelt",
   "licence": "BSD3"
 }

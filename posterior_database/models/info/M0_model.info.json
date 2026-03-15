@@ -1,6 +1,14 @@
 {
   "name": "M0_model",
-  "keywords": ["BPA", "Ch.6", "Population", "Capture", "Recapture", "Individual", "Constant"],
+  "keywords": [
+    "BPA",
+    "Ch.6",
+    "Population",
+    "Capture",
+    "Recapture",
+    "Individual",
+    "Constant"
+  ],
   "title": "Inferring population size with constant detection probability",
   "description": "Detection probability of an individual is assumed constant over individuals and over time periods",
   "urls": "https://github.com/stan-dev/example-models/blob/master/BPA/Ch.06",
@@ -11,6 +19,9 @@
     "stan": {
       "model_code": "models/stan/M0_model.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/M0_model.py"
     }
   },
   "licence": "BSD3"
