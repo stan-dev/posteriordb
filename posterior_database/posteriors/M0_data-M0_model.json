@@ -1,5 +1,8 @@
 {
-  "keywords": ["bpa book", "capture-recapture"],
+  "keywords": [
+    "bpa book",
+    "capture-recapture"
+  ],
   "urls": "https://github.com/stan-dev/example-models/blob/master/BPA/Ch.06",
   "references": "kery2011population",
   "dimensions": {
@@ -8,7 +11,7 @@
     "omega_nd": 1,
     "N": 1
   },
-  "reference_posterior_name": null,
+  "reference_posterior_name": "M0_data-M0_model",
   "added_date": "2021-06-24",
   "added_by": "Kane Lindsay",
   "name": "M0_data-M0_model",
