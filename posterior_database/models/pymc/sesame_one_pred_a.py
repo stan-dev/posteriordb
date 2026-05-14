@@ -1,7 +1,8 @@
+import pymc as pm
+import pytensor.tensor as pt
+import numpy as np
+
 def make_model(data: dict, prior_only: bool = False) -> pm.Model:
-    import pymc as pm
-    import pytensor.tensor as pt
-    import numpy as np
 
     encouraged = np.array(data['encouraged'])
     watched_data = np.array(data['watched'], dtype=float)

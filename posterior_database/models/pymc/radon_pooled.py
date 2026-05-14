@@ -1,7 +1,8 @@
+import pymc as pm
+import pytensor.tensor as pt
+import numpy as np
+
 def make_model(data: dict, prior_only: bool = False):
-    import pymc as pm
-    import pytensor.tensor as pt
-    import numpy as np
     
     N = data['N']
     floor_measure = data['floor_measure']

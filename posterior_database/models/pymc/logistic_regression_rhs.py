@@ -1,6 +1,7 @@
+import pymc as pm
+import pytensor.tensor as pt
+
 def make_model(data: dict, prior_only: bool = False) -> pm.Model:
-    import pymc as pm
-    import pytensor.tensor as pt
 
     n = data['n']
     d = data['d']

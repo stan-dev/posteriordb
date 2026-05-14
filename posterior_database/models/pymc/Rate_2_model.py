@@ -1,8 +1,9 @@
+import pymc as pm
+import pytensor.tensor as pt
+import numpy as np
+from scipy.special import gammaln
+
 def make_model(data: dict, prior_only: bool = False) -> pm.Model:
-    import pymc as pm
-    import pytensor.tensor as pt
-    import numpy as np
-    from scipy.special import gammaln
 
     with pm.Model() as model:
         theta1 = pm.Uniform("theta1", lower=0, upper=1)

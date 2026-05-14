@@ -1,7 +1,8 @@
+import pymc as pm
+import pytensor.tensor as pt
+import numpy as np
+
 def make_model(data: dict, prior_only: bool = False) -> pm.Model:
-    import pymc as pm
-    import pytensor.tensor as pt
-    import numpy as np
 
     with pm.Model() as model:
         theta = pm.Uniform("theta", lower=0, upper=1)

@@ -1,7 +1,8 @@
+import pymc as pm
+import pytensor.tensor as pt
+import numpy as np
+
 def make_model(data: dict, prior_only: bool = False) -> pm.Model:
-    import pymc as pm
-    import pytensor.tensor as pt
-    import numpy as np
 
     county_idx_0based = np.array(data['county_idx']) - 1
     floor_measure = np.array(data['floor_measure'])
