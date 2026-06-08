@@ -1,14 +1,10 @@
-functions {
-
-}
-
 data {
     int<lower=1>T; //number of days
     vector<lower=0>[T] y; //index values of sp500
 }
 
 transformed data {
-    vector[T-1] log_returns;     // log y_i - log y_{i-1} for i = 2, ..., T
+    vector[T-1] log_returns;
     for (i in 2:T) {
         log_returns[i-1] = log(y[i]) - log(y[i-1]);
   }
@@ -31,9 +27,7 @@ model {
     for (i in 2:T) {
         target += student_t_lpdf(log_returns[i-1] | nu, 0, s[i]);
         }
-
-    // Term from marginalizing out tau analytically:
-    //   target += -((T + 1) / 2.0) * log(0.01 + 0.5 * sum((log s_i - log s_{i-1})^2))
+   
     {
         real sum_sq = 0;
         for (i in 2:T) {

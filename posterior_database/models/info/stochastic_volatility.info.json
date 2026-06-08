@@ -2,7 +2,7 @@
   "name": "stochastic_volatility",
   "keywords": ["time_series", "stochastic_volatility", "marginalized"],
   "title": "Stochastic Volatility Model with Marginalized Precision",
-  "description": "Stochastic volatility model from Hoffman & Gelman (2014, NUTS paper, p. 1614-1615). Daily log-returns follow a Student-t distribution with time-varying scale s_i. The log-scale follows a Gaussian random walk with precision tau, which is marginalized analytically. Resulting posterior is (T+1)-dimensional over (s, nu).",
+  "description": "Stochastic volatility model from Hoffman & Gelman (2014, NUTS paper, p. 1614-1615). Daily log-returns follow a Student-t distribution with time-varying scale s_i. The log-scale follows a Gaussian random walk with precision tau, which is marginalized analytically. Resulting posterior is T-dimensional over (s, nu), where T is the number of data points.",
   "urls": "https://www.jmlr.org/papers/v15/hoffman14a.html",
   "model_implementations": {
     "stan": {
