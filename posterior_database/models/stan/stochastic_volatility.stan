@@ -12,7 +12,7 @@ transformed data {
 
 parameters {
     real<lower=0> nu;            // degrees of freedom of Student-t
-    vector<lower=0>[T] s;        // scale parameters at each day
+    vector<lower=0>[T-1] s;        // scale parameters at each day
 }
 
 model {
