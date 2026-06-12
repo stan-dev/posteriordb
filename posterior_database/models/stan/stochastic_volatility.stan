@@ -30,7 +30,7 @@ model {
    
     {
         real sum_sq = 0;
-        for (i in 2:T) {
+        for (i in 2:T-1) {
             sum_sq += square(log(s[i]) - log(s[i-1]));
         }
     target += -((T + 1) / 2.0) * log(0.01 + 0.5 * sum_sq);
