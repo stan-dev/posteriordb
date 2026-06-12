@@ -1,12 +1,12 @@
 data {
     int<lower=1>T; //number of days
-    vector<lower=0>[T] y; //index values of sp500
+    vector<lower=0>[T-1] y; //index values of sp500
 }
 
 transformed data {
     vector[T-1] log_returns;
-    for (i in 2:T) {
-        log_returns[i-1] = log(y[i]) - log(y[i-1]);
+    for (i in 1:(T-1)) {
+        log_returns[i] = log(y[i+1]) - log(y[i]);
   }
 }
 
