@@ -1,6 +1,6 @@
 data {
     int<lower=1>T; //number of days
-    vector<lower=0>[T-1] y; //index values of sp500
+    vector<lower=0>[T] y; //index values of sp500
 }
 
 transformed data {
@@ -23,7 +23,6 @@ model {
     target += -0.01 * s[1];
 
     // Likelihood: (log y_i - log y_{i-1}) / s_i ~ t_nu
-    // Add -log(s_i) for each term because of the Jacobian of standardization.
     for (i in 1:(T-1)) {
         target += student_t_lpdf(log_returns[i] | nu, 0, s[i]);
         }
