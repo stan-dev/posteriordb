@@ -1,0 +1,15 @@
+{
+  "name": "stochastic_volatility-stochastic_volatility",
+  "keywords": ["stan benchmark", "stochastic volatility", "time series", "nuts paper"],
+  "urls": "https://arxiv.org/abs/1111.4246",
+  "model_name": "stochastic_volatility",
+  "data_name": "stochastic_volatility",
+  "reference_posterior_name": null,
+  "references": ["hoffman2014nuts"],
+  "dimensions": {
+    "nu": 1,
+    "s": 2999
+  },
+  "added_date": "2026-05-28",
+  "added_by": "Colin Pochart"
+}
