@@ -1,0 +1,36 @@
+{
+  "name": "standard_ODE-standard_ODE",
+  "inference": {
+    "method": "stan_sampling",
+    "method_arguments": {
+      "chains": 4,
+      "iter_warmup": 2500,
+      "iter_sampling": 25000,
+      "thin": 10,
+      "seed": 4711,
+      "adapt_delta": 0.95,
+      "max_treedepth": 10
+    }
+  },
+  "diagnostics": {
+    "ndraws": 10000,
+    "nchains": 4,
+    "r_hat_max": 1.00075,
+    "ess_min": 9550.73,
+    "divergent_transitions": 0,
+    "efmi_min": 1.9913539150935022
+  },
+  "checks_made": {
+    "ndraws_is_10k": true,
+    "nchains_is_gte_4": true,
+    "r_hat_below_1_01": true,
+    "ess_above_min": true,
+    "efmi_above_0_2": true,
+    "no_divergences": true
+  },
+  "forced": false,
+  "versions": {
+    "cmdstanpy": "1.3.0",
+    "cmdstan_path": "C:\\Users\\colin\\.cmdstan\\Torsten\\cmdstan"
+  }
+}
