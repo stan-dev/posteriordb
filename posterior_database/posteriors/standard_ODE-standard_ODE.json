@@ -1,0 +1,19 @@
+{
+  "name": "standard_ODE-standard_ODE",
+  "keywords": ["synthetic", "pharmacokinetic", "ode", "two_compartment"],
+  "urls": "https://arxiv.org/pdf/2109.10184",
+  "model_name": "standard_ODE",
+  "data_name": "standard_ODE",
+  "reference_posterior_name": null,
+  "references": ["margossian2022pharmacometrics"],
+  "dimensions": { 
+    "CL": 1, 
+    "Q": 1, 
+    "VC": 1, 
+    "VP": 1, 
+    "ka": 1, 
+    "sigma": 1
+},
+  "added_date": "2026-06-16",
+  "added_by": "Colin Pochart"
+}
