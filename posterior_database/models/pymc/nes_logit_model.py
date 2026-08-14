@@ -11,7 +11,7 @@ def make_model(data: dict, prior_only: bool = False) -> pm.Model:
 
     with pm.Model() as model:
         alpha = pm.Flat("alpha")
-        beta = pm.Flat("beta")
+        beta = pm.Flat("beta", shape=1)
         
         logit_p = alpha + (x * beta).flatten()
         
