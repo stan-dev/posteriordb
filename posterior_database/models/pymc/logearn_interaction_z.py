@@ -5,12 +5,12 @@ import numpy as np
 def make_model(data: dict, prior_only: bool = False) -> pm.Model:
     
     N = data['N']
-    earn = data['earn']
-    height = data['height']
-    male = data['male']
+    earn = np.asarray(data['earn'])
+    height = np.asarray(data['height'])
+    male = np.asarray(data['male'])
     
     log_earn = np.log(earn)
-    z_height = (height - np.mean(height)) / np.std(height)
+    z_height = (height - np.mean(height)) / np.std(height, ddof=1)
     inter = z_height * male
     
     with pm.Model() as model:
