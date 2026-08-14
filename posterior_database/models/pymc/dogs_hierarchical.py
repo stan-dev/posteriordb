@@ -20,6 +20,9 @@ def make_model(data: dict, prior_only: bool = False) -> pm.Model:
         p = pm.Deterministic("p", a ** prev_shock * b ** prev_avoid)
         
         if not prior_only:
-            y_obs = pm.Bernoulli("y", p=p, observed=y_data)
+            # The first trial has prev_shock = prev_avoid = 0, so its
+            # probability is identically one. Exclude this constant likelihood
+            # contribution to avoid differentiating the Bernoulli logp at p=1.
+            y_obs = pm.Bernoulli("y", p=p[:, 1:], observed=y_data[:, 1:])
 
     return model
