@@ -9,8 +9,8 @@ def make_model(data: dict, prior_only: bool = False) -> pm.Model:
     mom_hs = data['mom_hs']
     mom_iq = data['mom_iq']
     
-    z_mom_hs = (mom_hs - np.mean(mom_hs)) / (2 * np.std(mom_hs, ddof=0))
-    z_mom_iq = (mom_iq - np.mean(mom_iq)) / (2 * np.std(mom_iq, ddof=0))
+    z_mom_hs = (mom_hs - np.mean(mom_hs)) / (2 * np.std(mom_hs, ddof=1))
+    z_mom_iq = (mom_iq - np.mean(mom_iq)) / (2 * np.std(mom_iq, ddof=1))
     inter = z_mom_hs * z_mom_iq
 
     with pm.Model() as model:
