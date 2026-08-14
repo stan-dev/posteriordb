@@ -5,12 +5,12 @@ import numpy as np
 def make_model(data: dict, prior_only: bool = False) -> pm.Model:
 
     N = data['N']
-    kid_score = data['kid_score']
-    mom_work = data['mom_work']
+    kid_score = np.asarray(data['kid_score'])
+    mom_work = np.asarray(data['mom_work'])
     
-    work2 = np.array(mom_work == 2, dtype=float)
-    work3 = np.array(mom_work == 3, dtype=float)
-    work4 = np.array(mom_work == 4, dtype=float)
+    work2 = mom_work == 2
+    work3 = mom_work == 3
+    work4 = mom_work == 4
 
     with pm.Model() as model:
         beta = pm.Flat("beta", shape=4)
