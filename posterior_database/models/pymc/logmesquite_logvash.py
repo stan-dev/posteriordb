@@ -21,8 +21,7 @@ def make_model(data: dict, prior_only: bool = False) -> pm.Model:
     with pm.Model() as model:
         beta = pm.Flat("beta", shape=6)
         
-        sigma_log = pm.Flat("sigma_log")
-        sigma = pm.Deterministic("sigma", pt.exp(sigma_log))
+        sigma = pm.HalfFlat("sigma")
         
         mu = pm.Deterministic("mu", beta[0] + beta[1] * log_canopy_volume + 
                              beta[2] * log_canopy_area + 
