@@ -1,28 +1,36 @@
+import numpy as np
 import pymc as pm
 import pytensor.tensor as pt
-import numpy as np
 
-def make_model(data: dict, prior_only: bool = False) -> pm.Model:
+def model(data):
+    years_data = np.array(data["year"])
+    counts_data = np.array(data["C"])
+    number_observations = data["n"]
+    coords = {
+        "features": ["years", "years**2", "years**3"],
+        "observation": np.arange(number_observations),
+    }
+    with pm.Model(coords=coords) as pymc_model:
+        alpha = pm.Uniform("alpha", -20, +20)
+        beta1 = pm.Uniform("beta1", -10, +10)
+        beta2 = pm.Uniform("beta2", -10, +10)
+        beta3 = pm.Uniform("beta3", -10, +10)
 
-    n = data['n']
-    C = np.asarray(data['C'])
-    year = np.asarray(data['year'])
-    
-    year_squared = year**2
-    year_cubed = year_squared * year
+        X = pm.Data(
+            "X",
+            np.column_stack([years_data, years_data**2, years_data**3]),
+            dims=["observation", "feature"],
+        )
+        y = pm.Data("y", counts_data, dims="observation")
 
-    with pm.Model() as model:
-        alpha = pm.Uniform("alpha", lower=-20, upper=20)
-        beta1 = pm.Uniform("beta1", lower=-10, upper=10)
-        beta2 = pm.Uniform("beta2", lower=-10, upper=10)
-        beta3 = pm.Uniform("beta3", lower=-10, upper=10)
+        beta = pm.Deterministic("beta", pt.stack([beta1, beta2, beta3]), dims = "feature")
         
-        log_lambda = pm.Deterministic("log_lambda", 
-            alpha + beta1 * year + beta2 * year_squared + beta3 * year_cubed)
-        
-        lambda_gq = pm.Deterministic("lambda", pt.exp(log_lambda))
-        
-        if not prior_only:
-            pm.Poisson("C", mu=pt.exp(log_lambda), observed=C)
+        log_lambda = pm.Deterministic(
+            "log_lambda", alpha + X @ beta, dims="observation"
+        )
 
-    return model
+        counts = pm.Poisson(
+            "counts", mu=pm.math.exp(log_lambda), observed=y, dims="observation"
+        )
+
+    return pymc_model

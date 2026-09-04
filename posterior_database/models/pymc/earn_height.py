@@ -1,20 +1,23 @@
-import pymc as pm
-import pytensor.tensor as pt
 import numpy as np
+import pymc as pm
 
-def make_model(data: dict, prior_only: bool = False) -> pm.Model:
+def model(data):
 
-    with pm.Model() as model:
-        N = data['N']
-        earn = data['earn']
-        height = data['height']
+    # Define PyMC Model
+    coords = {
+        'obs_idx': np.arange(data["N"]),
+        'feature': ['intercept', 'height']
+    }
+    
+    with pm.Model(coords=coords) as earn_height:
+        N = pm.Data("N", data["N"])
+        earn = pm.Data('earn', data['earn'], dims=['obs_idx'])
+        height = pm.Data('height', data['height'], dims=['obs_idx'])
         
-        beta = pm.Flat("beta", shape=2)
-        sigma = pm.HalfFlat("sigma")
+        beta = pm.Flat('beta', dims=['feature'])
+        mu = beta[0] + beta[1] * height
         
-        mu = pm.Deterministic("mu", beta[0] + beta[1] * height)
-        
-        if not prior_only:
-            pm.Normal("earn", mu=mu, sigma=sigma, observed=earn)
+        sigma = pm.HalfFlat('sigma')
+        earn_hat = pm.Normal('earn_hat', mu=mu, sigma=sigma, observed=earn, dims=['obs_idx'])
 
-    return model
+    return earn_height

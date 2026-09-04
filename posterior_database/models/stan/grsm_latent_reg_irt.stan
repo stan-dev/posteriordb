@@ -75,7 +75,7 @@ model {
   alpha ~ lognormal(1, 1);
   target += normal_lpdf(beta | 0, 3);
   target += normal_lpdf(kappa | 0, 3);
-  theta ~ normal(W_adj * lambda_adj, 1);
+  theta ~ normal(W_adj * lambda_adj, 1.0);
   lambda_adj ~ student_t(3, 0, 1);
   for (n in 1 : N) {
     target += rsm(y[n], theta[jj[n]] .* alpha[ii[n]], beta[ii[n]], kappa);

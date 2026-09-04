@@ -15,9 +15,10 @@
     "stan": {
       "model_code": "models/stan/earn_height.stan",
       "stan_version": ">=2.26.0"
-    },
-    "pymc": {
-      "model_code": "models/pymc/earn_height.py"
+    }, 
+     "pymc": {
+        "model_code": "models/pymc/earn_height.py",
+        "pymc_version": ">=5.16.2"    
     }
   },
   "references": "gelman2006data",
