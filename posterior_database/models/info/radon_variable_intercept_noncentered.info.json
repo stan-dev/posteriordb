@@ -11,6 +11,9 @@
     "stan": {
       "model_code": "models/stan/radon_variable_intercept_noncentered.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/radon_variable_intercept_noncentered.py"
     }
   },
   "references": "gelman2006data",
