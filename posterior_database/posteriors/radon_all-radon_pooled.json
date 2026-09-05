@@ -1,11 +1,12 @@
 {
   "name": "radon_all-radon_pooled",
-  "keywords": ["stan case study"],
+  "keywords": [
+    "stan case study"
+  ],
   "urls": "https://mc-stan.org/users/documentation/case-studies/radon.html",
-  "urls": null,
   "model_name": "radon_pooled",
   "data_name": "radon_all",
-  "reference_posterior_name": null,
+  "reference_posterior_name": "radon_all-radon_pooled",
   "references": "gelman2006data",
   "dimensions": {
     "alpha": 1,

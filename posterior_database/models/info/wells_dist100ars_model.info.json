@@ -1,6 +1,16 @@
 {
   "name": "wells_dist100ars_model",
-  "keywords": ["wells", "ARM", "Ch.5", "logistic", "regression", "scaled", "two predictors", "arsenic", "distance"],
+  "keywords": [
+    "wells",
+    "ARM",
+    "Ch.5",
+    "logistic",
+    "regression",
+    "scaled",
+    "two predictors",
+    "arsenic",
+    "distance"
+  ],
   "title": "2-Predictor Logistic regression model for decision to switch wells",
   "description": "Performs logistic regression using two predictors (distance from nearest safe well and arsenic levels).\n          Rescales distance to 100-meter units.",
   "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.5",
@@ -11,6 +21,9 @@
     "stan": {
       "model_code": "models/stan/wells_dist100ars_model.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/wells_dist100ars_model.py"
     }
   },
   "licence": "BSD3"

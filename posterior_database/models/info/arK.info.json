@@ -2,7 +2,10 @@
   "name": "arK",
   "title": "Autoregressive-5 model",
   "description": "An AR(5) time series model.",
-  "keywords": ["time series", "stan_benchmark"],
+  "keywords": [
+    "time series",
+    "stan_benchmark"
+  ],
   "urls": "https://github.com/stan-dev/stat_comp_benchmarks/tree/master/benchmarks/arK",
   "prior": {
     "keywords": []
@@ -11,6 +14,9 @@
     "stan": {
       "model_code": "models/stan/arK.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/arK.py"
     }
   },
   "added_by": "Mans Magnusson",

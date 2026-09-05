@@ -12,6 +12,9 @@
     "stan": {
       "model_code": "models/stan/blr.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/blr.py"
     }
   },
   "added_by": "Mans Magnusson",

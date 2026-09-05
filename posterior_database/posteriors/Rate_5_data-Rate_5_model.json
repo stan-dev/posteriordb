@@ -7,7 +7,7 @@
     "postpredk1": 1,
     "postpredk2": 1
   },
-  "reference_posterior_name": null,
+  "reference_posterior_name": "Rate_5_data-Rate_5_model",
   "added_date": "2021-06-30",
   "added_by": "Kane Lindsay",
   "name": "Rate_5_data-Rate_5_model",
