@@ -1,6 +1,20 @@
 {
   "name": "wells_dae_inter_model",
-  "keywords": ["wells", "ARM", "Ch.5", "logistic", "regression", "scaled", "three predictors", "arsenic", "distance", "interaction", "centered", "education", "social predictor"],
+  "keywords": [
+    "wells",
+    "ARM",
+    "Ch.5",
+    "logistic",
+    "regression",
+    "scaled",
+    "three predictors",
+    "arsenic",
+    "distance",
+    "interaction",
+    "centered",
+    "education",
+    "social predictor"
+  ],
   "title": "3-Input logistic regression model with interactions and centered inputs for decision to switch wells",
   "description": "Performs logistic regression using three centered inputs \n          (distance from nearest safe well, log-scaled arsenic levels, and years in\n          education) and the interactions between each pair of inputs.",
   "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.5",
@@ -11,6 +25,9 @@
     "stan": {
       "model_code": "models/stan/wells_dae_inter_model.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/wells_dae_inter_model.py"
     }
   },
   "licence": "BSD3"

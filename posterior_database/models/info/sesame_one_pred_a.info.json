@@ -1,6 +1,11 @@
 {
   "name": "sesame_one_pred_a",
-  "keywords": ["sesame", "ARM", "Ch.10", "linear model"],
+  "keywords": [
+    "sesame",
+    "ARM",
+    "Ch.10",
+    "linear model"
+  ],
   "title": "Linear model for the effect of encouragement to watch on actually watching Sesame Street",
   "description": "A linear model with one predictor.",
   "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.10",
@@ -11,6 +16,9 @@
     "stan": {
       "model_code": "models/stan/sesame_one_pred_a.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/sesame_one_pred_a.py"
     }
   },
   "licence": "BSD3"

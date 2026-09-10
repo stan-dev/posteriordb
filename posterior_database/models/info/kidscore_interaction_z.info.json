@@ -1,6 +1,10 @@
 {
   "name": "kidscore_interaction_z",
-  "keywords": ["ARM", "Ch. 4", "stan_examples"],
+  "keywords": [
+    "ARM",
+    "Ch. 4",
+    "stan_examples"
+  ],
   "title": "Multiple Interacting Predictors Standardized Linear Model",
   "prior": {
     "keywords": "stan_recommended_35dbfe6"
@@ -11,6 +15,9 @@
     "stan": {
       "model_code": "models/stan/kidscore_interaction_z.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/kidscore_interaction_z.py"
     }
   },
   "references": "gelman2006data",

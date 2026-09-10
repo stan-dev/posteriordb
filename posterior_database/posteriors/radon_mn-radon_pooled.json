@@ -4,7 +4,7 @@
   "urls": "https://mc-stan.org/users/documentation/case-studies/radon.html",
   "model_name": "radon_pooled",
   "data_name": "radon_mn",
-  "reference_posterior_name": null,
+  "reference_posterior_name": "radon_mn-radon_pooled",
   "references": "gelman2006data",
   "dimensions": {
     "alpha": 1,

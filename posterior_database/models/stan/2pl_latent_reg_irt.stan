@@ -64,7 +64,7 @@ model {
   alpha ~ lognormal(1, 1);
   target += normal_lpdf(beta | 0, 3);
   lambda_adj ~ student_t(3, 0, 1);
-  theta ~ normal(W_adj * lambda_adj, 1);
+  theta ~ normal(W_adj * lambda_adj, 1.0);
   y ~ bernoulli_logit(alpha[ii] .* theta[jj] - beta[ii]);
 }
 generated quantities {

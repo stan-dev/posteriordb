@@ -1,6 +1,9 @@
 {
   "name": "radon_county",
-  "keywords": ["stan_benchmark", "hierarchical model"],
+  "keywords": [
+    "stan_benchmark",
+    "hierarchical model"
+  ],
   "title": "Hierarchical Model",
   "prior": {
     "keywords": "stan_recommended_35dbfe6"
@@ -11,6 +14,9 @@
     "stan": {
       "model_code": "models/stan/radon_county.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/radon_county.py"
     }
   },
   "references": "bales2019selecting",

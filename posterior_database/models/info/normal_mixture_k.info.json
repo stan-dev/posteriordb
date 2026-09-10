@@ -1,6 +1,9 @@
 {
   "name": "normal_mixture_k",
-  "keywords": ["basic_estimators", "stan_examples"],
+  "keywords": [
+    "basic_estimators",
+    "stan_examples"
+  ],
   "title": "K Component Gaussian Mixture Model",
   "prior": {
     "keywords": "stan_recommended_35dbfe6"
@@ -11,6 +14,9 @@
     "stan": {
       "model_code": "models/stan/normal_mixture_k.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/normal_mixture_k.py"
     }
   },
   "references": null,

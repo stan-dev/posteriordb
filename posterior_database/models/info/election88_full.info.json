@@ -1,6 +1,10 @@
 {
   "name": "election88_full",
-  "keywords": ["ARM", "Ch. 14", "stan_examples"],
+  "keywords": [
+    "ARM",
+    "Ch. 14",
+    "stan_examples"
+  ],
   "title": "Generalized Linear Mixed Effects Model",
   "prior": {
     "keywords": "stan_recommended_35dbfe6"
@@ -11,6 +15,9 @@
     "stan": {
       "model_code": "models/stan/election88_full.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/election88_full.py"
     }
   },
   "references": "gelman2006data",

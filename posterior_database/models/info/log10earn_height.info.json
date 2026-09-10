@@ -1,6 +1,10 @@
 {
   "name": "log10earn_height",
-  "keywords": ["ARM", "Ch. 4", "stan_examples"],
+  "keywords": [
+    "ARM",
+    "Ch. 4",
+    "stan_examples"
+  ],
   "title": "One Predictor Log10-linear Model",
   "prior": {
     "keywords": "stan_recommended_35dbfe6"
@@ -11,6 +15,9 @@
     "stan": {
       "model_code": "models/stan/log10earn_height.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/log10earn_height.py"
     }
   },
   "references": "gelman2006data",

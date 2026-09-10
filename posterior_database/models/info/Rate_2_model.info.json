@@ -1,6 +1,11 @@
 {
   "name": "Rate_2_model",
-  "keywords": ["Trial", "Success Rate", "Beta Distribution", "Difference"],
+  "keywords": [
+    "Trial",
+    "Success Rate",
+    "Beta Distribution",
+    "Difference"
+  ],
   "title": "Difference in success rates",
   "description": "Predicting the difference between the success rates of two trials",
   "urls": "https://github.com/stan-dev/example-models/tree/master/Bayesian_Cognitive_Modeling/ParameterEstimation/Binomial",
@@ -11,6 +16,9 @@
     "stan": {
       "model_code": "models/stan/Rate_2_model.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/Rate_2_model.py"
     }
   },
   "licence": "BSD3"
