@@ -6,6 +6,8 @@ reference_paths <- list(
   draws = file.path(reference_draws_directory, "draws"),
   info = file.path(reference_draws_directory, "info")
 )
+source("tests/check_reference_draws_zip.R")
+source("tests/check_reference_draws_info.R")
 
 # Get files added between the PR base and head commits.
 get_added_files <- function(base_sha, head_sha, directory) {
@@ -36,33 +38,16 @@ filter_files <- function(paths, directory, pattern) {
   ]
 }
 
-# Require one JSON file and reject common archive metadata.
-check_draws_zip <- function(path) {
-  entries <- utils::unzip(path, list = TRUE)$Name
-  files <- entries[!grepl("/$", entries)]
-  basenames <- basename(entries)
-  metadata <- grepl("(^|/)__MACOSX(/|$)", entries) |
-    basenames == ".DS_Store" |
-    startsWith(basenames, "._")
+# Find each draw archive's companion info file.
+info_files_for_draws <- function(paths) {
+  draw_names <- sub("\\.json\\.zip$", "", basename(paths))
+  file.path(reference_paths$info, paste0(draw_names, ".info.json"))
+}
 
-  errors <- character()
-  if (any(metadata)) {
-    errors <- c(
-      errors,
-      paste0("contains metadata: ", paste(entries[metadata], collapse = ", "))
-    )
-  }
-  if (length(files) != 1L || !grepl("\\.json$", files)) {
-    errors <- c(
-      errors,
-      paste0(
-        "must contain exactly one JSON file; found: ",
-        if (length(files)) paste(files, collapse = ", ") else "no files"
-      )
-    )
-  }
-
-  errors
+# Find each info file's companion draw archive.
+draw_files_for_info <- function(paths) {
+  draw_names <- sub("\\.info\\.json$", "", basename(paths))
+  file.path(reference_paths$draws, paste0(draw_names, ".json.zip"))
 }
 
 # Run each check on each file and collect readable failures.
@@ -94,7 +79,7 @@ if (length(args) != 2L) {
   stop("Usage: Rscript tests/check_reference_draws.R <base-sha> <head-sha>")
 }
 
-# Discover added files once, then select the draw archives to check.
+# Discover added files once, then select draw archives and info files.
 added_files <- get_added_files(
   base_sha = args[[1]],
   head_sha = args[[2]],
@@ -105,21 +90,38 @@ zip_files <- filter_files(
   directory = reference_paths$draws,
   pattern = "\\.json\\.zip$"
 )
-if (!length(zip_files)) {
-  message("No newly added reference-draw ZIP files to check.")
+added_info_files <- filter_files(
+  paths = added_files,
+  directory = reference_paths$info,
+  pattern = "\\.info\\.json$"
+)
+if (!length(zip_files) && !length(added_info_files)) {
+  message("No newly added reference-draw files to check.")
   quit(status = 0L)
 }
 
 # Additional draw-archive checks can be added to this list later.
 draw_zip_checks <- list(check_draws_zip)
-failures <- run_file_checks(zip_files, draw_zip_checks)
+info_file_checks <- list(check_draws_info)
+info_files <- unique(c(
+  added_info_files,
+  info_files_for_draws(zip_files)
+))
+failures <- c(
+  run_file_checks(zip_files, draw_zip_checks),
+  run_file_checks(info_files, info_file_checks),
+  run_file_checks(draw_files_for_info(added_info_files), list())
+)
 
 if (length(failures)) {
   stop(
-    "Invalid reference-draw archive(s):\n- ",
+    "Invalid reference-draw file(s):\n- ",
     paste(failures, collapse = "\n- "),
     call. = FALSE
   )
 }
 
-message("Checked ", length(zip_files), " reference-draw ZIP file(s).")
+message(
+  "Checked ", length(zip_files), " new reference-draw ZIP file(s) and ",
+  length(added_info_files), " new info file(s)."
+)
