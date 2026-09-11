@@ -1,3 +1,8 @@
+verified_checks <- c(
+  "ndraws_is_10k", "r_hat_below_1_01", "efmi_above_0_2",
+  "abs_mean_lag1_ac_below_0_05"
+)
+
 # Check that each parameter-level diagnostic has one value per parameter.
 check_diagnostic_lengths <- function(diagnostics) {
   diagnostic_fields <- c(
@@ -90,6 +95,64 @@ check_chain_diagnostic_lengths <- function(diagnostics) {
   character()
 }
 
+# Recompute the quality checks reported in checks_made.
+check_diagnostic_thresholds <- function(diagnostics, checks_made) {
+  missing_checks <- setdiff(verified_checks, names(checks_made))
+  errors <- character()
+  if (length(missing_checks)) {
+    errors <- c(
+      errors,
+      paste0(
+        "'checks_made' is missing checks: ",
+        paste(missing_checks, collapse = ", ")
+      )
+    )
+  }
+
+  numeric_values <- function(field) {
+    values <- unlist(diagnostics[[field]], use.names = FALSE)
+    if (!is.numeric(values) || !length(values) || any(!is.finite(values))) {
+      return(NULL)
+    }
+    values
+  }
+
+  ndraws <- diagnostics$ndraws
+  if (!is.numeric(ndraws) || length(ndraws) != 1L ||
+      !is.finite(ndraws) || ndraws != 10000) {
+    errors <- c(errors, "'ndraws_is_10k' failed: 'ndraws' must equal 10000")
+  }
+
+  r_hat <- numeric_values("r_hat")
+  if (is.null(r_hat) || !all(r_hat < 1.01)) {
+    errors <- c(
+      errors,
+      "'r_hat_below_1_01' failed: all 'r_hat' values must be below 1.01"
+    )
+  }
+
+  efmi <- numeric_values("expected_fraction_of_missing_information")
+  if (is.null(efmi) || !all(efmi > 0.2)) {
+    errors <- c(
+      errors,
+      "'efmi_above_0_2' failed: all E-FMI values must be above 0.2"
+    )
+  }
+
+  lag1_ac <- numeric_values("mean_lag1_ac")
+  if (is.null(lag1_ac) || !all(abs(lag1_ac) < 0.05)) {
+    errors <- c(
+      errors,
+      paste0(
+        "'abs_mean_lag1_ac_below_0_05' failed: all absolute ",
+        "'mean_lag1_ac' values must be below 0.05"
+      )
+    )
+  }
+
+  errors
+}
+
 # Check the required structure and identity of a draws info file.
 check_draws_info <- function(path) {
   info <- jsonlite::fromJSON(path, simplifyVector = FALSE)
@@ -141,20 +204,30 @@ check_draws_info <- function(path) {
     )
   }
   if (is.list(info$checks_made) && !is.null(names(info$checks_made))) {
-    if (!length(info$checks_made)) {
-      errors <- c(errors, "'checks_made' must contain at least one check")
-    } else {
-      passed <- vapply(info$checks_made, identical, logical(1), y = TRUE)
+    checks_to_verify <- intersect(verified_checks, names(info$checks_made))
+    if (length(checks_to_verify)) {
+      passed <- vapply(
+        info$checks_made[checks_to_verify],
+        identical,
+        logical(1),
+        y = TRUE
+      )
       if (!all(passed)) {
         errors <- c(
           errors,
           paste0(
             "checks must be true: ",
-            paste(names(info$checks_made)[!passed], collapse = ", ")
+            paste(checks_to_verify[!passed], collapse = ", ")
           )
         )
       }
     }
+  }
+  if (is.list(info$diagnostics) && is.list(info$checks_made)) {
+    errors <- c(
+      errors,
+      check_diagnostic_thresholds(info$diagnostics, info$checks_made)
+    )
   }
 
   errors
