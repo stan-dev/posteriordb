@@ -5,6 +5,8 @@ We are happy for you to contribute with code or new posteriors to the database. 
 
 Don't hesitate to make a PR with a new model, data, or posterior to the repository. We use the PR for discussion on new material!
 
+All contributions must follow the [Stan AI Contribution Policy](https://github.com/stan-dev/stan/wiki/AI-Contribution-Policy).
+
 Copyright
 -------------
 All models supplied will use the BSD3 license by default. Specifying an alternative open-source license for data, model or reference posterior object is possible.
