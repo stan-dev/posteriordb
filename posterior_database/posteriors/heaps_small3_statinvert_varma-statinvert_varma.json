@@ -1,0 +1,24 @@
+{
+  "name": "heaps_small3_statinvert_varma-statinvert_varma",
+  "model_name": "statinvert_varma",
+  "data_name": "heaps_small3_statinvert_varma",
+  "reference_posterior_name": null,
+  "dimensions": {
+    "init": 18,
+    "A": [4, 3, 3],
+    "D": [2, 3, 3],
+    "Sigma": [3, 3],
+    "Amu": [2, 4],
+    "Aomega": [2, 4],
+    "Dmu": [2, 2],
+    "Domega": [2, 2],
+    "phi": [4, 3, 3],
+    "theta": [2, 3, 3],
+    "Omega": [18, 18],
+    "yfull": [158, 3],
+    "epsinit": [2, 3]
+  },
+  "added_by": "Gerald Press",
+  "added_date": "2026-09-10",
+  "references": "heaps2023stationary"
+}

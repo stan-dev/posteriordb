@@ -1,0 +1,15 @@
+{
+  "name": "heaps_small3_ansleykohn_var-ansleykohn_var",
+  "model_name": "ansleykohn_var",
+  "data_name": "heaps_small3_ansleykohn_var",
+  "reference_posterior_name": null,
+  "dimensions": {
+    "A": [4, 3, 3],
+    "Sigma": [3, 3],
+    "phi": [4, 3, 3],
+    "Gamma": [12, 12]
+  },
+  "added_by": "Gerald Press",
+  "added_date": "2026-09-10",
+  "references": "heaps2023stationary"
+}
