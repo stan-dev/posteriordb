@@ -1,0 +1,15 @@
+{
+  "name": "statinvert_varma",
+  "keywords": ["stationary", "invertible", "VARMA", "exchangeable"],
+  "title": "Stationary and Invertible VARMA(p, q) Model",
+  "description": "A stationary and invertible VARMA model with exchangeable priors for the AR and MA partial-autocorrelation parameters.",
+  "urls": "https://doi.org/10.1080/10618600.2022.2079648",
+  "references": "heaps2023stationary",
+  "added_by": "Gerald Press",
+  "added_date": "2026-09-10",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/statinvert_varma.stan"
+    }
+  }
+}

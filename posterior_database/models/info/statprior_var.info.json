@@ -1,0 +1,15 @@
+{
+  "name": "statprior_var",
+  "keywords": ["stationary", "exchangeable", "VAR", "BVAR"],
+  "title": "Stationary Exchangeable VAR(p) Model",
+  "description": "A stationary VAR using the exchangeable partial-autocorrelation prior described in Section 3.2 of Heaps (2023).",
+  "urls": "https://doi.org/10.1080/10618600.2022.2079648",
+  "references": "heaps2023stationary",
+  "added_by": "Gerald Press",
+  "added_date": "2026-09-10",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/statprior_var.stan"
+    }
+  }
+}
