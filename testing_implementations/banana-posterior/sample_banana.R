@@ -11,6 +11,7 @@ code_banana <- "banana-posterior/banana.stan"
 fit <- stan(
   code_banana,
   data = banana_data,
+<<<<<<< HEAD
   iter = 5000,
   chains = 4,
   seed = 123,
@@ -34,6 +35,14 @@ print(ess_values)
 cat("Bayesian Fraction of Missing Information (BFMI):\n")
 efmi <- get_bfmi(fit)
 print(efmi)
+=======
+  iter = 2000,
+  chains = 4,
+  seed = 123,
+  control = list(adapt_delta = 0.95),
+)
+summary(fit)
+>>>>>>> 88161d78758b758af7ed8e01e6428f718f694a78
 
 draws <- as.data.frame(fit)
 
@@ -51,7 +60,10 @@ contourplot <- ggplot(draws, aes(x = `y[1]`, y = `y[2]`)) +
 contourplot
 
 
+<<<<<<< HEAD
 efmi <- get_bfmi(fit)
 
 cat("Effective Sample Size (ESS):\n")
 
+=======
+>>>>>>> 88161d78758b758af7ed8e01e6428f718f694a78
