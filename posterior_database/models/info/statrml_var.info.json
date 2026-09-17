@@ -6,7 +6,7 @@
   "urls": "https://doi.org/10.1080/10618600.2022.2079648",
   "references": "heaps2023stationary",
   "added_by": "Gerald Press",
-  "added_date": "2026-09-10",
+  "added_date": "2026-09-17",
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/statrml_var.stan"

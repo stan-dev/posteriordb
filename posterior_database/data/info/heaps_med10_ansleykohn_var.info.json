@@ -5,7 +5,7 @@
   "description": "Quarterly US macroeconomic observations with 10 variables and the hyperparameters required by ansleykohn_var.",
   "urls": "https://tandf.figshare.com/articles/dataset/Enforcing_stationarity_through_the_prior_in_vector_autoregressions/19831250/2",
   "references": "heaps2023stationary",
-  "added_date": "2026-09-10",
+  "added_date": "2026-09-17",
   "added_by": "Gerald Press",
   "data_file": "data/data/heaps_med10_ansleykohn_var.json"
 }
