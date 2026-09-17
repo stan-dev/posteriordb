@@ -16,3 +16,4 @@ TODO.tdl
 *.hpp
 *.dll
 tmp*
+.venv
