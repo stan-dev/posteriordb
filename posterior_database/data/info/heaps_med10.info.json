@@ -1,0 +1,11 @@
+{
+  "name": "heaps_med10",
+  "keywords": ["United States", "Macroeconomics", "Vector Autoregression", "Medium", "statprior_var"],
+  "title": "Medium Heaps macroeconomic data for statprior_var",
+  "description": "Quarterly US macroeconomic observations with 10 variables and the hyperparameters required by statprior_var.",
+  "urls": "https://tandf.figshare.com/articles/dataset/Enforcing_stationarity_through_the_prior_in_vector_autoregressions/19831250/2",
+  "references": "heaps2023stationary",
+  "added_date": "2026-09-10",
+  "added_by": "Gerald Press",
+  "data_file": "data/data/heaps_med10.json"
+}
