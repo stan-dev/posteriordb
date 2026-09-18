@@ -16,3 +16,4 @@ TODO.tdl
 *.hpp
 *.dll
 tmp*
+posterior_database/run_reference_stochastic_volatility.py
