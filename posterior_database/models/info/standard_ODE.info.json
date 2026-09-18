@@ -1,0 +1,17 @@
+{
+  "name": "standard_ODE",
+  "keywords": ["synthetic", "pharmacokinetic", "ode", "two_compartment"],
+  "title": "standard ODE model",
+  "description": "standard ODE model from Flexible and efficient Bayesian pharmacometrics modeling using Stan and Torsten, Part I",
+  "urls": "https://arxiv.org/pdf/2109.10184",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/standard_ODE.stan",
+      "stan_version": ">=2.26.0"
+    }
+  },
+  "references": "margossian2022pharmacometrics",
+  "added_date": "2026-06-16",
+  "added_by": "Colin Pochart",
+  "licence": "BSD3"
+}

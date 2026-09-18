@@ -1,0 +1,11 @@
+{
+  "name": "standard_ODE",
+  "keywords": ["synthetic", "pharmacokinetic", "ode", "two_compartment"],
+  "title": "standard ODE model",
+  "description": "standard ODE model from Flexible and efficient Bayesian pharmacometrics modeling using Stan and Torsten, Part I",
+  "urls": "https://arxiv.org/pdf/2109.10184",
+  "data_file": "data/data/standard_ODE.json",
+  "references": "margossian2022pharmacometrics",
+  "added_date": "2026-06-16",
+  "added_by": "Colin Pochart"
+}
