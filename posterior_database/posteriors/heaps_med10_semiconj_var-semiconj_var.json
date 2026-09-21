@@ -2,7 +2,7 @@
   "name": "heaps_med10_semiconj_var-semiconj_var",
   "model_name": "semiconj_var",
   "data_name": "heaps_med10_semiconj_var",
-  "reference_posterior_name": null,
+  "reference_posterior_name": "heaps_med10_semiconj_var-semiconj_var",
   "dimensions": {
     "phi": [4, 10, 10],
     "Sigma": [10, 10]

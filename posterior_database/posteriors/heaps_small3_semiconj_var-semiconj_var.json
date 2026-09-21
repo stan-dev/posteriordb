@@ -2,7 +2,7 @@
   "name": "heaps_small3_semiconj_var-semiconj_var",
   "model_name": "semiconj_var",
   "data_name": "heaps_small3_semiconj_var",
-  "reference_posterior_name": null,
+  "reference_posterior_name": "heaps_small3_semiconj_var-semiconj_var",
   "dimensions": {
     "phi": [4, 3, 3],
     "Sigma": [3, 3]

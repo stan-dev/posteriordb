@@ -2,7 +2,7 @@
   "name": "heaps_small3_statrml_var-statrml_var",
   "model_name": "statrml_var",
   "data_name": "heaps_small3_statrml_var",
-  "reference_posterior_name": null,
+  "reference_posterior_name": "heaps_small3_statrml_var-statrml_var",
   "dimensions": {
     "C": [4, 3, 3],
     "Sigma": [3, 3],
