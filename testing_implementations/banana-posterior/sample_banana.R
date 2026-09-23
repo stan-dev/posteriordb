@@ -1,17 +1,18 @@
 library(rstan)
+options(mc.cores = parallel::detectCores())
+install.packages("bayesplot")
 library(bayesplot)
 library(ggplot2)
 # define 10-D data (1 top-level y, 9 lower level x's)
-setwd("/home/mkami/UNI/posteriordb/testing_implementations")
+setwd("C:/Users/mkami/OneDrive/Pulpit/UNI/posteriordb/testing_implementations/")
 
-banana_data <- list(D = 2, v=100, b=0.03)
+banana_data <- list(D = 10, v=100, b=0.03)
 
 code_banana <- "banana-posterior/banana.stan"
 
 fit <- stan(
   code_banana,
   data = banana_data,
-<<<<<<< HEAD
   iter = 5000,
   chains = 4,
   seed = 123,
@@ -35,20 +36,15 @@ print(ess_values)
 cat("Bayesian Fraction of Missing Information (BFMI):\n")
 efmi <- get_bfmi(fit)
 print(efmi)
-=======
-  iter = 2000,
-  chains = 4,
-  seed = 123,
-  control = list(adapt_delta = 0.95),
-)
-summary(fit)
->>>>>>> 88161d78758b758af7ed8e01e6428f718f694a78
 
 draws <- as.data.frame(fit)
 
 trace_plot <- traceplot(fit, pars = c("y[1]", "y[2]"), inc_warmup = FALSE) + 
   ggplot2::ggtitle("Banana Posterior: Traceplot")
-trace_plot
+# show plot 
+print(trace_plot)
+# save trace plot to png
+ggsave("banana-posterior/trace_plot.png", trace_plot, width = 10, height = 6, dpi = 300)
 
 # Plotting the 2D density of the first two dimensions
 contourplot <- ggplot(draws, aes(x = `y[1]`, y = `y[2]`)) +
@@ -57,13 +53,6 @@ contourplot <- ggplot(draws, aes(x = `y[1]`, y = `y[2]`)) +
   labs(title = "Banana Posterior Density",
        x = "Dimension 1",
        y = "Dimension 2")
-contourplot
+ggsave("banana-posterior/contour_plot.png", contourplot, width = 10, height = 6, dpi = 300)
 
 
-<<<<<<< HEAD
-efmi <- get_bfmi(fit)
-
-cat("Effective Sample Size (ESS):\n")
-
-=======
->>>>>>> 88161d78758b758af7ed8e01e6428f718f694a78

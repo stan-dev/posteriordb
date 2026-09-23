@@ -1,11 +1,14 @@
 # sample from the neals funnel models 
 library(rstan)
+options(mc.cores = parallel::detectCores())
 library(bayesplot)
+install.packages("bayesplot")
 library(ggplot2)
 # define 10-D data (1 top-level y, 9 lower level x's)
 setwd("/home/mkami/UNI/posteriordb/testing_implementations")
 funnel_data <- list(D = 9)
 
+packageVersion("rstan")
 code_centered <- "neals-funnel-centered.stan"
 code_noncentered <- "neals-funnel-noncentered.stan"
 
