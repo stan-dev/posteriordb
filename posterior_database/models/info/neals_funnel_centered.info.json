@@ -1,0 +1,11 @@
+{
+    "name": "neals_funnel_centered",
+    "title": "Neal's Funnel (Centered Parameterization)",
+    "added_by": "Michal Kaminski",
+    "added_date": "2026-09-24",
+    "description": "Neal's Funnel is a classic example of a hierarchical model that is difficult to sample from due to its geometry.", 
+    "model_code": {
+        "stan": "models/stan/neals_funnel_centered.stan",
+        "pymc": "models/pymc/neals_funnel_centered.py"
+    }
+}
