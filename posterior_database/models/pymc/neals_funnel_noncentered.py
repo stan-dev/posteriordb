@@ -8,7 +8,7 @@ def make_model(data: dict, prior_only: bool = False) -> pm.Model:
     D = data.get("D", 9)
     with pm.Model() as mod:
         # 1. The funnel's 'neck' or variance parameter
-        y = pm.Normal("v", mu=0.0, sigma=3.0)
+        y = pm.Normal("y", mu=0.0, sigma=3.0)
         
         x_raw = pm.Normal("x_raw", mu=0.0, sigma=1.0, shape=D)
         
