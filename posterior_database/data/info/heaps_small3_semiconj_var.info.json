@@ -1,0 +1,11 @@
+{
+  "name": "heaps_small3_semiconj_var",
+  "keywords": ["United States", "Macroeconomics", "Vector Autoregression", "Small", "semiconj_var"],
+  "title": "Small Heaps macroeconomic data for semiconj_var",
+  "description": "Quarterly US macroeconomic observations with 3 variables and the hyperparameters required by semiconj_var.",
+  "urls": "https://tandf.figshare.com/articles/dataset/Enforcing_stationarity_through_the_prior_in_vector_autoregressions/19831250/2",
+  "references": "heaps2023stationary",
+  "added_date": "2026-09-17",
+  "added_by": "Gerald Press",
+  "data_file": "data/data/heaps_small3_semiconj_var.json"
+}

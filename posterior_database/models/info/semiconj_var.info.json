@@ -1,0 +1,15 @@
+{
+  "name": "semiconj_var",
+  "keywords": ["semi-conjugate", "VAR", "BVAR", "comparison"],
+  "title": "Semi-Conjugate VAR(p) Model",
+  "description": "A zero-mean VAR with semi-conjugate priors for the autoregressive coefficients and innovation covariance.",
+  "urls": "https://doi.org/10.1080/10618600.2022.2079648",
+  "references": "heaps2023stationary",
+  "added_by": "Gerald Press",
+  "added_date": "2026-09-17",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/semiconj_var.stan"
+    }
+  }
+}

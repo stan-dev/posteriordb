@@ -1,0 +1,13 @@
+{
+  "name": "heaps_med10_semiconj_var-semiconj_var",
+  "model_name": "semiconj_var",
+  "data_name": "heaps_med10_semiconj_var",
+  "reference_posterior_name": "heaps_med10_semiconj_var-semiconj_var",
+  "dimensions": {
+    "phi": [4, 10, 10],
+    "Sigma": [10, 10]
+  },
+  "added_by": "Gerald Press",
+  "added_date": "2026-09-17",
+  "references": "heaps2023stationary"
+}
