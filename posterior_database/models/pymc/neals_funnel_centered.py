@@ -5,7 +5,7 @@ def make_model(data: dict, prior_only: bool = False) -> pm.Model:
     Centered Neal's Funnel for PosteriorDB
     """
 
-    D = data.get("D", 9)
+    D = int(data["D"])  # Dimensionality of the funnel
     with pm.Model() as mod:
         # 1. The funnel's 'neck' or variance parameter
         y = pm.Normal("y", mu=0.0, sigma=3.0)

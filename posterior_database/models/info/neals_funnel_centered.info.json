@@ -3,7 +3,7 @@
     "title": "Neal's Funnel (Centered Parameterization)",
     "added_by": "Michal Kaminski",
     "added_date": "2026-09-24",
-    "description": "Neal's Funnel is a classic example of a hierarchical model that is difficult to sample from due to its geometry.", 
+    "description": "Neal's Funnel is a classic synthetic distribution with a challenging geometry for MCMC algorithms. In this centered parameterization, the lower-level variables are sampled directly from a normal distribution whose variance is determined by the upper-level variable. This direct dependency creates the steep 'funnel' shape with varying curvature that often traps standard samplers.",
     "model_code": {
         "stan": "models/stan/neals_funnel_centered.stan",
         "pymc": "models/pymc/neals_funnel_centered.py"

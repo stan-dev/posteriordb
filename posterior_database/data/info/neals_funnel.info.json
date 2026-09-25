@@ -2,7 +2,7 @@
     "name": "neals_funnel",
     "keywords": ["synthetic", "funnel"],
     "title": "Neal's Funnel",
-    "description": "Neal's Funnel is a classic example of a hierarchical model that is difficult to sample from due to its geometry. It consists of a two-dimensional distribution where one dimension has a standard normal distribution and the other dimension has a normal distribution whose variance depends on the first dimension. This creates a 'funnel' shape that can be challenging for MCMC algorithms to explore effectively.",
+    "description": "Neal's Funnel is a classic synthetic distribution with a challenging geometry for MCMC algorithms. It features a single upper-level variable whose value dictates the variance of a D-dimensional vector, creating a steep funnel shape. The provided data solely specifies the target dimensionality, D.",
     "data_file": "data/data/neals_funnel.json",
     "urls": ["https://arxiv.org/abs/physics/0009028"],
     "added_date": "2026-09-23",
