@@ -1,0 +1,1 @@
+funnel_data <- list(D = 9)

@@ -1,0 +1,12 @@
+{
+    "name": "neals_funnel-neals_funnel_centered",
+    "model_name": "neals_funnel_centered",
+    "data_name": "neals_funnel",
+    "reference_posterior_name": null,
+    "dimensions": {
+        "y": 1,
+        "x": 9
+    },
+    "added_date": "2026-09-24",
+    "added_by": "Michal Kaminski"
+}
