@@ -1,0 +1,16 @@
+{
+  "name": "banana_8d_strong",
+  "keywords": [
+    "synthetic",
+    "banana"
+  ],
+  "title": "Strongly Twisted Banana Posterior (8D) from Haario et al. (1999)",
+  "description": "The banana-shaped posterior distribution is a common test case for MCMC algorithms. It is created by twisting a Gaussian distribution with a non-linear transformation. This particular version is 8 dimensional and the curvature coefficient is set, according to the paper, to pose a challenge for MCMC algorithms.",
+  "urls": [
+    "https://doi.org/10.1007/s001800050022"
+  ],
+  "data_file": "data/data/banana_8d_strong.json",
+  "references": null,
+  "added_date": "2026-10-01",
+  "added_by": "Michal Kaminski"
+}
