@@ -7,7 +7,7 @@
     "banana",
     "twisted_gaussian"
   ],
-  "references": null,
+  "references": "haario1999",
   "urls": "https://doi.org/10.1007/s001800050022",
   "prior": {
     "keywords": []

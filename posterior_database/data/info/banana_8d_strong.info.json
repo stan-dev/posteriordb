@@ -10,7 +10,7 @@
     "https://doi.org/10.1007/s001800050022"
   ],
   "data_file": "data/data/banana_8d_strong.json",
-  "references": null,
+  "references": "haario1999",
   "added_date": "2026-10-01",
   "added_by": "Michal Kaminski"
 }
