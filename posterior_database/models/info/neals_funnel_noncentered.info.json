@@ -11,5 +11,6 @@
         "pymc": {
             "model_code": "models/pymc/neals_funnel_noncentered.py"
         }
-    }
+    },
+    "references": "neal2003"
 }
