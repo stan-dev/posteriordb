@@ -1,0 +1,15 @@
+{
+  "name": "heaps_small3_statrml_var-statrml_var",
+  "model_name": "statrml_var",
+  "data_name": "heaps_small3_statrml_var",
+  "reference_posterior_name": "heaps_small3_statrml_var-statrml_var",
+  "dimensions": {
+    "C": [4, 3, 3],
+    "Sigma": [3, 3],
+    "phi": [4, 3, 3],
+    "Gamma": [12, 12]
+  },
+  "added_by": "Gerald Press",
+  "added_date": "2026-09-17",
+  "references": "heaps2023stationary"
+}

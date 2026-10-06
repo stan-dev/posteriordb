@@ -1,0 +1,15 @@
+{
+  "name": "heaps_med20_statrml_var-statrml_var",
+  "model_name": "statrml_var",
+  "data_name": "heaps_med20_statrml_var",
+  "reference_posterior_name": null,
+  "dimensions": {
+    "C": [4, 20, 20],
+    "Sigma": [20, 20],
+    "phi": [4, 20, 20],
+    "Gamma": [80, 80]
+  },
+  "added_by": "Gerald Press",
+  "added_date": "2026-09-17",
+  "references": "heaps2023stationary"
+}

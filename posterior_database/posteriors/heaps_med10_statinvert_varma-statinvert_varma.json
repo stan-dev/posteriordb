@@ -1,0 +1,24 @@
+{
+  "name": "heaps_med10_statinvert_varma-statinvert_varma",
+  "model_name": "statinvert_varma",
+  "data_name": "heaps_med10_statinvert_varma",
+  "reference_posterior_name": null,
+  "dimensions": {
+    "init": 60,
+    "A": [4, 10, 10],
+    "D": [2, 10, 10],
+    "Sigma": [10, 10],
+    "Amu": [2, 4],
+    "Aomega": [2, 4],
+    "Dmu": [2, 2],
+    "Domega": [2, 2],
+    "phi": [4, 10, 10],
+    "theta": [2, 10, 10],
+    "Omega": [60, 60],
+    "yfull": [158, 10],
+    "epsinit": [2, 10]
+  },
+  "added_by": "Gerald Press",
+  "added_date": "2026-09-10",
+  "references": "heaps2023stationary"
+}
