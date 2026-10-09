@@ -10,6 +10,7 @@ on:
     branches:
       - master
       - development
+  workflow_dispatch:
 
 jobs:
   models:
@@ -42,7 +43,7 @@ jobs:
       - name: Install packages
         run: |
           R -e 'install.packages(c("remotes"))'
-          R -e 'remotes::install_github("stan-dev/posteriordb-r", dependencies = TRUE)'
+          R -e 'remotes::install_github("Sliderland/posteriordb-r@stack/6-bundles", dependencies = TRUE)'
 
       - name: Set PDB path
         run: export PDB_PATH=$GITHUB_WORKSPACE;echo $PDB_PATH;echo PDB_PATH="$PDB_PATH" >> ~/.Renviron;ls $PDB_PATH
