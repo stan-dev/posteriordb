@@ -1,0 +1,24 @@
+{
+  "name": "twocpt_pk_ode",
+  "keywords": ["synthetic", "pharmacokinetic", "ode", "two_compartment"],
+  "title": "Two-compartment pharmacokinetic ODE model",
+  "description": "Two-compartment pharmacokinetic ODE model with first-order absorption from Flexible and efficient Bayesian pharmacometrics modeling using Stan and Torsten, Part I",
+  "urls": "https://arxiv.org/pdf/2109.10184",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/twocpt_pk_ode.stan",
+      "stan_version": ">=2.26.0",
+      "dependencies": [
+        {
+          "name": "Torsten",
+          "version": "0.92.0",
+          "url": "https://github.com/metrumresearchgroup/Torsten"
+        }
+      ]
+    }
+  },
+  "references": "margossian2022pharmacometrics",
+  "added_date": "2026-06-16",
+  "added_by": "Colin Pochart",
+  "licence": "BSD3"
+}
