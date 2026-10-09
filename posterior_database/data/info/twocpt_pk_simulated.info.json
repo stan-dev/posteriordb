@@ -1,0 +1,11 @@
+{
+  "name": "twocpt_pk_simulated",
+  "keywords": ["synthetic", "pharmacokinetic", "ode", "two_compartment"],
+  "title": "Simulated Torsten two-compartment pharmacokinetic data",
+  "description": "Simulated single-subject pharmacokinetic data from the Torsten two-compartment model example",
+  "urls": "https://metrumresearchgroup.github.io/Torsten/example/twocpt/",
+  "data_file": "data/data/twocpt_pk_simulated.json",
+  "references": "margossian2022pharmacometrics",
+  "added_date": "2026-06-16",
+  "added_by": "Colin Pochart"
+}
