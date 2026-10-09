@@ -2,7 +2,10 @@
   "name": "low_dim_gauss_mix_collapse",
   "title": "A Two-Dimensional (unordered) Gaussian Mixture Model",
   "description": "A Two-Dimensional Gaussian Mixture Model",
-  "keywords": ["stan_benchmark", "mixture model"],
+  "keywords": [
+    "stan_benchmark",
+    "mixture model"
+  ],
   "references": null,
   "urls": "https://github.com/stan-dev/stat_comp_benchmarks/tree/master/benchmarks/low_dim_gauss_mix_collapse",
   "prior": {
@@ -12,6 +15,9 @@
     "stan": {
       "model_code": "models/stan/low_dim_gauss_mix_collapse.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/low_dim_gauss_mix_collapse.py"
     }
   },
   "added_by": "Mans Magnusson",

@@ -1,6 +1,17 @@
 {
   "name": "wells_interaction_model",
-  "keywords": ["wells", "ARM", "Ch.5", "logistic", "regression", "scaled", "two predictors", "arsenic", "distance", "interaction"],
+  "keywords": [
+    "wells",
+    "ARM",
+    "Ch.5",
+    "logistic",
+    "regression",
+    "scaled",
+    "two predictors",
+    "arsenic",
+    "distance",
+    "interaction"
+  ],
   "title": "2-Predictor Logistic regression model with interactions for decision to switch wells",
   "description": "Performs logistic regression using two predictors (distance from nearest safe well and arsenic levels) and their interaction.",
   "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.5",
@@ -11,6 +22,9 @@
     "stan": {
       "model_code": "models/stan/wells_interaction_model.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/wells_interaction_model.py"
     }
   },
   "licence": "BSD3"

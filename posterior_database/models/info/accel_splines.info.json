@@ -1,6 +1,9 @@
 {
   "name": "accel_splines",
-  "keywords": ["stan_benchmark", "spline"],
+  "keywords": [
+    "stan_benchmark",
+    "spline"
+  ],
   "title": "Splines for time-series data with varying mean and std",
   "prior": {
     "keywords": "stan_recommended_35dbfe6"
@@ -11,6 +14,9 @@
     "stan": {
       "model_code": "models/stan/accel_splines.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/accel_splines.py"
     }
   },
   "references": "bales2019selecting",

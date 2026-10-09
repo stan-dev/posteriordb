@@ -1,6 +1,9 @@
 {
   "name": "logistic_regression_rhs",
-  "keywords": ["stan_benchmark", "logistic regression"],
+  "keywords": [
+    "stan_benchmark",
+    "logistic regression"
+  ],
   "title": "Logistic Regression with Regularized Horseshoe Prior",
   "prior": {
     "keywords": "stan_recommended_35dbfe6"
@@ -11,6 +14,9 @@
     "stan": {
       "model_code": "models/stan/logistic_regression_rhs.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/logistic_regression_rhs.py"
     }
   },
   "references": "piironen2017sparsity",

@@ -2,7 +2,10 @@
   "name": "irt_2pl",
   "title": "Two Parameter Logistic Item Response Theory Model",
   "description": "Hierarchical item response theory model.",
-  "keywords": ["stan_benchmark", "hiearchical"],
+  "keywords": [
+    "stan_benchmark",
+    "hiearchical"
+  ],
   "references": null,
   "urls": "https://github.com/stan-dev/stat_comp_benchmarks/tree/master/benchmarks/irt_2pl",
   "prior": {
@@ -12,6 +15,9 @@
     "stan": {
       "model_code": "models/stan/irt_2pl.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/irt_2pl.py"
     }
   },
   "added_by": "Mans Magnusson",

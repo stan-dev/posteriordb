@@ -1,6 +1,9 @@
 {
   "name": "dogs_hierarchical",
-  "keywords": ["ARM", "Ch. 24"],
+  "keywords": [
+    "ARM",
+    "Ch. 24"
+  ],
   "title": "Hierarchical Logistic Mixed Effects Model",
   "prior": {
     "keywords": "stan_recommended_35dbfe6"
@@ -14,6 +17,9 @@
     "stan": {
       "model_code": "models/stan/dogs_hierarchical.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/dogs_hierarchical.py"
     }
   },
   "licence": "BSD3"

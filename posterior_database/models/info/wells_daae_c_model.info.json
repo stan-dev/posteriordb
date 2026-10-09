@@ -1,6 +1,20 @@
 {
   "name": "wells_daae_c_model",
-  "keywords": ["wells", "ARM", "Ch.5", "logistic", "regression", "scaled", "four predictors", "arsenic", "distance", "education", "community organization", "centered", "social predictor"],
+  "keywords": [
+    "wells",
+    "ARM",
+    "Ch.5",
+    "logistic",
+    "regression",
+    "scaled",
+    "four predictors",
+    "arsenic",
+    "distance",
+    "education",
+    "community organization",
+    "centered",
+    "social predictor"
+  ],
   "title": "4-Predictor logistic regression model with centered inputs for decision to switch wells",
   "description": "Performs logistic regression using four centered predictors:\n          distance from nearest safe well, arsenic levels, years in\n          education, and if the individual is associated with an active community project.\n          The association predictor is not actually predictive of switching.\n          ",
   "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.5",
@@ -11,6 +25,9 @@
     "stan": {
       "model_code": "models/stan/wells_daae_c_model.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/wells_daae_c_model.py"
     }
   },
   "licence": "BSD3"

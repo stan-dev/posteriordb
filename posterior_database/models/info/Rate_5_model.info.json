@@ -1,6 +1,11 @@
 {
   "name": "Rate_5_model",
-  "keywords": ["Trial", "Correct Answer Rate", "Beta Distribution", "Common Rate"],
+  "keywords": [
+    "Trial",
+    "Correct Answer Rate",
+    "Beta Distribution",
+    "Common Rate"
+  ],
   "title": "Common Rate of Success From Two Trials with Posterior Predictives",
   "description": "Inference of a common rate of success from two trials with posterior predictive for each trial for checking the adequacy of the model.",
   "urls": "https://github.com/stan-dev/example-models/tree/master/Bayesian_Cognitive_Modeling/ParameterEstimation/Binomial",
@@ -11,6 +16,9 @@
     "stan": {
       "model_code": "models/stan/Rate_5_model.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/Rate_5_model.py"
     }
   },
   "licence": "BSD3"

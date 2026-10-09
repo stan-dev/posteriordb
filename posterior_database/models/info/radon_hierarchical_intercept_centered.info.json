@@ -11,6 +11,9 @@
     "stan": {
       "model_code": "models/stan/radon_hierarchical_intercept_centered.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/radon_hierarchical_intercept_centered.py"
     }
   },
   "references": "gelman2006data",
