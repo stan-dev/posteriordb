@@ -5,11 +5,11 @@ verified_checks <- c(
 
 # Check that each parameter-level diagnostic has one value per parameter.
 check_diagnostic_lengths <- function(diagnostics) {
-  diagnostic_fields <- c(
-    "diagnostic_information", "effective_sample_size_bulk",
-    "effective_sample_size_tail", "r_hat", "mean_lag1_ac"
+  value_fields <- c(
+    "effective_sample_size_bulk", "effective_sample_size_tail", "r_hat",
+    "mean_lag1_ac"
   )
-  missing_fields <- setdiff(diagnostic_fields, names(diagnostics))
+  missing_fields <- setdiff(value_fields, names(diagnostics))
   if (length(missing_fields)) {
     return(paste0(
       "'diagnostics' is missing fields: ",
@@ -17,26 +17,50 @@ check_diagnostic_lengths <- function(diagnostics) {
     ))
   }
 
+  # Both spellings occur in existing posteriordb metadata.
   diagnostic_information <- diagnostics$diagnostic_information
-  if (!is.list(diagnostic_information) ||
-      !is.list(diagnostic_information$names)) {
-    return("'diagnostic_information.names' must be a list")
+  if (is.null(diagnostic_information)) {
+    diagnostic_information <- diagnostics$diagnostics_information
   }
-  parameter_names <- diagnostic_information$names
-
-  value_fields <- diagnostic_fields[-1]
-  invalid_lists <- value_fields[!vapply(
-    diagnostics[value_fields], is.list, logical(1)
-  )]
-  if (length(invalid_lists)) {
+  if (!is.list(diagnostic_information) ||
+      is.null(diagnostic_information$names)) {
     return(paste0(
-      "diagnostic fields must be lists: ",
-      paste(invalid_lists, collapse = ", ")
+      "'diagnostic_information.names' or ",
+      "'diagnostics_information.names' is required"
+    ))
+  }
+  parameter_names <- unlist(
+    diagnostic_information$names,
+    recursive = TRUE,
+    use.names = FALSE
+  )
+  if (!is.character(parameter_names) || !length(parameter_names) ||
+      any(!nzchar(parameter_names))) {
+    return("diagnostic parameter names must be non-empty strings")
+  }
+
+  values <- lapply(
+    diagnostics[value_fields],
+    unlist,
+    recursive = TRUE,
+    use.names = FALSE
+  )
+  invalid_values <- value_fields[!vapply(
+    values,
+    function(value) {
+      is.numeric(value) && length(value) && all(is.finite(value))
+    },
+    logical(1)
+  )]
+  if (length(invalid_values)) {
+    return(paste0(
+      "diagnostic fields must contain finite numeric values: ",
+      paste(invalid_values, collapse = ", ")
     ))
   }
 
   expected_length <- length(parameter_names)
-  actual_lengths <- lengths(diagnostics[value_fields])
+  actual_lengths <- lengths(values)
   mismatched <- value_fields[actual_lengths != expected_length]
   if (length(mismatched)) {
     return(vapply(mismatched, function(field) {
@@ -71,17 +95,27 @@ check_chain_diagnostic_lengths <- function(diagnostics) {
     return("'nchains' must be a non-negative integer")
   }
 
-  invalid_lists <- value_fields[!vapply(
-    diagnostics[value_fields], is.list, logical(1)
+  values <- lapply(
+    diagnostics[value_fields],
+    unlist,
+    recursive = TRUE,
+    use.names = FALSE
+  )
+  invalid_values <- value_fields[!vapply(
+    values,
+    function(value) {
+      is.numeric(value) && length(value) && all(is.finite(value))
+    },
+    logical(1)
   )]
-  if (length(invalid_lists)) {
+  if (length(invalid_values)) {
     return(paste0(
-      "chain diagnostic fields must be lists: ",
-      paste(invalid_lists, collapse = ", ")
+      "chain diagnostic fields must contain finite numeric values: ",
+      paste(invalid_values, collapse = ", ")
     ))
   }
 
-  actual_lengths <- lengths(diagnostics[value_fields])
+  actual_lengths <- lengths(values)
   mismatched <- value_fields[actual_lengths != nchains]
   if (length(mismatched)) {
     return(vapply(mismatched, function(field) {

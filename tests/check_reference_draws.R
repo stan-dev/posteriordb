@@ -1,6 +1,11 @@
-# Reference-draw data and companion info directories.
+# Directories containing the metadata checked for newly added files.
+database_directory <- "posterior_database"
+model_info_directory <- file.path(database_directory, "models", "info")
 reference_draws_directory <- file.path(
-  "posterior_database", "reference_posteriors", "draws"
+  database_directory, "reference_posteriors", "draws"
+)
+summary_statistics_directory <- file.path(
+  database_directory, "reference_posteriors", "summary_statistics"
 )
 reference_paths <- list(
   draws = file.path(reference_draws_directory, "draws"),
@@ -8,6 +13,8 @@ reference_paths <- list(
 )
 source("tests/check_reference_draws_zip.R")
 source("tests/check_reference_draws_info.R")
+source("tests/check_model_info.R")
+source("tests/check_summary_statistics_info.R")
 
 # Get files added between the PR base and head commits.
 get_added_files <- function(base_sha, head_sha, directory) {
@@ -50,6 +57,28 @@ draw_files_for_info <- function(paths) {
   file.path(reference_paths$draws, paste0(draw_names, ".json.zip"))
 }
 
+# Find each summary statistic's companion info file, and vice versa.
+info_files_for_summary_statistics <- function(paths) {
+  vapply(paths, function(path) {
+    statistic_directory <- dirname(dirname(path))
+    statistic_name <- sub("\\.json$", "", basename(path))
+    file.path(statistic_directory, "info", paste0(statistic_name, ".info.json"))
+  }, character(1), USE.NAMES = FALSE)
+}
+
+summary_statistic_files_for_info <- function(paths) {
+  vapply(paths, function(path) {
+    statistic_directory <- dirname(dirname(path))
+    statistic <- basename(statistic_directory)
+    posterior_name <- sub("\\.info\\.json$", "", basename(path))
+    file.path(
+      statistic_directory,
+      statistic,
+      paste0(posterior_name, ".json")
+    )
+  }, character(1), USE.NAMES = FALSE)
+}
+
 # Run each check on each file and collect readable failures.
 run_file_checks <- function(paths, checks) {
   unlist(lapply(paths, function(path) {
@@ -79,11 +108,11 @@ if (length(args) != 2L) {
   stop("Usage: Rscript tests/check_reference_draws.R <base-sha> <head-sha>")
 }
 
-# Discover added files once, then select draw archives and info files.
+# Discover added files once, then select the supported metadata and archives.
 added_files <- get_added_files(
   base_sha = args[[1]],
   head_sha = args[[2]],
-  directory = reference_draws_directory
+  directory = database_directory
 )
 zip_files <- filter_files(
   paths = added_files,
@@ -95,8 +124,29 @@ added_info_files <- filter_files(
   directory = reference_paths$info,
   pattern = "\\.info\\.json$"
 )
-if (!length(zip_files) && !length(added_info_files)) {
-  message("No newly added reference-draw files to check.")
+model_info_files <- filter_files(
+  paths = added_files,
+  directory = model_info_directory,
+  pattern = "\\.info\\.json$"
+)
+summary_info_files <- added_files[
+  startsWith(added_files, paste0(summary_statistics_directory, "/")) &
+    grepl("/info/[^/]+\\.info\\.json$", added_files)
+]
+summary_statistic_files <- added_files[
+  startsWith(added_files, paste0(summary_statistics_directory, "/")) &
+    grepl("\\.json$", added_files) &
+    !grepl("\\.info\\.json$", added_files)
+]
+summary_statistic_files <- summary_statistic_files[vapply(
+  summary_statistic_files,
+  function(path) basename(dirname(path)) == basename(dirname(dirname(path))),
+  logical(1)
+)]
+if (!length(zip_files) && !length(added_info_files) &&
+    !length(model_info_files) && !length(summary_info_files) &&
+    !length(summary_statistic_files)) {
+  message("No newly added model or reference-posterior info files to check.")
   quit(status = 0L)
 }
 
@@ -110,18 +160,36 @@ info_files <- unique(c(
 failures <- c(
   run_file_checks(zip_files, draw_zip_checks),
   run_file_checks(info_files, info_file_checks),
-  run_file_checks(draw_files_for_info(added_info_files), list())
+  run_file_checks(draw_files_for_info(added_info_files), list()),
+  run_file_checks(
+    model_info_files,
+    list(function(path) check_model_info(path, database_directory))
+  ),
+  run_file_checks(summary_info_files, list(check_summary_statistics_info)),
+  run_file_checks(
+    summary_statistic_files_for_info(summary_info_files),
+    list()
+  ),
+  run_file_checks(
+    info_files_for_summary_statistics(summary_statistic_files),
+    list(check_summary_statistics_info)
+  )
 )
 
 if (length(failures)) {
   stop(
-    "Invalid reference-draw file(s):\n- ",
+    "Invalid submitted metadata or reference-draw file(s):\n- ",
     paste(failures, collapse = "\n- "),
     call. = FALSE
   )
 }
 
 message(
-  "Checked ", length(zip_files), " new reference-draw ZIP file(s) and ",
-  length(added_info_files), " new info file(s)."
+  "Checked ", length(zip_files), " reference-draw ZIP file(s), ",
+  length(added_info_files), " draw info file(s), ",
+  length(model_info_files), " model info file(s), and ",
+  length(unique(c(
+    summary_info_files,
+    info_files_for_summary_statistics(summary_statistic_files)
+  ))), " summary-statistic info file(s)."
 )
