@@ -15,6 +15,7 @@
     }
   },
   "diagnostics": {
+<<<<<<< HEAD
     "diagnostic_information": {
       "names": ["y", "x[1]", "x[2]", "x[3]", "x[4]", "x[5]", "x[6]", "x[7]", "x[8]", "x[9]"]
     },
@@ -35,6 +36,11 @@
       2.2322,
       2.1025
     ],
+=======
+    "max_rhat": 1.0008,
+    "min_ess_bulk": 9191.8161,
+    "min_ess_tail": 9215.1058,
+>>>>>>> 4438f4b90f14e6f69adf6e9afb4f21b552c2707c
     "divergent_transitions": 0
   },
   "checks_made": {
@@ -47,9 +53,16 @@
   },
   "comments": null,
   "added_by": "Michal Kaminski",
+<<<<<<< HEAD
   "added_date": "2026-10-08",
   "versions": {
     "rstan_version": "2.32.7",
     "r_version": "R version 4.6.1 (2026-06-24)"
+=======
+  "added_date": "2026-09-25",
+  "versions": {
+    "rstan_version": "2.32.7",
+    "r_version": "R version 4.2.1 (2022-06-23 ucrt)"
+>>>>>>> 4438f4b90f14e6f69adf6e9afb4f21b552c2707c
   }
 }
