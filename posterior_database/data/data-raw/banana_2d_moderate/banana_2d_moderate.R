@@ -1,0 +1,1 @@
+banana_2d_moderate <- list(D = 2, b = 0.03)

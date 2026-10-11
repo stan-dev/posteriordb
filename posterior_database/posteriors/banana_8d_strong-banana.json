@@ -1,0 +1,21 @@
+{
+  "name": "banana_8d_strong-banana",
+  "keywords": [
+    "synthetic",
+    "banana"
+  ],
+  "urls": [
+    "https://doi.org/10.1007/s001800050022"
+  ],
+  "model_name": "banana",
+  "data_name": "banana_8d_strong",
+  "reference_posterior_name": null,
+  "references": [],
+  "dimensions": {
+    "x": 1,
+    "y": 1,
+    "y_rest": 6
+  },
+  "added_date": "2026-10-01",
+  "added_by": "Michal Kaminski"
+}
