@@ -1,0 +1,38 @@
+{
+  "name": "neals_funnel-neals_funnel_noncentered",
+  "inference": {
+    "method": "stan_sampling",
+    "method_arguments": {
+      "chains": 10,
+      "iter": 20000,
+      "warmup": 10000,
+      "thin": 10,
+      "seed": 42,
+      "control": {
+        "adapt_delta": 0.99,
+        "max_treedepth": 15
+      }
+    }
+  },
+  "diagnostics": {
+    "max_rhat": 1.0008,
+    "min_ess_bulk": 9191.8161,
+    "min_ess_tail": 9215.1058,
+    "divergent_transitions": 0
+  },
+  "checks_made": {
+    "ndraws_is_10k": true,
+    "nchains_is_gte_4": true,
+    "ess_within_bounds": true,
+    "r_hat_below_1_01": true,
+    "efmi_above_0_2": true,
+    "abs_mean_lag1_ac_below_0_05": true
+  },
+  "comments": null,
+  "added_by": "Michal Kaminski",
+  "added_date": "2026-09-25",
+  "versions": {
+    "rstan_version": "2.32.7",
+    "r_version": "R version 4.2.1 (2022-06-23 ucrt)"
+  }
+}
