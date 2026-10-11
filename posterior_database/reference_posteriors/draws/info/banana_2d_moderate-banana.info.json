@@ -1,0 +1,55 @@
+{
+  "name": "banana_2d_moderate-banana",
+  "inference": {
+    "method": "stan_sampling",
+    "method_arguments": {
+      "chains": 10,
+      "iter": 20000,
+      "warmup": 10000,
+      "thin": 10,
+      "seed": 42,
+      "control": {
+        "adapt_delta": 0.99,
+        "max_treedepth": 15
+      }
+    }
+  },
+  "diagnostics": {
+    "diagnostic_information": {
+      "names": ["x", "y"]
+    },
+    "ndraws": 10000,
+    "nchains": 10,
+    "effective_sample_size_bulk": [6510.2685, 7640.139],
+    "effective_sample_size_tail": [6142.1385, 6905.1119],
+    "r_hat": [1.0009, 1.0012],
+    "bfmi": [
+      1.7731,
+      1.8629,
+      1.8569,
+      2.0295,
+      1.914,
+      2.1095,
+      1.9714,
+      1.7629,
+      1.9073,
+      1.7881
+    ],
+    "divergent_transitions": 0
+  },
+  "checks_made": {
+    "ndraws_is_10k": true,
+    "nchains_is_gte_4": true,
+    "ess_within_bounds": true,
+    "r_hat_below_1_01": true,
+    "efmi_above_0_2": true,
+    "abs_mean_lag1_ac_below_0_05": false
+  },
+  "comments": null,
+  "added_by": "Michal Kaminski",
+  "added_date": "2026-10-11",
+  "versions": {
+    "rstan_version": "2.32.7",
+    "r_version": "R version 4.2.1 (2022-06-23 ucrt)"
+  }
+}
