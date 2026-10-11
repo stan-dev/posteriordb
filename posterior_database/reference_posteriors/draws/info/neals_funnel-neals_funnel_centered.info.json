@@ -1,0 +1,55 @@
+{
+  "name": "neals_funnel-neals_funnel_centered",
+  "inference": {
+    "method": "stan_sampling",
+    "method_arguments": {
+      "chains": 10,
+      "iter": 20000,
+      "warmup": 10000,
+      "thin": 10,
+      "seed": 42,
+      "control": {
+        "adapt_delta": 0.99,
+        "max_treedepth": 15
+      }
+    }
+  },
+  "diagnostics": {
+    "diagnostic_information": {
+      "names": ["y", "x[1]", "x[2]", "x[3]", "x[4]", "x[5]", "x[6]", "x[7]", "x[8]", "x[9]"]
+    },
+    "ndraws": 10000,
+    "nchains": 10,
+    "effective_sample_size_bulk": [282.4872, 9810.6994, 10099.2314, 8909.4292, 10192.3622, 9709.2037, 10092.2162, 9919.0525, 9613.052, 10052.0855],
+    "effective_sample_size_tail": [50.3993, 4715.3083, 4461.8645, 4206.0333, 4322.3581, 4352.3475, 4691.9781, 4423.6391, 4338.9986, 4333.6766],
+    "r_hat": [1.0337, 1.0283, 1.0153, 1.0158, 1.0191, 1.027, 1.0118, 1.022, 1.0189, 1.0257],
+    "bfmi": [
+      0.339,
+      0.4151,
+      0.4212,
+      0.4567,
+      0.3582,
+      0.4574,
+      0.3943,
+      0.3981,
+      0.542,
+      0.3167
+    ],
+    "divergent_transitions": 29
+  },
+  "checks_made": {
+    "ndraws_is_10k": true,
+    "nchains_is_gte_4": true,
+    "ess_within_bounds": true,
+    "r_hat_below_1_01": false,
+    "efmi_above_0_2": true,
+    "abs_mean_lag1_ac_below_0_05": false
+  },
+  "comments": null,
+  "added_by": "Michal Kaminski",
+  "added_date": "2026-10-11",
+  "versions": {
+    "rstan_version": "2.32.7",
+    "r_version": "R version 4.2.1 (2022-06-23 ucrt)"
+  }
+}
