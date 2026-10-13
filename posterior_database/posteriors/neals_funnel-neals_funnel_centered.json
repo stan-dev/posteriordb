@@ -2,7 +2,7 @@
     "name": "neals_funnel-neals_funnel_centered",
     "model_name": "neals_funnel_centered",
     "data_name": "neals_funnel",
-    "reference_posterior_name": null,
+    "reference_posterior_name": "neals_funnel-neals_funnel_centered",
     "dimensions": {
         "y": 1,
         "x": 9

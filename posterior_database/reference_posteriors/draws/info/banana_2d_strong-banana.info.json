@@ -23,7 +23,7 @@
     "effective_sample_size_bulk": [7491.7754, 7353.2875],
     "effective_sample_size_tail": [7509.2846, 7273.6134],
     "r_hat": [1.0004, 1.0005],
-    "bfmi": [
+    "expected_fraction_of_missing_information": [
       1.8791,
       1.7795,
       1.8745,
