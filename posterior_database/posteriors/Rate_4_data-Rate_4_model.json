@@ -1,12 +1,12 @@
 {
-  "keywords": ["binomial"],
+  "keywords": [
+    "binomial"
+  ],
   "urls": "https://github.com/stan-dev/example-models/tree/master/Bayesian_Cognitive_Modeling/ParameterEstimation/Binomial",
   "references": "lee2013cognitive",
   "dimensions": {
     "theta": 1,
-    "thetaprior": 1,
-    "postpredk": 1,
-    "priorpredk": 1
+    "thetaprior": 1
   },
   "reference_posterior_name": null,
   "added_date": "2021-06-30",

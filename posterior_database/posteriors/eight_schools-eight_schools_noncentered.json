@@ -1,13 +1,14 @@
 {
   "name": "eight_schools-eight_schools_noncentered",
   "keywords": [
-    "stan benchmark", "pathfinder paper"
+    "stan benchmark",
+    "pathfinder paper"
   ],
   "model_name": "eight_schools_noncentered",
   "reference_posterior_name": "eight_schools-eight_schools_noncentered",
   "data_name": "eight_schools",
   "dimensions": {
-    "theta": 8,
+    "theta_trans": 8,
     "mu": 1,
     "tau": 1
   },

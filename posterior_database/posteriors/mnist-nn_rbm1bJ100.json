@@ -1,14 +1,21 @@
 {
   "name": "mnist-nn_rbm1bJ100",
-  "keywords": ["neural net", "multimodal"],
+  "keywords": [
+    "neural net",
+    "multimodal"
+  ],
   "urls": null,
   "model_name": "nn_rbm1bJ100",
   "data_name": "mnist",
   "reference_posterior_name": null,
   "references": null,
   "dimensions": {
-    "alpha": 78500,
-    "beta": 909
+    "sigma2_alpha": 1,
+    "sigma2_beta": 1,
+    "alpha": 78400,
+    "beta": 900,
+    "alpha1": 100,
+    "beta1": 9
   },
   "added_date": "2020-05-28",
   "added_by": "Mans Magnusson"

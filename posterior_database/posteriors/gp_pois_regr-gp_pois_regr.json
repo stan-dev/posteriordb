@@ -1,7 +1,8 @@
 {
   "name": "gp_pois_regr-gp_pois_regr",
   "keywords": [
-    "stan benchmark", "gaussian process model"
+    "stan benchmark",
+    "gaussian process model"
   ],
   "urls": [],
   "model_name": "gp_pois_regr",
@@ -11,7 +12,7 @@
   "dimensions": {
     "rho": 1,
     "alpha": 1,
-    "f": 11
+    "f_tilde": 11
   },
   "added_date": "2019-11-20",
   "added_by": "Mans Magnusson"

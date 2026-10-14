@@ -1,14 +1,15 @@
 {
-  "keywords": ["bpa book", "Poisson model"],
+  "keywords": [
+    "bpa book",
+    "Poisson model"
+  ],
   "urls": "https://github.com/stan-dev/example-models/tree/master/BPA/Ch.03",
   "references": "kery2011population",
   "dimensions": {
     "alpha": 1,
     "beta1": 1,
     "beta2": 1,
-    "beta3": 1,
-    "log_lambda": 40,
-    "lambda": 40
+    "beta3": 1
   },
   "reference_posterior_name": null,
   "added_date": "2021-07-01",

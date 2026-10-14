@@ -1,13 +1,16 @@
 {
   "name": "radon_mn-radon_hierarchical_intercept_noncentered",
-  "keywords": ["arm book", "stan case study"],
+  "keywords": [
+    "arm book",
+    "stan case study"
+  ],
   "urls": "https://mc-stan.org/users/documentation/case-studies/radon.html",
   "model_name": "radon_hierarchical_intercept_noncentered",
   "data_name": "radon_mn",
   "reference_posterior_name": null,
   "references": "gelman2006data",
   "dimensions": {
-    "alpha": 85,
+    "alpha_raw": 85,
     "beta": 2,
     "mu_alpha": 1,
     "sigma_alpha": 1,

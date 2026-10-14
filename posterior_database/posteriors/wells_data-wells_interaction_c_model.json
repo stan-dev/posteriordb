@@ -1,10 +1,14 @@
 {
-  "keywords": ["arm book", "logistic regression", "interaction"],
+  "keywords": [
+    "arm book",
+    "logistic regression",
+    "interaction"
+  ],
   "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.5",
   "references": "gelman2006data",
   "dimensions": {
     "alpha": 1,
-    "beta": 2
+    "beta": 3
   },
   "reference_posterior_name": null,
   "added_date": "2021-07-07",

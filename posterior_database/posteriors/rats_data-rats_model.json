@@ -1,5 +1,7 @@
 {
-  "keywords": ["growth curve model"],
+  "keywords": [
+    "growth curve model"
+  ],
   "urls": "https://github.com/stan-dev/example-models/tree/master/bugs_examples/vol1/rats",
   "references": "mrc1winbugs",
   "dimensions": {
@@ -7,13 +9,9 @@
     "beta": 30,
     "mu_alpha": 1,
     "mu_beta": 1,
-    "sigmasq_y": 1,
-    "sigmasq_alpha": 1,
-    "sigmasq_beta": 1,
     "sigma_y": 1,
     "sigma_alpha": 1,
-    "sigma_beta": 1,
-    "alpha0": 1
+    "sigma_beta": 1
   },
   "reference_posterior_name": null,
   "added_date": "2021-07-06",

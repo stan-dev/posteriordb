@@ -7,8 +7,8 @@
   "data_name": "state_wide_presidential_votes",
   "reference_posterior_name": null,
   "dimensions": {
-    "GP_region_std": [14, 10],
-    "GP_state_std": [14, 50],
+    "GP_region_std": 140,
+    "GP_state_std": 700,
     "year_std": 11,
     "state_std": 50,
     "region_std": 10,

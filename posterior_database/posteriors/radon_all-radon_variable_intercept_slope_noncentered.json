@@ -1,19 +1,21 @@
 {
   "name": "radon_all-radon_variable_intercept_slope_noncentered",
-  "keywords": ["stan case study"],
+  "keywords": [
+    "stan case study"
+  ],
   "urls": "https://mc-stan.org/users/documentation/case-studies/radon.html",
   "model_name": "radon_variable_intercept_slope_noncentered",
   "data_name": "radon_all",
   "reference_posterior_name": null,
   "references": "gelman2006data",
   "dimensions": {
-    "alpha": 386,
-    "beta": 386,
-    "mu_alpha": 1,
+    "sigma_y": 1,
     "sigma_alpha": 1,
-    "mu_beta": 1,
     "sigma_beta": 1,
-    "sigma_y": 1
+    "alpha_raw": 386,
+    "beta_raw": 386,
+    "mu_alpha": 1,
+    "mu_beta": 1
   },
   "added_date": "2020-05-21",
   "added_by": "Mans Magnusson"

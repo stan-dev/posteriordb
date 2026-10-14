@@ -5,8 +5,8 @@
   "reference_posterior_name": null,
   "dimensions": {
     "pi1": 2,
-    "w": [3, 4],
-    "b": [3, 4],
+    "w": 12,
+    "b": 12,
     "sigma": 3
   },
   "added_by": "Mans Magnusson",

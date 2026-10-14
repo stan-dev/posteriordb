@@ -1,13 +1,16 @@
 {
   "name": "normal_5-normal_mixture_k",
-  "keywords": ["stan examples", "mixture model"],
+  "keywords": [
+    "stan examples",
+    "mixture model"
+  ],
   "urls": "https://github.com/stan-dev/example-models/tree/master/basic_estimators",
   "model_name": "normal_mixture_k",
   "data_name": "normal_5",
   "reference_posterior_name": null,
   "references": null,
   "dimensions": {
-    "theta": 5,
+    "theta": 4,
     "mu": 5,
     "sigma": 5
   },
