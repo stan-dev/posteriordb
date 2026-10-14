@@ -1,13 +1,15 @@
 {
   "name": "radon_mn-radon_partially_pooled_noncentered",
-  "keywords": ["stan case study"],
+  "keywords": [
+    "stan case study"
+  ],
   "urls": "https://mc-stan.org/users/documentation/case-studies/radon.html",
   "model_name": "radon_partially_pooled_noncentered",
   "data_name": "radon_mn",
   "reference_posterior_name": null,
   "references": "gelman2006data",
   "dimensions": {
-    "alpha": 85,
+    "alpha_raw": 85,
     "mu_alpha": 1,
     "sigma_alpha": 1,
     "sigma_y": 1

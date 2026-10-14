@@ -1,14 +1,20 @@
 {
   "name": "bball_drive_event_1-hmm_drive_1",
-  "keywords": ["stan examples", "stan benchmark", "pathfinder paper", "hidden markov model", "multimodal"],
+  "keywords": [
+    "stan examples",
+    "stan benchmark",
+    "pathfinder paper",
+    "hidden markov model",
+    "multimodal"
+  ],
   "urls": "https://github.com/imadmali/bball-hmm/blob/master",
   "model_name": "hmm_drive_1",
   "data_name": "bball_drive_event_1",
   "reference_posterior_name": "bball_drive_event_1-hmm_drive_1",
   "references": null,
   "dimensions": {
-    "theta1": 2,
-    "theta2": 2,
+    "theta1": 1,
+    "theta2": 1,
     "phi": 2,
     "lambda": 2
   },

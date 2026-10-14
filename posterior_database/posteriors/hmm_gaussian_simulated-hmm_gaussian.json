@@ -5,7 +5,7 @@
   "reference_posterior_name": null,
   "dimensions": {
     "pi1": 2,
-    "A": [3, 2],
+    "A": 6,
     "mu": 3,
     "sigma": 3
   },
