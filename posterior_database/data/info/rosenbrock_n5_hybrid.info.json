@@ -1,0 +1,16 @@
+{
+  "name": "rosenbrock_n5_hybrid",
+  "keywords": [
+    "synthetic",
+    "rosenbrock"
+  ],
+  "title": "5D Hybrid Rosenbrock Target Distribution from Pagani et al. (2022)",
+  "description": "Synthetic dataset specifying a 5-dimensional multi-block hybrid topology (n1 = 3, n2 = 2) with parabolic parameters a = 0.05 and b = 5.0 from Pagani et al. (2022).",
+  "urls": [
+    "https://doi.org/10.1111/sjos.12532"
+  ],
+  "data_file": "data/data/rosenbrock_n5_hybrid.json",
+  "references": "pagani2022",
+  "added_date": "2026-10-15",
+  "added_by": "Upali Bera"
+}

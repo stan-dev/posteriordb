@@ -1,7 +1,7 @@
 import pymc as pm
 import pytensor.tensor as pt
 
-def make_model(data: dict) -> pm.Model:
+def make_model(data: dict, prior_only: bool = False) -> pm.Model:
     n1 = int(data["n1"])
     n2 = int(data["n2"])
     mu = float(data["mu"])
