@@ -1,0 +1,16 @@
+{
+  "name": "rosenbrock_n3_chain",
+  "keywords": [
+    "synthetic",
+    "rosenbrock"
+  ],
+  "title": "3D Rosenbrock Chain Target Distribution from Pagani et al. (2022)",
+  "description": "Synthetic dataset specifying a 3-dimensional target space (n1 = 3, n2 = 1) with parameters a = 0.05 and b = 5.0. This corresponds to Model 3 in Pagani et al. (2022) page 15, which captures the effect of increasing the number of variables in the same block. The authors note this configuration is expected to be more challenging than adding extra blocks, as the difference between the variance of the variables should be higher.",
+  "urls": [
+    "https://doi.org/10.1111/sjos.12532"
+  ],
+  "data_file": "data/data/rosenbrock_n3_chain.json",
+  "references": "pagani2022",
+  "added_date": "2026-10-15",
+  "added_by": "Upali Bera"
+}
