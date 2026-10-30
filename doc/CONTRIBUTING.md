@@ -37,3 +37,8 @@ The exact content of each information file can be found in [doc/DATABASE_CONTENT
 
 You can find an extensive vignette detailing how to add content from R [here](https://htmlpreview.github.io/?https://github.com/stan-dev/posteriordb-r/blob/main/vignettes/contributing.html).
 
+## Contributing PyMC models
+
+For PyMC models, we currently support only direct additions (see the "Add content directly" section). We encourage contributions of both new models and PyMC implementations of existing models.
+
+For a PyMC implementation of an existing model, we require the model specification, including any variable transformations, to be equivalent to the existing implementation. In particular, the posterior log densities on the _unconstrained_ parameter space must agree up to an additive constant when evaluated at a set of test points. 
