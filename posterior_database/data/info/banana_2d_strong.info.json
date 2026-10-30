@@ -1,0 +1,16 @@
+{
+  "name": "banana_2d_strong",
+  "keywords": [
+    "synthetic",
+    "banana"
+  ],
+  "title": "Strongly Twisted Banana Posterior (2D) from Haario et al. (1999)",
+  "description": "Synthetic dataset specifying a 2-dimensional target space (D = 2) with a strong parabolic curvature parameter (b = 0.10) for the twisted Gaussian banana distribution from Haario et al. (1999).",
+  "urls": [
+    "https://doi.org/10.1007/s001800050022"
+  ],
+  "data_file": "data/data/banana_2d_strong.json",
+  "references": "haario1999",
+  "added_date": "2026-10-01",
+  "added_by": "Upali Bera"
+}
