@@ -1,0 +1,57 @@
+{
+  "name": "neals_funnel-neals_funnel_noncentered",
+  "inference": {
+    "method": "stan_sampling",
+    "method_arguments": {
+      "chains": 10,
+      "iter": 20000,
+      "warmup": 10000,
+      "thin": 10,
+      "seed": 42,
+      "control": {
+        "adapt_delta": 0.99,
+        "max_treedepth": 15
+      }
+    }
+  },
+  "diagnostics": {
+    "diagnostic_information": {
+      "names": ["y", "x[1]", "x[2]", "x[3]", "x[4]", "x[5]", "x[6]", "x[7]", "x[8]", "x[9]"]
+    },
+    "ndraws": 10000,
+    "nchains": 10,
+    "effective_sample_size_bulk": [10060.9778, 9726.7003, 9894.4622, 9918.4498, 10421.7261, 10065.4639, 10016.6746, 9191.8161, 10229.3097, 9604.543],
+    "effective_sample_size_tail": [9787.1369, 9806.6319, 9732.7965, 10075.3782, 9726.6939, 9215.1058, 9992.2859, 9549.2145, 9913.3785, 9401.8841],
+    "r_hat": [1.0004, 1.0006, 0.9998, 1.0004, 1.0002, 1.0001, 0.9999, 1.0004, 1, 1.0008],
+    "expected_fraction_of_missing_information": [
+      2.0202,
+      1.9461,
+      1.9834,
+      1.9591,
+      2.0511,
+      1.9412,
+      1.9801,
+      2.0891,
+      2.2322,
+      2.1025
+    ],
+    "divergent_transitions": 0
+  },
+  "checks_made": {
+    "ndraws_is_10k": true,
+    "nchains_is_gte_4": true,
+    "ess_within_bounds": true,
+    "r_hat_below_1_01": true,
+    "efmi_above_0_2": true,
+    "abs_mean_lag1_ac_below_0_05": true
+  },
+  "comments": null,
+  "added_by": "Michal Kaminski",
+  "added_date": "2026-10-08",
+  "versions": {
+    "rstan_version": "rstan 2.32.7",
+    "r_Makevars": "",
+    "r_version": "R version 4.2.1 (2022-06-23 ucrt)",
+    "r_session": "R version 4.2.1 (2022-06-23 ucrt)\nPlatform: x86_64-w64-mingw32/x64 (64-bit)\nRunning under: Windows 10 x64 (build 26200)\n\nMatrix products: default\n\nlocale:\n[1] LC_COLLATE=English_United Kingdom.utf8 \n[2] LC_CTYPE=English_United Kingdom.utf8   \n[3] LC_MONETARY=English_United Kingdom.utf8\n[4] LC_NUMERIC=C                           \n[5] LC_TIME=English_United Kingdom.utf8    \n\nattached base packages:\n[1] stats     graphics  grDevices utils     datasets  methods   base     \n\nother attached packages:\n[1] posteriordb_0.3.6   rstan_2.32.7        StanHeaders_2.32.10\n[4] posterior_1.7.0    \n\nloaded via a namespace (and not attached):\n [1] Rcpp_1.0.12          pillar_1.11.1        compiler_4.2.1      \n [4] RColorBrewer_1.1-3   QuickJSR_1.10.0      tools_4.2.1         \n [7] pkgbuild_1.4.8       jsonlite_1.8.8       lifecycle_1.0.5     \n[10] tibble_3.2.1         gtable_0.3.6         checkmate_2.3.4     \n[13] pkgconfig_2.0.3      rlang_1.1.1          cli_3.6.1           \n[16] curl_7.1.0           parallel_4.2.1       loo_2.10.1          \n[19] gridExtra_2.3.1      dplyr_1.1.4          generics_0.1.4      \n[22] vctrs_0.6.5          stats4_4.2.1         grid_4.2.1          \n[25] tidyselect_1.2.1     glue_1.7.0           inline_0.3.21       \n[28] R6_2.6.1             processx_3.8.4       distributional_0.8.1\n[31] tensorA_0.36.2.1     ggplot2_3.5.1        farver_2.1.1        \n[34] magrittr_2.0.3       backports_1.5.1      scales_1.4.0        \n[37] ps_1.7.6             codetools_0.2-20     matrixStats_1.3.0   \n[40] sess_3.0.1           abind_1.4-8          utf8_1.2.4          \n[43] V8_8.2.0             RcppParallel_5.1.7  "
+  }
+}
