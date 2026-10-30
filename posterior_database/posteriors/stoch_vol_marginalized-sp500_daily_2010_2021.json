@@ -1,9 +1,9 @@
 {
-  "name": "stochastic_volatility-stochastic_volatility",
+  "name": "stoch_vol_marginalized-sp500_daily_2010_2021",
   "keywords": ["stan benchmark", "stochastic volatility", "time series", "nuts paper"],
   "urls": "https://arxiv.org/abs/1111.4246",
-  "model_name": "stochastic_volatility",
-  "data_name": "stochastic_volatility",
+  "model_name": "stoch_vol_marginalized",
+  "data_name": "sp500_daily_2010_2021",
   "reference_posterior_name": null,
   "references": ["hoffman2014nuts"],
   "dimensions": {

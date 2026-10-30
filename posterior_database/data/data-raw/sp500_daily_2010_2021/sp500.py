@@ -10,12 +10,13 @@ TICKER = "^GSPC"          # S&P 500 index on Yahoo Finance
 START = "2010-01-01"
 END = "2022-01-01"
 N_DAYS = 3000             # number of prices T (Hoffman & Gelman use "3000 days")
+DATA_NAME = "sp500_daily_2010_2021"
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 CSV_PATH = os.path.join(HERE, "sp500_raw.csv")
 DATA_DIR = os.path.normpath(os.path.join(HERE, "..", "..", "data"))
-JSON_NAME = "stochastic_volatility.json"
-ZIP_PATH = os.path.join(DATA_DIR, "stochastic_volatility.json.zip")
+JSON_NAME = f"{DATA_NAME}.json"
+ZIP_PATH = os.path.join(DATA_DIR, f"{JSON_NAME}.zip")
 
 
 # --- Step 1: get the raw price series (download once, then cache) ------------
