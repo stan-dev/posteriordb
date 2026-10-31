@@ -1,0 +1,25 @@
+{
+  "name": "hierarchical_football_betting_data-hierarchical_football_betting_model",
+  "model_name": "hierarchical_football_betting_model",
+  "data_name": "hierarchical_football_betting_data",
+  "reference_posterior_name": null,
+  "dimensions": {
+    "mu": 1,
+    "home": 1,
+    "sigma2_att": 1,
+    "sigma2_def": 1,
+    "mu_att": 1,
+    "mu_def": 1,
+    "tau1": 1,
+    "tau2": 1,
+    "z_att": 350,
+    "z_def": 350,
+    "p": 3420,
+    "lambda1": 3420,
+    "lambda2": 3420,
+    "lambda1_test": 380,
+    "lambda2_test": 380
+  },
+  "added_by": "Gilbert Annersten",
+  "added_date": "2026-10-31"
+}

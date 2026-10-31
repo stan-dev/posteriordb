@@ -1,0 +1,10 @@
+{
+  "name": "hierarchical_football_betting_data",
+  "keywords": ["hierarchical", "betting", "football"],
+  "title": "Premier League data for the hierarchical football model",
+  "description": "The data contains information for the match scores and three-way bookmaker odds from Premier League seasons 2007-08 through 2016-17. Bookmaker implied goal rates have been computed through the Nelder-Mead algorithm.",
+  "references": "Egidi2018",
+  "added_date": "2026-10-31",
+  "added_by": "Gilbert Annersten",
+  "data_file": "data/data/hierarchical_football_betting_data.json"
+}
