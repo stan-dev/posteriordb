@@ -59,7 +59,7 @@ parameters {
 
   vector<lower=0, upper=1>[M] p;        // Match-specific mixing weights.
 
-  // model estimates it from S bookmakers' values in eq. 3.7.
+  // Model estimates it from S bookmakers' values in eq. 3.7,
   // and averages it with historical theta using weight p in eq. 3.3.
   vector<lower=0>[M] lambda1; // Home team, training matches.
   vector<lower=0>[M] lambda2; // Away team, training matches.
