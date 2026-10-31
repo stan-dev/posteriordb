@@ -1,0 +1,14 @@
+{
+  "name": "hierarchical_football_betting_model",
+  "keywords": ["hierarchical", "betting", "football"],
+  "title": "Hierarchical football betting model",
+  "description": "A hierarchical model utilising match scores and bookmaker odds.",
+  "references": "Egidi2018",
+  "added_by": "Gilbert Annersten",
+  "added_date": "2026-10-31",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/hierarchical_football_betting_model.stan"
+    }
+  }
+}
