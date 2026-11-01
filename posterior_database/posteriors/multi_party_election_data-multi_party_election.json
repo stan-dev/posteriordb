@@ -1,0 +1,25 @@
+{
+  "name": "multi_party_election_data-multi_party_election",
+  "model_name": "multi_party_election",
+  "data_name": "multi_party_election_data",
+  "reference_posterior_name": null,
+  "dimensions": {
+    "v_mis": 6,
+    "vE": 6,
+    "b0_raw": 19,
+    "b_raw": 57,
+    "drift_b0": 1,
+    "drift": 3,
+    "sigma_b0": 1,
+    "sigma_b": 3,
+    "S_cor": 15,
+    "sigma_evo": 6,
+    "z": 2190,
+    "h_z": 36,
+    "S_shock_cor": 15,
+    "sigma_shock": 6,
+    "shock_z": 6
+  },
+  "added_by": "Fredrik Amcoff",
+  "added_date": "2026-11-01"
+}
