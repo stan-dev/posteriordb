@@ -1,0 +1,15 @@
+{
+  "name": "multi_party_election",
+  "title": "Dynamic model for forecasting elections in multi-party elections.",
+  "description": "Replication of Stoetzer & Neunhoeffer (2018), applied to the German federal election 2017.",
+  "keywords": ["Multi-party election", "Public opinion polls", "German elections", "Dynamic Bayesian models"],
+  "urls": "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/MLYNX0",
+  "references": "stoetzer2019",
+  "added_by": "Fredrik Amcoff",
+  "added_date": "2026-11-01",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/multi_party_election.stan"
+    }
+  }
+}

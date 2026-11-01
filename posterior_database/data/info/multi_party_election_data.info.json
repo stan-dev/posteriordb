@@ -1,0 +1,11 @@
+{
+  "name": "multi_party_election_data",
+  "title": "Structural data and poll data used in Stoetzer & Neunhoeffer (2018).",
+  "description": "Structural data and poll data (up until 2 days before election day) for predicting the 2017 German federal election.",
+  "keywords": ["Multi-party election", "Public opinion polls", "German federal elections"],
+  "urls": "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/MLYNX0",
+  "references": "data_stoetzer2019",
+  "added_by": "Fredrik Amcoff",
+  "added_date": "2026-11-01",
+  "data_file": "data/data/multi_party_election_data.json"
+}
