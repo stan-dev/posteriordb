@@ -1,0 +1,16 @@
+{
+  "name": "work_performance",
+  "title": "Bayesian hierarchical model of self-control and work performance",
+  "description": "Bayesian hierarchical normal model reproducing the fully adjusted Model 2 from Baumann, Danilov, and Stavrova (2023). Includes correlated participant-specific random intercepts and time slopes, a self-control-by-time interaction, and demographic, work-related, and Big Five covariates. Uses a non-centred parameterisation.",
+  "keywords": ["hierarchical model", "random intercept", "random slope", "self-control", "work-from-home", "productivity"],
+  "references": "Baumann2023SelfControl",
+  "urls": "https://doi.org/10.1371/journal.pone.0282862",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/work_performance.stan",
+      "stan_version": ">=2.39.0"
+    }
+  },
+  "added_by": "Rahul Rehman",
+  "added_date": "2026-11-02"
+}
