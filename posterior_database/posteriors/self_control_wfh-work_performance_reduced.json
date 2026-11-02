@@ -1,0 +1,9 @@
+{
+  "name": "self_control_wfh-work_performance_reduced",
+  "model_name": "work_performance",
+  "data_name": "self_control_wfh",
+  "reference_posterior_name": "self_control_wfh-work_performance_reduced",
+  "dimensions": [],
+  "added_by": "Rahul Rehman",
+  "added_date": "2026-11-02"
+}
