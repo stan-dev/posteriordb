@@ -1,0 +1,11 @@
+{
+  "name": "self_control_wfh",
+  "title": "Self-control and performance while working from home",
+  "added_by": "Rahul Rehman",
+  "added_date": "2026-11-02",
+  "references": "Baumann2023SelfControl",
+  "description": "Model-ready data used to reproduce the fully adjusted Model 2 from Baumann, Danilov, and Stavrova (2023). The dataset contains 750 observations from 250 participants, with three observations per participant.",
+  "urls": "https://doi.org/10.1371/journal.pone.0282862",
+  "keywords": ["self-control", "work-from-home", "productivity", "hierarchical model"],
+  "data_file": "data/data/self_control_wfh.json"
+}
