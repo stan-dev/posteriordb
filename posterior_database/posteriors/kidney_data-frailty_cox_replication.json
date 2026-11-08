@@ -1,0 +1,15 @@
+{
+  "name": "kidney_data-frailty_cox_replication",
+  "keywords": ["hazard regression", "frailty", "survival analysis", "survival", "kidney", "infection"],
+  "urls": ["https://doi.org/10.2307/2532138", "https://search.r-project.org/CRAN/refmans/survival/html/kidney.html"],
+  "model_name": "frailty_cox_replication",
+  "data_name": "kidney_data",
+  "reference_posterior_name": null,
+  "references": ["mcgilchrist1991regression"],
+  "dimensions": {
+    "beta": 5,
+    "u": 37
+  },
+  "added_by": "Isac Kanon, Julius Searancke, Thauri Dattadeen",
+  "added_date": "2026-11-01"
+}

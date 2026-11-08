@@ -1,0 +1,17 @@
+{
+  "name": "kidney_data",
+  "title": "Kidney Survival Data",
+  "description": "Data on kidney catheter infections for 38 patients and their recurrence times. From the survival package in R",
+  "keywords": [
+    "survival",
+    "kidney",
+    "infection"
+  ],
+  "urls": [
+    "https://search.r-project.org/CRAN/refmans/survival/html/kidney.html"
+  ],
+  "references": ["mcgilchrist1991regression"],
+  "added_by": "Isac Kanon, Julius Searancke, Thauri Dattadeen",
+  "added_date": "2026-11-01",
+  "data_file": "data/data/kidney_data.json"
+}

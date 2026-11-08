@@ -1,0 +1,24 @@
+{
+  "name": "frailty_cox_replication",
+  "title": "Replication of Cox Frailty Partial Likelihood including Frailties",
+  "description": "Cox proportional hazards model with a shared log-normal frailty per patient and a flat prior on the regression coefficients. Replication of McGilchrist and Aisbett (1991).",
+  "keywords": [
+    "hazard regression",
+    "frailty",
+    "survival analysis",
+    "regression"
+  ],
+  "urls": [
+    "https://doi.org/10.2307/2532138",
+    "https://search.r-project.org/CRAN/refmans/survival/html/kidney.html"
+  ],
+  "references": ["mcgilchrist1991regression"],
+  "added_by": "Isac Kanon, Julius Searancke, Thauri Dattadeen",
+  "added_date": "2026-11-01",
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/frailty_cox_replication.stan",
+      "stan_version": ">=2.36.0"
+    }
+  }
+}
