@@ -1,0 +1,16 @@
+{
+    "name": "german_credit_hlr_nc",
+    "title": "German Credit Hierarchical Logistic Regression (Non-Centered Parameterization)",
+    "added_by": "Michal Kaminski",
+    "added_date": "2026-11-09",
+    "description": "Hierarchical Bayesian logistic regression for the UCI Statlog German credit data, based on the model used in the empirical evaluation of the No-U-Turn Sampler (Hoffman and Gelman, 2014, Section 4.1.3). The predictors are the 24 standardized numeric attributes expanded with all 276 pairwise interactions, giving 300 coefficients. The intercept and coefficients share a normal prior with mean 0 and unknown variance sigma2, which is given an exponential prior with rate 0.01 (mean and standard deviation 100). This version uses a non-centered parameterization: the intercept and coefficients are expressed as sqrt(sigma2) times standard normal variables (alpha_raw, beta_raw), which reduces the dependence between the variance and the coefficients in the space the sampler explores. The implied posterior over alpha, beta and sigma2 is identical to the centered version.",
+    "model_implementations": {
+        "stan": {
+            "model_code": "models/stan/german_credit_hlr_nc.stan"
+        },
+        "pymc": {
+            "model_code": "models/pymc/german_credit_hlr_nc.py"
+        }
+    },
+    "references": "hoffman2014nuts"
+}

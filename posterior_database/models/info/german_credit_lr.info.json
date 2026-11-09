@@ -1,0 +1,16 @@
+{
+    "name": "german_credit_lr",
+    "title": "German Credit Bayesian Logistic Regression",
+    "added_by": "Michal Kaminski",
+    "added_date": "2026-11-09",
+    "description": "Bayesian logistic regression for the UCI Statlog German credit data (1000 customers, 24 standardized numeric predictors), as used in the empirical evaluation of the No-U-Turn Sampler (Hoffman and Gelman, 2014, Section 4.1.2). The binary response indicates whether a customer is a good (1) or bad (0) credit risk. The intercept and the 24 regression coefficients are given independent weakly informative normal priors with mean 0 and variance 100 (standard deviation 10). The posterior has 25 parameters and serves as a relatively well-conditioned baseline.",
+    "model_implementations": {
+        "stan": {
+            "model_code": "models/stan/german_credit_lr.stan"
+        },
+        "pymc": {
+            "model_code": "models/pymc/german_credit_lr.py"
+        }
+    },
+    "references": "hoffman2014nuts"
+}
