@@ -1,0 +1,19 @@
+{
+  "name": "german_credit_interactions",
+  "keywords": [
+    "german credit",
+    "logistic regression",
+    "NUTS paper"
+  ],
+  "title": "German credit data with pairwise interactions (300 predictors)",
+  "description": "UCI Statlog German credit (german.data-numeric), 1000 customers. 24 standardized main effects followed by all 276 pairwise products (j < k, itertools.combinations order) of the standardized main effects, re-standardized to mean 0 / variance 1. No squared terms. y = 1 good, 0 bad. As used in Hoffman & Gelman (2014), Sec. 4.1.3.",
+  "urls": [
+    "https://archive.ics.uci.edu/dataset/144/statlog+german+credit+data",
+    "https://jmlr.org/papers/v15/hoffman14a.html"
+  ],
+  "references": [
+    "hoffman2014nuts"
+  ],
+  "added_date": "2026-11-06",
+  "added_by": "Michał Kamiński"
+}
