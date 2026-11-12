@@ -1,6 +1,6 @@
 data {
   int<lower=0> N;
-  int<lower=0> D;                 // 24
+  int<lower=0> D;                 
   matrix[N, D] X;                 // standardized predictors
   array[N] int<lower=0, upper=1> y;
 }
