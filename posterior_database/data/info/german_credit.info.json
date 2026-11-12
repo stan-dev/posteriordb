@@ -14,6 +14,7 @@
   "references": [
     "hoffman2014nuts"
   ],
+  "data_file": "data/data/german_credit.json",
   "added_date": "2026-11-06",
   "added_by": "Michał Kamiński"
 }
