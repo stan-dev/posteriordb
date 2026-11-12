@@ -1,0 +1,25 @@
+{
+  "name": "german_credit-german_credit_lr",
+  "keywords": [
+    "german credit",
+    "logistic regression",
+    "NUTS paper",
+    "real data"
+  ],
+  "urls": [
+    "https://jmlr.org/papers/v15/hoffman14a.html",
+    "https://archive.ics.uci.edu/dataset/144/statlog+german+credit+data"
+  ],
+  "model_name": "german_credit_lr",
+  "data_name": "german_credit",
+  "reference_posterior_name": null,
+  "references": [
+    "hoffman2014nuts"
+  ],
+  "dimensions": {
+    "alpha": 1,
+    "beta": 24
+  },
+  "added_date": "2026-11-12",
+  "added_by": "Upali Bera"
+}
