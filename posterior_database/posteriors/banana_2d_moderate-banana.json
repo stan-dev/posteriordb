@@ -1,0 +1,20 @@
+{
+  "name": "banana_2d_moderate-banana",
+  "keywords": [
+    "synthetic",
+    "banana"
+  ],
+  "urls": [
+    "https://doi.org/10.1007/s001800050022"
+  ],
+  "model_name": "banana",
+  "data_name": "banana_2d_moderate",
+  "reference_posterior_name": null,
+  "references": [],
+  "dimensions": {
+    "x": 1,
+    "y": 1
+  },
+  "added_date": "2026-10-01",
+  "added_by": "Upali Bera"
+}

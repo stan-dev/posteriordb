@@ -11,6 +11,9 @@
     "stan": {
       "model_code": "models/stan/seeds_stanified_model.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/seeds_stanified_model.py"
     }
   },
   "licence": "BSD3"

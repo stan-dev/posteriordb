@@ -1,0 +1,27 @@
+{
+  "name": "banana",
+  "title": "Banana Posterior",
+  "description": "Haario et al. (1999) twisted Gaussian banana target distribution.",
+  "keywords": [
+    "synthetic",
+    "banana",
+    "twisted_gaussian"
+  ],
+  "references": "haario1999",
+  "urls": "https://doi.org/10.1007/s001800050022",
+  "prior": {
+    "keywords": []
+  },
+  "model_implementations": {
+    "stan": {
+      "model_code": "models/stan/banana.stan",
+      "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/banana.py"
+    }
+  },
+  "added_by": "Upali Bera",
+  "added_date": "2026-10-01",
+  "licence": "BSD3"
+}

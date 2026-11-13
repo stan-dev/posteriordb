@@ -1,6 +1,12 @@
 {
   "name": "GLM_Poisson_model",
-  "keywords": ["Population", "Peregrine", "Generalized", "Generalised", "Linear Model"],
+  "keywords": [
+    "Population",
+    "Peregrine",
+    "Generalized",
+    "Generalised",
+    "Linear Model"
+  ],
   "title": "Poisson GLM for modeling a population of Peregrines",
   "description": "Poisson Generalised Linear Model where the linear predictor is a cubic polynomial function of time.",
   "urls": "https://github.com/stan-dev/example-models/tree/master/BPA/Ch.03",

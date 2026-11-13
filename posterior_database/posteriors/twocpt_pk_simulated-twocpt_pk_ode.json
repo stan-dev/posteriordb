@@ -1,0 +1,26 @@
+{
+  "name": "twocpt_pk_simulated-twocpt_pk_ode",
+  "keywords": [
+    "synthetic",
+    "pharmacokinetic",
+    "ode",
+    "two_compartment"
+  ],
+  "urls": "https://arxiv.org/pdf/2109.10184",
+  "model_name": "twocpt_pk_ode",
+  "data_name": "twocpt_pk_simulated",
+  "reference_posterior_name": "twocpt_pk_simulated-twocpt_pk_ode",
+  "references": [
+    "margossian2022pharmacometrics"
+  ],
+  "dimensions": {
+    "CL": 1,
+    "Q": 1,
+    "VC": 1,
+    "VP": 1,
+    "ka": 1,
+    "sigma": 1
+  },
+  "added_date": "2026-06-16",
+  "added_by": "Colin Pochart"
+}

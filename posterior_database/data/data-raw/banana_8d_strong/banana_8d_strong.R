@@ -1,0 +1,1 @@
+banana_8d_strong <- list(D = 8, b = 0.1)

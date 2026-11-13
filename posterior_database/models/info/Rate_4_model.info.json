@@ -1,6 +1,12 @@
 {
   "name": "Rate_4_model",
-  "keywords": ["Trial", "Success Rate", "Inference", "Prior Inference", "Posterior Inference"],
+  "keywords": [
+    "Trial",
+    "Success Rate",
+    "Inference",
+    "Prior Inference",
+    "Posterior Inference"
+  ],
   "title": "Success rate of a trial with prior and posterior inference",
   "description": "Inference of the success rate of a trial with prior and posterior inference",
   "urls": "https://github.com/stan-dev/example-models/tree/master/Bayesian_Cognitive_Modeling/ParameterEstimation/Binomial",
@@ -11,6 +17,9 @@
     "stan": {
       "model_code": "models/stan/Rate_4_model.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/Rate_4_model.py"
     }
   },
   "licence": "BSD3"

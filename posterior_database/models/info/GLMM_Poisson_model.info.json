@@ -1,6 +1,10 @@
 {
   "name": "GLMM_Poisson_model",
-  "keywords": ["BPA", "Ch.4", "GLMM_Poisson_model"],
+  "keywords": [
+    "BPA",
+    "Ch.4",
+    "GLMM_Poisson_model"
+  ],
   "title": "Mixed Model to Predict Population Size with Random Site and Year Effects",
   "description": "A GLMM for modeling peregrine population size with a random effect being the site and year of observation using the Poisson distribution to model counts.",
   "urls": "https://github.com/stan-dev/example-models/blob/master/BPA/Ch.04",
@@ -11,6 +15,9 @@
     "stan": {
       "model_code": "models/stan/GLMM_Poisson_model.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/GLMM_Poisson_model.py"
     }
   },
   "licence": "BSD3"

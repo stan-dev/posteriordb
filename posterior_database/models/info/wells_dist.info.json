@@ -1,6 +1,12 @@
 {
   "name": "wells_dist",
-  "keywords": ["wells", "ARM", "Ch.5", "logistic", "regression"],
+  "keywords": [
+    "wells",
+    "ARM",
+    "Ch.5",
+    "logistic",
+    "regression"
+  ],
   "title": "Logistic regression model for decision to switch wells",
   "description": "Performs logistic regression using one predictor (distance from nearest safe well).",
   "urls": "https://github.com/stan-dev/example-models/tree/master/ARM/Ch.5",
@@ -11,6 +17,9 @@
     "stan": {
       "model_code": "models/stan/wells_dist.stan",
       "stan_version": ">=2.26.0"
+    },
+    "pymc": {
+      "model_code": "models/pymc/wells_dist.py"
     }
   },
   "licence": "BSD3"

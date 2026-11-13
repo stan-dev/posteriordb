@@ -1,6 +1,11 @@
 {
   "name": "seeds_model",
-  "keywords": ["Random", "Effect", "Logistic", "Regression"],
+  "keywords": [
+    "Random",
+    "Effect",
+    "Logistic",
+    "Regression"
+  ],
   "title": "Random Effect Logistic Regression for Seed Germination Proportion",
   "description": "The model is essentially a random effects logistic,\n          allowing for over-dispersion. Models the proportion of germination\n          of different seeds in different root extracts.",
   "urls": "http://www.mrc-bsu.cam.ac.uk/wp-content/uploads/WinBUGS_Vol1.pdf",
@@ -10,6 +15,9 @@
   "model_implementations": {
     "stan": {
       "model_code": "models/stan/seeds_model.stan"
+    },
+    "pymc": {
+      "model_code": "models/pymc/seeds_model.py"
     }
   },
   "licence": "BSD3"
