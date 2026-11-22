@@ -1,0 +1,16 @@
+{
+    "name": "quartic_model",
+    "title": "Quartic Model (Manifold Lifting Toy Example)",
+    "added_by": "Michal Kaminski",
+    "added_date": "2026-11-22",
+    "description": "A two-dimensional toy model from Au, Graham and Thiery (2020). Parameters theta = (theta_0, theta_1) have independent standard normal priors, and a single observation y is modelled as Normal(F(theta), sigma) with known noise scale sigma and quartic forward function F(theta) = theta_1^2 + theta_0^2 (theta_0^2 - 1/2). With one observation and two unknowns the model is non-identifiable: as sigma decreases, the posterior concentrates in a band of width O(sigma) around the closed curve F(theta) = y, creating a thin, curved ridge that forces standard HMC step sizes to shrink with sigma.",
+    "model_implementations": {
+        "stan": {
+            "model_code": "models/stan/quartic_model.stan"
+        },
+        "pymc": {
+            "model_code": "models/pymc/quartic_model.py"
+        }
+    },
+    "references": "quartic2020"
+}

@@ -1,0 +1,1 @@
+quartic_sigma01 <- list(y=1, sigma=0.1)

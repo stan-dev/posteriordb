@@ -1,0 +1,16 @@
+{
+    "name": "quartic_sigma001",
+    "keywords": [
+        "synthetic",
+        "manifold"
+    ],
+    "title": "Quartic Model Data (sigma = 0.01)",
+    "description": "Data for the two-dimensional quartic toy model of Au, Graham and Thiery (2020), in which a single observation y is modelled as Normal(F(theta), sigma) with F(theta) = theta_1^2 + theta_0^2 (theta_0^2 - 1/2). The data specify the observation y = 1 (as in the paper) and the known noise scale sigma = 0.01, which gives a thin, strongly curved ridge around the manifold F(theta) = y that is challenging for standard HMC.",
+    "data_file": "data/data/quartic_sigma001.json",
+    "urls": [
+        "https://arxiv.org/abs/2003.03950"
+    ],
+    "references": "quartic2020",
+    "added_date": "2026-11-22",
+    "added_by": "Michal Kaminski"
+}
