@@ -1,0 +1,22 @@
+{
+  "name": "quartic_sigma001-quartic_model",
+  "keywords": [
+    "synthetic",
+    "manifold",
+    "vanishing noise"
+  ],
+  "urls": [
+    "https://arxiv.org/abs/2003.03950"
+  ],
+  "model_name": "quartic_model",
+  "data_name": "quartic_sigma001",
+  "reference_posterior_name": null,
+  "references": [
+    "quartic2020"
+  ],
+  "dimensions": {
+    "theta": 2
+  },
+  "added_by": "Upali Bera",
+  "added_date": "2026-11-22"
+}
